@@ -1,0 +1,326 @@
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 16px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+
+  @media (min-width: 900px) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.image {
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.09);
+}
+
+.title {
+  font-size: 2.1rem;
+  font-weight: 700;
+}
+
+.prices {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 12px 0 24px;
+}
+
+.old {
+  color: #aaa;
+  text-decoration: line-through;
+  font-size: 1.2rem;
+}
+
+.sale {
+  color: #9b28ff;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.label {
+  font-weight: 600;
+}
+
+.select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  margin: 8px 0 16px;
+}
+
+.qty {
+  width: 100px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+.description {
+  margin-top: 24px;
+  color: #555;
+}
+
+.subtitle {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-top: 32px;
+}
+
+.list {
+  margin-left: 20px;
+  color: #555;
+
+  li {
+    margin-bottom: 8px;
+  }
+}
+
+.cardIllustration {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.esimBadge {
+  position: absolute;
+  top: -12px;
+  right: -12px;
+
+  padding: 8px 18px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border-radius: 12px;
+  color: #fff;
+  z-index: 20;
+
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  letter-spacing: 0.5px;
+  animation: badgePop 0.4s ease;
+}
+
+@keyframes badgePop {
+  from { transform: scale(0.5); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.esimCard {
+  position: relative;
+  width: 330px;
+  height: 210px;
+
+  border-radius: 20px;
+  overflow: hidden;
+
+  background: #1b1b1d;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.25),
+  inset 0 0 0 1px rgba(255,255,255,0.12);
+
+  transform: perspective(1000px) rotateX(6deg) rotateY(-6deg);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+  }
+}
+
+/* GRADIENT BACKGROUND */
+.esimGradient {
+  position: absolute;
+  inset: 0;
+
+  background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.08), transparent),
+  radial-gradient(circle at 80% 90%, rgba(255,255,255,0.05), transparent),
+  linear-gradient(135deg, #242426, #131315);
+}
+
+/* LIGHT GLOW */
+.glow {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  background: rgba(255,255,255,0.08);
+  filter: blur(60px);
+  top: -40px;
+  right: -40px;
+}
+
+/* TOP STRIP */
+.cardTop {
+  padding: 16px;
+}
+
+.cardLabel {
+  font-size: 0.8rem;
+  color: #9aa0af;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* CHIP */
+.chipBox {
+  display: flex;
+  justify-content: center;
+  margin: 12px 0;
+}
+
+.chip {
+  width: 48px;
+  height: 40px;
+  background: #d6c37a;
+  border-radius: 6px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3px;
+  padding: 4px;
+  box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
+}
+
+.chip div {
+  background: rgba(0,0,0,0.15);
+  border-radius: 2px;
+}
+
+/* PRODUCT NAME */
+.cardBrand {
+  text-align: center;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-top: 6px;
+  padding: 0 20px;
+  line-height: 1.3;
+}
+
+/* DECORATIVE LINES */
+.lines {
+  position: absolute;
+  bottom: 14px;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #555, transparent, #555);
+  opacity: 0.2;
+}
+
+.quantityWrapper{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-items: center;
+  align-content: center;
+}
+
+/* WRAPPER FOR LEFT SIDE */
+.illustrationWrapper {
+  position: relative;
+  display: flex;
+  height: fit-content;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+/* BADGE */
+.esimBadge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: white;
+  z-index: 5;
+  letter-spacing: 0.5px;
+}
+
+/* CARD */
+.esimCard {
+  position: relative;
+  width: 360px;
+  height: 220px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #0d0d0d;
+  box-shadow: 0 10px 35px rgba(0,0,0,0.25);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* GRADIENT BACKGROUND */
+.cardGradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #000, #222 70%);
+  opacity: 0.8;
+  z-index: 1;
+}
+
+/* GLOW */
+.cardGlow {
+  position: absolute;
+  bottom: -40px;
+  right: -40px;
+  width: 160px;
+  height: 160px;
+  background: radial-gradient(circle, rgba(255,255,255,0.18), transparent 60%);
+  filter: blur(20px);
+  z-index: 1;
+}
+
+/* TOP LABEL */
+.cardTop {
+  position: relative;
+  z-index: 2;
+  font-size: 0.85rem;
+  font-weight: 600;
+  opacity: 0.8;
+  color: #ccc;
+}
+
+/* CHIP */
+.cardChip {
+  width: 48px;
+  height: 36px;
+  background: linear-gradient(135deg, #d4ae66, #f5e7cd);
+  border-radius: 6px;
+  margin-top: 20px;
+  z-index: 2;
+}
+
+/* BRAND NAME */
+.cardBrand {
+  position: relative;
+  z-index: 2;
+  margin-top: auto;
+  font-weight: 700;
+  color: white;
+  font-size: 1rem;
+  line-height: 1.3;
+  max-width: 95%;
+}
+
+/* DECOR LINES */
+.cardLines {
+  position: absolute;
+  bottom: 16px;
+  left: 20px;
+  width: calc(100% - 40px);
+  height: 1px;
+  background: linear-gradient(90deg, #333, #555, #333);
+  opacity: 0.4;
+}
+

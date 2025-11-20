@@ -3,271 +3,242 @@ import { COMPANY_NAME } from "@/resources/constants";
 
 const schema: PageSchema = {
     meta: {
-        title: `Professional Resume AI Services — ${COMPANY_NAME}`,
-        description: `Build AI-powered, ATS-friendly resumes with ${COMPANY_NAME}. Create optimized CVs using tokens — lightweight, structured, and tailored for every job application.`,
+        title: `Solutions — AI-Powered eSIM Marketplace Tools by ${COMPANY_NAME}`,
+        description: `Advanced AI solutions for eSIM marketplaces, digital onboarding, pricing automation, KYC optimization and global connectivity management. Built with lightweight architecture and real-time intelligence.`,
         keywords: [
-            "AI resume generator",
-            "ATS resume builder",
-            "smart resume creation",
-            "lightweight CV",
-            "optimized resume writing",
-            "AI career tools",
-            "professional resume services",
-            `${COMPANY_NAME} AI resume builder`
+            "eSIM marketplace solutions",
+            "AI connectivity tools",
+            "digital sim management",
+            "global esim onboarding",
+            "pricing automation platform",
+            "ai telecom tools",
+            "carrier intelligence",
+            `${COMPANY_NAME} esim platform`
         ],
-        canonical: "/services",
+        canonical: "/solutions",
         ogImage: {
-            title: `${COMPANY_NAME} Resume AI Services`,
-            description: "Generate optimized, professional, and ATS-friendly resumes with token-based AI precision.",
-            bg: "#f9fbff",
-            color: "#0070f3"
+            title: `${COMPANY_NAME} Solutions`,
+            description: "AI-powered systems for eSIM platforms, telecom automation & digital onboarding.",
+            bg: "#ffffff",
+            color: "#6a39ff"
         }
     },
 
     blocks: [
-        // HERO-LIKE INTRO
+        // HERO
         {
-            type: "section",
-            align: "center",
-            gap: "2rem",
-            left: {
-                type: "text",
-                title: "AI-Powered Resume Creation",
-                description: "Transform how you build your resume. Our token-based system helps you generate optimized, minimal, and impactful resumes designed to pass ATS filters effortlessly.",
-                bullets: [
-                    "ATS-optimized content structure",
-                    "Lightweight PDF output (under 1 MB)",
-                    "Human-like tone, recruiter-friendly language"
-                ],
-                iconName: "smart_toy",
-                iconSize: 50,
-                iconColor: "#0070f3",
-                iconBg: "#e6f7ff"
-            },
-            right: {
-                type: "media",
-                mediaType: "image",
-                src: "image2",
-                width: "100%",
-                height: "420px",
-                alt: "AI resume generation process"
-            }
+            type: "hero",
+            bgImage: "image1",
+            title: "AI Solutions for eSIM Marketplaces & Digital Telecom",
+            description:
+                "Boost your telecom or eSIM platform with automation, AI-driven analytics, pricing intelligence, global coverage maps and real-time customer onboarding flows.",
+            buttons: [
+                { text: "Explore Tools", link: "/solutions", color: "primary" },
+                { text: "Get a Demo", link: "/contact-us", color: "secondary" }
+            ]
         },
 
-        // FEATURE GRID 1
+        // GRID 6×6 — Key Solutions Overview
         {
             type: "grid",
             columns: 3,
             gap: "2rem",
             items: [
                 {
-                    key: "optimization",
                     block: {
                         type: "text",
-                        title: "Automatic Resume Optimization",
-                        description: "Our AI improves sentence clarity, adjusts keywords, and restructures content to align with job descriptions.",
-                        bullets: [
-                            "Smart keyword matching",
-                            "Grammar & tone correction",
-                            "Auto formatting for readability"
-                        ],
-                        iconName: "auto_fix_high",
-                        iconSize: 42,
+                        title: "AI Pricing Engine",
+                        description:
+                            "Automatically adjusts eSIM prices based on demand, region, competitor feeds and seasonal patterns.",
+                        bullets: ["Real-time price optimization", "Demand forecasting", "Carrier-level adjustments"],
+                        iconName: "trending_up",
+                        iconColor: "#6a39ff",
+                        iconBg: "#f3edff"
+                    }
+                },
+                {
+                    block: {
+                        type: "text",
+                        title: "Global Coverage Intelligence",
+                        description:
+                            "Heat-maps of coverage, roaming speed data, network saturation and carrier performance analytics.",
+                        bullets: ["Live region scoring", "Latency maps", "Carrier performance index"],
+                        iconName: "public",
+                        iconColor: "#0070f3",
+                        iconBg: "#e6f5ff"
+                    }
+                },
+                {
+                    block: {
+                        type: "text",
+                        title: "Smart Onboarding Flows",
+                        description:
+                            "Frictionless KYC-free onboarding using AI context, device detection and automated user routing.",
+                        bullets: ["Device auto-detect", "Adaptive onboarding", "Instant QR eSIM activation"],
+                        iconName: "bolt",
+                        iconColor: "#d900aa",
+                        iconBg: "#ffe6f5"
+                    }
+                },
+                {
+                    block: {
+                        type: "text",
+                        title: "AI Support Assistant",
+                        description:
+                            "24/7 automated telecom support that resolves most eSIM issues in under 15 seconds.",
+                        bullets: ["Activation troubleshooting", "User intent analysis", "Region-specific fixes"],
+                        iconName: "support_agent",
                         iconColor: "#4a00e5",
                         iconBg: "#f3e8ff"
                     }
                 },
                 {
-                    key: "tokenSystem",
                     block: {
                         type: "text",
-                        title: "Flexible Token System",
-                        description: "Pay only for what you generate. Use tokens to create, update, or export resumes — no subscriptions required.",
-                        bullets: [
-                            "Transparent usage per resume",
-                            "Affordable micro-transactions",
-                            "Instant top-ups with major currencies"
-                        ],
-                        iconName: "token",
-                        iconSize: 42,
-                        iconColor: "#d900aa",
-                        iconBg: "#ffe6f3"
+                        title: "Fraud Detection System",
+                        description:
+                            "Detects suspicious traffic, reselling attempts, duplicate IMEIs and abnormal usage.",
+                        bullets: ["IMEI tracking", "Token validation", "Behavioral analysis"],
+                        iconName: "shield",
+                        iconColor: "#ff8a00",
+                        iconBg: "#fff4e6"
                     }
                 },
                 {
-                    key: "speed",
                     block: {
                         type: "text",
-                        title: "Fast & Lightweight Output",
-                        description: "Get a clean, professional PDF resume that loads fast and passes recruiter systems with ease.",
-                        bullets: [
-                            "Optimized file size (<1 MB)",
-                            "Export in seconds",
-                            "Guaranteed ATS readability"
-                        ],
-                        iconName: "bolt",
-                        iconSize: 42,
-                        iconColor: "#0070f3",
-                        iconBg: "#e6f7ff"
+                        title: "QR Code Delivery Automation",
+                        description:
+                            "Send activation QR codes instantly via email, SMS or Telegram bot with full tracking.",
+                        bullets: ["Auto-delivery", "Error recovery", "User activity logs"],
+                        iconName: "qr_code_2",
+                        iconColor: "#007f7f",
+                        iconBg: "#e6fffb"
                     }
                 }
             ]
         },
 
-        // SECTION 2
+        // SECTION – Image Left / Text Right
         {
             type: "section",
             gap: "2rem",
             left: {
-                type: "text",
-                title: "AI Cover Letters & Job Matching",
-                description: "Enhance your application with personalized AI-generated cover letters and intelligent job matching suggestions.",
-                bullets: [
-                    "Auto-generated cover letters in seconds",
-                    "Tailored to your experience and job role",
-                    "Boosts response rates by up to 3×"
-                ],
-                iconName: "mail",
-                iconSize: 48,
-                iconColor: "#9532ff",
-                iconBg: "#f5ebff"
-            },
-            right: {
                 type: "media",
                 mediaType: "image",
-                src: "image3",
-                width: "100%",
-                height: "400px",
-                alt: "AI cover letter generation"
+                src: "image12",
+                height: "420px",
+                alt: "eSIM dashboard"
+            },
+            right: {
+                type: "text",
+                title: "End-to-End Telecom Automation",
+                description:
+                    "We eliminate manual operations. From device detection to automated delivery, refunds, usage monitoring and customer lifecycle optimization — every workflow is fully automated.",
+                bullets: [
+                    "Full AI routing engine",
+                    "Usage-based notifications",
+                    "Auto-expiry reminders",
+                    "Region recommendations"
+                ],
+                iconName: "settings_suggest",
+                iconSize: 48,
+                iconColor: "#6a39ff",
+                iconBg: "#f3edff"
             }
         },
 
-        // FEATURE GRID 2
+        // GRID 9×9 — Feature Dense Grid
         {
             type: "grid",
-            columns: 2,
-            gap: "2rem",
-            items: [
-                {
-                    key: "careerInsights",
-                    block: {
-                        type: "text",
-                        title: "Career Insights & Analytics",
-                        description: "Understand how your resume performs. Track keyword strength, file size, readability, and more.",
-                        bullets: [
-                            "ATS performance insights",
-                            "Keyword density reports",
-                            "Suggestions for higher match rates"
-                        ],
-                        iconName: "bar_chart",
-                        iconSize: 40,
-                        iconColor: "#0070f3",
-                        iconBg: "#e6f7ff"
-                    }
-                },
-                {
-                    key: "multiVersion",
-                    block: {
-                        type: "text",
-                        title: "Multiple Resume Versions",
-                        description: "Create role-specific versions of your resume — marketing, tech, management, or creative — all optimized separately.",
-                        bullets: [
-                            "Up to 5 variations per token pack",
-                            "Separate keyword focus per role",
-                            "Save and manage all versions online"
-                        ],
-                        iconName: "content_copy",
-                        iconSize: 40,
-                        iconColor: "#d900aa",
-                        iconBg: "#ffe6f3"
-                    }
+            columns: 3,
+            gap: "1.6rem",
+            items: Array.from({ length: 9 }).map((_, i) => ({
+                block: {
+                    type: "text",
+                    title: `Advanced Feature #${i + 1}`,
+                    description:
+                        "Each micro-tool enhances platform UX and increases conversion rates through precision automation.",
+                    bullets: [
+                        "Instant processing",
+                        "AI-driven insights",
+                        "Telecom-grade reliability"
+                    ],
+                    iconName: "auto_awesome",
+                    iconColor: "#6a39ff",
+                    iconBg: "#f3edff"
                 }
-            ]
+            }))
         },
 
-        // SECTION 3
+        // SECTION – Reverse
         {
             type: "section",
-            align: "center",
+            reverse: true,
             gap: "2rem",
             left: {
                 type: "media",
                 mediaType: "image",
-                src: "image4",
-                width: "100%",
-                height: "400px",
-                alt: "Resume AI testimonials"
+                src: "image20",
+                height: "420px",
+                alt: "Global carrier analytics"
             },
             right: {
                 type: "text",
-                title: "Why Professionals Choose Us",
-                description: `Thousands of job seekers trust ${COMPANY_NAME} to create professional resumes that actually get noticed. Whether you’re applying for your first job or aiming for senior positions — our AI gives you the edge.`,
+                title: "Carrier-Level Analytics & Marketplace Insights",
+                description:
+                    "Track carrier performance, latency, reliability, refund ratios and network behavior globally. Ideal for marketplaces managing multiple telecom suppliers.",
                 bullets: [
-                    `"My resume finally passed ATS filters after five rejections!"`,
-                    `"I built a clean, modern CV in under 10 minutes."`,
-                    `"The token model makes it affordable and flexible."`
+                    "Inter-carrier comparison",
+                    "Quality scoring engine",
+                    "Demand correlation analysis",
+                    "Refund forecasting"
                 ],
-                iconName: "stars",
-                iconSize: 48,
-                iconColor: "#FFD700",
-                iconBg: "#fffbe6"
+                iconName: "signal_cellular_alt",
+                iconColor: "#0070f3",
+                iconBg: "#e6f5ff"
             }
         },
 
-        // FAQ
-        {
-            type: "faq",
-            items: [
-                {
-                    question: "How does the token system work?",
-                    answer: "You receive tokens that can be spent on generating resumes, cover letters, or analytics reports. Each action costs a small, fixed number of tokens."
-                },
-                {
-                    question: "Are the resumes ATS-friendly?",
-                    answer: "Yes. All our templates are formatted for ATS parsing — ensuring that recruiters and systems can read your resume easily."
-                },
-                {
-                    question: "Can I edit my resume after generation?",
-                    answer: "Absolutely. You can regenerate or tweak sections with AI without losing your credits."
-                },
-                {
-                    question: "Will my data stay private?",
-                    answer: "Yes, all personal and career data is encrypted and never shared with third parties."
-                },
-                {
-                    question: "Can I generate multiple versions of a resume?",
-                    answer: "Yes, you can use tokens to create several role-specific resumes for different job applications."
-                }
-            ]
-        },
-
-        // CTA GRID
+        // GRID 6×6 — Product Micro-Cards
         {
             type: "grid",
             columns: 3,
             gap: "2rem",
             cards: [
                 {
-                    image: "image5",
-                    title: "View Plans & Pricing",
-                    description: "Choose the token plan that fits your job search needs.",
-                    buttonLink: "/pricing",
-                    buttonText: "See Pricing"
-                },
-                {
-                    image: "image6",
-                    title: "Get Started Now",
-                    description: "Generate your optimized resume instantly using our AI assistant.",
+                    image: "image25",
+                    title: "AI eSIM Storefront",
+                    description: "Fully automated storefront for selling eSIMs worldwide.",
                     buttonLink: "/get-started",
-                    buttonText: "Start Building"
+                    buttonText: "Launch"
                 },
                 {
-                    image: "image7",
-                    title: "Contact Support",
-                    description: "Need assistance or have questions? Our support team is here to help.",
+                    image: "image26",
+                    title: "Coverage Explorer",
+                    description: "Interactive global map for speed, latency and signal strength.",
+                    buttonLink: "/coverage",
+                    buttonText: "View Map"
+                },
+                {
+                    image: "image27",
+                    title: "AI Trouble-Shooter",
+                    description: "Fix activation and connectivity issues instantly with AI logic.",
                     buttonLink: "/contact-us",
-                    buttonText: "Contact Us"
+                    buttonText: "Learn More"
                 }
+            ]
+        },
+
+        // FINAL CTA
+        {
+            type: "hero",
+            bgImage: "image30",
+            title: "Build a Smarter eSIM Platform Today",
+            description: "Automate workflows, improve activation rates and scale globally with AI telecom solutions.",
+            buttons: [
+                { text: "Schedule a Demo", link: "/contact-us", color: "primary" },
+                { text: "Explore Pricing", link: "/pricing", color: "secondary" }
             ]
         }
     ]

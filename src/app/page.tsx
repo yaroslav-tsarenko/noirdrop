@@ -1,14 +1,20 @@
-import type { Metadata } from "next";
+import type {Metadata} from "next";
 
 import enHome from "@/pageSchemas/home/homePage.en";
 
 import PageCreator from "@/components/features/page-creator/PageCreator";
 import {metadataFromSchema} from "@/utils/fromSchema";
+import ESimPicker from "@/components/widgets/esim/ESimPicker";
 
 export async function generateMetadata(): Promise<Metadata> {
     return await metadataFromSchema(enHome.meta);
 }
 
 export default function Page() {
-    return <PageCreator schemaMap={{ tr: enHome, en: enHome }} />;
+    return (
+        <>
+            <ESimPicker/>
+            <PageCreator schemaMap={{tr: enHome, en: enHome}}/>;
+        </>
+    )
 }

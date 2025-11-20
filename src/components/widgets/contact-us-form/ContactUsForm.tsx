@@ -1,8 +1,10 @@
 "use client";
+
 import React, { useState } from "react";
 import { Formik, Form, Field } from "formik";
 import { Textarea, Button, Card, Typography } from "@mui/joy";
 import Confetti from "react-confetti";
+import { motion } from "framer-motion";
 import styles from "./ContactUsForm.module.scss";
 import { validationSchema, initialValues, sendContactRequest } from "./schema";
 import { useAlert } from "@/context/AlertContext";
@@ -39,101 +41,228 @@ const ContactUsForm = () => {
     return (
         <div className={styles.contactWrapper}>
             {showConfetti && <Confetti />}
-            <Card className={styles.contactCard}>
-                {successMsg ? (
-                    <div className={styles.successMsg}>{successMsg}</div>
-                ) : (
-                    <>
-                        <Typography level="h2" className={styles.formTitle}>
-                            Get in Touch ✨
-                        </Typography>
-                        <Typography level="body-md" className={styles.formDesc}>
-                            We’d love to hear from you. Fill in your details and our team will get back shortly.
-                        </Typography>
 
-                        <Formik
-                            initialValues={initialValues}
-                            validationSchema={validationSchema}
-                            onSubmit={handleSubmit}
+            <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+            >
+                <Card className={styles.contactCard}>
+                    {successMsg ? (
+                        <motion.div
+                            className={styles.successMsg}
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.35 }}
                         >
-                            {({ errors, touched, isSubmitting }) => (
-                                <Form className={styles.form}>
-                                    <div className={styles.formGroupRow}>
-                                        <Field name="name" >
-                                            {({ field }: { field: any }) => (
-                                                <InputUI
-                                                    {...field}
-                                                    label="First Name"
-                                                    placeholder="First Name"
-                                                    error={touched.name && errors.name ? errors.name : ""}
-                                                />
-                                            )}
-                                        </Field>
+                            {successMsg}
+                        </motion.div>
+                    ) : (
+                        <>
+                            {/* HEADER TEXT */}
+                            <motion.div
+                                className={styles.headerBlock}
+                                initial={{ opacity: 0, y: 12 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.1, duration: 0.4 }}
+                            >
+                                <Typography level="h2" className={styles.formTitle}>
+                                    Need help with your eSIM order? 📲
+                                </Typography>
+                                <Typography level="body-md" className={styles.formDesc}>
+                                    Tell us what happened with your{" "}
+                                    <span className={styles.highlight}>eSIM purchase</span> —
+                                    activation, coverage, payment or refund — and our support team
+                                    will get back within{" "}
+                                    <span className={styles.highlight}>24 hours</span> with a
+                                    solution.
+                                </Typography>
+                            </motion.div>
 
-                                        <Field name="secondName">
-                                            {({ field }: { field: any }) => (
-                                                <InputUI
-                                                    {...field}
-                                                    label="Last Name"
-                                                    placeholder="Last Name"
-                                                    error={
-                                                        touched.secondName && errors.secondName
-                                                            ? errors.secondName
-                                                            : ""
-                                                    }
-                                                />
-                                            )}
-                                        </Field>
+                            {/* STATS / TRUST PILLS */}
+                            <motion.div
+                                className={styles.metaRow}
+                                initial={{ opacity: 0, y: 12 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.2, duration: 0.4 }}
+                            >
+                                <div className={styles.pill}>
+                                    <span>⏱</span>
+                                    <div>
+                                        <p>Average reply time</p>
+                                        <strong>&lt; 24 hours</strong>
                                     </div>
+                                </div>
+                                <div className={styles.pill}>
+                                    <span>📶</span>
+                                    <div>
+                                        <p>eSIMs activated</p>
+                                        <strong>10k+ worldwide</strong>
+                                    </div>
+                                </div>
+                                <div className={styles.pill}>
+                                    <span>🌍</span>
+                                    <div>
+                                        <p>Coverage</p>
+                                        <strong>190+ countries</strong>
+                                    </div>
+                                </div>
+                            </motion.div>
 
-                                    <Field name="email">
-                                        {({ field }: { field: any }) => (
-                                            <InputUI
-                                                {...field}
-                                                type="email"
-                                                label="Email Address"
-                                                placeholder="Email Address"
-                                                error={touched.email && errors.email ? errors.email : ""}
-                                            />
-                                        )}
-                                    </Field>
+                            {/* EXTRA CONTENT: ESIM-CENTRIC COPY */}
+                            <motion.div
+                                className={styles.bulletGrid}
+                                initial={{ opacity: 0, y: 12 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.3, duration: 0.4 }}
+                            >
+                                <div className={styles.bulletItem}>
+                                    <h4>Typical questions we handle</h4>
+                                    <p>
+                                        Having issues with activation, QR-code, wrong country,
+                                        balance, roaming or speed? We’re here to help with:
+                                    </p>
+                                    <ul>
+                                        <li>eSIM didn’t activate or shows “No Service”</li>
+                                        <li>Top-up or payment didn’t arrive on balance</li>
+                                        <li>Wrong country/zone selected by mistake</li>
+                                        <li>Refunds & changes to your eSIM plan</li>
+                                    </ul>
+                                </div>
 
-                                    <Field name="phone">
-                                        {({ field }: { field: any }) => (
-                                            <InputUI
-                                                {...field}
-                                                type="tel"
-                                                label="Phone Number"
-                                                placeholder="Phone Number"
-                                                error={touched.phone && errors.phone ? errors.phone : ""}
-                                            />
-                                        )}
-                                    </Field>
+                                <div className={styles.bulletItem}>
+                                    <h4>What happens after you send this form</h4>
+                                    <ul>
+                                        <li>
+                                            We check your order, device model and network in the
+                                            background
+                                        </li>
+                                        <li>
+                                            You get a personalised reply with clear step-by-step
+                                            instructions
+                                        </li>
+                                        <li>
+                                            If needed, we’ll suggest the best eSIM pack for your next
+                                            trip
+                                        </li>
+                                    </ul>
+                                    <p className={styles.smallHint}>
+                                        Tip: adding your <strong>Order ID</strong> and{" "}
+                                        <strong>device model</strong> helps us solve it faster.
+                                    </p>
+                                </div>
+                            </motion.div>
 
-                                    <Field name="message">
-                                        {({ field }: { field: any }) => (
-                                            <Textarea
-                                                {...field}
-                                                minRows={4}
-                                                placeholder="Your Message"
-                                                className={styles.textarea}
-                                            />
-                                        )}
-                                    </Field>
-
-                                    <Button
-                                        type="submit"
-                                        loading={isSubmitting}
-                                        className={styles.submitBtn}
+                            {/* FORM ITSELF */}
+                            <Formik
+                                initialValues={initialValues}
+                                validationSchema={validationSchema}
+                                onSubmit={handleSubmit}
+                            >
+                                {({ errors, touched, isSubmitting }) => (
+                                    <motion.div
+                                        initial={{ opacity: 0, y: 16 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ delay: 0.35, duration: 0.45 }}
                                     >
-                                        Send Message
-                                    </Button>
-                                </Form>
-                            )}
-                        </Formik>
-                    </>
-                )}
-            </Card>
+                                        <Form className={styles.form}>
+                                            <div className={styles.formGroupRow}>
+                                                <Field name="name">
+                                                    {({ field }: { field: any }) => (
+                                                        <InputUI
+                                                            {...field}
+                                                            label="First Name"
+                                                            placeholder="John"
+                                                            error={
+                                                                touched.name && errors.name
+                                                                    ? (errors.name as string)
+                                                                    : ""
+                                                            }
+                                                        />
+                                                    )}
+                                                </Field>
+
+                                                <Field name="secondName">
+                                                    {({ field }: { field: any }) => (
+                                                        <InputUI
+                                                            {...field}
+                                                            label="Last Name"
+                                                            placeholder="Doe"
+                                                            error={
+                                                                touched.secondName &&
+                                                                errors.secondName
+                                                                    ? (errors.secondName as string)
+                                                                    : ""
+                                                            }
+                                                        />
+                                                    )}
+                                                </Field>
+                                            </div>
+
+                                            <Field name="email">
+                                                {({ field }: { field: any }) => (
+                                                    <InputUI
+                                                        {...field}
+                                                        type="email"
+                                                        label="Email Address"
+                                                        placeholder="you@example.com"
+                                                        error={
+                                                            touched.email && errors.email
+                                                                ? (errors.email as string)
+                                                                : ""
+                                                        }
+                                                    />
+                                                )}
+                                            </Field>
+
+                                            <Field name="phone">
+                                                {({ field }: { field: any }) => (
+                                                    <InputUI
+                                                        {...field}
+                                                        type="tel"
+                                                        label="Phone Number"
+                                                        placeholder="+1 555 000 000"
+                                                        error={
+                                                            touched.phone && errors.phone
+                                                                ? (errors.phone as string)
+                                                                : ""
+                                                        }
+                                                    />
+                                                )}
+                                            </Field>
+
+                                            <Field name="message">
+                                                {({ field }: { field: any }) => (
+                                                    <Textarea
+                                                        {...field}
+                                                        minRows={4}
+                                                        placeholder="Describe your eSIM issue or question. Please include: order ID, country where you are now, device model (e.g. iPhone 15, Samsung S24) and what exactly goes wrong."
+                                                        className={styles.textarea}
+                                                    />
+                                                )}
+                                            </Field>
+
+                                            <Button
+                                                type="submit"
+                                                loading={isSubmitting}
+                                                className={styles.submitBtn}
+                                            >
+                                                Send eSIM support request
+                                            </Button>
+
+                                            <p className={styles.footerNote}>
+                                                By submitting this form, you agree that we can contact
+                                                you about your eSIM order. No spam. We never share your
+                                                details with third parties.
+                                            </p>
+                                        </Form>
+                                    </motion.div>
+                                )}
+                            </Formik>
+                        </>
+                    )}
+                </Card>
+            </motion.div>
         </div>
     );
 };

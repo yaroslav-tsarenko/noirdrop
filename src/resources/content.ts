@@ -15,7 +15,11 @@ export const headerContent = {
     links: [
         { label: "Solutions", href: "/services" },
         { label: "Plans & Pricing", href: "/pricing" },
-        { label: "Contact", href: "/contact-us" }
+        { label: "Contact", href: "/contact-us" },
+        { label: "About Us", href: "/about-us" },
+        { label: "How It Works", href: "/how-it-works" },
+        { label: "Blog", href: "/blog" },
+        { label: "FAQ", href: "/faq" },
     ]
 };
 
@@ -27,7 +31,11 @@ export const footerContent = {
             links: [
                 { label: "Solutions", href: "/services" },
                 { label: "Plans & Pricing", href: "/pricing" },
-                { label: "Contact Us", href: "/contact-us" },
+                { label: "Contact", href: "/contact-us" },
+                { label: "About Us", href: "/about-us" },
+                { label: "How It Works", href: "/how-it-works" },
+                { label: "Blog", href: "/blog" },
+                { label: "FAQ", href: "/faq" },
             ]
         },
         {

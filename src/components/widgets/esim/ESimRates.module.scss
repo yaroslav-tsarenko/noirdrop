@@ -1,0 +1,124 @@
+.grid {
+  display: grid;
+  gap: 1rem;
+
+  grid-template-columns: repeat(1, 1fr);
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 18px;
+  padding: 1.8rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    transform: translateY(-3px);
+  }
+}
+
+.highlight {
+  background: #f9f2ff; // легкий фіолетовий
+  border-color: #e4cfff;
+}
+
+.title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #222;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.dotPurple {
+  width: 8px;
+  height: 8px;
+  background: #8a2be2;
+  border-radius: 50%;
+}
+
+.dotBlue {
+  width: 8px;
+  height: 8px;
+  background: #1a73e8;
+  border-radius: 50%;
+}
+
+.dotTeal {
+  width: 8px;
+  height: 8px;
+  background: #0f766e;
+  border-radius: 50%;
+}
+
+.dotOrange {
+  width: 8px;
+  height: 8px;
+  background: #f97316;
+  border-radius: 50%;
+}
+
+.price {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-top: 0.6rem;
+}
+
+.unit {
+  color: #777;
+  font-size: 0.9rem;
+}
+
+.btn {
+  margin-top: auto;
+  color: #6a4cff;
+  font-weight: 600;
+  margin-top: 1rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: #482ab8;
+  }
+}
+
+.linkBtn {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+
+  color: #6a4cff;
+  transition: all 0.25s ease;
+
+  position: relative;
+
+  &:hover {
+    color: #3e21ff;
+
+    .arrow {
+      transform: translateX(4px);
+      opacity: 1;
+    }
+  }
+}
+
+.arrow {
+  font-size: 1.1rem;
+  opacity: 0.8;
+  transition: 0.25s ease;
+}
+

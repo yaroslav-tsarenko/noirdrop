@@ -49,8 +49,7 @@ const Header: React.FC = () => {
                 ]
                     .filter(Boolean)
                     .join(" ")}
-                style={scrolledStyle}
-            >
+                style={scrolledStyle}>
                 <div className={styles.headerInner}>
                     <div className={styles.headerNav}>
                         <a href={headerContent.logo.href} className={styles.logo}>
@@ -61,23 +60,23 @@ const Header: React.FC = () => {
                                 alt={headerContent.logo.alt}
                             />
                         </a>
-                        <nav
-                            className={styles.nav}
-                            style={
-                                {
-                                    "--link-color": headerStyles.linkColor,
-                                    "--link-hover-color": headerStyles.linkHoverColor,
-                                } as React.CSSProperties
-                            }
-                        >
-                            {headerContent.links.map((link) => (
-                                <a href={link.href} key={link.label} className={styles.link}>
-                                    {link.label}
-                                </a>
-                            ))}
-                        </nav>
-                    </div>
 
+                    </div>
+                    <nav
+                        className={styles.nav}
+                        style={
+                            {
+                                "--link-color": headerStyles.linkColor,
+                                "--link-hover-color": headerStyles.linkHoverColor,
+                            } as React.CSSProperties
+                        }
+                    >
+                        {headerContent.links.map((link) => (
+                            <a href={link.href} key={link.label} className={styles.link}>
+                                {link.label}
+                            </a>
+                        ))}
+                    </nav>
                     <div className={styles.actions}>
                         <AuthButtons/>
                     </div>

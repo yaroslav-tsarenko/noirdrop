@@ -2,238 +2,291 @@ import { PageSchema } from "@/components/constructor/page-render/types";
 import {
     COMPANY_NAME,
     COMPANY_EMAIL,
-    COMPANY_LEGAL_NAME,
-    COMPANY_ADDRESS,
-    COMPANY_NUMBER,
 } from "@/resources/constants";
 
 const pricingSchema: PageSchema = {
     meta: {
-        title: `Pricing — ${COMPANY_NAME}`,
-        description: `Discover transparent, token-based pricing for ${COMPANY_NAME}. Generate AI-powered, ATS-friendly resumes and cover letters without subscriptions or hidden fees.`,
+        title: `Pricing — ${COMPANY_NAME} eSIM Marketplace`,
+        description: `Transparent token pricing for global eSIM activation, data packs, roaming optimization and AI-powered connectivity tools. No subscriptions — pay only for what you deploy.`,
         keywords: [
-            `${COMPANY_NAME} pricing`,
-            "AI resume generator pricing",
-            "token resume plans",
-            "ATS resume builder cost",
-            "AI CV writing packages",
-            "affordable resume creation",
-            "AI job application tools"
+            "esim pricing",
+            "global esim cost",
+            "token based esim system",
+            "ai telecom pricing",
+            "international data plans",
+            "esim marketplace pricing",
+            `${COMPANY_NAME} esim tokens`,
         ],
         canonical: "/pricing",
         ogImage: {
-            title: `${COMPANY_NAME} Pricing`,
-            description: "Affordable and flexible token-based pricing for AI-powered resume generation.",
-            bg: "#f8faff",
-            color: "#0070f3",
+            title: `${COMPANY_NAME} — eSIM Pricing`,
+            description: "AI-driven, token-based pricing for global digital connectivity.",
+            bg: "#f5f6ff",
+            color: "#6a39ff",
         },
     },
 
     blocks: [
-        // HERO
+        // 🚀 HERO — Galactic Pricing
         {
             type: "hero",
             bgImage: "image10",
-            title: "Simple, Transparent, Token-Based Pricing",
-            description: `Pay only for what you use — no subscriptions, no hidden fees. Whether you need a single AI-optimized resume or a complete job-application bundle, ${COMPANY_NAME} gives you full control.`,
+            title: "Simple. Transparent. Global. eSIM Pricing.",
+            description:
+                `Activate eSIMs, generate QR codes, manage data-packs and run global telecom automation — all with a single token system. No subscriptions, no hidden fees.`,
             buttons: [
-                { text: "Get Started", link: "/get-started", color: "primary" },
-                { text: "Contact Support", link: "/contact-us", color: "secondary" },
+                { text: "Start Activating", link: "/get-started", color: "primary" },
+                { text: "Talk to Sales", link: "/contact-us", color: "secondary" },
             ],
         },
 
-        // FLEXIBLE PLANS OVERVIEW
+        // 🌐 NEW: Global Region Price Map (visual only)
         {
             type: "section",
-            align: "center",
+            gap: "2rem",
+            left: {
+                type: "media",
+                mediaType: "image",
+                src: "image30",
+                width: "100%",
+                height: "430px",
+                alt: "Global eSIM pricing heatmap",
+            },
+            right: {
+                type: "text",
+                title: "Region-Based Token Scaling",
+                description:
+                    "Different regions require different telecom infrastructure. Our token pricing automatically adjusts to each geographic tier, depending on demand, carrier agreements and local routing complexity.",
+                bullets: [
+                    "Tier 1: EU/USA/UK — lowest token cost",
+                    "Tier 2: Asia/Middle East — moderate cost",
+                    "Tier 3: Africa/South America — increased routing load",
+                ],
+                iconName: "public",
+                iconSize: 44,
+                iconColor: "#6a39ff",
+                iconBg: "#f3edff",
+            }
+        },
+
+        // 💎 MAIN PRICING GRID — 4 tiers
+        {
+            type: "grid",
+            columns: 4,
+            gap: "2.4rem",
+            cards: [
+                {
+                    type: "pricing",
+                    variant: "basic",
+                    title: "Starter eSIM Pack",
+                    price: "9",
+                    tokens: 100,
+                    description: "Perfect for testing activations, QR generation or small-volume orders.",
+                    features: [
+                        "Up to 10 eSIM activations",
+                        "Basic routing engine",
+                        "Standard global coverage",
+                        "Delivery via email/SMS/Telegram",
+                    ],
+                    buttonText: "Start",
+                    buttonLink: "/get-started",
+                },
+                {
+                    type: "pricing",
+                    variant: "highlight",
+                    title: "Pro Connectivity Pack",
+                    price: "25",
+                    tokens: 350,
+                    description: "For growing eSIM marketplaces and frequent international customers.",
+                    features: [
+                        "30–40 eSIM activations",
+                        "AI optimization for regions",
+                        "Full QR automation",
+                        "Carrier fallback logic",
+                    ],
+                    buttonText: "Go Pro",
+                    buttonLink: "/get-started",
+                },
+                {
+                    type: "pricing",
+                    variant: "premium",
+                    title: "Enterprise Telecom Suite",
+                    price: "60",
+                    tokens: 1000,
+                    description: "Highest-volume, global-first solution for telecom-scale activations.",
+                    features: [
+                        "100+ eSIM activations",
+                        "Priority routing engine",
+                        "AI auto-repair for failed activations",
+                        "Dedicated support and analytics",
+                    ],
+                    buttonText: "Upgrade",
+                    buttonLink: "/get-started",
+                },
+                {
+                    type: "pricing",
+                    variant: "basic",
+                    title: "Custom Global eSIM Plan",
+                    price: "Dynamic",
+                    description: "Ideal for universities, travel platforms and telecom brands.",
+                    features: [
+                        "Custom token pool",
+                        "API-level routing",
+                        "Volume-based discounts",
+                        "24/7 enterprise support",
+                    ],
+                    buttonText: "Contact Sales",
+                    buttonLink: "/contact-us",
+                }
+            ]
+        },
+
+        // ⚡ NEW BLOCK: Token Flow Diagram
+        {
+            type: "section",
             gap: "2rem",
             left: {
                 type: "text",
-                title: "Fair and Flexible Token Plans",
-                description: `${COMPANY_NAME} uses a simple token system. Each resume, cover letter, or optimization costs a small number of tokens — you decide how to spend them.`,
+                title: "How Token Pricing Works for eSIM Platforms",
+                description:
+                    "Every action inside your platform consumes tokens. You only pay for what you actually use — no recurring fees, no minimum commitments.",
                 bullets: [
-                    "No subscriptions or hidden charges",
-                    "Pay only for generated resumes or extras",
-                    "Flexible for individuals and recruiters",
-                    "Top up anytime, keep your unused tokens"
+                    "Activation = 20–40 tokens",
+                    "QR delivery = 5 tokens",
+                    "Region optimization = 3 tokens",
+                    "Failed activation auto-repair = FREE",
                 ],
                 iconName: "token",
-                iconSize: 48,
+                iconSize: 46,
                 iconColor: "#0070f3",
                 iconBg: "#e6f7ff",
-                centerTitle: true,
-                centerDescription: true,
-                centerBullets: true,
             },
             right: {
                 type: "media",
                 mediaType: "image",
-                src: "image1",
-                width: "100%",
+                src: "image50",
                 height: "400px",
-                alt: "Token pricing overview",
-            },
+                alt: "Token usage flow",
+            }
         },
 
-        // PRICING GRID
+        // 🧬 NEW — 6×6 Feature Grid (cosmic)
         {
-            type: "section",
-            align: "center",
-            gap: "3rem",
-            right: {
-                type: "grid",
-                columns: 4,
-                gap: "2rem",
-                cards: [
-                    {
-                        type: "pricing",
-                        variant: "basic",
-                        title: "Starter Plan",
-                        price: "10",
-                        description: "For students or job seekers creating their first AI-optimized resume.",
-                        features: [
-                            "100 tokens included",
-                            "1 professional resume + 1 cover letter",
-                            "Basic template customization",
-                            "Export to PDF and DOCX"
-                        ],
-                        buttonText: "Start Now",
-                        buttonLink: "/get-started",
-                    },
-                    {
-                        type: "pricing",
-                        variant: "highlight",
-                        title: "Professional Plan",
-                        price: "25",
-                        description: "Perfect for professionals applying to multiple positions.",
-                        features: [
-                            "300 tokens included",
-                            "Up to 3 resumes + 3 cover letters",
-                            "Advanced keyword optimization",
-                            "ATS & readability analysis"
-                        ],
-                        buttonText: "Go Pro",
-                        buttonLink: "/get-started",
-                    },
-                    {
-                        type: "pricing",
-                        variant: "premium",
-                        title: "Business Plan",
-                        price: "50",
-                        description: "For agencies, HR departments, or power users managing many resumes.",
-                        features: [
-                            "700 tokens included",
-                            "Unlimited resume generations",
-                            "Team collaboration tools",
-                            "Priority AI model and support"
-                        ],
-                        buttonText: "Upgrade",
-                        buttonLink: "/get-started",
-                    },
-                    {
-                        type: "pricing",
-                        variant: "basic",
-                        title: "Custom Enterprise",
-                        price: "dynamic",
-                        description: "For organizations or universities — tailor your own token package.",
-                        features: [
-                            "Custom token quantity",
-                            "Bulk resume generation",
-                            "Dedicated AI configuration",
-                            "Personal success manager"
-                        ],
-                        buttonText: "Contact Sales",
-                        buttonLink: "/contact-us",
-                    },
-                ],
-            },
+            type: "grid",
+            columns: 3,
+            gap: "2rem",
+            items: Array.from({ length: 6 }).map((_, i) => ({
+                block: {
+                    type: "text",
+                    title: `Connectivity Feature #${i + 1}`,
+                    description:
+                        "Advanced telecom-grade micro-features helping your marketplace scale across continents.",
+                    bullets: [
+                        "Autonomous delivery logic",
+                        "Carrier failover system",
+                        "Global signal prediction",
+                    ],
+                    iconName: "auto_awesome",
+                    iconColor: "#6a39ff",
+                    iconBg: "#f3edff",
+                }
+            }))
         },
 
-        // HOW PRICING WORKS
+        // 📡 NEW — Speed Class Boosters (Unique)
+        {
+            type: "grid",
+            columns: 3,
+            gap: "2rem",
+            cards: [
+                {
+                    image: "image13",
+                    title: "Speed Class L1",
+                    description: "Standard 4G performance — globally reliable.",
+                    buttonLink: "/get-started",
+                    buttonText: "Add Booster"
+                },
+                {
+                    image: "image15",
+                    title: "Speed Class L2",
+                    description: "Optimized for video calls & navigation.",
+                    buttonLink: "/get-started",
+                    buttonText: "Add Booster"
+                },
+                {
+                    image: "image17",
+                    title: "Speed Class L3",
+                    description: "High-performance routing for business users.",
+                    buttonLink: "/get-started",
+                    buttonText: "Enable Priority"
+                }
+            ]
+        },
+
+        // 🌍 NEW — Top-Up Simulation Block
         {
             type: "section",
             gap: "2rem",
             left: {
+                type: "media",
+                mediaType: "image",
+                src: "image22",
+                height: "420px",
+                alt: "Token simulation UI",
+            },
+            right: {
                 type: "text",
-                title: "How Token Pricing Works",
-                description: `Every resume, cover letter, or optimization feature consumes tokens. You can preview, regenerate, or update sections using the same token balance — no subscriptions required.`,
+                title: "Predict Your Monthly Cost",
+                description:
+                    "Our AI simulator helps you estimate how many tokens you'll need based on travel volume, activation frequency and country distribution.",
                 bullets: [
-                    "1 resume = ~30 tokens (depends on length)",
-                    "Extras like keyword optimization or formatting = +5–10 tokens",
-                    "Unused tokens never expire",
-                    "Top-up directly from your dashboard"
+                    "Volume-based prediction",
+                    "AI seasonal forecasting",
+                    "Carrier fee estimation",
                 ],
-                iconName: "settings",
-                iconSize: 40,
+                iconName: "calculate",
                 iconColor: "#28a745",
-                iconBg: "#e6ffe6",
-            },
-            right: {
-                type: "media",
-                mediaType: "image",
-                src: "image2",
-                width: "100%",
-                height: "400px",
-                alt: "How token system works",
-            },
+                iconBg: "#e6ffe6"
+            }
         },
 
-        // TESTIMONIALS
-        {
-            type: "section",
-            align: "center",
-            gap: "3rem",
-            left: {
-                type: "text",
-                title: "What Our Users Say",
-                description: `Thousands of professionals trust ${COMPANY_NAME} to create powerful resumes. Our token system gives them freedom, flexibility, and confidence for every job application.`,
-                bullets: [
-                    `"The token system makes it easy to pay only for what I need!"`,
-                    `"I built 3 resumes and 2 cover letters for under $20 — amazing value."`,
-                    `"Fast, clean, and beautifully designed — the AI knows what recruiters want."`
-                ],
-                iconName: "star",
-                iconSize: 48,
-                iconColor: "#FFD700",
-                iconBg: "#fffbe6",
-                centerTitle: true,
-                centerDescription: true,
-                centerBullets: true,
-            },
-            right: {
-                type: "media",
-                mediaType: "image",
-                src: "image3",
-                width: "100%",
-                height: "400px",
-                alt: "User testimonials for resume pricing",
-            },
-        },
-
-        // FAQ
+        // 🌠 FAQ — eSIM edition
         {
             type: "faq",
             items: [
                 {
+                    question: "How many tokens does an eSIM activation cost?",
+                    answer: "Depending on region: 20–40 tokens per activation. High-load regions may adjust dynamically."
+                },
+                {
                     question: "Do tokens expire?",
-                    answer: "No. Tokens never expire. You can use them anytime to generate or update resumes.",
+                    answer: "Never. Tokens remain in your wallet indefinitely."
                 },
                 {
-                    question: "Can I upgrade my plan?",
-                    answer: "Yes, you can add more tokens or switch plans anytime from your dashboard.",
+                    question: "What about failed activations?",
+                    answer: "Auto-repair is free. You are never charged twice for failed attempts."
                 },
                 {
-                    question: "What can I use tokens for?",
-                    answer: "Tokens can be used for resume generation, cover letters, keyword optimization, and layout adjustments.",
+                    question: "Can I resell eSIMs?",
+                    answer: "Yes, the system fully supports resellers, affiliates and travel platforms."
                 },
                 {
-                    question: "Can I download my resumes?",
-                    answer: "Yes. All generated resumes and cover letters can be downloaded in PDF or DOCX format instantly.",
+                    question: "Is enterprise routing available?",
+                    answer: `Yes — contact us at ${COMPANY_EMAIL} for SLA, routing priority and volume agreements.`
                 },
-                {
-                    question: "Is support included?",
-                    answer: `Yes. Every plan includes free email support. For Business and Custom users, priority assistance is available at ${COMPANY_EMAIL}.`,
-                },
+            ]
+        },
+
+        // ⭐ FINAL CTA
+        {
+            type: "hero",
+            bgImage: "image40",
+            title: "Scale Your Global Connectivity with AI",
+            description:
+                "Launch, manage and automate your eSIM marketplace with a universal token system built for global coverage.",
+            buttons: [
+                { text: "Start Now", link: "/get-started", color: "primary" },
+                { text: "Book a Demo", link: "/contact-us", color: "secondary" },
             ],
         },
     ],

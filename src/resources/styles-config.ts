@@ -20,7 +20,7 @@ export const googleFonts: GoogleFont[] = [
     { name: "Open Sans", css: "'Open Sans', sans-serif", url: "https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&display=swap" },
 ];
 
-export const currentFontIndex = 1;
+export const currentFontIndex = 3;
 export const currentFont = googleFonts[currentFontIndex];
 
 // Кольори для кнопок
@@ -51,7 +51,7 @@ export const buttonColors: Record<ButtonColor, string> = {
 // Header
 export const headerStyles = {
     type: "sticky" as HeaderType,
-    sideBarDirection: "left" as SideBarDirection,
+    sideBarDirection: "top" as SideBarDirection,
     linkColor: "var(--text-primary)",
     linkHoverColor: "var(--link-hover)",
     scrollMode: "blur" as HeaderScrollMode,

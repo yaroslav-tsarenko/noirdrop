@@ -1,0 +1,54 @@
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-align: center;
+  color: #111;
+}
+
+.subtitle {
+  text-align: center;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  transition: all 0.25s ease;
+
+  &:hover {
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.09);
+  }
+}
+
+.cardTitle {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #222;
+}
+
+.selectWrapper {
+  margin-bottom: 2rem;
+}
+
+.noRates {
+  padding: 3rem 0;
+  text-align: center;
+  color: #777;
+  font-size: 1.1rem;
+}

@@ -111,3 +111,348 @@
   display: block;
 }
 
+.authedUser {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+  align-items: center;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.nonAuthedButtons {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+  align-items: center;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+/* ====== user info ====== */
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+}
+
+.avatar {
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 127, 255, 0.08);
+}
+
+.userDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.userName {
+  font-weight: 600;
+  color: #222;
+  font-size: 1rem;
+}
+
+.userBalance {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  gap: 10px;
+  color: #444;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 4px;
+  }
+}
+
+.balanceText {
+  font-weight: 500;
+  color: #555;
+  gap: 4px;
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.tokenIcon {
+  font-size: 14px;
+  color: #f5b301;
+}
+
+.buyLink {
+  font-size: 12px;
+  color: #0070f3;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    color: #0051b8;
+  }
+}
+
+.link {
+  display: flex;
+  text-decoration: none;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
+}
+
+/* =========================================
+   CART DRAWER + PURE CSS eSIM
+   ========================================= */
+
+.cartDrawer {
+  width: 360px;
+  padding: 20px 22px 18px;
+  display: flex;
+  flex-direction: column;
+  background: #fafafa;
+}
+
+/* header with hero card + text */
+.cartHeader {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.headerText h3 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.headerText p {
+  margin: 4px 0 0;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* big eSIM card */
+
+.simCardHero {
+  position: relative;
+  width: 150px;
+  height: 90px;
+  border-radius: 16px;
+  background: radial-gradient(circle at 0% 0%, #ffe082 0, transparent 55%),
+  linear-gradient(135deg, #111827, #111827 40%, #1f2937 100%);
+  overflow: hidden;
+  padding: 10px 12px;
+  color: #f9fafb;
+  box-shadow: 0 14px 35px rgba(15, 23, 42, 0.45);
+}
+
+/* subtle glow */
+.simGlow {
+  position: absolute;
+  inset: -40%;
+  background: radial-gradient(circle at 0% 0%, rgba(252, 211, 77, 0.28), transparent 65%);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.simTopRow {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+}
+
+.simLabel {
+  font-size: 0.6rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.simBadge {
+  font-size: 0.58rem;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(59, 130, 246, 0.18);
+  border: 1px solid rgba(129, 140, 248, 0.4);
+}
+
+/* chip */
+.simChip {
+  position: relative;
+  width: 32px;
+  height: 24px;
+  margin-top: 10px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #facc15, #fbbf24);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.simChip span {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+/* bottom text */
+.simBottom {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 10px;
+  z-index: 1;
+}
+
+.simTitle {
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.simSubtitle {
+  font-size: 0.6rem;
+  opacity: 0.8;
+}
+
+/* =========================================
+   CART ITEMS
+   ========================================= */
+
+.cartItems {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.emptyText {
+  text-align: center;
+  color: #777;
+  padding: 20px 0;
+  font-size: 0.9rem;
+}
+
+/* item row */
+.cartItem {
+  display: flex;
+  gap: 12px;
+  background: #ffffff;
+  padding: 10px 10px;
+  border-radius: 12px;
+  border: 1px solid #eee;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+}
+
+/* mini eSIM card */
+.simCardMini {
+  width: 52px;
+  height: 34px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #111827, #1f2937);
+  position: relative;
+  padding: 4px 5px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+.simChipMini {
+  position: absolute;
+  top: 4px;
+  left: 5px;
+  width: 16px;
+  height: 12px;
+  border-radius: 4px;
+  background: linear-gradient(135deg, #facc15, #fbbf24);
+}
+
+.simMiniBadge {
+  position: relative;
+  font-size: 0.55rem;
+  padding: 2px 6px;
+  border-radius: 999px;
+  background: rgba(59, 130, 246, 0.2);
+  color: #e5e7eb;
+}
+
+/* item text */
+.itemInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.itemName {
+  font-size: 0.9rem;
+}
+
+.price {
+  font-size: 0.85rem;
+  color: #444;
+}
+
+.qty {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.removeBtn {
+  background: none;
+  border: none;
+  color: #e03131;
+  font-size: 0.8rem;
+  padding: 0;
+  margin-top: 3px;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+/* total + checkout */
+
+.totalRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  margin-top: 4px;
+}
+
+.checkoutBtn {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #1a73e8, #4f46e5);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease,
+  box-shadow 0.15s ease;
+
+  &:hover {
+    background: linear-gradient(135deg, #1459b3, #4338ca);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
+  }
+}
+
+

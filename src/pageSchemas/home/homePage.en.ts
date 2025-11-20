@@ -3,229 +3,326 @@ import { COMPANY_NAME, COMPANY_EMAIL } from "@/resources/constants";
 
 const schema: PageSchema = {
     meta: {
-        title: `AI Resume Builder — Create Lightweight, ATS-Friendly CVs with ${COMPANY_NAME}`,
+        title: `${COMPANY_NAME} eSIM Marketplace – Global Digital SIMs for Travel, Work & Business`,
         description:
-            "Generate optimized, lightweight, and ATS-ready resumes using smart tokens. Stay relevant, readable, and professional with AI assistance — powered by cutting-edge resume generation technology.",
+            "Buy eSIMs for 200+ countries. Instant installation, affordable data, global connectivity. The #1 digital SIM marketplace with unlimited plans, regional packs, and roaming-free travel.",
         keywords: [
-            "AI resume builder",
-            "ATS friendly CV",
-            "optimized resume",
-            "lightweight resume format",
-            "token based resume generation",
-            "AI career assistant",
-            "professional CV generator",
-            "fast resume builder",
-            "AI job application tool",
-            "relevant candidate profile",
+            "eSIM marketplace",
+            "buy esim online",
+            "global esim",
+            "travel esim",
+            "cheap esim europe",
+            "airalo alternative",
+            "holafly alternative",
+            "digital sim card",
+            "international data plan",
+            "esim for usa",
+            "esim for europe",
+            "best esim 2025",
+            "instant esim activation",
+            "travel data plan",
+            "global connectivity",
         ],
         canonical: "/",
         ogImage: {
-            title: "Build the Perfect Resume with AI",
-            description:
-                "Generate professional, keyword-optimized resumes with one click. Lightweight, ATS-ready, and job-relevant.",
+            title: `${COMPANY_NAME} – eSIM Marketplace`,
+            description: "Instant eSIMs for every country. Fast. Affordable. Unlimited.",
             bg: "#ffffff",
             color: "#9532ff",
         },
     },
 
     blocks: [
-        // 🟣 HERO
+        /* --------------------------------------------------------------------------
+         * 🟣 1. HERO SECTION — SUPER STRONG AIRALO-LEVEL
+         * -------------------------------------------------------------------------- */
         {
             type: "hero",
-            bgImage: "image4",
-            title: "Build Smarter Resumes with AI — Be the Candidate Everyone Wants",
+            bgImage: "image1",
+            title: "Global eSIM Marketplace — Instantly Connect in 200+ Countries",
             description:
-                "Our AI Resume Generator helps you craft an optimized, ATS-friendly, and beautifully structured CV that weighs less, loads faster, and gets noticed by recruiters.",
+                "Skip physical SIM cards. Activate your eSIM in 30 seconds and enjoy fast 4G/5G data anywhere in the world. Affordable, instant, and contract-free.",
             buttons: [
-                { text: "Create My Resume", link: "/dashboard", color: "primary" },
-                { text: "View Pricing", link: "/pricing", color: "secondary" },
+                { text: "Browse eSIMs", link: "/products", color: "primary" },
+                { text: "How It Works", link: "#how-it-works", color: "secondary" },
             ],
         },
 
-        // 🟢 STEPS
+        /* --------------------------------------------------------------------------
+         * 🟢 2. STEPS SECTION (How eSIM Works)
+         * -------------------------------------------------------------------------- */
         {
             type: "steps",
-            title: "How It Works in 3 Simple Steps",
+            title: "How eSIM Works in Three Easy Steps",
             items: [
                 {
                     number: 1,
-                    title: "Choose Your Resume Type",
+                    title: "Choose Your Destination",
                     description:
-                        "Select from modern templates optimized for tech, business, or creative roles. Each template is AI-ready.",
-                    iconName: "layers",
+                        "Pick from 200+ countries or select a regional/global eSIM for multi-country travel.",
+                    iconName: "globe",
                 },
                 {
                     number: 2,
-                    title: "Generate & Customize",
+                    title: "Install the eSIM",
                     description:
-                        "Use tokens to instantly generate your resume. Add custom sections, achievements, and metrics with AI help.",
-                    iconName: "sparkles",
+                        "Scan the QR code or use one-click installation. No store visits. No waiting.",
+                    iconName: "smartphone",
                 },
                 {
                     number: 3,
-                    title: "Download & Apply",
-                    description:
-                        "Export your lightweight PDF — ready for ATS systems, recruiters, and online applications.",
-                    iconName: "download",
+                    title: "Enjoy Fast LTE/5G",
+                    description: "Instant activation. Use data immediately upon arrival.",
+                    iconName: "wifi",
                 },
             ],
         },
 
-        // 🔵 SECTION – AI ADVANTAGE
+        /* --------------------------------------------------------------------------
+         * 🟣 3. SECTION — LEFT TEXT, RIGHT IMAGE (Benefits)
+         * -------------------------------------------------------------------------- */
         {
             type: "section",
-            align: "left",
             gap: "2rem",
+            align: "center",
+            justify: "space-between",
             left: {
                 type: "text",
-                title: "Why Our AI Resume Generator Stands Out",
+                title: "Why Travelers Switch to eSIMs",
                 description:
-                    "Unlike traditional builders, our AI focuses on clarity, structure, and data-driven optimization. Every CV is reviewed for readability, weight, and compliance with modern applicant tracking systems.",
+                    "Avoid roaming fees, long lines, and unreliable physical SIM cards. With a digital eSIM, your device connects instantly and securely anywhere in the world.",
                 bullets: [
-                    "AI-powered content suggestions",
-                    "Automatic formatting and layout optimization",
-                    "Designed for maximum recruiter visibility",
+                    "Instant QR activation",
+                    "No physical SIM swapping",
+                    "Keep your original number active",
+                    "Works on all modern phones",
                 ],
-                iconName: "robot",
-                iconSize: 44,
+                iconName: "checkCircle",
                 iconColor: "#9532ff",
                 iconBg: "#f6f0ff",
             },
             right: {
                 type: "media",
                 mediaType: "image",
-                src: "image15",
+                src: "image2",
                 width: "100%",
-                height: "380px",
-                alt: "AI Resume Optimization Dashboard",
+                height: "420px",
             },
         },
 
-        // 🟠 GRID – BENEFITS
+        /* --------------------------------------------------------------------------
+         * 🟠 4. GRID — Popular Regions
+         * -------------------------------------------------------------------------- */
         {
             type: "grid",
             columns: 3,
             gap: "2rem",
             cards: [
                 {
-                    image: "image8",
-                    title: "ATS-Friendly Design",
-                    description:
-                        "Each resume is fully optimized for Applicant Tracking Systems — no fancy graphics that block parsing.",
-                    buttonLink: "/services",
-                    buttonText: "Learn More",
+                    image: "image3",
+                    title: "Europe eSIM",
+                    description: "Stay connected across 39 countries with a single eSIM plan.",
+                    buttonLink: "/products",
+                    buttonText: "Explore Europe",
                 },
                 {
-                    image: "image17",
-                    title: "Lightweight & Fast",
-                    description:
-                        "Get PDF resumes that load instantly on any platform and stay under 1MB — perfect for online applications.",
-                    buttonLink: "/pricing",
-                    buttonText: "View Plans",
+                    image: "image4",
+                    title: "USA eSIM",
+                    description: "Fast 5G coverage nationwide. Perfect for tourists and business travelers.",
+                    buttonLink: "/products",
+                    buttonText: "View USA Plans",
                 },
                 {
-                    image: "image11",
-                    title: "Career-Relevant Optimization",
-                    description:
-                        "AI adapts to your industry, skill level, and job title to ensure your CV matches what recruiters search for.",
-                    buttonLink: "/contact-us",
-                    buttonText: "Get Help",
+                    image: "image5",
+                    title: "Asia eSIM",
+                    description: "Japan, Korea, Thailand, Singapore — one digital SIM works everywhere.",
+                    buttonLink: "/products",
+                    buttonText: "Explore Asia",
                 },
             ],
         },
 
-        // 🟣 TEXT – SEO SECTION
+        /* --------------------------------------------------------------------------
+         * 🔵 5. FULL TEXT SEO BLOCK — Long eSIM Explanation
+         * -------------------------------------------------------------------------- */
         {
             type: "text",
-            title: "Boost Your Job Search Visibility",
+            title: "What Is an eSIM and Why It’s the Future of Travel Connectivity?",
             description:
-                "A great resume is more than words — it’s a data-optimized document that search engines and job boards love. By using smart structure, keywords, and low-weight PDFs, you increase your visibility across job platforms like LinkedIn, Indeed, and Glassdoor.",
+                "An eSIM (embedded SIM) is a digital version of a traditional SIM card. Instead of inserting plastic into your phone, the SIM is installed digitally through a QR code. This means instant activation, no airport lines, and no expensive roaming fees. Modern smartphones from Apple, Samsung, and Google fully support eSIM technology. As the world transitions to digital SIMs, more countries and carriers adopt eSIM as the new standard for international travel.",
             bullets: [
-                "SEO-friendly structure for online job boards",
-                "Built-in keyword optimization for your field",
-                "Automatic title and description balance",
+                "No physical SIM card needed",
+                "Activate instantly from anywhere",
+                "Better prices than roaming packages",
+                "Perfect for tourists, remote workers, and business travelers",
             ],
-            iconName: "search",
-            iconSize: 38,
+            iconName: "info",
             iconColor: "#68cfff",
             iconBg: "#e7f8ff",
         },
 
+        /* --------------------------------------------------------------------------
+         * 🟣 6. TESTIMONIALS — Strong Social Proof
+         * -------------------------------------------------------------------------- */
         {
             type: "testimonials",
-            title: "Real Users, Real Results",
+            title: "What Travelers Say About Our eSIMs",
             items: [
                 {
-                    name: "Sophia",
-                    role: "Software Developer",
-                    text: "My ATS score jumped by 40%. The AI made my CV clean, relevant, and powerful.",
-                    avatar: "https://i.pravatar.cc/150?img=47",
+                    name: "Elena",
+                    role: "Travel Blogger",
+                    text: "Installed my Europe eSIM in 15 seconds. No roaming fees, no hassle. Best travel purchase ever.",
+                    avatar: "https://i.pravatar.cc/150?img=12",
                 },
                 {
-                    name: "Michael",
-                    role: "Marketing Manager",
-                    text: "I used 20 tokens to build three different resumes. Each version fit my job perfectly.",
-                    avatar: "https://i.pravatar.cc/150?img=22",
+                    name: "David",
+                    role: "Digital Nomad",
+                    text: "I work remotely, so stable internet is a must. The Japan + Korea eSIM was flawless.",
+                    avatar: "https://i.pravatar.cc/150?img=50",
                 },
                 {
-                    name: "Liam",
-                    role: "Business Analyst",
-                    text: "Finally, a tool that makes professional resumes simple. The layout looks human, not robotic.",
-                    avatar: "https://i.pravatar.cc/150?img=15",
+                    name: "Marco",
+                    role: "Business Traveler",
+                    text: "Arrived in New York and data was active before I left the airport. Crazy good.",
+                    avatar: "https://i.pravatar.cc/150?img=32",
                 },
                 {
-                    name: "Isabella",
-                    role: "UX Designer",
-                    text: "My resume size dropped to 700KB and passed every upload test. Recruiters love it!",
-                    avatar: "https://i.pravatar.cc/150?img=33",
-                },
-                {
-                    name: "Olivia",
-                    role: "HR Specialist",
-                    text: "As a recruiter, I immediately notice the clarity of resumes made with this tool. It's exactly what HR systems need.",
-                    avatar: "https://i.pravatar.cc/150?img=38",
-                },
-                {
-                    name: "Ethan",
-                    role: "Data Scientist",
-                    text: "The token-based system is genius. I refined my resume multiple times without paying extra subscriptions.",
-                    avatar: "https://i.pravatar.cc/150?img=56",
+                    name: "Anastasia",
+                    role: "Solo Traveler",
+                    text: "Much cheaper than Holafly, and activation is super easy. Highly recommend!",
+                    avatar: "https://i.pravatar.cc/150?img=65",
                 },
             ],
         },
 
-
-        // 🟡 SECTION – TOKEN MODEL
+        /* --------------------------------------------------------------------------
+         * 🟡 7. SECTION — Right Text Left Image (Token System)
+         * -------------------------------------------------------------------------- */
         {
             type: "section",
-            align: "right",
+            align: "center",
             gap: "2rem",
             left: {
                 type: "media",
                 mediaType: "image",
-                src: "image3",
+                src: "image6",
                 width: "100%",
                 height: "360px",
-                alt: "Token Based Resume Generation",
             },
             right: {
                 type: "text",
-                title: "Generate with Tokens — Smarter Than Subscriptions",
+                title: "Instant Delivery — QR Code Straight to Your Email",
                 description:
-                    "Use flexible tokens to pay only for what you need. Each token equals real AI generation power — resume drafts, rewrites, or cover letters. No recurring fees, no locked features.",
+                    "The moment you purchase an eSIM, the activation QR code arrives instantly in your inbox. No waiting. No store visits. You can activate the eSIM anytime — even minutes before your flight lands.",
                 bullets: [
-                    "Pay-as-you-go simplicity",
-                    "Every token counts toward real content",
-                    "Refill tokens anytime, from any plan",
+                    "Delivery in under 5 seconds",
+                    "Works offline — download before the trip",
+                    "Available 24/7 with your account",
                 ],
-                iconName: "coins",
-                iconSize: 42,
-                iconColor: "#68cfff",
-                iconBg: "#f0faff",
+                iconName: "mail",
+                iconColor: "#9532ff",
+                iconBg: "#f6f0ff",
             },
         },
 
-        // 🟢 PRICING
+        /* --------------------------------------------------------------------------
+         * 🟠 8. GRID — 6 Core Benefits (Large)
+         * -------------------------------------------------------------------------- */
+        {
+            type: "grid",
+            columns: 3,
+            gap: "2rem",
+            cards: [
+                {
+                    image: "image7",
+                    title: "No Roaming Fees",
+                    description:
+                        "Avoid expensive roaming plans. Choose local-priced data optimized for each region.",
+                },
+                {
+                    image: "image8",
+                    title: "Keep Your Phone Number",
+                    description:
+                        "Your original SIM stays active for calls and banking while eSIM gives you data.",
+                },
+                {
+                    image: "image9",
+                    title: "Perfect for Remote Work",
+                    description: "High-speed 4G/5G ensures stable video calls and cloud access anywhere.",
+                },
+                {
+                    image: "image10",
+                    title: "Supports Dual SIM",
+                    description:
+                        "Use both your eSIM and physical SIM at the same time with Dual SIM mode.",
+                },
+                {
+                    image: "image11",
+                    title: "No Contracts",
+                    description: "Buy once. Use once. No commitments or hidden fees.",
+                },
+                {
+                    image: "image12",
+                    title: "Travel Unlimited Plans",
+                    description: "Need unlimited data? We offer unlimited eSIMs in 60+ countries.",
+                },
+            ],
+        },
+
+        /* --------------------------------------------------------------------------
+         * 🔵 9. LONG SEO TEXT — Why eSIM Beats SIM Cards
+         * -------------------------------------------------------------------------- */
+        {
+            type: "text",
+            title: "Why eSIMs Are Better Than Local SIM Cards",
+            description:
+                "Buying SIM cards at airports is outdated. You must queue, show your passport, fill forms, and physically insert the card. With eSIMs, everything is digital. You get instant data with no friction. Also, eSIMs are safer — no risk of losing your SIM slot or damaging hardware.",
+            bullets: [
+                "Zero airport queues",
+                "No physical installation",
+                "More secure and impossible to lose",
+                "Better prices than kiosk SIM cards",
+                "Works immediately after activation",
+            ],
+            iconName: "shield",
+            iconColor: "#9532ff",
+            iconBg: "#f6f0ff",
+        },
+
+        /* --------------------------------------------------------------------------
+         * 🟣 10. SECTION — eSIM for Business Teams
+         * -------------------------------------------------------------------------- */
+        {
+            type: "section",
+            reverse: true,
+            gap: "2rem",
+            left: {
+                type: "text",
+                title: "Business eSIM Solutions for Teams & Companies",
+                description:
+                    "Empower your employees with reliable global connectivity. Perfect for distributed teams, business trips, events, and conferences.",
+                bullets: [
+                    "Bulk eSIM deliveries",
+                    "Corporate invoicing",
+                    "Usage analytics",
+                    "Multi-country plans",
+                ],
+                iconName: "briefcase",
+                iconColor: "#68cfff",
+                iconBg: "#e7f8ff",
+            },
+            right: {
+                type: "media",
+                mediaType: "image",
+                src: "image13",
+                width: "100%",
+                height: "420px",
+            },
+        },
+
+        /* --------------------------------------------------------------------------
+         * 🟠 11. PRICING TABLE — 3 PACKS
+         * -------------------------------------------------------------------------- */
         {
             type: "grid",
             columns: 3,
@@ -233,85 +330,77 @@ const schema: PageSchema = {
                 {
                     type: "pricing",
                     variant: "basic",
-                    title: "Starter Pack",
-                    price: "5.00",
+                    title: "Starter",
+                    price: "5",
                     tokens: 100,
-                    description: "Generate your first professional AI resume instantly.",
-                    features: [
-                        "Lightweight PDF resume",
-                        "Basic AI optimization",
-                        "1 cover letter draft",
-                    ],
-                    buttonText: "Buy Tokens",
+                    description: "Perfect for trying your first eSIM.",
+                    features: ["Instant delivery", "Works in 1 country", "Email support"],
+                    buttonText: "Buy Now",
                 },
                 {
                     type: "pricing",
                     variant: "highlight",
-                    title: "Pro Resume Kit",
-                    price: "15.00",
+                    title: "Traveler Pack",
+                    price: "15",
                     tokens: 400,
-                    description: "Ideal for job seekers improving multiple resumes or cover letters.",
-                    features: [
-                        "Advanced AI optimization",
-                        "Unlimited downloads",
-                        "Multi-language support",
-                    ],
-                    buttonText: "Upgrade Now",
+                    description: "Ideal for vacation trips or weekend city breaks.",
+                    features: ["Regional support", "Unlimited downloads", "Priority support"],
+                    buttonText: "Buy Pack",
                 },
                 {
                     type: "pricing",
                     variant: "premium",
-                    title: "Career Master Pack",
-                    price: "30.00",
+                    title: "Global Nomad",
+                    price: "30",
                     tokens: 1000,
-                    description: "For professionals, freelancers, and career-changers who want excellence.",
-                    features: [
-                        "Full analytics & ATS score preview",
-                        "All-format export options",
-                        "Free future updates",
-                    ],
+                    description:
+                        "For digital nomads and frequent flyers who need international coverage.",
+                    features: ["Global access", "Multi-device", "Full analytics", "24/7 support"],
                     buttonText: "Go Premium",
                 },
             ],
         },
 
-        // 🔵 FAQ
+        /* --------------------------------------------------------------------------
+         * 🔵 12. 20-QUESTION FAQ — Massive SEO
+         * -------------------------------------------------------------------------- */
         {
             type: "faq",
             items: [
-                {
-                    question: "What does ‘lightweight resume’ mean?",
-                    answer:
-                        "It means your CV is under 1MB, fast to upload, and formatted with precision for all HR systems.",
-                },
-                {
-                    question: "What is an ATS-friendly resume?",
-                    answer:
-                        "ATS (Applicant Tracking System)-friendly resumes are structured to be easily read by software that filters job applications.",
-                },
-                {
-                    question: "How do tokens work?",
-                    answer:
-                        "Tokens are credits used to generate content. Each resume or cover letter consumes a few tokens — no subscriptions required.",
-                },
-                {
-                    question: "Can I edit resumes after generation?",
-                    answer:
-                        "Yes. You can adjust, rewrite, or re-export your resume anytime using the same token balance.",
-                },
+                { question: "What is an eSIM?", answer: "An eSIM is a digital SIM you install without a physical card." },
+                { question: "Which phones support eSIM?", answer: "All modern iPhones, Samsung S20+, Google Pixel, and many others." },
+                { question: "How fast is eSIM delivery?", answer: "Instant. You receive the QR code immediately after purchase." },
+                { question: "Do I need to remove my physical SIM?", answer: "No. You can keep your number and simply use eSIM for data." },
+                { question: "Can I use multiple eSIMs?", answer: "Yes. You can store many eSIMs and switch anytime." },
+                { question: "Does eSIM work on locked phones?", answer: "Your phone must be unlocked to install international eSIMs." },
+                { question: "What speeds do you offer?", answer: "4G/LTE/5G depending on local carrier availability." },
+                { question: "How do I install the eSIM?", answer: "Open settings → Mobile Network → Add eSIM → Scan QR code." },
+                { question: "Do I get unlimited plans?", answer: "Yes, for selected countries like USA, Japan, UK, EU." },
+                { question: "Do I need passport verification?", answer: "No. eSIM activation requires no documents." },
+                { question: "Is roaming disabled?", answer: "Yes. You use local data plans at local prices." },
+                { question: "Can I refund?", answer: "Unused eSIMs with no activation can be refunded." },
+                { question: "Can I hotspot on eSIM?", answer: "Yes, all our plans support tethering unless specified." },
+                { question: "Does eSIM expire?", answer: "Activation must occur within 12 months." },
+                { question: "Can I change plans?", answer: "Yes. You can switch to any plan anytime." },
+                { question: "What if QR code doesn’t work?", answer: "We provide manual installation instructions and full support." },
+                { question: "Is my data secure?", answer: "Yes. eSIM uses encrypted carrier-level security." },
+                { question: "Can I keep my WhatsApp number?", answer: "Yes. WhatsApp continues working with your original SIM." },
+                { question: "Can businesses buy eSIMs in bulk?", answer: "Yes. We support enterprise purchases and invoicing." },
+                { question: "How do I top up data?", answer: "You can refill or buy add-on data packs anytime." },
             ],
         },
 
-        // 🟣 CTA / FINAL
+        /* --------------------------------------------------------------------------
+         * 🟣 13. FINAL CTA — Strong Conversion
+         * -------------------------------------------------------------------------- */
         {
             type: "hero",
-            bgImage: "image20",
-            title: "Start Building Your Perfect Resume Today",
-            description:
-                "Don’t let poor formatting or unreadable CVs stop your career. Create optimized, fast, and professional resumes powered by AI.",
+            bgImage: "image14",
+            title: "Travel Smarter with Instant Global eSIMs",
+            description: "No roaming. No physical SIM cards. No stress. Just pure connectivity.",
             buttons: [
-                { text: "Start for Free", link: "/services", color: "primary" },
-                { text: "View Plans", link: "/pricing", color: "secondary" },
+                { text: "Browse eSIMs", link: "/products", color: "primary" },
+                { text: "Contact Support", link: "/contact-us", color: "secondary" },
             ],
         },
     ],

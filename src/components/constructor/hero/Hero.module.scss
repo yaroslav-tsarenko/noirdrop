@@ -5,8 +5,18 @@
   justify-content: center;
   overflow: hidden;
   text-align: center;
-  border-radius: 20px;
-  padding: 2rem;
+  border-radius: 26px;
+  padding: 4rem 2rem;
+
+  background: radial-gradient(
+                  circle at 20% 20%,
+                  rgba(148, 0, 150, 0.55),
+                  rgba(53, 0, 54, 0.85)
+  );
+
+  box-shadow:
+          0 12px 40px rgba(148, 0, 150, 0.35),
+          inset 0 0 40px rgba(53, 0, 54, 0.35);
 }
 
 .link{

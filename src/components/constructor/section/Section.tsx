@@ -26,7 +26,7 @@ const Section: React.FC<SectionProps> = ({
             style={{
                 flexDirection: reverse ? "row-reverse" : "row",
                 gap,
-                alignItems: align,
+                alignItems: "center",
                 justifyContent: isSingle ? "center" : justify,
             }}
         >
