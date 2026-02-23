@@ -1,6 +1,6 @@
 "use client";
 
-import React, {useState} from "react";
+import React, {useMemo, useState} from "react";
 import {useUser} from "@/context/UserContext";
 import Link from "next/link";
 import Avatar from "@mui/material/Avatar";
@@ -13,6 +13,7 @@ import {useCartStore} from "@/store/cartStore";
 import ButtonUI from "@/components/ui/button/ButtonUI";
 import styles from "./AuthButtons.module.scss";
 import { useRouter } from "next/navigation";
+import {useCurrency} from "@/context/CurrencyContext";
 
 const AuthButtons: React.FC = () => {
     const user = useUser();
@@ -21,8 +22,27 @@ const AuthButtons: React.FC = () => {
     const router = useRouter();
     const [drawerOpen, setDrawerOpen] = useState(false);
 
-    const items = useCartStore((s) => s.items);
-    const removeItem = useCartStore((s) => s.removeItem);
+    const {currency, setCurrency} = useCurrency();
+
+    const items = useCartStore((s: any) => s.items);
+    const removeItem = useCartStore((s: any) => s.removeItem);
+
+    // simple static rates; can be swapped for API later
+    const rates = useMemo(() => ({
+        EUR: 1,
+        GBP: 0.85,
+        USD: 1.1,
+    }) as const, []);
+
+    const formatMoney = (amountEur: number) => {
+        const value = amountEur * rates[currency];
+        return new Intl.NumberFormat("en-GB", {
+            style: "currency",
+            currency,
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+        }).format(value);
+    };
 
     const toggleDrawer = (open: boolean) => () => setDrawerOpen(open);
 
@@ -31,26 +51,41 @@ const AuthButtons: React.FC = () => {
         showAlert(ok ? "Logged out" : "Logout failed", "", ok ? "success" : "error");
     };
 
-    const total = items.reduce((sum, i) => sum + i.price * i.qty, 0);
+    const totalEur = items.reduce((sum: number, i: any) => sum + i.price * i.qty, 0);
 
     return (
         <div className={user ? styles.authedUser : styles.nonAuthedButtons}>
-            {/* 🛒 CART BUTTON – visible for everyone */}
+            {/* Currency selector (visible for everyone) */}
+            <div className={styles.currencyWrap}>
+                <select
+                    className={styles.currencySelect}
+                    value={currency}
+                    onChange={(e) => setCurrency(e.target.value as any)}
+                    aria-label="Currency"
+                >
+                    <option value="GBP">GBP</option>
+                    <option value="EUR">EUR</option>
+                    <option value="USD">USD</option>
+                </select>
+            </div>
+
+            {/*
+ CART BUTTON
+ visible for everyone */}
             <Tooltip title="Your eSIM Orders">
                 <IconButton onClick={toggleDrawer(true)} sx={{color: "#1A1A1A", mr: 1}}>
                     <FaShoppingCart size={20}/>
                 </IconButton>
             </Tooltip>
 
-            {/* 🟣 CART DRAWER WITH PURE-CSS eSIM CARD */}
+            {/* CART DRAWER */}
             <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer(false)}>
                 <div className={styles.cartDrawer}>
                     {/* HEADER WITH BIG ESIM CARD */}
                     <div className={styles.cartHeader}>
-
                         <div className={styles.headerText}>
                             <h3>Your eSIM Orders</h3>
-                            <p>Manage your selected eSIMs and checkout when you’re ready.</p>
+                            <p>Manage your selected eSIMs and checkout when youre ready.</p>
                         </div>
                     </div>
 
@@ -61,9 +96,8 @@ const AuthButtons: React.FC = () => {
                         {items.length === 0 ? (
                             <p className={styles.emptyText}>Your cart is empty.</p>
                         ) : (
-                            items.map((item) => (
+                            items.map((item: any) => (
                                 <div key={item.id} className={styles.cartItem}>
-                                    {/* small CSS eSIM card */}
                                     <div className={styles.simCardMini}>
                                         <div className={styles.simChipMini}/>
                                         <span className={styles.simMiniBadge}>eSIM</span>
@@ -71,7 +105,7 @@ const AuthButtons: React.FC = () => {
 
                                     <div className={styles.itemInfo}>
                                         <strong className={styles.itemName}>{item.name}</strong>
-                                        <span className={styles.price}>€{item.price}</span>
+                                        <span className={styles.price}>{formatMoney(item.price)}</span>
                                         <span className={styles.qty}>Qty: {item.qty}</span>
 
                                         <button
@@ -85,19 +119,23 @@ const AuthButtons: React.FC = () => {
                             ))
                         )}
                     </div>
+
                     <Divider sx={{my: 2}}/>
                     <div className={styles.totalRow}>
                         <span>Total</span>
-                        <strong>€{total.toFixed(2)}</strong>
+                        <strong>{formatMoney(totalEur)}</strong>
                     </div>
-                    {user ? <button
+
+                    {user ? (
+                        <button
                             className={styles.checkoutBtn}
                             onClick={() => router.push("/checkout")}
                         >
                             Checkout
                         </button>
-                        :
-                        <p className={styles.signInPrompt}>Please sign in to proceed to checkout.</p>}
+                    ) : (
+                        <p className={styles.signInPrompt}>Please sign in to proceed to checkout.</p>
+                    )}
                 </div>
             </Drawer>
 

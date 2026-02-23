@@ -1158,3 +1158,31 @@ export const ESIM_DATA = {
         "globalSim": 0.068
     }
 };
+
+export type ESIMRates = {
+    ultra: number;
+    plus: number;
+    globalEsim: number;
+    globalSim: number;
+};
+
+export type ESIMCountry = keyof typeof ESIM_DATA;
+
+/**
+ * Source prices in ESIM_DATA are stored in EUR.
+ * This helper returns rates converted to the requested currency.
+ */
+export function getEsimRates(
+    country: ESIMCountry,
+    convert: (amountEur: number) => number
+): ESIMRates | undefined {
+    const base = ESIM_DATA[country] as ESIMRates | undefined;
+    if (!base) return undefined;
+
+    return {
+        ultra: convert(base.ultra),
+        plus: convert(base.plus),
+        globalEsim: convert(base.globalEsim),
+        globalSim: convert(base.globalSim),
+    };
+}

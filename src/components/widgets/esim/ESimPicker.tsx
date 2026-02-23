@@ -1,15 +1,22 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { COUNTRIES } from "./countries";
-import { ESIM_DATA } from "./esimData";
+import { ESIM_DATA, getEsimRates } from "./esimData";
 import ESimRates from "./ESimRates";
 import { Select, Option } from "@mui/joy";
 import styles from "./ESimPicker.module.scss";
+import { useCurrency } from "@/context/CurrencyContext";
+import { convertFromEur } from "@/utils/currency";
 
 export default function ESimPicker() {
     const [country, setCountry] = useState("Afghanistan");
-    const rates = ESIM_DATA[country];
+    const { currency } = useCurrency();
+
+    const rates = useMemo(
+        () => getEsimRates(country as any, (eur) => convertFromEur(eur, currency)),
+        [country, currency]
+    );
 
     return (
         <div className={styles.container}>

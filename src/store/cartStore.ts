@@ -1,7 +1,23 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-export const useCartStore = create(
+export type CartItem = {
+    id: string | number;
+    name: string;
+    image?: string;
+    /** Base price in EUR */
+    price: number;
+    qty: number;
+};
+
+type CartState = {
+    items: CartItem[];
+    addItem: (item: CartItem) => void;
+    removeItem: (id: CartItem["id"]) => void;
+    clear: () => void;
+};
+
+export const useCartStore = create<CartState>()(
     persist(
         (set) => ({
             items: [],
@@ -28,7 +44,7 @@ export const useCartStore = create(
             clear: () => set({ items: [] }),
         }),
         {
-            name: "cart-storage",  // ключ в localStorage
+            name: "cart-storage", // ключ в localStorage
         }
     )
 );

@@ -65,7 +65,7 @@ const Hero: React.FC<HeroProps> = ({ bgImage, title, description, buttons = [] }
                 </div>
             </div>
         </section>
-    );
-};
+    )
+}
 
 export default Hero;

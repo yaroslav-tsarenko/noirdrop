@@ -12,7 +12,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default function Page() {
     return (
         <>
-            <PageCreator schemaMap={{tr: enHowItWorks, en: enHowItWorks}}/>;
+            <PageCreator schemaMap={{tr: enHowItWorks, en: enHowItWorks}}/>
         </>
     )
 }

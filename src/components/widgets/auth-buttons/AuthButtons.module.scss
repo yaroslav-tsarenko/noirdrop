@@ -455,4 +455,24 @@
   }
 }
 
+.currencyWrap {
+  display: flex;
+  align-items: center;
+}
 
+.currencySelect {
+  height: 38px;
+  padding: 0 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: #fff;
+  color: #1a1a1a;
+  font-weight: 600;
+  font-size: 13px;
+  outline: none;
+
+  &:focus {
+    border-color: rgba(0, 112, 243, 0.6);
+    box-shadow: 0 0 0 3px rgba(0, 112, 243, 0.12);
+  }
+}

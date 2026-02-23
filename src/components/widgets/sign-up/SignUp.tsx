@@ -54,7 +54,7 @@ export default function SignUpPage() {
                     fields={[
                         { name: "name", type: "text", placeholder: t.name, label: "Your Name" },
                         { name: "email", type: "email", placeholder: t.email, label: "Your Email" },
-                        { name: "password", type: "password", placeholder: t.password, label: "Your Very Strong Password ;)" }
+                        { name: "password", type: "password", placeholder: t.password, label: "Your Very Strong Password" }
                     ]}
                     submitLabel={t.submit}
                 />

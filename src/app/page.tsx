@@ -14,7 +14,7 @@ export default function Page() {
     return (
         <>
             <ESimPicker/>
-            <PageCreator schemaMap={{tr: enHome, en: enHome}}/>;
+            <PageCreator schemaMap={{tr: enHome, en: enHome}}/>
         </>
     )
 }
