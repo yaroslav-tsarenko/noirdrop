@@ -1,30 +1,24 @@
 import { PageSchema } from "@/components/constructor/page-render/types";
-import {
-    COMPANY_NAME,
-    COMPANY_EMAIL,
-    COMPANY_LEGAL_NAME,
-    COMPANY_ADDRESS,
-    COMPANY_NUMBER,
-} from "@/resources/constants";
+import { COMPANY_NAME, COMPANY_EMAIL } from "@/resources/constants";
 
 const faqSchema: PageSchema = {
     meta: {
-        title: `UPC Barcode FAQ — ${COMPANY_NAME}`,
-        description: `Frequently Asked Questions about generating and downloading UPC barcodes using ${COMPANY_NAME}.`,
+        title: `FAQ — ${COMPANY_NAME} eSIM`,
+        description: `Answers to common questions about buying, installing, and using an eSIM with ${COMPANY_NAME}.`,
         keywords: [
-            "faq",
+            "esim faq",
+            "how to activate esim",
+            "esim installation",
+            "travel esim",
+            "roaming alternative",
             `${COMPANY_NAME} help`,
-            "UPC barcode FAQ",
-            "UPC barcode generator",
-            "retail barcode",
-            "barcode formats",
         ],
         canonical: "/faq",
         ogImage: {
-            title: `${COMPANY_NAME} UPC Barcode FAQ`,
-            description: "Answers to the most common questions about UPC barcode generation and use.",
-            bg: "#ffffff",
-            color: "#000000",
+            title: `${COMPANY_NAME} eSIM FAQ`,
+            description: "Everything you need to know about eSIM: setup, compatibility, activation and troubleshooting.",
+            bg: "#eef4ff",
+            color: "#6a39ff",
         },
     },
     blocks: [
@@ -33,63 +27,47 @@ const faqSchema: PageSchema = {
             items: [
                 {
                     question: `What is ${COMPANY_NAME}?`,
-                    answer: `${COMPANY_NAME} is a tool for generating UPC barcodes for retail and inventory purposes, supporting various output formats and use cases.`,
+                    answer: `${COMPANY_NAME} is an eSIM marketplace that helps you get mobile data for travel in minutes. Choose a plan, receive a QR code, and activate on your phone — no physical SIM card required.`,
                 },
                 {
-                    question: "What is a UPC barcode?",
-                    answer: "A UPC (Universal Product Code) is a 12-digit barcode widely used in North America for product identification in retail stores.",
+                    question: "What is an eSIM?",
+                    answer: "An eSIM is a digital SIM built into your phone (or device). Instead of inserting a plastic SIM card, you install a carrier profile by scanning a QR code or using an activation code.",
                 },
                 {
-                    question: "How do I create a UPC barcode?",
-                    answer: "Enter your 12-digit UPC number into the generator, choose your preferred size and format, and click 'Generate'. You can then preview and download your barcode.",
+                    question: "Is my device compatible?",
+                    answer: "Most newer iPhones, Samsung Galaxy, Google Pixel, and many flagship devices support eSIM. If your phone supports eSIM, you’ll see an option like ‘Add eSIM’ or ‘Add Cellular Plan’ in settings.",
                 },
                 {
-                    question: "Can I download barcodes?",
-                    answer: "Yes. You can download your UPC barcode instantly in PNG, JPG, or SVG format, ready for print or digital use.",
+                    question: "How do I install and activate my eSIM?",
+                    answer: "After purchase, you’ll receive an eSIM QR code. Open your phone’s Mobile/Cellular settings, choose ‘Add eSIM’, scan the QR code, and follow the prompts. Activation timing depends on your plan (some activate immediately, others on first network use in the destination).",
                 },
                 {
-                    question: "What formats are supported?",
-                    answer: "We support standard barcode export formats like PNG, JPG, and SVG, suitable for printing, packaging, and digital workflows.",
+                    question: "Can I keep my physical SIM and phone number?",
+                    answer: "Yes. On dual‑SIM devices you can keep your physical SIM for calls/SMS and use the eSIM for data. You can pick which line is used for mobile data in your settings.",
                 },
                 {
-                    question: "Are these barcodes GS1 compliant?",
-                    answer: "Yes, as long as the input UPC number is valid and assigned by GS1, the generated barcode meets standard compliance requirements.",
+                    question: "Do I need to enable data roaming?",
+                    answer: "Some eSIM plans require enabling data roaming on the eSIM line to connect to partner networks. This does not mean you’ll be charged by your home carrier when done on the eSIM line.",
                 },
                 {
-                    question: "Can I generate multiple UPCs in bulk?",
-                    answer: "Yes. With our bulk generation feature, you can upload a list of UPC numbers and receive a batch of barcodes for download.",
+                    question: "Can I install the eSIM before I travel?",
+                    answer: "Yes — and it’s recommended. Install ahead of time while you have stable Wi‑Fi. Then switch mobile data to the eSIM when you arrive (or when you want to start using the plan).",
                 },
                 {
-                    question: "Can I use the barcodes for selling on Amazon or in stores?",
-                    answer: "Yes. As long as you have valid UPCs registered through GS1, our barcodes can be used for retail packaging, Amazon FBA, Shopify, Walmart, and more.",
+                    question: "What happens if I run out of data?",
+                    answer: "You can purchase another plan or top up (if available for your destination). Your dashboard keeps your purchase history and QR codes handy.",
                 },
                 {
-                    question: "Do I need an account?",
-                    answer: "No account is needed for generating single barcodes. However, signing up unlocks bulk generation, saved history, and advanced tools.",
+                    question: "Will this work with hotspot/tethering?",
+                    answer: "Hotspot support depends on your device and plan. In most cases it works normally, but some destinations/carriers may restrict tethering.",
                 },
                 {
-                    question: "Is this service free?",
-                    answer: "Basic UPC barcode generation is free. Bulk features and advanced exports may require a paid plan.",
+                    question: "I scanned the QR code and it failed — what should I do?",
+                    answer: "Make sure the eSIM wasn’t installed already, confirm you’re using the correct QR code, and try again on a strong Wi‑Fi connection. If it still fails, contact support and we’ll help you troubleshoot.",
                 },
                 {
-                    question: "Are my barcodes stored or shared?",
-                    answer: `${COMPANY_NAME} does not store or share your barcode data. All barcodes are generated locally and securely.`,
-                },
-                {
-                    question: "Can I customize barcode size and margins?",
-                    answer: "Yes. You can adjust the barcode size, quiet zone (margin), and resolution before exporting your barcode.",
-                },
-                {
-                    question: "What devices are supported?",
-                    answer: `${COMPANY_NAME} works smoothly on desktops, laptops, tablets, and smartphones across all major browsers.`,
-                },
-                {
-                    question: "Do UPC barcodes expire?",
-                    answer: "No. Once you generate and download a barcode for a valid UPC number, it can be used indefinitely on your product packaging.",
-                },
-                {
-                    question: "Who can I contact for help?",
-                    answer: `Our support team is available at ${COMPANY_EMAIL} to assist you with any issues related to barcode generation or formats.`,
+                    question: "How can I contact support?",
+                    answer: `Email us anytime at ${COMPANY_EMAIL} and include your order email + destination. We usually respond quickly and can help with installation and activation issues.`,
                 },
             ],
         },

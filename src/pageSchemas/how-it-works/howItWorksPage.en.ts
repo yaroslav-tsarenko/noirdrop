@@ -1,10 +1,6 @@
 import { PageSchema } from "@/components/constructor/page-render/types";
 import {
     COMPANY_NAME,
-    COMPANY_EMAIL,
-    COMPANY_LEGAL_NAME,
-    COMPANY_NUMBER,
-    COMPANY_ADDRESS,
 } from "@/resources/constants";
 
 const schema: PageSchema = {
@@ -38,7 +34,7 @@ const schema: PageSchema = {
             description: `Your journey to instant global connectivity starts here. No physical SIMs, no contracts — just one QR code and you’re online in minutes.`,
             buttons: [
                 { text: "Get Started", link: "/get-started", color: "primary" },
-                { text: "View Plans", link: "/services", color: "secondary" },
+                { text: "View Plans", link: "/pricing", color: "secondary" },
             ],
         },
 
@@ -72,9 +68,15 @@ const schema: PageSchema = {
         // ⭐ STEP 2 — Instant Delivery
         {
             type: "section",
-            reverse: true,
             gap: "2rem",
             left: {
+                type: "media",
+                mediaType: "image",
+                src: "image33",
+                height: "400px",
+                alt: "QR delivery",
+            },
+            right: {
                 type: "text",
                 title: "2. Receive Your eSIM Instantly",
                 description: `Once you complete checkout, we generate a unique QR code and deliver it directly to your email and dashboard. No waiting — your eSIM is ready immediately.`,
@@ -88,30 +90,16 @@ const schema: PageSchema = {
                 iconColor: "#0070f3",
                 iconBg: "#e6f7ff",
             },
-            right: {
-                type: "media",
-                mediaType: "image",
-                src: "image33",
-                height: "400px",
-                alt: "QR delivery",
-            },
         },
 
-        // ⭐ STEP 3 — Activate in Seconds
+        // ⭐ STEP 3 — Activate in Seconds (keep Z-pattern: text left, image right)
         {
             type: "section",
             gap: "2rem",
             left: {
-                type: "media",
-                mediaType: "image",
-                src: "image40",
-                height: "400px",
-                alt: "Activate eSIM",
-            },
-            right: {
                 type: "text",
                 title: "3. Activate Your eSIM",
-                description: `Open your phone’s eSIM settings, scan the QR code, and follow the system prompts. Your device activates the profile automatically.`,
+                description: `Open your phone’s eSIM settings, scan the QR code, and follow the system prompts. Your device installs the profile automatically.`,
                 bullets: [
                     "Activation in 1–2 minutes",
                     "No physical SIM needed",
@@ -122,14 +110,27 @@ const schema: PageSchema = {
                 iconColor: "#ff5cff",
                 iconBg: "#ffe9ff",
             },
+            right: {
+                type: "media",
+                mediaType: "image",
+                src: "image40",
+                height: "400px",
+                alt: "Activate eSIM",
+            },
         },
 
         // ⭐ STEP 4 — AI Routing (explained simply)
         {
             type: "section",
-            reverse: true,
             gap: "2rem",
             left: {
+                type: "media",
+                mediaType: "image",
+                src: "image44",
+                height: "430px",
+                alt: "Smart AI routing",
+            },
+            right: {
                 type: "text",
                 title: "4. Smart Network Selection",
                 description: `${COMPANY_NAME} automatically connects you to the best available local carrier using our AI-powered routing engine.`,
@@ -142,13 +143,6 @@ const schema: PageSchema = {
                 iconSize: 46,
                 iconColor: "#28a745",
                 iconBg: "#e6ffe6",
-            },
-            right: {
-                type: "media",
-                mediaType: "image",
-                src: "image44",
-                height: "430px",
-                alt: "Smart AI routing",
             },
         },
 
@@ -308,7 +302,7 @@ const schema: PageSchema = {
             title: "Start Using eSIM Today",
             description: `Instant activation. Global access. No roaming. ${COMPANY_NAME} makes travel simple.`,
             buttons: [
-                { text: "Choose Plan", link: "/services", color: "primary" },
+                { text: "Choose Plan", link: "/pricing", color: "primary" },
                 { text: "Get Started", link: "/get-started", color: "secondary" },
             ],
         },

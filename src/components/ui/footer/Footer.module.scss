@@ -82,12 +82,33 @@
   }
 }
 
+.rightsRow {
+  position: relative;
+  border-top: 1px solid #ddd;
+  padding-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .rights {
   text-align: center;
   font-size: 13px;
   color: #777;
-  border-top: 1px solid #ddd;
-  padding-top: 12px;
+}
+
+.payments {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.paymentIcon {
+  width: 34px;
+  height: 34px;
+  color: #666;
+  opacity: 0.95;
 }
 
 @media (max-width: 768px) {
@@ -106,5 +127,14 @@
 
   .column {
     align-items: center;
+  }
+
+  .rightsRow {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .payments {
+    justify-content: center;
   }
 }

@@ -2,9 +2,6 @@ import { PageSchema } from "@/components/constructor/page-render/types";
 import {
     COMPANY_NAME,
     COMPANY_EMAIL,
-    COMPANY_LEGAL_NAME,
-    COMPANY_NUMBER,
-    COMPANY_ADDRESS,
 } from "@/resources/constants";
 
 const schema: PageSchema = {
@@ -40,7 +37,7 @@ const schema: PageSchema = {
             description: `${COMPANY_NAME} brings borderless, contract-free mobile data to anyone, anywhere. Our AI-powered eSIM marketplace replaces roaming fees with instant digital access across 190+ countries.`,
             buttons: [
                 { text: "Explore Our Plans", link: "/services", color: "primary" },
-                { text: "Join the Network", link: "/get-started", color: "secondary" },
+                { text: "Join the Network", link: "/sign-up", color: "secondary" },
             ],
         },
 
@@ -141,7 +138,6 @@ const schema: PageSchema = {
         {
             type: "section",
             gap: "2rem",
-            reverse: true,
             right: {
                 type: "media",
                 mediaType: "image",

@@ -29,11 +29,16 @@ export const footerContent = {
         {
             title: "Navigation",
             links: [
-                { label: "Solutions", href: "/services" },
-                { label: "Plans & Pricing", href: "/pricing" },
                 { label: "Contact", href: "/contact-us" },
                 { label: "About Us", href: "/about-us" },
                 { label: "How It Works", href: "/how-it-works" },
+            ]
+        },
+        {
+            title: "Useful Links",
+            links: [
+                { label: "Solutions", href: "/services" },
+                { label: "Plans & Pricing", href: "/pricing" },
                 { label: "Blog", href: "/blog" },
                 { label: "FAQ", href: "/faq" },
             ]

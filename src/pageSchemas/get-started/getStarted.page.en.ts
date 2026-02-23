@@ -3,25 +3,23 @@ import { COMPANY_NAME, COMPANY_EMAIL } from "@/resources/constants";
 
 const schema: PageSchema = {
     meta: {
-        title: `Get Started with ${COMPANY_NAME} — Professional Barcode Generator`,
+        title: `Get Started with ${COMPANY_NAME} — eSIM Plans in Minutes`,
         description:
-            `Start creating high-quality barcodes (UPC-A, EAN-13, Code128, Code39) today. Fast setup, customizable formats, and print-ready exports for packaging, retail and logistics.`,
+            `Get online worldwide in minutes. Choose an eSIM plan, receive a QR code instantly, and activate on your phone — no physical SIM, no roaming surprises.` ,
         keywords: [
-            "barcode generator",
-            "UPC-A",
-            "EAN-13",
-            "Code128",
-            "Code39",
-            "retail barcode",
-            "print-ready barcodes",
-            "packaging labels",
-            "SKU barcodes",
-            "logistics barcodes"
+            "get started esim",
+            "buy esim",
+            "activate esim",
+            "travel esim",
+            "global data plans",
+            "qr code esim",
+            "international mobile data",
+            "roaming alternative"
         ],
         canonical: "/get-started",
         ogImage: {
-            title: "Get Started with Barcode Generator",
-            description: "Create and download professional barcodes quickly with flexible design options.",
+            title: `Get Started with ${COMPANY_NAME}`,
+            description: "Choose a plan, scan a QR code, and get online in minutes.",
             bg: "#f4faff",
             color: "#0070f3"
         }
@@ -31,36 +29,36 @@ const schema: PageSchema = {
         {
             type: "hero",
             bgImage: "image11",
-            title: "Start Creating Professional Barcodes Today",
+            title: "Get Online Worldwide in Minutes",
             description:
-                "Generate UPC-A, EAN-13, Code128 and Code39 barcodes for packaging, retail, and logistics. No design or coding skills required.",
+                "Pick an eSIM plan that fits your trip, receive a QR code instantly, and activate on your phone. No stores. No contracts. No physical SIM.",
             buttons: [
-                { text: "See Services", link: "/services", color: "primary" },
+                { text: "View Plans", link: "/pricing", color: "primary" },
                 { text: "Help Center", link: "/faq", color: "secondary" }
             ]
         },
 
         {
             type: "steps",
-            title: "How to Get Started in 3 Easy Steps",
+            title: "Get Started in 3 Easy Steps",
             items: [
                 {
                     number: 1,
-                    title: "Select Barcode Type",
-                    description: "Choose UPC-A, EAN-13, Code128 or Code39 for your product or SKU.",
-                    iconName: "edit"
+                    title: "Choose a Plan",
+                    description: "Select a country, regional, or global data plan based on your destination and usage.",
+                    iconName: "shopping_cart"
                 },
                 {
                     number: 2,
-                    title: "Customize & Preview",
-                    description: "Set size, DPI, human-readable text, colors, and preview instantly.",
-                    iconName: "palette"
+                    title: "Get Your QR Code",
+                    description: "After checkout, we deliver your eSIM QR code to email and your dashboard instantly.",
+                    iconName: "qr_code_2"
                 },
                 {
                     number: 3,
-                    title: "Download & Use",
-                    description: "Export barcodes in PNG, SVG or PDF and apply to packaging or labels.",
-                    iconName: "download"
+                    title: "Activate & Go Online",
+                    description: "Scan the QR code in your phone settings and connect when you arrive (or immediately, depending on the plan).",
+                    iconName: "rocket_launch"
                 }
             ]
         },
@@ -71,13 +69,13 @@ const schema: PageSchema = {
             gap: "2rem",
             left: {
                 type: "text",
-                title: "Why Choose Our Barcode Generator?",
+                title: "Why Choose Our eSIM Marketplace?",
                 description:
-                    "We make barcode creation simple, accurate, and fast. Ideal for businesses, designers, and logistics teams.",
+                    "We make global mobile data simple and reliable — built for travelers, teams, and creators.",
                 bullets: [
-                    "Automatic check-digit validation",
-                    "GS1-compliant output",
-                    "High-resolution, print-ready exports"
+                    "Instant delivery & activation instructions",
+                    "Coverage across 190+ destinations",
+                    "Roaming-free, predictable pricing"
                 ],
                 iconName: "star",
                 iconSize: 40,
@@ -90,7 +88,7 @@ const schema: PageSchema = {
                 src: "image12",
                 width: "100%",
                 height: "400px",
-                alt: "Professional barcode generation preview"
+                alt: "eSIM plan selection and activation preview"
             }
         },
 
@@ -101,23 +99,23 @@ const schema: PageSchema = {
             cards: [
                 {
                     image: "image5",
-                    title: "Enterprise-Grade Accuracy",
-                    description: "Correct check-digit math for UPC-A & EAN-13, compact Code128 for SKUs, and crystal-clear Code39.",
-                    buttonLink: "/services",
-                    buttonText: "See Services"
+                    title: "Fast, Reliable Connectivity",
+                    description: "Optimized carrier selection helps you stay connected with stable 4G/5G data in supported destinations.",
+                    buttonLink: "/pricing",
+                    buttonText: "View Plans"
                 },
                 {
                     image: "image6",
-                    title: "Brand Consistency",
+                    title: "Simple Activation",
                     description:
-                        "Customize fonts, human-readable text, and colors to match your packaging design.",
-                    buttonLink: "/faq",
-                    buttonText: "Learn More"
+                        "Scan a QR code and follow the device prompts. No store visits and no SIM tray swaps.",
+                    buttonLink: "/how-it-works",
+                    buttonText: "How It Works"
                 },
                 {
                     image: "image7",
-                    title: "Print-Ready Output",
-                    description: "Export PNG, SVG, PDF at up to 600 DPI for razor-sharp packaging and digital use.",
+                    title: "Travel-Friendly Pricing",
+                    description: "Transparent plans that help you avoid roaming surprises and reduce travel connectivity costs.",
                     buttonLink: "/pricing",
                     buttonText: "View Pricing"
                 }
@@ -132,19 +130,19 @@ const schema: PageSchema = {
                 src: "image8",
                 width: "100%",
                 height: "400px",
-                alt: "Bulk barcode export preview"
+                alt: "Manage your eSIMs in the dashboard"
             },
             right: {
                 type: "text",
-                title: "Bulk Generation for Businesses",
+                title: "Manage Everything from Your Dashboard",
                 description:
-                    "Upload SKU lists to create multiple barcodes at once — perfect for warehouses, e-commerce, and packaging runs.",
+                    "Keep your QR codes, installation steps, and plan details in one place — handy when you're on the move.",
                 bullets: [
-                    "Batch PNG export",
-                    "Predictable file naming",
-                    "Error-free at scale"
+                    "Access your eSIM QR anytime",
+                    "Clear setup steps per device",
+                    "Support contact in one click"
                 ],
-                iconName: "time",
+                iconName: "dashboard",
                 iconSize: 40,
                 iconColor: "#0070f3",
                 iconBg: "#e6f7ff"
@@ -153,42 +151,42 @@ const schema: PageSchema = {
 
         {
             type: "testimonials",
-            title: "What Our Clients Say",
+            title: "What Travelers Say",
             items: [
                 {
                     name: "Marta",
-                    role: "Packaging Lead",
-                    text: "UPC-A and EAN-13 exports are spot-on. Print house loved the SVGs.",
+                    role: "Business Traveler",
+                    text: "Landed, scanned the QR, and had data before leaving the airport. Super smooth.",
                     avatar: "https://i.pravatar.cc/150?img=5"
                 },
                 {
                     name: "Arman",
-                    role: "Ops Manager",
-                    text: "Bulk barcodes saved hours before a logistics deadline.",
+                    role: "Digital Nomad",
+                    text: "Stable connection across multiple countries. Way better than expensive roaming.",
                     avatar: "https://i.pravatar.cc/150?img=12"
                 },
                 {
                     name: "Li Wei",
-                    role: "Product Owner",
-                    text: "Code128 SKUs scan perfectly at POS — zero returns from retailers.",
+                    role: "Remote Worker",
+                    text: "Setup took two minutes. The instructions were clear and the plan worked right away.",
                     avatar: "https://i.pravatar.cc/150?img=8"
                 },
                 {
                     name: "David",
-                    role: "E-commerce",
-                    text: "Fast to configure, predictable filenames, clean exports.",
+                    role: "Frequent Traveler",
+                    text: "Great value and predictable cost. I don't worry about my bill anymore.",
                     avatar: "https://i.pravatar.cc/150?img=22"
                 },
                 {
                     name: "Sofia",
-                    role: "Brand Designer",
-                    text: "Barcode styling matched our brand perfectly. Great support too!",
+                    role: "Creator",
+                    text: "Perfect for streaming and uploading on the go. Coverage was solid where I needed it.",
                     avatar: "https://i.pravatar.cc/150?img=39"
                 },
                 {
                     name: "Nur",
-                    role: "Marketing",
-                    text: "Bulk generation and DPI control made campaign rollouts easy.",
+                    role: "Backpacker",
+                    text: "Loved not having to find a local SIM shop. Activated before my trip and it worked on arrival.",
                     avatar: "https://i.pravatar.cc/150?img=16"
                 }
             ]
@@ -198,20 +196,20 @@ const schema: PageSchema = {
             type: "faq",
             items: [
                 {
-                    question: "Do I need an account to generate barcodes?",
-                    answer: "No, basic features are available without an account. Sign up for bulk tools and history."
+                    question: "Do I need to remove my physical SIM?",
+                    answer: "No. eSIM works alongside your physical SIM. You can keep your number for calls and use eSIM for data."
                 },
                 {
-                    question: "What formats are available for download?",
-                    answer: "We support PNG, SVG, and PDF — perfect for digital or print usage."
+                    question: "How do I activate the eSIM?",
+                    answer: "After purchase, you'll receive a QR code. Scan it in your phone's cellular/mobile settings and follow the prompts."
                 },
                 {
-                    question: "How much does it cost?",
-                    answer: "We offer flexible plans. Visit the pricing page to find the right fit for you."
+                    question: "When should I install it — before or during travel?",
+                    answer: "You can install it any time. Many travelers install before departure and the plan activates when you arrive (depending on plan rules)."
                 },
                 {
-                    question: "What if I need help or a custom barcode format?",
-                    answer: `You can always reach out at ${COMPANY_EMAIL} — we're happy to assist!`
+                    question: "What if I need help?",
+                    answer: `You can reach support at ${COMPANY_EMAIL} — we’ll help you get connected.`
                 }
             ]
         },
@@ -221,13 +219,13 @@ const schema: PageSchema = {
             align: "center",
             left: {
                 type: "text",
-                title: "Ready to Generate Barcodes?",
+                title: "Ready to Get Online?",
                 description:
-                    "No long setup. No learning curve. Just fast, reliable, and professional barcodes in seconds.",
+                    "Choose a plan that matches your trip and activate in minutes — reliable data without the roaming stress.",
                 bullets: [
-                    "Trusted by small teams and enterprises",
-                    "Privacy-focused and ad-free",
-                    "Instant feedback and download"
+                    "Instant delivery",
+                    "Simple activation",
+                    "Coverage in 190+ destinations"
                 ],
                 iconName: "verified",
                 iconSize: 48,
@@ -237,7 +235,7 @@ const schema: PageSchema = {
                 centerDescription: true,
                 centerBullets: true,
                 buttons: [
-                    { text: "Get Started", link: "/get-started", color: "primary" },
+                    { text: "View Plans", link: "/pricing", color: "primary" },
                     { text: "Contact Us", link: "/contact-us", color: "secondary" }
                 ]
             }

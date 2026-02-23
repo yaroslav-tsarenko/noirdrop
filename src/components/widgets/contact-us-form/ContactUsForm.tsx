@@ -9,6 +9,12 @@ import styles from "./ContactUsForm.module.scss";
 import { validationSchema, initialValues, sendContactRequest } from "./schema";
 import { useAlert } from "@/context/AlertContext";
 import InputUI from "@/components/ui/input/InputUI";
+import {
+    COMPANY_ADDRESS,
+    COMPANY_EMAIL,
+    COMPANY_LEGAL_NAME,
+    COMPANY_NUMBER,
+} from "@/resources/constants";
 
 const ContactUsForm = () => {
     const { showAlert } = useAlert();
@@ -153,6 +159,44 @@ const ContactUsForm = () => {
                                 </div>
                             </motion.div>
 
+                            {/* COMPANY DETAILS */}
+                            <motion.div
+                                className={styles.companyDetails}
+                                initial={{ opacity: 0, y: 12 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.32, duration: 0.4 }}
+                            >
+                                <Typography level="title-md" className={styles.companyTitle}>
+                                    Company details
+                                </Typography>
+                                <div className={styles.companyGrid}>
+                                    {COMPANY_LEGAL_NAME && (
+                                        <div className={styles.companyItem}>
+                                            <span>Legal name</span>
+                                            <strong>{COMPANY_LEGAL_NAME}</strong>
+                                        </div>
+                                    )}
+                                    {COMPANY_NUMBER && (
+                                        <div className={styles.companyItem}>
+                                            <span>Company number</span>
+                                            <strong>{COMPANY_NUMBER}</strong>
+                                        </div>
+                                    )}
+                                    {COMPANY_ADDRESS && (
+                                        <div className={styles.companyItem}>
+                                            <span>Registered address</span>
+                                            <strong>{COMPANY_ADDRESS}</strong>
+                                        </div>
+                                    )}
+                                    {COMPANY_EMAIL && (
+                                        <div className={styles.companyItem}>
+                                            <span>Email</span>
+                                            <strong>{COMPANY_EMAIL}</strong>
+                                        </div>
+                                    )}
+                                </div>
+                            </motion.div>
+
                             {/* FORM ITSELF */}
                             <Formik
                                 initialValues={initialValues}
@@ -247,7 +291,7 @@ const ContactUsForm = () => {
                                                 loading={isSubmitting}
                                                 className={styles.submitBtn}
                                             >
-                                                Send eSIM support request
+                                                Send
                                             </Button>
 
                                             <p className={styles.footerNote}>

@@ -126,8 +126,9 @@ const pricingSchema: PageSchema = {
                 {
                     type: "pricing",
                     variant: "basic",
-                    title: "Custom Global eSIM Plan",
+                    title: "Custom",
                     price: "Dynamic",
+                    tokens: 0,
                     description: "Ideal for universities, travel platforms and telecom brands.",
                     features: [
                         "Custom token pool",
@@ -203,24 +204,34 @@ const pricingSchema: PageSchema = {
                     image: "image13",
                     title: "Speed Class L1",
                     description: "Standard 4G performance — globally reliable.",
-                    buttonLink: "/get-started",
+                    buttonLink: "#boosters",
                     buttonText: "Add Booster"
                 },
                 {
                     image: "image15",
                     title: "Speed Class L2",
                     description: "Optimized for video calls & navigation.",
-                    buttonLink: "/get-started",
+                    buttonLink: "#boosters",
                     buttonText: "Add Booster"
                 },
                 {
                     image: "image17",
                     title: "Speed Class L3",
                     description: "High-performance routing for business users.",
-                    buttonLink: "/get-started",
+                    buttonLink: "#boosters",
                     buttonText: "Enable Priority"
                 }
             ]
+        },
+
+        {
+            type: "text",
+            id: "boosters",
+            title: "Boosters",
+            description: "Increase routing priority and improve performance with Speed Class add-ons.",
+            iconName: "bolt",
+            iconColor: "#6a39ff",
+            iconBg: "#f3edff",
         },
 
         // 🌍 NEW — Top-Up Simulation Block

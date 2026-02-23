@@ -35,6 +35,8 @@ const labelText: Record<string, string> = {
     premium: "Premium"
 };
 
+const isDynamicPrice = (price: string) => price.trim().toLowerCase() === "dynamic";
+
 const PricingCard: React.FC<PricingCardProps> = ({
                                                      variant = "basic",
                                                      title,
@@ -49,7 +51,12 @@ const PricingCard: React.FC<PricingCardProps> = ({
     const { currency } = useCurrency();
 
     const { symbol } = currencyConfig[currency];
-    const [customAmount, setCustomAmount] = useState(MIN_CUSTOM_AMOUNT);
+    const [customAmountRaw, setCustomAmountRaw] = useState<string>(String(MIN_CUSTOM_AMOUNT));
+
+    const customAmount = (() => {
+        const n = Number(customAmountRaw);
+        return Number.isFinite(n) ? n : NaN;
+    })();
 
     const calcTokens = (amount: number) => Math.floor(amount * 100);
 
@@ -62,13 +69,20 @@ const PricingCard: React.FC<PricingCardProps> = ({
             return;
         }
 
-        if (price === "dynamic" && customAmount < MIN_CUSTOM_AMOUNT) {
-            showAlert(`Minimum amount is ${symbol}${MIN_CUSTOM_AMOUNT.toFixed(2)}`, "Please enter a higher amount", "warning");
-            return;
+        if (isDynamicPrice(price)) {
+            const amountNum = Number(customAmountRaw);
+            if (!Number.isFinite(amountNum) || amountNum < MIN_CUSTOM_AMOUNT) {
+                showAlert(
+                    `Minimum amount is ${symbol}${MIN_CUSTOM_AMOUNT.toFixed(2)}`,
+                    "Please enter a valid amount",
+                    "warning"
+                );
+                return;
+            }
         }
 
         try {
-            const amount = price === "dynamic" ? calcTokens(customAmount) : tokens;
+            const amount = isDynamicPrice(price) ? calcTokens(Number(customAmountRaw)) : tokens;
 
             const res = await fetch("/api/user/buy-tokens", {
                 method: "POST",
@@ -77,7 +91,10 @@ const PricingCard: React.FC<PricingCardProps> = ({
                 body: JSON.stringify({ amount }),
             });
 
-            if (!res.ok) throw new Error("Failed to buy tokens");
+            if (!res.ok) {
+                showAlert("Error", "Failed to buy tokens", "error");
+                return;
+            }
 
             const data = await res.json();
             showAlert(`Success!`, `You purchased ${amount} tokens.`, "success");
@@ -93,15 +110,27 @@ const PricingCard: React.FC<PricingCardProps> = ({
             <div className={styles.cornerLabel}>{labelText[variant]}</div>
             <h3 className={styles.title}>{title}</h3>
 
-            {price === "dynamic" ? (
+            {isDynamicPrice(price) ? (
                 <>
                     <Input
                         type="number"
-                        value={customAmount}
+                        value={customAmountRaw}
                         onChange={(e) => {
-                            const value = Number(e.target.value);
-                            if (value.toString().length > 7) return;
-                            setCustomAmount(Math.max(Math.min(value, MAX_CUSTOM_AMOUNT), MIN_CUSTOM_AMOUNT));
+                            const raw = e.target.value;
+                            // allow clearing
+                            if (raw === "") {
+                                setCustomAmountRaw("");
+                                return;
+                            }
+                            // keep only a reasonable length to prevent absurd values
+                            if (raw.length > 10) return;
+                            const value = Number(raw);
+                            if (!Number.isFinite(value)) {
+                                setCustomAmountRaw(raw);
+                                return;
+                            }
+                            const clamped = Math.max(Math.min(value, MAX_CUSTOM_AMOUNT), MIN_CUSTOM_AMOUNT);
+                            setCustomAmountRaw(String(clamped));
                         }}
                         slotProps={{ input: { min: MIN_CUSTOM_AMOUNT, max: MAX_CUSTOM_AMOUNT, step: 0.01 } }}
                         sx={{ mb: 2, width: "100%" }}
@@ -109,12 +138,22 @@ const PricingCard: React.FC<PricingCardProps> = ({
                         variant="outlined"
                         size="lg"
                     />
-                    <p className={styles.price}>
-                        {symbol}{customAmount.toFixed(2)}{" "}
-                        <span className={styles.tokens}>
-                            ≈ {calcTokens(customAmount)} tokens
-                        </span>
-                    </p>
+
+                    {Number.isFinite(customAmount) ? (
+                        <p className={styles.price}>
+                            {symbol}{customAmount.toFixed(2)}{" "}
+                            <span className={styles.tokens}>
+                                ≈ {calcTokens(customAmount)} tokens
+                            </span>
+                        </p>
+                    ) : (
+                        <p className={styles.price}>
+                            {symbol}{MIN_CUSTOM_AMOUNT.toFixed(2)}{" "}
+                            <span className={styles.tokens}>
+                                ≈ {calcTokens(MIN_CUSTOM_AMOUNT)} tokens
+                            </span>
+                        </p>
+                    )}
                 </>
             ) : (
                 <p className={styles.price}>
