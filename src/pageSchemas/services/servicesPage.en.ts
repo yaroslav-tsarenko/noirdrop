@@ -15,7 +15,7 @@ const schema: PageSchema = {
             "carrier intelligence",
             `${COMPANY_NAME} esim platform`
         ],
-        canonical: "/solutions",
+        canonical: "/services",
         ogImage: {
             title: `${COMPANY_NAME} Solutions`,
             description: "AI-powered systems for eSIM platforms, telecom automation & digital onboarding.",
@@ -33,9 +33,21 @@ const schema: PageSchema = {
             description:
                 "Boost your telecom or eSIM platform with automation, AI-driven analytics, pricing intelligence, global coverage maps and real-time customer onboarding flows.",
             buttons: [
-                { text: "Explore Tools", link: "/solutions", color: "primary" },
+                { text: "Explore Tools", link: "#rates-per-country", color: "primary" },
                 { text: "Get a Demo", link: "/contact-us", color: "secondary" }
             ]
+        },
+
+        { type: "rates-per-country" },
+
+        // Tools anchor
+        {
+            type: "text",
+            title: "Tools",
+            description: "",
+            iconName: "build",
+            iconColor: "#6a39ff",
+            iconBg: "#f3edff",
         },
 
         // GRID 6×6 — Key Solutions Overview
@@ -116,7 +128,8 @@ const schema: PageSchema = {
                         iconBg: "#e6fffb"
                     }
                 }
-            ]
+            ],
+            style: { scrollMarginTop: "96px" },
         },
 
         // SECTION – Image Left / Text Right
@@ -174,7 +187,6 @@ const schema: PageSchema = {
         // SECTION – Reverse
         {
             type: "section",
-            reverse: true,
             gap: "2rem",
             left: {
                 type: "media",
@@ -217,11 +229,11 @@ const schema: PageSchema = {
                     image: "image26",
                     title: "Coverage Explorer",
                     description: "Interactive global map for speed, latency and signal strength.",
-                    buttonLink: "/coverage",
+                    buttonLink: "/services",
                     buttonText: "View Map"
                 },
                 {
-                    image: "image27",
+                    image: "image28",
                     title: "AI Trouble-Shooter",
                     description: "Fix activation and connectivity issues instantly with AI logic.",
                     buttonLink: "/contact-us",

@@ -23,6 +23,7 @@ export type HeroBlock = {
 
 export interface TextBlock {
     type: "text";
+    id?: string;
     title?: string;
     titleLevel?: 1 | 2 | 3 | 4 | 5 | 6;
     description?: string;
@@ -161,6 +162,10 @@ export type StepsBlock = {
     items: StepItem[];
 };
 
+export type RatesPerCountryBlock = {
+    type: "rates-per-country";
+};
+
 export type PageBlock =
     | TextBlock
     | MediaBlock
@@ -173,7 +178,8 @@ export type PageBlock =
     | HeroBlock
     | QRGeneratorBlock
     | TestimonialsBlock
-    | StepsBlock;
+    | StepsBlock
+    | RatesPerCountryBlock;
 
 export type PageSchema = {
     meta: MetaSchema;

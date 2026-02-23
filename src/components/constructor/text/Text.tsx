@@ -1,4 +1,4 @@
-import React, {JSX, ReactNode} from 'react';
+import React, {JSX} from 'react';
 import styles from './Text.module.scss';
 import clsx from 'clsx';
 import {
@@ -164,16 +164,9 @@ export interface TextProps {
     centerDescription?: boolean;
     centerBullets?: boolean;
     iconName?: keyof typeof ICON_MAP;
-    iconSize?: number;
-    iconColor?: string;
-    iconBg?: string;
-    iconAlign?: "center" | "left" | "right";
     buttons?: TextButton[];
+    id?: string;
 }
-
-const DEFAULT_ICON_SIZE = 64;
-const DEFAULT_ICON_COLOR = "#0070f3";
-const DEFAULT_ICON_BG = "#f4faff";
 
 const Text: React.FC<TextProps> = ({
                                        title,
@@ -184,42 +177,13 @@ const Text: React.FC<TextProps> = ({
                                        centerTitle = false,
                                        centerDescription = false,
                                        centerBullets = false,
-                                       iconName,
-                                       iconSize = DEFAULT_ICON_SIZE,
-                                       iconColor = DEFAULT_ICON_COLOR,
-                                       iconBg = DEFAULT_ICON_BG,
-                                       iconAlign = "center",
                                        buttons = [],
+                                       id,
                                    }) => {
     const headingTag = `h${titleLevel}` as keyof JSX.IntrinsicElements;
-    const IconComponent = iconName ? ICON_MAP[iconName] : undefined;
-
-    const iconAlignClass =
-        iconAlign === "left"
-            ? styles.alignLeft
-            : iconAlign === "right"
-                ? styles.alignRight
-                : styles.alignCenter;
 
     return (
-        <div className={styles.textBlock}>
-           {/* {IconComponent && (
-                <div
-                    className={clsx(styles.bigIcon, iconAlignClass)}
-                    style={{
-                        background: iconBg,
-                        borderRadius: "3px",
-                        width: iconSize + 32,
-                        height: iconSize + 32,
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        marginBottom: 24,
-                    }}
-                >
-                    <IconComponent size={iconSize} color={iconColor} />
-                </div>
-            )}*/}
+        <div className={styles.textBlock} id={id}>
             {title &&
                 React.createElement(
                     headingTag,
@@ -262,7 +226,7 @@ const Text: React.FC<TextProps> = ({
                         <ButtonUI
                             key={idx}
                             color={btn.color || "primary"}
-                            variant="contained"
+                            variant={(btn.color === "secondary" ? "outlined" : "solid")}
                             sx={{
                                 borderRadius: "6px",
                                 padding: "10px 24px",
@@ -274,8 +238,6 @@ const Text: React.FC<TextProps> = ({
                             }}
                             href={btn.link}
                             component="a"
-                            target="_blank"
-                            rel="noopener noreferrer"
                         >
                             {btn.text}
                         </ButtonUI>

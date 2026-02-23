@@ -13,6 +13,7 @@ import PricingCard from "../pricing-card/PricingCard";
 import QRGenerator from "@/components/widgets/qr-generator/QRGenerator";
 import Testimonials from "../testimonials/Testimonials";
 import Steps from "../steps/Steps";
+import RatesPerCountryBlock from "./RatesPerCountryBlock";
 
 import type {
     PageSchema,
@@ -31,6 +32,7 @@ import type {
     AlignInput,
     HeroBlock,
     QRGeneratorBlock,
+    RatesPerCountryBlock as RatesPerCountryBlockType,
 } from "./types";
 import Hero from "@/components/constructor/hero/Hero";
 import FadeIn from "@/components/constructor/fade-in/FadeIn";
@@ -71,6 +73,7 @@ function RenderSteps(b: StepsBlock) {
 function RenderText(b: TextBlock) {
     return (
         <Text
+            id={(b as any).id}
             title={b.title}
             description={b.description}
             bullets={b.bullets}
@@ -142,6 +145,10 @@ function RenderQRGenerator(_b: QRGeneratorBlock) {
     return <QRGenerator />;
 }
 
+function RenderRatesPerCountry(_b: RatesPerCountryBlockType) {
+    return <RatesPerCountryBlock />;
+}
+
 // ------------------- grid + section -------------------
 
 function mapAlign(a?: AlignInput): "center" | "start" | "end" | undefined {
@@ -164,8 +171,8 @@ function RenderGrid(b: GridBlock) {
             : (b.cards?.map((c, idx) => {
                 if ((c as any).type === "pricing") {
                     return {
-                        key: c.title ?? String(idx),
-                        block: c as PricingBlock,
+                        key: (c as any).title ?? String(idx),
+                        block: (c as unknown) as PricingBlock,
                     };
                 }
                 return {
@@ -272,10 +279,14 @@ function renderBlock(block: PageBlock, key?: React.Key): React.ReactNode {
                     <RenderTestimonials {...(block as TestimonialsBlock)} />
                 </FadeIn>
             );
-        default: {
-            const _exhaustive: never = block;
-            return _exhaustive;
-        }
+        case "rates-per-country":
+            return (
+                <FadeIn key={key}>
+                    {RenderRatesPerCountry(block as RatesPerCountryBlockType)}
+                </FadeIn>
+            );
+        default:
+            return null;
     }
 }
 

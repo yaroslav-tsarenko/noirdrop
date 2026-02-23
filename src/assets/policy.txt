@@ -1,0 +1,335 @@
+Terms and Conditions
+Effective date: 17 October 2024
+1. Introduction
+1.1. These Terms and Conditions (“Terms”) govern your access to and use of the noirdrop.co.uk website and related services (the “Service”), operated by HARTDELL LIMITED (company number 16021824), with registered office at Academy House, 11 Dunraven Place, Bridgend, Mid Glamorgan, United Kingdom, CF31 1JF (“we”, “us”, “our”).
+1.2. By accessing or using the Service, creating an Account, purchasing Tokens, placing an Order, or receiving/using an eSIM, you agree to be bound by these Terms. If you do not agree, you must not use the Service.
+1.3. These Terms are intended to be read together with our Privacy Policy and Cookies Policy (together, our “Policies”). If there is a conflict, these Terms prevail in relation to use of the Service.
+2. Definitions
+•	“Account” means the user profile created on the Service.
+•	“Wallet” means your Account balance of Tokens and the related transaction history displayed in your Account.
+•	“Token(s)” means the internal virtual unit of account used on the Service to purchase eligible digital products and services.
+•	“Fiat” means government-issued currency (GBP, EUR, USD).
+•	“eSIM” means a digital SIM profile delivered electronically (e.g., via QR code / activation details) for installation on a compatible device.
+•	“Plan” means an eSIM data plan (and any included services, if explicitly stated) offered through the Service.
+•	“Order” means a request placed through the Service to obtain a Plan using Tokens.
+•	“Escrow / Reserve” means Tokens temporarily held (reserved) from your Wallet when you place an Order, pending fulfilment, cancellation, or completion.
+•	“Digital Content” includes eSIM profiles, QR codes, activation instructions, and any digital materials provided with a Plan.
+3. Eligibility and Account Registration
+3.1. You must be at least 18 years old to create an Account and use the Service.
+3.2. You must provide accurate and up-to-date information (including your name, email address, and a password). You are responsible for maintaining the confidentiality of your login credentials and for all activity under your Account.
+3.3. You must notify us immediately at info@noirdrop.co.uk if you suspect any unauthorised use of your Account or security breach.
+3.4. We may refuse registration, suspend, or terminate Accounts where we reasonably suspect fraud, abuse, unlawful activity, or a breach of these Terms.
+4. Tokens, Pricing, Payments, and Wallet
+4.1. Nature of Tokens. Tokens are an internal credit system used solely within the Service. Tokens are not legal tender, not e-money, and not a financial instrument. Tokens cannot be redeemed for cash or transferred outside the platform, except where mandatory consumer law requires otherwise.
+4.2. Buying Tokens (Fiat → Tokens). You can purchase Token packages using supported payment methods (currently Visa and MasterCard) in GBP, EUR, or USD. Token package pricing, exchange rates (if any), and the number of Tokens included are displayed at checkout.
+4.3. Taxes. Prices may include or exclude applicable taxes (such as VAT) depending on your location and the applicable rules. Any applicable taxes will be shown at checkout before you confirm payment.
+4.4. Payment Processing. Payments are handled by secure third-party payment processors. By submitting payment details, you authorise us (via our processors) to charge the total amount due. We do not store full card details.
+4.5. Wallet Records. Your Wallet may show your Token balance, Orders, reservations (Escrow/Reserve), refunds, and other transaction entries. You agree that our transaction records are prima facie evidence of your Token activity, subject to correction in case of error.
+4.6. Chargebacks and Reversals. If you initiate a chargeback or payment reversal, we may suspend your Account and/or cancel pending Orders while investigating. Where a chargeback is upheld or a payment is reversed, we may deduct the corresponding Tokens from your Wallet (or require repayment) and recover any third-party fees reasonably incurred.
+4.7. Dormant Accounts. If your Account remains completely inactive for a continuous period of 24 months, we may classify it as dormant. We will provide at least 30 days’ notice to your registered email address before taking action (which may include account closure). Any action taken will comply with applicable consumer law.
+5. Orders, Escrow (Safe Deal), and Delivery
+5.1. Placing an Order. When you place an Order for a Plan, the required number of Tokens will be reserved (Escrow/Reserve) from your Wallet.
+5.2. Fulfilment. Once the Order is confirmed and fulfilled, the reserved Tokens will be captured/spent, and you will receive access to the eSIM/activation details in your Account and/or via email notification.
+5.3. Cancellation and Token Return. If an Order is cancelled before fulfilment (for example, where fulfilment is not possible or you cancel within the Service where cancellation is available), the reserved Tokens will be returned to your Wallet.
+5.4. Digital Delivery. eSIMs and related Digital Content are delivered digitally. Delivery may be immediate or near-immediate, but timing can vary due to technical or third-party dependencies.
+5.5. Deemed Delivery. Delivery is deemed to have occurred when the eSIM/activation details are made available in your Account or sent to your registered email address.
+5.6. Technical Compatibility. You are responsible for ensuring your device is eSIM-compatible, unlocked, and supports the relevant bands/technology required for the Plan. We do not guarantee that all devices, operating systems, or older software versions will work with every Plan.
+6. eSIM Use, Activation, and Plan Conditions
+6.1. Installation and Activation. You must follow the provided installation and activation instructions. Some Plans may require an internet connection (Wi-Fi or mobile) for installation.
+6.2. When a Plan Starts. The validity period of a Plan may start (a) upon installation, (b) upon first network connection in the destination, or (c) upon delivery—depending on the Plan terms shown at purchase. The applicable rule will be shown in the Plan description or delivery details.
+6.3. Data-Only / Voice / SMS. Unless explicitly stated otherwise, Plans are typically data-only and may not include voice calls, SMS, or a phone number. Emergency calling may not be supported on data-only eSIMs.
+6.4. Coverage and Quality. Coverage, speeds, latency, and network availability depend on local operators and conditions (including congestion, geography, maintenance, and regulatory constraints). We do not guarantee uninterrupted service, specific speeds, or continuous coverage.
+6.5. Fair Use and Prohibited Use. You must not use any Plan for unlawful purposes, network abuse, excessive tethering where prohibited, resale, SIM-boxing, spamming, or any activity that could harm networks or violate operator policies. Plans may be subject to fair use policies or technical limits described at purchase.
+6.6. One-Time Use / Non-Transferability. Unless explicitly stated, eSIM profiles and activation details are intended for use by a single end user/device and are not transferable, resellable, or shareable.
+7. Refunds, Cancellations, and Consumer Rights (UK)
+7.1. Token Packages (Consumer Cancellation Right). If you are a consumer in the UK, you may have a legal right to cancel the purchase of a Token package within 14 days, provided you have not used any Tokens and no Digital Content has been supplied based on those Tokens.
+7.2. Loss of Cancellation Right for Digital Content. Where you redeem Tokens to obtain an eSIM/Plan (Digital Content) and you request or accept immediate delivery, you acknowledge that you may lose your right to cancel under the Consumer Contracts Regulations once delivery begins, to the extent permitted by law.
+7.3. Plans / eSIM Refunds. Due to the nature of digital eSIM delivery and the risk of copying/activation, fulfilled Orders are generally non-refundable except where:
+•	we fail to deliver the eSIM/activation details;
+•	the Digital Content is defective or not as described; or
+•	a refund is required by applicable consumer law.
+7.4. Order Cancellation (Before Fulfilment). Where cancellation is available before fulfilment, reserved Tokens will be returned to your Wallet.
+7.5. How to Request a Refund/Support. All refund requests and fault reports must be submitted to info@noirdrop.co.uk with your Account email and Order details. We do not process automatic refunds.
+8. Third Parties and Our Role
+8.1. We operate the platform and may source Plans and connectivity via third-party technology providers and mobile network operators. Your service experience may depend on those third parties.
+8.2. We are not responsible for outages, interruptions, or performance issues caused by third-party networks or circumstances outside our reasonable control, subject to your statutory rights.
+9. Intellectual Property and Licence
+9.1. All intellectual property rights in the Service (including software, branding, and website content) are owned by us or our licensors.
+9.2. We grant you a limited, non-exclusive, non-transferable, revocable licence to use the Service for your personal or internal business use (as applicable) in accordance with these Terms.
+9.3. You must not copy, modify, reverse engineer, scrape, or attempt to extract source code or proprietary components of the Service, except to the extent permitted by law.
+10. Acceptable Use and Prohibited Conduct
+You must not:
+•	use the Service for unlawful or fraudulent activity;
+•	attempt to bypass security or access other users’ Accounts;
+•	interfere with the Service or networks (including automated abuse);
+•	resell eSIMs/Plans or Tokens, or represent them as your own;
+•	submit false information or impersonate others.
+11. Limitation of Liability and Indemnity
+11.1. Nothing in these Terms limits or excludes liability for death or personal injury caused by negligence, fraud, or any liability that cannot be excluded under law.
+11.2. Subject to clause 11.1, our total liability arising out of or in connection with the Service shall not exceed the total amount you paid for Token packages in the 12 months preceding the event giving rise to the claim.
+11.3. We are not liable for indirect, incidental, special, or consequential losses, including loss of profits, loss of business, loss of data, or loss arising from network outages or device incompatibility, to the maximum extent permitted by law.
+11.4. You agree to indemnify us against claims, losses, and expenses arising from your misuse of the Service, breach of these Terms, or unlawful activity.
+12. Data Protection
+We process personal data (including Account identifiers, Wallet balance, and transaction history) in accordance with our Privacy Policy.
+13. Changes to These Terms
+We may update these Terms from time to time. We will post the updated version on the Service and update the “Effective date”. Continued use of the Service after changes take effect constitutes acceptance of the updated Terms.
+14. Governing Law and Jurisdiction
+These Terms are governed by the laws of England and Wales. The courts of England and Wales shall have exclusive jurisdiction, subject to mandatory consumer protection rights that may apply in your country of residence.
+15. Contact Details
+HARTDELL LIMITED
+Company number: 16021824
+Registered office: Academy House, 11 Dunraven Place, Bridgend, Mid Glamorgan, United Kingdom, CF31 1JF
+Phone: +44 7537 166395
+Email: info@noirdrop.co.uk
+
+
+
+
+
+
+Refund & Return Policy
+Effective date: 17 October 2024
+1. Summary
+•	Request Handling: All refund requests are handled under this Policy and applicable UK consumer law, taking into account the digital nature of eSIM delivery and Token-based Wallet payments.
+•	Processing Time: Typically 5–10 business days after approval (bank processing timelines may vary).
+•	Token Usage: Tokens are a digital credit used to place Orders. Once Tokens are captured/spent for a fulfilled eSIM/Plan, they are generally non-refundable, except where required by law or where we fail to deliver.
+•	No Physical Returns: noirdrop provides digital eSIM profiles and activation details. There are no physical goods to ship or return.
+•	Network/Preference Disclaimer: Refunds are not granted solely due to personal preference, expected speed, roaming experience, local coverage issues, or change of mind after delivery/activation, subject to your statutory rights.
+•	Contact: To submit a request, email info@noirdrop.co.uk with your Account details and Order reference.
+2. Scope and Legal Notice
+This Refund & Return Policy (“Policy”) governs cancellations, disputes, and refund requests for purchases made via noirdrop.co.uk, including Token purchases (Wallet top-ups) and the redemption of Tokens for eSIM Plans.
+The Service is operated by HARTDELL LIMITED (Company Number 16021824), registered at Academy House, 11 Dunraven Place, Bridgend, Mid Glamorgan, United Kingdom, CF31 1JF (“noirdrop”, “we”, “us”, “our”).
+Nothing in this Policy is intended to limit your statutory rights under UK law (including the Consumer Rights Act 2015 and Consumer Contracts Regulations 2013), except where lawful exemptions for digital content apply.
+3. Key Definitions
+•	Tokens: Digital credit held in your Wallet, used to place Orders within the Service.
+•	Wallet: Your Token balance and transaction history within your Account.
+•	Plan / eSIM: A digital SIM profile and related activation details delivered electronically (e.g., QR code / activation instructions) enabling mobile data (and any included services if explicitly stated).
+•	Order: A confirmed purchase of a Plan using Tokens.
+•	Escrow / Reserve: Tokens temporarily held from your Wallet when you place an Order, pending fulfilment or cancellation.
+•	Digital Content: eSIM profile, QR code, activation details, and any digital instructions/materials supplied with the Plan.
+4. General Refund Principles
+4.1. Digital Delivery and Loss of Withdrawal Right (Where Applicable).
+By redeeming Tokens and placing an Order for an eSIM/Plan, you may be asked to consent to immediate digital delivery/performance. Where you consent to immediate delivery, you acknowledge that you may lose your statutory right to withdraw (the 14-day cooling-off period) for that specific digital content once delivery begins, to the extent permitted by law.
+4.2. Refund Cap.
+Any fiat refund, where granted, is limited to the fiat amount paid for the relevant Token transaction or Order. We are not responsible for third-party fees (e.g., bank charges), currency conversion losses, or overdraft fees.
+4.3. Device Compatibility and User Setup.
+You are responsible for ensuring your device is eSIM-compatible, unlocked, and capable of installing/using the Plan. Refunds may be refused where issues arise from incompatible devices, unsupported software, incorrect installation steps, or local device restrictions—subject to your statutory rights.
+4.4. Network Conditions and Subjectivity.
+Connectivity depends on local operators, congestion, geography, maintenance, building penetration, and regulation. Refunds will not be issued solely because:
+•	you expected faster speeds or stronger coverage;
+•	service quality varies by location/time;
+•	you changed your travel plans or no longer need the Plan;
+•	you prefer a different operator than the one used for routing/coverage.
+This does not affect your rights if the service is materially not as described or we fail to deliver.
+5. Token Purchases (Wallet Top-Ups)
+5.1. Prepayment Only.
+Tokens are sold as bundles and used solely within the Service. Tokens are not redeemable for cash outside the platform, except where required by applicable law.
+5.2. 14-Day Cancellation for Unused Tokens (Consumers).
+If you are a UK consumer, you may request a refund for a Token package within 14 days of purchase only if none of the Tokens from that specific purchase have been used and no digital content has been supplied based on those Tokens.
+Once any Tokens from that purchase are used (even partially), the package is treated as used and is generally non-refundable, and we do not issue partial refunds for partially used Token packages (subject to mandatory consumer law).
+5.3. Expiry & Inactivity.
+Tokens do not expire under normal usage. If your Account remains completely inactive for a continuous period of 24 months, we may classify it as dormant and take proportionate measures in line with our Terms and applicable law, after providing notice.
+6. Cancellations and Refunds for Plans (Orders)
+6.1. Before Fulfilment (Escrow/Reserve Stage).
+If an Order is cancelled before we deliver the eSIM/activation details, the reserved Tokens will be returned to your Wallet.
+6.2. After Fulfilment (Delivered eSIM/Activation Details).
+Once the eSIM/activation details have been delivered (made available in your Account and/or sent to your email), the Order is generally non-cancellable and non-refundable, due to the nature of digital delivery—except where:
+•	we fail to deliver;
+•	the Digital Content is defective or not as described; or
+•	a refund is required by law.
+6.3. Activation and Use.
+Where an eSIM has been installed and/or activated, refunds are generally not available unless required by law or there is a verified fault attributable to us (for example, we supplied invalid activation details).
+7. Quality Issues and Technical Faults
+7.1. Non-Delivery / Invalid Details.
+If you did not receive the eSIM/activation details, or the provided details are invalid due to our error, notify us within 7 days of delivery. We will, at our option:
+•	reissue the eSIM/activation details; or
+•	credit your Wallet with the exact amount of Tokens spent for that Order; or
+•	issue a fiat refund if we cannot rectify the issue and a refund is required or appropriate under the circumstances.
+7.2. Technical Issues on Our Side vs. Device/Network Issues.
+We may ask for reasonable evidence (screenshots, error codes, device model, OS version) to determine whether the issue is due to our systems, third-party provisioning, or the user’s device/network. If the issue is caused by device incompatibility, user error, or local network conditions, refunds may be refused, subject to your statutory rights.
+8. How to Request a Refund
+Email info@noirdrop.co.uk with the subject line “Refund Request” and include:
+•	Account email address;
+•	Order reference / transaction reference;
+•	Description of the issue (e.g., “Activation details invalid”, “Duplicate charge”, “eSIM not delivered”);
+•	Evidence (screenshots, error messages, proof of double charge if applicable).
+Timeline:
+•	We aim to acknowledge receipt within 48 hours.
+•	We aim to provide a decision within 5 business days.
+•	Approved fiat refunds are processed within 5–10 business days (your bank may take longer to reflect funds).
+9. Chargebacks and Disputes
+9.1. Chargebacks.
+We encourage you to contact support before initiating a bank dispute. Many issues can be resolved faster by reissuing an eSIM or crediting Tokens where appropriate.
+9.2. Fraud and Abuse.
+If a chargeback is initiated for a validly delivered Token purchase or fulfilled Order without a legitimate basis, we may suspend your Account during investigation and take reasonable steps to protect the Service, including providing relevant transaction and access records to payment processors and banks where permitted by law.
+10. Taxes
+Prices are shown as inclusive or exclusive of applicable taxes as stated at checkout. If a fiat refund is issued, we will refund any tax component included in the original payment where required by law and/or where it is part of the refunded amount.
+11. Data Retention and Data Protection
+To process refunds, prevent fraud, and meet accounting/tax obligations, we may retain transaction and dispute records for up to 6 years, in line with UK legal and accounting requirements. This processing is conducted in accordance with our Privacy Policy.
+12. Illustrative Examples
+•	Scenario A (No Refund): You purchased a Token package, used Tokens to receive an eSIM/Plan, and then decided you no longer need it.
+Result: Tokens were spent and digital delivery occurred. No refund (subject to statutory rights).
+•	Scenario B (Refund Approved – Duplicate Charge): You attempted to buy Tokens, the page froze, and your card was charged twice.
+Result: We refund the duplicate fiat transaction in full to your original payment method.
+•	Scenario C (Token Credit / Reissue): You placed an Order and received activation details, but they were invalid due to our provisioning error.
+Result: Contact support within 7 days. We will reissue the eSIM or credit back the spent Tokens (and refund in fiat if we cannot rectify and a refund is appropriate/required).
+13. Contact Details
+HARTDELL LIMITED
+Company Number: 16021824
+Registered Office: Academy House, 11 Dunraven Place, Bridgend, Mid Glamorgan, United Kingdom, CF31 1JF
+Phone: +44 7537 166395
+Email: info@noirdrop.co.uk
+
+
+
+
+
+
+Privacy Policy
+Effective date: 17 October 2024
+1. Introduction
+We respect your privacy and are committed to protecting your personal data. This Privacy Policy explains what personal data we collect, why we use it, how long we keep it, and how you can exercise your rights when using noirdrop.co.uk and our eSIM-related services (the “Service”).
+•	Controller: HARTDELL LIMITED (Company No. 16021824), Academy House, 11 Dunraven Place, Bridgend, Mid Glamorgan, United Kingdom, CF31 1JF (“we”, “us”, “our”).
+•	Contact: info@noirdrop.co.uk
+•	Scope: This Policy applies to all users of the Service, including individuals who create an Account, purchase Tokens, place Orders, and receive or use an eSIM/Plan.
+By using the Service, you acknowledge that your personal data will be processed in accordance with this Privacy Policy and applicable data protection laws, including the UK GDPR and the Data Protection Act 2018.
+2. Personal Data We Collect
+We collect only the data necessary to provide the Service, deliver eSIM Plans, process payments, maintain your Wallet and transaction history, secure the platform, and improve performance.
+2.1. Data you provide directly
+•	Account & Identity: Full name, email address, and password (stored in a protected form; we do not store plaintext passwords).
+•	Wallet & Tokens: Token balance, Order history, Token reservation (“escrow/reserve”) entries, Token spending logs, refunds/credits, and related transaction records.
+•	Order & Service Details: Plan selected, destination/coverage selection (if applicable), Order status, and delivery records (e.g., when eSIM/activation details were made available).
+•	Support & Communication: Messages you send to customer support (including attachments such as screenshots) and any information you choose to share for troubleshooting.
+2.2. Data collected automatically
+•	Technical Data: IP address, device identifiers (where available), device model, browser type, operating system, language settings, approximate region/timezone, and session identifiers.
+•	Usage Data: How you interact with the Service (pages visited, clicks, login events, Order attempts, error events, and performance metrics).
+•	Security & Fraud Signals: Login logs, failed authentication attempts, suspicious activity patterns, and signals used to protect Accounts, Tokens, and payments.
+2.3. Data from third parties
+•	Payment Processors: Payment confirmation, transaction references, card brand, and limited card details such as last four digits (where provided), as well as fraud/risk indicators. We do not store full payment card numbers or CVV on our servers.
+•	Connectivity / eSIM Partners (where applicable): Provisioning status and service delivery metadata necessary to deliver or troubleshoot an eSIM Plan (for example, whether an eSIM profile was successfully issued).
+3. Why We Process Your Data and Our Legal Bases
+We process personal data under the UK GDPR on the following legal bases:
+3.1. Performance of a contract
+•	to create and manage your Account;
+•	to maintain your Wallet and Token transactions;
+•	to process Orders and deliver eSIM/activation details;
+•	to provide customer support and handle service issues related to delivery.
+3.2. Legitimate interests
+•	Fraud prevention and security: detecting suspicious logins, token abuse, scraping attempts, and payment anomalies;
+•	Service improvement: analysing aggregated usage/performance data to improve reliability, user experience, and Plan availability;
+•	Platform integrity: preventing misuse and enforcing our Terms.
+3.3. Legal obligation
+•	maintaining accounting and tax records and complying with applicable consumer protection requirements;
+•	responding to lawful requests from regulators or authorities where required.
+3.4. Consent
+•	where required, for non-essential cookies/analytics;
+•	for marketing communications (if you opt in), which you can opt out of at any time.
+4. Automated Processing
+We may use automated tools to help detect fraud, prevent abuse, and secure the Service (for example, risk scoring based on login/payment patterns). These measures are designed to protect users and the platform. We do not conduct automated decision-making that produces legal or similarly significant effects on you without appropriate safeguards; where required, you may request human review.
+5. Sharing Your Data and International Transfers
+We share personal data only when necessary to operate the Service:
+•	Payment providers and fraud prevention tools to process card payments and reduce fraudulent transactions;
+•	Hosting, infrastructure, and analytics providers to run the Service securely and reliably;
+•	eSIM/connectivity partners and network-related vendors (where applicable) to fulfil Orders and provide provisioning/support for Plans;
+•	Customer support tools to manage and respond to your requests.
+International transfers: Some service providers may be located outside the UK and/or EEA. Where this occurs, we use appropriate safeguards such as adequacy regulations and/or approved contractual protections (e.g., UK IDTA and/or EU Standard Contractual Clauses, as applicable) to protect your data.
+6. Data Retention
+We keep personal data only as long as necessary:
+•	Account data: retained while your Account remains active.
+•	Inactive Accounts: if your Account remains completely inactive (no logins and no Token usage) for 24 months, we may delete or anonymise your Account data, subject to legal retention obligations.
+•	Financial and transaction records: retained for up to 6 years to meet UK accounting/tax obligations and handle disputes/chargebacks.
+•	Support records: retained for a reasonable period to resolve issues, enforce Terms, and maintain service quality.
+7. Security
+We implement appropriate technical and organisational measures to protect personal data, including:
+•	encryption in transit (TLS/SSL) and protective controls where possible;
+•	access controls and least-privilege policies for internal systems;
+•	monitoring and logging to detect suspicious activity;
+•	separation of payment processing from our core systems (payment data is handled by third-party processors).
+No online system is 100% secure. You are responsible for keeping your password confidential and using secure devices/networks where possible.
+8. Your Rights
+Under the UK GDPR, you may have the right to:
+•	Access your personal data;
+•	Rectification of inaccurate data;
+•	Erasure (“right to be forgotten”), subject to legal retention requirements;
+•	Restriction of processing in certain circumstances;
+•	Data portability (where applicable);
+•	Object to processing based on legitimate interests (including direct marketing);
+•	Withdraw consent at any time for processing based on consent (this does not affect processing already carried out).
+To exercise your rights, contact us at info@noirdrop.co.uk. We typically respond within 30 days.
+9. Cookies
+We use cookies and similar technologies to operate the Service, maintain secure sessions, protect Accounts/Wallets, and analyse site performance. Essential cookies are required for core functionality. For more details, please refer to our Cookies Policy.
+10. Contact Details and Complaints
+HARTDELL LIMITED
+Company Number: 16021824
+Address: Academy House, 11 Dunraven Place, Bridgend, Mid Glamorgan, United Kingdom, CF31 1JF
+Email: info@noirdrop.co.uk
+Phone: +44 7537 166395
+If you believe we have mishandled your personal data, you have the right to lodge a complaint with the UK supervisory authority, the Information Commissioner’s Office (ICO). We would appreciate the opportunity to address your concerns directly first.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Cookie Policy
+Effective date: 17 October 2024
+1. Introduction
+This Cookie Policy explains how HARTDELL LIMITED (“we”, “us”, “our”) uses cookies and similar technologies to recognise you when you visit our website at noirdrop.co.uk (the “Site”). It explains what these technologies are, why we use them, and your choices and rights to control their use.
+This Cookie Policy should be read together with our Privacy Policy.
+2. What are Cookies?
+Cookies are small data files placed on your computer or mobile device when you visit a website. They are widely used to make websites work (or work more efficiently), to keep you signed in, to remember preferences, and to provide reporting information.
+We may also use similar technologies such as:
+•	Local Storage / Session Storage: to store certain settings or session-related data in your browser;
+•	Pixels / tags / SDKs (where used): to measure usage or improve performance;
+•	Server-side logs: to help secure the Service and prevent fraud.
+3. Why do we use Cookies?
+We use first-party and third-party cookies for several reasons. Some cookies are required for technical and security reasons to operate the Service (“strictly necessary” cookies). Other cookies help us understand usage and improve the Service (“performance & analytics”), remember your choices (“functionality”), or support advertising/marketing (where applicable) (“targeting & advertising”).
+4. Types of Cookies We Use
+We categorise cookies and similar technologies into the following groups:
+Category	Purpose
+Strictly Necessary	Essential for the Site to function, including secure login, maintaining your session, preventing fraud, processing Orders, and managing your Token Wallet. Without these, core features cannot operate.
+Performance & Analytics	Help us understand how visitors use the Site (e.g., which pages are visited, error rates, performance) so we can improve reliability and user experience. Data is typically aggregated and does not aim to directly identify you.
+Functionality	Remember choices you make (such as language, region, or UI preferences) and provide enhanced, more personal features.
+Targeting & Advertising	Used to make advertising more relevant and to measure campaign effectiveness (where enabled). These cookies may be set by us and/or advertising partners.
+5. Specifically: Wallet, Orders, and Security
+Because noirdrop uses a Token Wallet and supports digital delivery of eSIM Plans, we use certain cookies and similar technologies to:
+•	keep you securely logged in and protect Account access;
+•	link Wallet and Order actions to your session to prevent unauthorised activity;
+•	reduce the risk of “duplicate” actions (for example, accidental double-submissions during checkout);
+•	help detect fraud, abuse, and unusual behaviour (such as suspicious login attempts);
+•	ensure the Site performs reliably during Order placement and delivery of eSIM/activation details.
+6. How can I control Cookies?
+You have the right to decide whether to accept or reject non-essential cookies.
+•	Cookie Preference Manager: You can set your preferences using our cookie consent banner (and/or cookie settings link, if available on the Site).
+•	Browser Controls: You can configure your browser to accept or refuse cookies, or to delete cookies. If you disable strictly necessary cookies, the Site may not function properly and key features (like login, Wallet, and Orders) may be unavailable.
+•	Analytics Opt-Out (if applicable): If we use third-party analytics (such as Google Analytics), you may be able to opt out via the provider’s tools and settings, in addition to our cookie banner preferences.
+7. How often will we update this Cookie Policy?
+We may update this Cookie Policy from time to time to reflect changes in the cookies we use, improvements to the Service, or legal/regulatory requirements. We will update the “Effective date” at the top of this page. Please review this Policy periodically.
+8. Data Retention
+Cookies have different lifespans:
+•	Session cookies: deleted automatically when you close your browser.
+•	Persistent cookies: remain for a defined period (often between 30 days and 24 months) or until you delete them via your browser settings.
+Retention can vary by cookie type and purpose.
+9. Contact Us
+If you have any questions about our use of cookies or similar technologies, please contact us:
+HARTDELL LIMITED
+Company Number: 16021824
+Address: Academy House, 11 Dunraven Place, Bridgend, Mid Glamorgan, United Kingdom, CF31 1JF
+Email: info@noirdrop.co.uk
+Phone: +44 7537 166395
+
+
