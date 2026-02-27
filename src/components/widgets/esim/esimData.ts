@@ -1168,15 +1168,45 @@ export type ESIMRates = {
 
 export type ESIMCountry = keyof typeof ESIM_DATA;
 
+const COUNTRY_ALIASES: Record<string, ESIMCountry> = {
+    "Cape Verde": "Cabo_Verde",
+};
+
+const normalizeCountryName = (name: string) =>
+    name
+        .toLowerCase()
+        .replace(/[_-]+/g, " ")
+        .replace(/[.'’]/g, "")
+        .replace(/\s+/g, " ")
+        .trim();
+
+const COUNTRY_LOOKUP: Record<string, ESIMCountry> = Object.keys(ESIM_DATA).reduce(
+    (acc, key) => {
+        const normalizedKey = normalizeCountryName(key);
+        acc[normalizedKey] = key as ESIMCountry;
+        acc[normalizeCountryName(key.replace(/_/g, " "))] = key as ESIMCountry;
+        return acc;
+    },
+    {} as Record<string, ESIMCountry>
+);
+
+export function resolveEsimCountry(name: string): ESIMCountry | undefined {
+    if (name in ESIM_DATA) return name as ESIMCountry;
+    if (name in COUNTRY_ALIASES) return COUNTRY_ALIASES[name];
+    return COUNTRY_LOOKUP[normalizeCountryName(name)];
+}
+
 /**
  * Source prices in ESIM_DATA are stored in EUR.
  * This helper returns rates converted to the requested currency.
  */
 export function getEsimRates(
-    country: ESIMCountry,
+    country: string,
     convert: (amountEur: number) => number
 ): ESIMRates | undefined {
-    const base = ESIM_DATA[country] as ESIMRates | undefined;
+    const resolved = resolveEsimCountry(country);
+    if (!resolved) return undefined;
+    const base = ESIM_DATA[resolved] as ESIMRates | undefined;
     if (!base) return undefined;
 
     return {

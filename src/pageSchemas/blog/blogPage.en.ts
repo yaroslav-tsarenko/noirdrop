@@ -1,5 +1,6 @@
 import { PageSchema } from "@/components/constructor/page-render/types";
 import { COMPANY_NAME, COMPANY_EMAIL } from "@/resources/constants";
+import { DEFAULT_TESTIMONIALS_ITEMS, DEFAULT_TESTIMONIALS_TITLE } from "@/resources/testimonials";
 
 const blogSchema: PageSchema = {
     meta: {
@@ -183,27 +184,8 @@ const blogSchema: PageSchema = {
         // 💬 TESTIMONIALS ABOUT BLOG
         {
             type: "testimonials",
-            title: "What Readers Say",
-            items: [
-                {
-                    name: "Aria",
-                    role: "Digital Nomad",
-                    text: "The eSIM setup guides saved me in Seoul airport. Super clear!",
-                    avatar: "https://i.pravatar.cc/150?img=42",
-                },
-                {
-                    name: "Leo",
-                    role: "Backpacker",
-                    text: "Their travel connectivity tips are pure gold.",
-                    avatar: "https://i.pravatar.cc/150?img=66",
-                },
-                {
-                    name: "Maya",
-                    role: "Frequent Flyer",
-                    text: "Finally, a blog that explains telecom like a human.",
-                    avatar: "https://i.pravatar.cc/150?img=45",
-                },
-            ],
+            title: DEFAULT_TESTIMONIALS_TITLE,
+            items: DEFAULT_TESTIMONIALS_ITEMS,
         },
 
         // 📮 CTA — Subscribe

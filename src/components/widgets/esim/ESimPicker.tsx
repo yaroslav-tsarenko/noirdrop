@@ -2,7 +2,7 @@
 
 import React, { useMemo, useState } from "react";
 import { COUNTRIES } from "./countries";
-import { ESIM_DATA, getEsimRates } from "./esimData";
+import { ESIM_DATA, getEsimRates, resolveEsimCountry } from "./esimData";
 import ESimRates from "./ESimRates";
 import { Select, Option } from "@mui/joy";
 import styles from "./ESimPicker.module.scss";
@@ -10,12 +10,17 @@ import { useCurrency } from "@/context/CurrencyContext";
 import { convertFromEur } from "@/utils/currency";
 
 export default function ESimPicker() {
-    const [country, setCountry] = useState("Afghanistan");
+    const [country, setCountry] = useState("United Kingdom");
     const { currency } = useCurrency();
 
     const rates = useMemo(
         () => getEsimRates(country as any, (eur) => convertFromEur(eur, currency)),
         [country, currency]
+    );
+
+    const availableCountries = useMemo(
+        () => COUNTRIES.filter((c) => Boolean(resolveEsimCountry(c))),
+        []
     );
 
     return (
@@ -36,7 +41,7 @@ export default function ESimPicker() {
                         onChange={(_, v) => v && setCountry(v)}
                         className="w-full"
                     >
-                        {COUNTRIES.map((c) => (
+                        {availableCountries.map((c) => (
                             <Option key={c} value={c}>
                                 {c}
                             </Option>

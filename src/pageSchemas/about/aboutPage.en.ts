@@ -3,6 +3,7 @@ import {
     COMPANY_NAME,
     COMPANY_EMAIL,
 } from "@/resources/constants";
+import { DEFAULT_TESTIMONIALS_ITEMS, DEFAULT_TESTIMONIALS_TITLE } from "@/resources/testimonials";
 
 const schema: PageSchema = {
     meta: {
@@ -273,27 +274,8 @@ const schema: PageSchema = {
         // 🌟 TESTIMONIALS
         {
             type: "testimonials",
-            title: "What Travelers Say",
-            items: [
-                {
-                    name: "Sophia",
-                    role: "Digital Nomad",
-                    text: "Instant activation saved me in Tokyo airport. Best eSIM experience so far.",
-                    avatar: "https://i.pravatar.cc/150?img=45",
-                },
-                {
-                    name: "Ahmed",
-                    role: "Frequent Traveler",
-                    text: "No more roaming fees. The AI routing really does pick the fastest network.",
-                    avatar: "https://i.pravatar.cc/150?img=29",
-                },
-                {
-                    name: "Clara",
-                    role: "Travel Creator",
-                    text: "Coverage in 20+ countries, flawless. Perfect for filming and live streaming.",
-                    avatar: "https://i.pravatar.cc/150?img=68",
-                },
-            ],
+            title: DEFAULT_TESTIMONIALS_TITLE,
+            items: DEFAULT_TESTIMONIALS_ITEMS,
         },
 
         // ❓ FAQ

@@ -1,5 +1,6 @@
 import { PageSchema } from "@/components/constructor/page-render/types";
 import { COMPANY_NAME, COMPANY_EMAIL } from "@/resources/constants";
+import { DEFAULT_TESTIMONIALS_ITEMS, DEFAULT_TESTIMONIALS_TITLE } from "@/resources/testimonials";
 
 const schema: PageSchema = {
     meta: {
@@ -151,45 +152,8 @@ const schema: PageSchema = {
 
         {
             type: "testimonials",
-            title: "What Travelers Say",
-            items: [
-                {
-                    name: "Marta",
-                    role: "Business Traveler",
-                    text: "Landed, scanned the QR, and had data before leaving the airport. Super smooth.",
-                    avatar: "https://i.pravatar.cc/150?img=5"
-                },
-                {
-                    name: "Arman",
-                    role: "Digital Nomad",
-                    text: "Stable connection across multiple countries. Way better than expensive roaming.",
-                    avatar: "https://i.pravatar.cc/150?img=12"
-                },
-                {
-                    name: "Li Wei",
-                    role: "Remote Worker",
-                    text: "Setup took two minutes. The instructions were clear and the plan worked right away.",
-                    avatar: "https://i.pravatar.cc/150?img=8"
-                },
-                {
-                    name: "David",
-                    role: "Frequent Traveler",
-                    text: "Great value and predictable cost. I don't worry about my bill anymore.",
-                    avatar: "https://i.pravatar.cc/150?img=22"
-                },
-                {
-                    name: "Sofia",
-                    role: "Creator",
-                    text: "Perfect for streaming and uploading on the go. Coverage was solid where I needed it.",
-                    avatar: "https://i.pravatar.cc/150?img=39"
-                },
-                {
-                    name: "Nur",
-                    role: "Backpacker",
-                    text: "Loved not having to find a local SIM shop. Activated before my trip and it worked on arrival.",
-                    avatar: "https://i.pravatar.cc/150?img=16"
-                }
-            ]
+            title: DEFAULT_TESTIMONIALS_TITLE,
+            items: DEFAULT_TESTIMONIALS_ITEMS,
         },
 
         {
