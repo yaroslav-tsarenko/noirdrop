@@ -1,22 +1,42 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./Checkout.module.scss";
 import { useCartStore } from "@/store/cartStore";
 import { useCheckoutStore } from "@/store/checkoutStore";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useUser } from "@/context/UserContext";
 
 export default function CheckoutPage() {
     const items = useCartStore((s) => s.items);
+    const clearCart = useCartStore((s) => s.clear);
     const total = items.reduce((sum, i) => sum + i.price * i.qty, 0);
+    const router = useRouter();
+    const user = useUser();
 
     const { fullName, email, country, cardNumber, expiry, cvc, setField } =
         useCheckoutStore();
 
+    useEffect(() => {
+        if (user?.email && !email) {
+            setField("email", user.email);
+        }
+        if (user?.name && !fullName) {
+            setField("fullName", user.name);
+        }
+    }, [user, email, fullName, setField]);
+
     const handlePay = async () => {
+        if (!items.length) {
+            alert("Your cart is empty.");
+            return;
+        }
+
         const res = await fetch("/api/orders/send-order", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
+            credentials: "include",
             body: JSON.stringify({
                 fullName,
                 email,
@@ -29,9 +49,11 @@ export default function CheckoutPage() {
         const data = await res.json();
 
         if (data.success) {
+            clearCart();
             alert("Order sent successfully!");
+            router.push("/dashboard");
         } else {
-            alert("Failed to send order.");
+            alert(data.error || "Failed to send order.");
         }
     };
 
@@ -122,7 +144,7 @@ export default function CheckoutPage() {
                         Pay €{total.toFixed(2)}
                     </button>
 
-                    <Link href="/products" className={styles.backLink}>
+                    <Link href="/" className={styles.backLink}>
                         ← Continue Shopping
                     </Link>
                 </div>
@@ -131,20 +153,24 @@ export default function CheckoutPage() {
                 <div className={styles.summarySection}>
                     <h3>Order Summary</h3>
 
-                    {items.map((item) => (
-                        <div key={item.id} className={styles.summaryItem}>
-                            <div className={styles.miniSim}>
-                                <div className={styles.chip} />
-                                <span className={styles.badge}>eSIM</span>
-                            </div>
+                    {items.length === 0 ? (
+                        <p className={styles.subtext}>Your cart is empty. Add an eSIM plan to continue.</p>
+                    ) : (
+                        items.map((item) => (
+                            <div key={item.id} className={styles.summaryItem}>
+                                <div className={styles.miniSim}>
+                                    <div className={styles.chip} />
+                                    <span className={styles.badge}>eSIM</span>
+                                </div>
 
-                            <div className={styles.info}>
-                                <strong>{item.name}</strong>
-                                <span className={styles.price}>€{item.price}</span>
-                                <span className={styles.qty}>Qty: {item.qty}</span>
+                                <div className={styles.info}>
+                                    <strong>{item.name}</strong>
+                                    <span className={styles.price}>€{item.price.toFixed(2)}</span>
+                                    <span className={styles.qty}>Qty: {item.qty}</span>
+                                </div>
                             </div>
-                        </div>
-                    ))}
+                        ))
+                    )}
 
                     <div className={styles.totalRow}>
                         <span>Total</span>

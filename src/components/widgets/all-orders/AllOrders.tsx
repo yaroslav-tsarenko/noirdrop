@@ -11,22 +11,23 @@ import Avatar from "@mui/joy/Avatar";
 import CreditCardIcon from "@mui/icons-material/CreditCard";
 import EmailIcon from "@mui/icons-material/Email";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+import PublicIcon from "@mui/icons-material/Public";
 import styles from "./AllOrders.module.scss";
 
 const translations = {
     en: {
-        title: "Your Orders",
-        empty: "No orders yet.",
-        charge: (amount: number) => `-${amount} tokens`,
+        title: "Your eSIM Orders",
+        empty: "No eSIM orders yet.",
+        status: "Submitted",
+        total: (amount: number) => `Total €${amount.toFixed(2)}`,
     },
     tr: {
-        title: "Siparişleriniz",
-        empty: "Henüz sipariş yok.",
-        charge: (amount: number) => `-${amount} jeton`,
+        title: "eSIM Siparişleriniz",
+        empty: "Henüz eSIM siparişi yok.",
+        status: "Gönderildi",
+        total: (amount: number) => `Toplam €${amount.toFixed(2)}`,
     },
 };
-
-const TOKEN_AMOUNT = 30;
 
 const OrdersSection: React.FC = () => {
     const { orders } = useAllOrders();
@@ -80,11 +81,11 @@ const OrdersSection: React.FC = () => {
                                         <CreditCardIcon fontSize="small" />
                                     </Avatar>
                                     <Typography level="title-md" sx={{ fontWeight: 600 }}>
-                                        #{formatId(order._id)}
+                                        #{formatId(order._id)} · {order.fullName}
                                     </Typography>
                                 </Box>
-                                <Chip color="danger" variant="soft" startDecorator={<CreditCardIcon fontSize="small" />}>
-                                    {t.charge(TOKEN_AMOUNT)}
+                                <Chip color="primary" variant="soft" startDecorator={<CreditCardIcon fontSize="small" />}>
+                                    {t.status}
                                 </Chip>
                             </Box>
                             <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
@@ -92,11 +93,25 @@ const OrdersSection: React.FC = () => {
                                 <Typography level="body-sm">{order.email}</Typography>
                             </Box>
                             <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                                <PublicIcon fontSize="small" sx={{ color: "#666" }} />
+                                <Typography level="body-sm">{order.country}</Typography>
+                            </Box>
+                            <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
                                 <CalendarMonthIcon fontSize="small" sx={{ color: "#666" }} />
                                 <Typography level="body-xs" sx={{ color: "#666" }}>
                                     {formatDate(order.createdAt)}
                                 </Typography>
                             </Box>
+                            <Box sx={{ display: "grid", gap: 0.5 }}>
+                                {order.items.map((item) => (
+                                    <Typography key={item.id} level="body-sm">
+                                        {item.name} · Qty {item.qty} · €{item.price.toFixed(2)}
+                                    </Typography>
+                                ))}
+                            </Box>
+                            <Typography level="title-sm" sx={{ fontWeight: 700 }}>
+                                {t.total(order.total)}
+                            </Typography>
                         </Card>
                     ))}
                 </Box>

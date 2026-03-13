@@ -3,6 +3,10 @@ export const COMPANY_LEGAL_NAME = process.env.NEXT_PUBLIC_COMPANY_LEGAL_NAME;
 export const COMPANY_NAME = process.env.NEXT_PUBLIC_COMPANY_NAME;
 export const COMPANY_NUMBER = process.env.NEXT_PUBLIC_COMPANY_NUMBER;
 export const COMPANY_EMAIL = process.env.NEXT_PUBLIC_COMPANY_EMAIL;
+export const COMPANY_INSTAGRAM_URL =
+    process.env.NEXT_PUBLIC_COMPANY_INSTAGRAM_URL || "https://www.instagram.com/noirdrop.uk";
+export const COMPANY_LINKEDIN_URL =
+    process.env.NEXT_PUBLIC_COMPANY_LINKEDIN_URL || "https://www.linkedin.com/company/noirdrop/";
 
 export const defaultResumeData = {
     header: {

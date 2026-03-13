@@ -1,9 +1,20 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
+import { connectDB } from "@/backend/config/db";
+import { requireAuth } from "@/backend/middlewares/auth.middleware";
+import { EsimOrder } from "@/backend/models/esimOrder.model";
 import { sendEmail } from "@/backend/utils/sendEmail";
 import { ENV } from "@/backend/config/env";
 
-export async function POST(req: Request) {
+type CheckoutItem = {
+    id: string;
+    name: string;
+    price: number;
+    qty: number;
+};
+
+export async function POST(req: NextRequest) {
     try {
+        const user = await requireAuth(req);
         const body = await req.json();
 
         const {
@@ -21,7 +32,28 @@ export async function POST(req: Request) {
             );
         }
 
+        if (!fullName || !email || !country) {
+            return NextResponse.json(
+                { error: "Missing checkout fields" },
+                { status: 400 }
+            );
+        }
+
+        await connectDB();
+
+        const order = await EsimOrder.create({
+            userId: user.sub,
+            email,
+            fullName,
+            country,
+            items,
+            total,
+            status: "submitted",
+        });
+
         const managerEmail = ENV.EMAIL_FROM; // <-- ВАЖЛИВО
+
+        const checkoutItems = items as CheckoutItem[];
 
         const html = `
             <div style="font-family:Arial; padding:20px">
@@ -34,9 +66,9 @@ export async function POST(req: Request) {
 
                 <h3>🛒 Items</h3>
                 <ul>
-                    ${items
+                    ${checkoutItems
             .map(
-                (i: any) =>
+                (i) =>
                     `<li><strong>${i.name}</strong> — €${i.price} × ${i.qty}</li>`
             )
             .join("")}
@@ -53,11 +85,11 @@ export async function POST(req: Request) {
             html
         );
 
-        return NextResponse.json({ success: true });
-    } catch (error) {
+        return NextResponse.json({ success: true, orderId: order._id });
+    } catch (error: unknown) {
         console.error("❌ Error sending order email:", error);
         return NextResponse.json(
-            { error: "Failed to send email" },
+            { error: error instanceof Error ? error.message : "Failed to send email" },
             { status: 500 }
         );
     }

@@ -3,19 +3,23 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { FaCcVisa, FaCcMastercard } from "react-icons/fa";
+import { FaInstagram, FaLinkedinIn } from "react-icons/fa";
 
 import styles from "./Footer.module.scss";
 import { footerContent } from "@/resources/content";
 import { useI18n } from "@/context/i18nContext";
+import {
+  COMPANY_INSTAGRAM_URL,
+  COMPANY_LINKEDIN_URL,
+} from "@/resources/constants";
 
 const Footer: React.FC = () => {
   const { logo, columns, contact, legal } = footerContent;
   const { lang } = useI18n();
 
   const translations = {
-    en: { company: "Company", rights: "All rights reserved." },
-    tr: { company: "Şirket", rights: "Tüm hakları saklıdır." },
+    en: { company: "Company", rights: "All rights reserved.", social: "Follow us" },
+    tr: { company: "Şirket", rights: "Tüm hakları saklıdır.", social: "Bizi takip edin" },
   } as const;
 
   const t = translations[lang] ?? translations.en;
@@ -54,14 +58,41 @@ const Footer: React.FC = () => {
                 <a href={`mailto:${contact.email}`}>{contact.email}</a>
               )}
 
+              <div className={styles.socialBlock}>
+                <h4>{t.social}</h4>
+                <div className={styles.socials}>
+                  <a
+                    href={COMPANY_INSTAGRAM_URL}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="Instagram"
+                  >
+                    <FaInstagram />
+                  </a>
+                  <a
+                    href={COMPANY_LINKEDIN_URL}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="LinkedIn"
+                  >
+                    <FaLinkedinIn />
+                  </a>
+                </div>
+              </div>
+
               <div
                 className={styles.payments}
                 aria-label="Accepted payment methods"
               >
-                <FaCcVisa className={styles.paymentIcon} aria-label="Visa" />
-                <FaCcMastercard
-                  className={styles.paymentIcon}
-                  aria-label="Mastercard"
+                <img
+                  src="/icons/visa-logo.svg"
+                  alt="Visa"
+                  className={styles.paymentLogo}
+                />
+                <img
+                  src="/icons/mastercard-logo.svg"
+                  alt="Mastercard"
+                  className={styles.paymentLogo}
                 />
               </div>
             </div>

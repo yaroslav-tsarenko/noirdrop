@@ -66,6 +66,8 @@
 .description {
   margin-top: 24px;
   color: #555;
+  font-size: 1.05rem;
+  line-height: 1.7;
 }
 
 .subtitle {
@@ -231,6 +233,63 @@
   padding: 2rem;
 }
 
+.highlights {
+  display: grid;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.highlightCard {
+  padding: 16px 18px;
+  border-radius: 16px;
+  background: linear-gradient(180deg, #faf6ff, #f3ebff);
+  border: 1px solid #ead9ff;
+  color: #3f2b56;
+  line-height: 1.6;
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.infoBox {
+  padding: 18px;
+  border-radius: 16px;
+  background: #fff;
+  border: 1px solid #ececec;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+}
+
+.icon {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+  color: #8a2be2;
+}
+
+.includedList {
+  display: grid;
+  gap: 10px;
+  margin-top: 16px;
+  padding-left: 0;
+  list-style: none;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #444;
+    line-height: 1.5;
+  }
+}
+
+.coverageText {
+  color: #555;
+  line-height: 1.7;
+}
+
 /* BADGE */
 .esimBadge {
   position: absolute;
@@ -324,3 +383,77 @@
   opacity: 0.4;
 }
 
+.contentSection {
+  margin-top: 32px;
+}
+
+.richList {
+  display: grid;
+  gap: 10px;
+  color: #4f4f4f;
+  line-height: 1.6;
+  padding-left: 20px;
+}
+
+.stepsGrid {
+  display: grid;
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.stepCard {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 18px;
+  background: #fff;
+  border: 1px solid #ececec;
+  border-radius: 16px;
+}
+
+.stepIndex {
+  min-width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: #111;
+  color: #fff;
+  font-weight: 700;
+}
+
+.faqList {
+  display: grid;
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.faqItem {
+  padding: 18px;
+  border-radius: 16px;
+  background: #fff;
+  border: 1px solid #ececec;
+
+  h4 {
+    margin: 0 0 8px;
+    color: #151515;
+  }
+
+  p {
+    margin: 0;
+    color: #555;
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 768px) {
+  .infoGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .quantityWrapper {
+    flex-wrap: wrap;
+    align-items: stretch;
+  }
+}

@@ -49,7 +49,7 @@ export const footerContent = {
                 { label: "Terms & Conditions", href: "/terms-and-conditions" },
                 { label: "Cookie Policy", href: "/cookie-policy" },
                 { label: "Refund Policy", href: "/refund-policy" },
-                { label: "Privacy Policy", href: "/cookie-policy" },
+                { label: "Privacy Policy", href: "/privacy-policy" },
             ],
         },
     ],

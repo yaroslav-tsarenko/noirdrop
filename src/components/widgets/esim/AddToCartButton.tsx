@@ -3,17 +3,21 @@
 import { useCartStore } from "@/store/cartStore";
 import styles from "./AddToCartButton.module.scss";
 
-export default function AddToCartButton({ product }: any) {
+interface AddToCartButtonProps {
+    item: {
+        id: string;
+        name: string;
+        image?: string;
+        price: number;
+        qty: number;
+    };
+}
+
+export default function AddToCartButton({ item }: AddToCartButtonProps) {
     const addItem = useCartStore((s) => s.addItem);
 
     const handleClick = () => {
-        addItem({
-            id: product.id,
-            name: product.name,
-            image: product.image,
-            price: product.salePrice,
-            qty: 1,
-        });
+        addItem(item);
     };
 
     return (

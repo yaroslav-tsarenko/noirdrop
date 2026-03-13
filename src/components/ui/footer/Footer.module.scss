@@ -64,7 +64,7 @@
 
 .socials {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 16px;
 
   a {
@@ -80,6 +80,10 @@
       height: 22px;
     }
   }
+}
+
+.socialBlock {
+  margin-top: 16px;
 }
 
 .rightsRow {
@@ -104,11 +108,10 @@
   gap: 10px;
 }
 
-.paymentIcon {
-  width: 34px;
-  height: 34px;
-  color: #666;
-  opacity: 0.95;
+.paymentLogo {
+  width: auto;
+  height: 30px;
+  object-fit: contain;
 }
 
 @media (max-width: 768px) {
@@ -127,6 +130,10 @@
 
   .column {
     align-items: center;
+  }
+
+  .socials {
+    justify-content: center;
   }
 
   .rightsRow {

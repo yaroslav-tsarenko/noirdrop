@@ -1,14 +1,21 @@
 "use client";
 
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { useAlert } from "@/context/AlertContext";
 
 export interface AiOrder {
     _id: string;
     userId: string;
     email: string;
-    prompt: string;
-    response: string;
+    fullName: string;
+    country: string;
+    total: number;
+    status: "submitted";
+    items: Array<{
+        id: string;
+        name: string;
+        price: number;
+        qty: number;
+    }>;
     createdAt: string;
 }
 
@@ -33,7 +40,7 @@ export const AllOrdersProvider: React.FC<{ children: React.ReactNode }> = ({ chi
     const fetchOrders = async () => {
         setLoading(true);
         try {
-            const res = await fetch("/api/ai/get-all-orders", {
+            const res = await fetch("/api/orders/get-all", {
                 method: "GET",
                 headers: { "Content-Type": "application/json" },
                 credentials: "include",
@@ -41,11 +48,9 @@ export const AllOrdersProvider: React.FC<{ children: React.ReactNode }> = ({ chi
             if (!res.ok) throw new Error("Failed to fetch orders");
 
             const data = await res.json();
-            console.log("Orders API response:", data);
-
             const normalized = Array.isArray(data) ? data : data.orders;
             setOrders(Array.isArray(normalized) ? normalized : []);
-        } catch (err: any) {
+        } catch {
             setOrders([]);
         } finally {
             setLoading(false);

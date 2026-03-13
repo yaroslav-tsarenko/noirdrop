@@ -11,16 +11,14 @@ import Typography from '@mui/joy/Typography';
 import Avatar from '@mui/joy/Avatar';
 import { useUser } from "@/context/UserContext";
 import Transactions from "@/components/widgets/transactions/Transactions";
-import {PDFDownloadButton} from "@/components/widgets/pdf-constructor/PDFDownloadButton";
-import ResumeGenerator from "@/components/widgets/resume-generator/ResumeGenerator";
 
 const Dashboard = () => {
-    const [activeTab, setActiveTab] = useState<'resume' | 'orders' | 'transactions'>('resume');
+    const [activeTab, setActiveTab] = useState<'orders' | 'transactions'>('orders');
     const user = useUser();
 
     const handleTabChange = (_event: React.SyntheticEvent<Element, Event> | null, newValue: string | number | null) => {
         if (typeof newValue === "string") {
-            setActiveTab(newValue as 'resume' | 'orders' | 'transactions');
+            setActiveTab(newValue as 'orders' | 'transactions');
         }
     };
 
@@ -38,14 +36,12 @@ const Dashboard = () => {
             <div className={styles.header}>
                 <Tabs value={activeTab} onChange={handleTabChange}>
                     <TabList>
-                        <Tab value="resume">Generate Resume</Tab>
-                        <Tab value="orders">My Orders</Tab>
-                        <Tab value="transactions">My Transactions</Tab>
+                        <Tab value="orders">My eSIM Orders</Tab>
+                        <Tab value="transactions">Transactions</Tab>
                     </TabList>
                 </Tabs>
             </div>
             <div className={styles.widgets}>
-                {activeTab === 'resume' && <ResumeGenerator/>}
                 {activeTab === 'orders' && <AllOrders />}
                 {activeTab === 'transactions' && <Transactions />}
             </div>
