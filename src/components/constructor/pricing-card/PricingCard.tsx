@@ -8,6 +8,7 @@ import { useUser } from "@/context/UserContext";
 import Input from "@mui/joy/Input";
 import { useCurrency } from "@/context/CurrencyContext";
 import { MdCheckCircle } from "react-icons/md";
+import { useRouter } from "next/navigation";
 
 interface PricingCardProps {
     variant?: "basic" | "highlight" | "premium";
@@ -38,20 +39,23 @@ const labelText: Record<string, string> = {
 const isDynamicPrice = (price: string) => price.trim().toLowerCase() === "dynamic";
 
 const PricingCard: React.FC<PricingCardProps> = ({
-                                                     variant = "basic",
-                                                     title,
-                                                     price,
-                                                     tokens,
-                                                     description,
-                                                     features,
-                                                     buttonText,
-                                                 }) => {
+    variant = "basic",
+    title,
+    price,
+    tokens,
+    description,
+    features,
+    buttonText,
+    buttonLink,
+}) => {
     const { showAlert } = useAlert();
     const user = useUser();
     const { currency } = useCurrency();
+    const router = useRouter();
 
     const { symbol } = currencyConfig[currency];
     const [customAmountRaw, setCustomAmountRaw] = useState<string>(String(MIN_CUSTOM_AMOUNT));
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const customAmount = (() => {
         const n = Number(customAmountRaw);
@@ -82,26 +86,47 @@ const PricingCard: React.FC<PricingCardProps> = ({
         }
 
         try {
-            const amount = isDynamicPrice(price) ? calcTokens(Number(customAmountRaw)) : tokens;
+            const pricePaid = isDynamicPrice(price) ? Number(customAmountRaw) : Number(price);
+            const tokenAmount = isDynamicPrice(price) ? calcTokens(pricePaid) : tokens;
+
+            if (!Number.isFinite(tokenAmount) || tokenAmount <= 0) {
+                showAlert("Error", "Invalid token package amount", "error");
+                return;
+            }
+
+            setIsSubmitting(true);
 
             const res = await fetch("/api/user/buy-tokens", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 credentials: "include",
-                body: JSON.stringify({ amount }),
+                body: JSON.stringify({
+                    tokenAmount,
+                    pricePaid,
+                    currency,
+                    packageTitle: title || buttonLink || "Token package",
+                }),
             });
 
+            const data = await res.json().catch(() => null);
+
             if (!res.ok) {
-                showAlert("Error", "Failed to buy tokens", "error");
+                showAlert("Error", data?.message || "Failed to buy tokens", "error");
                 return;
             }
 
-            const data = await res.json();
-            showAlert(`Success!`, `You purchased ${amount} tokens.`, "success");
+            showAlert(
+                "Success!",
+                `You purchased ${tokenAmount} tokens for ${symbol}${pricePaid.toFixed(2)}.`,
+                "success"
+            );
+            router.refresh();
             console.log("Updated user:", data.user);
         } catch (err) {
             const error = err as Error;
             showAlert("Error", error.message || "Something went wrong", "error");
+        } finally {
+            setIsSubmitting(false);
         }
     };
 
@@ -172,7 +197,15 @@ const PricingCard: React.FC<PricingCardProps> = ({
                 ))}
             </ul>
 
-            <ButtonUI type="button" color="secondary" hoverColor="secondary" sx={{ width: "100%" }} onClick={handleBuy}>
+            <ButtonUI
+                type="button"
+                color="secondary"
+                hoverColor="secondary"
+                sx={{ width: "100%" }}
+                onClick={handleBuy}
+                loading={isSubmitting}
+                disabled={isSubmitting}
+            >
                 {user ? buttonText : "Sign Up to Buy"}
             </ButtonUI>
         </div>

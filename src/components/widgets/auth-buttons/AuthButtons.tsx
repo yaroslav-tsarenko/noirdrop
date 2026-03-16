@@ -4,16 +4,18 @@ import React, {useMemo, useState} from "react";
 import {useUser} from "@/context/UserContext";
 import Link from "next/link";
 import Avatar from "@mui/material/Avatar";
-import {Tooltip, IconButton, Drawer, Divider} from "@mui/material";
+import {Tooltip, IconButton, Drawer, Divider, Badge} from "@mui/material";
 import {FaShoppingCart} from "react-icons/fa";
 import {MdGeneratingTokens} from "react-icons/md";
 import {useAuthActions} from "@/utils/logoutClient";
 import {useAlert} from "@/context/AlertContext";
 import {useCartStore} from "@/store/cartStore";
+import type { CartItem } from "@/store/cartStore";
 import ButtonUI from "@/components/ui/button/ButtonUI";
 import styles from "./AuthButtons.module.scss";
 import { useRouter } from "next/navigation";
 import {useCurrency} from "@/context/CurrencyContext";
+import type { Currency } from "@/context/CurrencyContext";
 
 const AuthButtons: React.FC = () => {
     const user = useUser();
@@ -24,8 +26,8 @@ const AuthButtons: React.FC = () => {
 
     const {currency, setCurrency} = useCurrency();
 
-    const items = useCartStore((s: any) => s.items);
-    const removeItem = useCartStore((s: any) => s.removeItem);
+    const items = useCartStore((s) => s.items);
+    const removeItem = useCartStore((s) => s.removeItem);
 
     // simple static rates; can be swapped for API later
     const rates = useMemo(() => ({
@@ -51,7 +53,8 @@ const AuthButtons: React.FC = () => {
         showAlert(ok ? "Logged out" : "Logout failed", "", ok ? "success" : "error");
     };
 
-    const totalEur = items.reduce((sum: number, i: any) => sum + i.price * i.qty, 0);
+    const totalEur = items.reduce((sum, i) => sum + i.price * i.qty, 0);
+    const totalQty = items.reduce((sum, i) => sum + i.qty, 0);
 
     return (
         <div className={user ? styles.authedUser : styles.nonAuthedButtons}>
@@ -60,7 +63,7 @@ const AuthButtons: React.FC = () => {
                 <select
                     className={styles.currencySelect}
                     value={currency}
-                    onChange={(e) => setCurrency(e.target.value as any)}
+                    onChange={(e) => setCurrency(e.target.value as Currency)}
                     aria-label="Currency"
                 >
                     <option value="GBP">GBP</option>
@@ -74,7 +77,14 @@ const AuthButtons: React.FC = () => {
  visible for everyone */}
             <Tooltip title="Your eSIM Orders">
                 <IconButton onClick={toggleDrawer(true)} sx={{color: "#1A1A1A", mr: 1}}>
-                    <FaShoppingCart size={20}/>
+                    <Badge
+                        badgeContent={totalQty}
+                        color="error"
+                        overlap="circular"
+                        invisible={totalQty === 0}
+                    >
+                        <FaShoppingCart size={20}/>
+                    </Badge>
                 </IconButton>
             </Tooltip>
 
@@ -85,7 +95,7 @@ const AuthButtons: React.FC = () => {
                     <div className={styles.cartHeader}>
                         <div className={styles.headerText}>
                             <h3>Your eSIM Orders</h3>
-                            <p>Manage your selected eSIMs and checkout when youre ready.</p>
+                            <p>{totalQty > 0 ? `${totalQty} item(s) ready for checkout.` : "Add an eSIM plan to start your order."}</p>
                         </div>
                     </div>
 
@@ -96,7 +106,7 @@ const AuthButtons: React.FC = () => {
                         {items.length === 0 ? (
                             <p className={styles.emptyText}>Your cart is empty.</p>
                         ) : (
-                            items.map((item: any) => (
+                            items.map((item: CartItem) => (
                                 <div key={item.id} className={styles.cartItem}>
                                     <div className={styles.simCardMini}>
                                         <div className={styles.simChipMini}/>
@@ -105,7 +115,7 @@ const AuthButtons: React.FC = () => {
 
                                     <div className={styles.itemInfo}>
                                         <strong className={styles.itemName}>{item.name}</strong>
-                                        <span className={styles.price}>{formatMoney(item.price)}</span>
+                                        <span className={styles.price}>{formatMoney(item.price * item.qty)}</span>
                                         <span className={styles.qty}>Qty: {item.qty}</span>
 
                                         <button

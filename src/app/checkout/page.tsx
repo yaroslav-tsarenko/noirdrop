@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Checkout.module.scss";
 import { useCartStore } from "@/store/cartStore";
 import { useCheckoutStore } from "@/store/checkoutStore";
@@ -14,9 +14,9 @@ export default function CheckoutPage() {
     const total = items.reduce((sum, i) => sum + i.price * i.qty, 0);
     const router = useRouter();
     const user = useUser();
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
-    const { fullName, email, country, cardNumber, expiry, cvc, setField } =
-        useCheckoutStore();
+    const { fullName, email, country, setField } = useCheckoutStore();
 
     useEffect(() => {
         if (user?.email && !email) {
@@ -33,27 +33,38 @@ export default function CheckoutPage() {
             return;
         }
 
-        const res = await fetch("/api/orders/send-order", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            credentials: "include",
-            body: JSON.stringify({
-                fullName,
-                email,
-                country,
-                items,
-                total,
-            }),
-        });
+        if (!fullName || !email || !country) {
+            alert("Please complete your contact details before checkout.");
+            return;
+        }
 
-        const data = await res.json();
+        setIsSubmitting(true);
 
-        if (data.success) {
-            clearCart();
-            alert("Order sent successfully!");
-            router.push("/dashboard");
-        } else {
-            alert(data.error || "Failed to send order.");
+        try {
+            const res = await fetch("/api/orders/send-order", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                credentials: "include",
+                body: JSON.stringify({
+                    fullName,
+                    email,
+                    country,
+                    items,
+                    total,
+                }),
+            });
+
+            const data = await res.json();
+
+            if (data.success) {
+                clearCart();
+                alert("Order placed successfully. The PDF invoice has been sent to your email.");
+                router.push("/dashboard");
+            } else {
+                alert(data.error || "Failed to send order.");
+            }
+        } finally {
+            setIsSubmitting(false);
         }
     };
 
@@ -64,7 +75,7 @@ export default function CheckoutPage() {
                 {/* LEFT: FORM */}
                 <div className={styles.formSection}>
                     <h2>Checkout</h2>
-                    <p className={styles.subtext}>Complete your secure purchase.</p>
+                    <p className={styles.subtext}>Complete your eSIM purchase. A PDF invoice will be emailed right after checkout.</p>
 
                     {/* FULL NAME */}
                     <div className={styles.field}>
@@ -102,46 +113,14 @@ export default function CheckoutPage() {
                         />
                     </div>
 
-                    <h3 className={styles.sectionTitle}>Payment Details</h3>
-
-                    {/* CARD BLOCK */}
-                    <div className={styles.cardMock}>
-                        <label>Card Number</label>
-                        <input
-                            type="text"
-                            placeholder="4242 4242 4242 4242"
-                            value={cardNumber}
-                            onChange={(e) => setField("cardNumber", e.target.value)}
-                            className={styles.input}
-                        />
-
-                        <div className={styles.cardRow}>
-                            <div className={styles.col}>
-                                <label>Expiry</label>
-                                <input
-                                    type="text"
-                                    placeholder="MM/YY"
-                                    value={expiry}
-                                    onChange={(e) => setField("expiry", e.target.value)}
-                                    className={styles.input}
-                                />
-                            </div>
-
-                            <div className={styles.col}>
-                                <label>CVC</label>
-                                <input
-                                    type="text"
-                                    placeholder="123"
-                                    value={cvc}
-                                    onChange={(e) => setField("cvc", e.target.value)}
-                                    className={styles.input}
-                                />
-                            </div>
-                        </div>
+                    <div className={styles.orderNotice}>
+                        <h3 className={styles.sectionTitle}>What happens after payment</h3>
+                        <p>Your invoice in PDF format will be sent to <strong>{email || "your email"}</strong>.</p>
+                        <p>Your team mailbox also receives a purchase notification with the client and order details.</p>
                     </div>
 
-                    <button className={styles.payBtn} onClick={handlePay}>
-                        Pay €{total.toFixed(2)}
+                    <button className={styles.payBtn} onClick={handlePay} disabled={isSubmitting}>
+                        {isSubmitting ? "Processing..." : `Pay €${total.toFixed(2)}`}
                     </button>
 
                     <Link href="/" className={styles.backLink}>
@@ -165,7 +144,7 @@ export default function CheckoutPage() {
 
                                 <div className={styles.info}>
                                     <strong>{item.name}</strong>
-                                    <span className={styles.price}>€{item.price.toFixed(2)}</span>
+                                    <span className={styles.price}>€{(item.price * item.qty).toFixed(2)}</span>
                                     <span className={styles.qty}>Qty: {item.qty}</span>
                                 </div>
                             </div>
