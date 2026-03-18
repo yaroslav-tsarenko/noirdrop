@@ -5,6 +5,7 @@ import {
     COMPANY_NAME,
     COMPANY_NUMBER,
     COMPANY_EMAIL,
+    COMPANY_URL,
 } from "@/resources/constants";
 
 export const cookiePolicyEn: PageSchema = {
@@ -40,7 +41,7 @@ export const cookiePolicyEn: PageSchema = {
         {
             type: "text",
             title: "1. Introduction",
-            description: `This Cookie Policy explains how ${COMPANY_LEGAL_NAME} ("we", "us", "our") uses cookies and similar technologies to recognise you when you visit our website at ${COMPANY_NAME} (the "Site"). It explains what these technologies are, why we use them, and your choices and rights to control their use. This Cookie Policy should be read together with our Privacy Policy.`,
+            description: `This Cookie Policy explains how ${COMPANY_LEGAL_NAME} ("we", "us", "our") uses cookies and similar technologies to recognise you when you visit our website at ${COMPANY_URL} (the "Site"). It explains what these technologies are, why we use them, and your choices and rights to control their use. This Cookie Policy should be read together with our Privacy Policy.`,
         },
         {
             type: "text",

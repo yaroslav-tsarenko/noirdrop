@@ -196,11 +196,6 @@ export default function SignUpPage() {
                         <button type="submit" className={styles.submit} disabled={isSubmitting}>
                             {isSubmitting ? "Creating account..." : "Create account"}
                         </button>
-
-                        <div className={styles.inlineNote}>
-                            <span>Already have an account?</span>
-                            <Link href="/sign-in">Sign in</Link>
-                        </div>
                     </Form>
                 )}
             </Formik>

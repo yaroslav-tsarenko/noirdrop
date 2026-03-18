@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { Formik, Form, Field, FormikHelpers, FieldProps } from "formik";
 import { useAlert } from "@/context/AlertContext";
 import { useRouter } from "next/navigation";
@@ -85,11 +84,6 @@ export default function SignInPage() {
                         <button type="submit" className={styles.submit} disabled={isSubmitting}>
                             {isSubmitting ? "Signing in..." : "Sign in"}
                         </button>
-
-                        <div className={styles.inlineNote}>
-                            <span>Need a new account?</span>
-                            <Link href="/sign-up">Create one now</Link>
-                        </div>
                     </Form>
                 )}
             </Formik>

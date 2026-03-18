@@ -2,9 +2,6 @@ import { PageSchema } from "@/components/constructor/page-render/types";
 import {
     COMPANY_NAME,
     COMPANY_EMAIL,
-    COMPANY_LEGAL_NAME,
-    COMPANY_ADDRESS,
-    COMPANY_NUMBER,
 } from "@/resources/constants";
 
 const privacyPolicySchema: PageSchema = {
@@ -74,7 +71,7 @@ const privacyPolicySchema: PageSchema = {
         {
             type: "text",
             title: "7. Haklarınız",
-            description: "Veri koruma yasası kapsamında erişim, düzeltme, silme, kısıtlama, taşınabilirlik, itiraz ve rıza geri çekme haklarına sahipsiniz. Haklarınızı kullanmak için info@ilovemanual.co.uk adresine başvurabilirsiniz. Talepler için kimlik doğrulaması istenebilir."
+            description: `Veri koruma yasası kapsamında erişim, düzeltme, silme, kısıtlama, taşınabilirlik, itiraz ve rıza geri çekme haklarına sahipsiniz. Haklarınızı kullanmak için ${COMPANY_EMAIL} adresine başvurabilirsiniz. Talepler için kimlik doğrulaması istenebilir.`
         },
         {
             type: "text",

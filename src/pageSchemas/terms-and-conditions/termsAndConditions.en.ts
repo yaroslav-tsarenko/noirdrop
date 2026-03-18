@@ -5,6 +5,7 @@ import {
     COMPANY_NUMBER,
     COMPANY_ADDRESS,
     COMPANY_EMAIL,
+    COMPANY_URL,
 } from "@/resources/constants";
 
 const termsSchema: PageSchema = {
@@ -41,7 +42,7 @@ const termsSchema: PageSchema = {
         {
             type: "text",
             title: "1. Introduction",
-            description: `These Terms and Conditions ("Terms") govern your access to and use of the ${COMPANY_NAME} website and related services (the "Service"), operated by ${COMPANY_LEGAL_NAME} (company number ${COMPANY_NUMBER}), with registered office at ${COMPANY_ADDRESS} ("we", "us", "our"). By accessing or using the Service, creating an Account, purchasing Tokens, placing an Order, or receiving/using an eSIM, you agree to be bound by these Terms. If you do not agree, you must not use the Service. These Terms are intended to be read together with our Privacy Policy and Cookies Policy (together, our "Policies"). If there is a conflict, these Terms prevail in relation to use of the Service.`,
+            description: `These Terms and Conditions ("Terms") govern your access to and use of the website at ${COMPANY_URL} and related services (the "Service"), operated by ${COMPANY_LEGAL_NAME} (company number ${COMPANY_NUMBER}), with registered office at ${COMPANY_ADDRESS} ("we", "us", "our"). By accessing or using the Service, creating an Account, purchasing Tokens, placing an Order, or receiving/using an eSIM, you agree to be bound by these Terms. If you do not agree, you must not use the Service. These Terms are intended to be read together with our Privacy Policy and Cookies Policy (together, our "Policies"). If there is a conflict, these Terms prevail in relation to use of the Service.`,
         },
         {
             type: "text",

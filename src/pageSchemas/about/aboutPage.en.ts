@@ -307,7 +307,7 @@ const schema: PageSchema = {
                 },
                 {
                     question: "How do I contact support?",
-                    answer: `You can email us anytime at ${COMPANY_EMAIL}.`,
+                    answer: `You can contact us via ${COMPANY_EMAIL} or use the contact form on the site. We usually reply within 24 hours with activation, billing, or coverage help.`,
                 },
             ],
         },
@@ -318,7 +318,7 @@ const schema: PageSchema = {
             bgImage: "image70",
             title: "Join the Future of Borderless Connectivity",
             description:
-                "Whether you're a traveler, business, or global team — connect instantly with eSIMs powered by ${COMPANY_NAME}.",
+                `Whether you're a traveler, business, or global team — connect instantly with eSIMs powered by ${COMPANY_NAME}.`,
             buttons: [
                 { text: "Get Started", link: "/get-started", color: "primary" },
                 { text: "Explore Plans", link: "/services", color: "secondary" },

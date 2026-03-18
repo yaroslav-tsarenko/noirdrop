@@ -5,6 +5,7 @@ import {
     COMPANY_LEGAL_NAME,
     COMPANY_ADDRESS,
     COMPANY_NUMBER,
+    COMPANY_URL,
 } from "@/resources/constants";
 
 const refundPolicySchema: PageSchema = {
@@ -51,7 +52,7 @@ const refundPolicySchema: PageSchema = {
         {
             type: "text",
             title: "2. Scope and Legal Notice",
-            description: `This Refund & Return Policy ("Policy") governs cancellations, disputes, and refund requests for purchases made via ${COMPANY_NAME}, including Token purchases (Wallet top-ups) and the redemption of Tokens for eSIM Plans. The Service is operated by ${COMPANY_LEGAL_NAME} (Company Number ${COMPANY_NUMBER}), registered at ${COMPANY_ADDRESS}. Nothing in this Policy is intended to limit your statutory rights under UK law (including the Consumer Rights Act 2015 and Consumer Contracts Regulations 2013), except where lawful exemptions for digital content apply.`,
+            description: `This Refund & Return Policy ("Policy") governs cancellations, disputes, and refund requests for purchases made via ${COMPANY_URL}, including Token purchases (Wallet top-ups) and the redemption of Tokens for eSIM Plans. The Service is operated by ${COMPANY_LEGAL_NAME} (Company Number ${COMPANY_NUMBER}), registered at ${COMPANY_ADDRESS}. Nothing in this Policy is intended to limit your statutory rights under UK law (including the Consumer Rights Act 2015 and Consumer Contracts Regulations 2013), except where lawful exemptions for digital content apply.`,
         },
         {
             type: "text",

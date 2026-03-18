@@ -5,6 +5,7 @@ import {
     COMPANY_LEGAL_NAME,
     COMPANY_ADDRESS,
     COMPANY_NUMBER,
+    COMPANY_URL,
 } from "@/resources/constants";
 
 const privacyPolicySchema: PageSchema = {
@@ -39,7 +40,7 @@ const privacyPolicySchema: PageSchema = {
         {
             type: "text",
             title: "1. Introduction",
-            description: `We respect your privacy and are committed to protecting your personal data. This Privacy Policy explains what personal data we collect, why we use it, how long we keep it, and how you can exercise your rights when using ${COMPANY_NAME} and our eSIM-related services (the "Service").\n\nController: ${COMPANY_LEGAL_NAME} (Company No. ${COMPANY_NUMBER}), ${COMPANY_ADDRESS}.\nContact: ${COMPANY_EMAIL}.\nScope: This Policy applies to all users of the Service, including individuals who create an Account, purchase Tokens, place Orders, and receive or use an eSIM/Plan.\n\nBy using the Service, you acknowledge that your personal data will be processed in accordance with this Privacy Policy and applicable data protection laws, including the UK GDPR and the Data Protection Act 2018.`,
+            description: `We respect your privacy and are committed to protecting your personal data. This Privacy Policy explains what personal data we collect, why we use it, how long we keep it, and how you can exercise your rights when using ${COMPANY_URL} and our eSIM-related services (the "Service").\n\nController: ${COMPANY_LEGAL_NAME} (Company No. ${COMPANY_NUMBER}), ${COMPANY_ADDRESS}.\nContact: ${COMPANY_EMAIL}.\nScope: This Policy applies to all users of the Service, including individuals who create an Account, purchase Tokens, place Orders, and receive or use an eSIM/Plan.\n\nBy using the Service, you acknowledge that your personal data will be processed in accordance with this Privacy Policy and applicable data protection laws, including the UK GDPR and the Data Protection Act 2018.`,
         },
         {
             type: "text",
