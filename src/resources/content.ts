@@ -13,7 +13,7 @@ export const headerContent = {
         href: "/"
     },
     links: [
-        { label: "Solutions", href: "/services" },
+        { label: "Platform", href: "/services" },
         { label: "Plans & Pricing", href: "/pricing" },
         { label: "Contact", href: "/contact-us" },
         { label: "About Us", href: "/about-us" },
@@ -37,7 +37,7 @@ export const footerContent = {
         {
             title: "Useful Links",
             links: [
-                { label: "Solutions", href: "/services" },
+                { label: "Platform", href: "/services" },
                 { label: "Plans & Pricing", href: "/pricing" },
                 { label: "Blog", href: "/blog" },
                 { label: "FAQ", href: "/faq" },

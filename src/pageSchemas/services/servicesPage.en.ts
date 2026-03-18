@@ -307,15 +307,15 @@ const schema: PageSchema = {
                     image: "image25",
                     title: "Global eSIM Marketplace",
                     description: "Launch a clean storefront for selling travel eSIMs worldwide.",
-                    buttonLink: "/get-started",
+                    buttonLink: "/esim/esim-global",
                     buttonText: "Browse eSIMs"
                 },
                 {
                     image: "image26",
                     title: "Coverage Explorer",
                     description: "Interactive global map for speed, latency and signal strength.",
-                    buttonLink: "#coverage-map",
-                    buttonText: "View Coverage Map"
+                    buttonLink: "/coverage",
+                    buttonText: "View Coverage"
                 },
                 {
                     image: "image28",
@@ -334,7 +334,7 @@ const schema: PageSchema = {
             title: "Build a Smarter eSIM Platform Today",
             description: "Automate workflows, improve activation rates and scale globally with AI telecom solutions.",
             buttons: [
-                { text: "Browse eSIMs", link: "/get-started", color: "primary" },
+                { text: "Browse eSIMs", link: "/esim/esim-global", color: "primary" },
                 { text: "Explore Pricing", link: "/pricing", color: "secondary" }
             ]
         }

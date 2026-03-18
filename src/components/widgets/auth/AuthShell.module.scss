@@ -1,0 +1,197 @@
+.shell {
+  position: relative;
+  overflow: hidden;
+  min-height: calc(100vh - 220px);
+  padding: 32px 0 56px;
+}
+
+.glowA,
+.glowB {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(70px);
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+.glowA {
+  top: 24px;
+  left: -60px;
+  width: 260px;
+  height: 260px;
+  background: rgba(44, 196, 222, 0.28);
+}
+
+.glowB {
+  right: -80px;
+  bottom: 32px;
+  width: 300px;
+  height: 300px;
+  background: rgba(197, 68, 255, 0.26);
+}
+
+.layout {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(280px, 0.95fr) minmax(360px, 1.05fr);
+  gap: 24px;
+  align-items: stretch;
+}
+
+.sidePanel,
+.formCard {
+  border: 1px solid rgba(125, 157, 215, 0.2);
+  background:
+    radial-gradient(circle at top left, rgba(43, 204, 233, 0.12), transparent 32%),
+    linear-gradient(180deg, rgba(8, 17, 40, 0.97), rgba(5, 11, 28, 0.96));
+  box-shadow: 0 24px 80px rgba(1, 8, 24, 0.42);
+}
+
+.sidePanel {
+  border-radius: 32px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100%;
+}
+
+.eyebrow {
+  display: inline-flex;
+  width: fit-content;
+  margin-bottom: 14px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(43, 204, 233, 0.12);
+  color: #7feeff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.sideTitle,
+.formTitle {
+  margin: 0;
+  color: #f7fbff;
+  line-height: 1.05;
+}
+
+.sideTitle {
+  max-width: 420px;
+  font-size: clamp(2.3rem, 4vw, 4.3rem);
+}
+
+.sideDescription,
+.formDescription {
+  color: #97a9c9;
+  line-height: 1.7;
+}
+
+.sideDescription {
+  margin: 18px 0 28px;
+  max-width: 500px;
+  font-size: 1rem;
+}
+
+.metricCard {
+  margin: 0 0 22px;
+  padding: 22px 24px;
+  border-radius: 24px;
+  background: rgba(15, 28, 60, 0.68);
+  border: 1px solid rgba(127, 238, 255, 0.12);
+
+  strong {
+    display: block;
+    margin: 10px 0 8px;
+    color: #f7fbff;
+    font-size: 1.15rem;
+  }
+
+  p {
+    margin: 0;
+    color: #8ca0c3;
+    line-height: 1.6;
+  }
+}
+
+.metricLabel {
+  color: #7feeff;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.pointList {
+  display: grid;
+  gap: 14px;
+}
+
+.pointItem {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.035);
+  color: #dbe6f7;
+}
+
+.pointIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  background: rgba(43, 204, 233, 0.14);
+  color: #7feeff;
+  font-size: 1.3rem;
+}
+
+.formPanel {
+  display: flex;
+  align-items: center;
+}
+
+.formCard {
+  width: 100%;
+  border-radius: 30px;
+  padding: 34px 34px 30px;
+}
+
+.formTitle {
+  font-size: clamp(2rem, 3vw, 3rem);
+}
+
+.formDescription {
+  margin: 14px 0 28px;
+}
+
+.formFooter {
+  margin: 24px 0 0;
+  color: #8ca0c3;
+  text-align: center;
+
+  a {
+    color: #48d8f0;
+    font-weight: 700;
+    text-decoration: none;
+  }
+}
+
+@media (max-width: 980px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sidePanel {
+    padding: 28px;
+  }
+
+  .formCard {
+    padding: 28px 22px 24px;
+  }
+}

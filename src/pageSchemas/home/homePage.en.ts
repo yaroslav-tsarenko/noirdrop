@@ -48,28 +48,13 @@ const schema: PageSchema = {
             description:
                 "Skip physical SIM cards. Activate your eSIM in 30 seconds and enjoy fast 4G/5G data worldwide. Affordable, instant, and contract‑free.",
             buttons: [
-                { text: "Browse eSIMs", link: "/get-started", color: "primary" },
+                { text: "Browse eSIMs", link: "/esim/esim-global", color: "primary" },
                 { text: "How It Works", link: "/how-it-works", color: "secondary" },
             ],
         },
 
         /* --------------------------------------------------------------------------
-         * 🟢 1. HERO SECTION (legacy) — keep but fix links
-         * -------------------------------------------------------------------------- */
-        {
-            type: "hero",
-            bgImage: "image1",
-            title: "Global eSIM Marketplace — Instantly Connect in 200+ Countries",
-            description:
-                "Skip physical SIM cards. Activate your eSIM in 30 seconds and enjoy fast 4G/5G data anywhere in the world. Affordable, instant, and contract-free.",
-            buttons: [
-                { text: "Browse eSIMs", link: "/get-started", color: "primary" },
-                { text: "How It Works", link: "/how-it-works", color: "secondary" },
-            ],
-        },
-
-        /* --------------------------------------------------------------------------
-         * 🟢 2. STEPS SECTION (How eSIM Works)
+         * 🟢 1. STEPS SECTION (How eSIM Works)
          * -------------------------------------------------------------------------- */
         {
             type: "steps",

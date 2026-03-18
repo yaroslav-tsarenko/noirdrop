@@ -9,8 +9,9 @@ export const signInInitialValues: SignInValues = {
 
 export function signInValidation(values: SignInValues) {
     const errors: Partial<Record<keyof SignInValues, string>> = {};
-    if (!values.email) errors.email = "Required";
-    if (!values.password) errors.password = "Required";
+    if (!values.email.trim()) errors.email = "Email is required";
+    else if (!/^\S+@\S+\.\S+$/.test(values.email)) errors.email = "Enter a valid email";
+    if (!values.password) errors.password = "Password is required";
     return errors;
 }
 

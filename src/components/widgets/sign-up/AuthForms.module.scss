@@ -1,0 +1,136 @@
+.form {
+  display: grid;
+  gap: 18px;
+}
+
+.gridTwo {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  align-items: start;
+}
+
+.field {
+  display: grid;
+  grid-template-rows: auto minmax(58px, auto) minmax(18px, auto) minmax(18px, auto);
+  gap: 8px;
+  align-content: start;
+
+  span {
+    color: #dfe8f7;
+    font-size: 0.98rem;
+    font-weight: 600;
+  }
+}
+
+.input {
+  width: 100%;
+  height: 58px;
+  padding: 16px 18px;
+  border-radius: 18px;
+  border: 1px solid rgba(118, 146, 204, 0.22);
+  background: rgba(15, 24, 49, 0.88);
+  color: #f7fbff;
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+
+  &:focus {
+    outline: none;
+    border-color: rgba(72, 216, 240, 0.8);
+    box-shadow: 0 0 0 4px rgba(72, 216, 240, 0.15);
+    transform: translateY(-1px);
+  }
+}
+
+select.input {
+  appearance: none;
+}
+
+.helper,
+.error {
+  display: block;
+  min-height: 18px;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.helper {
+  color: #8093b5;
+}
+
+.error {
+  color: #ff8ca8;
+}
+
+.checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 18px;
+  border-radius: 18px;
+  border: 1px solid rgba(118, 146, 204, 0.2);
+  background: rgba(15, 24, 49, 0.64);
+  color: #dbe6f7;
+
+  input {
+    margin-top: 4px;
+    width: 18px;
+    height: 18px;
+    accent-color: #3fdaf4;
+  }
+
+  a {
+    color: #48d8f0;
+    font-weight: 700;
+    text-decoration: none;
+  }
+}
+
+.form > .field,
+.form > .gridTwo,
+.form > .checkbox,
+.form > .submit,
+.form > .inlineNote {
+  width: 100%;
+}
+
+.submit {
+  min-height: 60px;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #2cc5de, #48d8f0 45%, #7c6bff);
+  color: #07101f;
+  font-size: 1.05rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  box-shadow: 0 16px 40px rgba(72, 216, 240, 0.28);
+
+  &:hover:not(:disabled) {
+    transform: translateY(-1px);
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: wait;
+  }
+}
+
+.inlineNote {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  color: #8ca0c3;
+
+  a {
+    color: #48d8f0;
+    font-weight: 700;
+    text-decoration: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .gridTwo {
+    grid-template-columns: 1fr;
+  }
+}
