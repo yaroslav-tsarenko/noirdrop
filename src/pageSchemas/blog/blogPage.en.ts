@@ -1,5 +1,5 @@
 import { PageSchema } from "@/components/constructor/page-render/types";
-import { COMPANY_NAME, COMPANY_EMAIL } from "@/resources/constants";
+import { COMPANY_NAME } from "@/resources/constants";
 import { DEFAULT_TESTIMONIALS_ITEMS, DEFAULT_TESTIMONIALS_TITLE } from "@/resources/testimonials";
 
 const blogSchema: PageSchema = {
@@ -80,7 +80,7 @@ const blogSchema: PageSchema = {
             cards: [
                 {
                     image: "image20",
-                    title: "Physical SIM vs eSIM: Which One Wins in 2025?",
+                    title: "Physical SIM vs eSIM: Which One Wins in 2026?",
                     description: "A simple comparison for travelers: setup, speed, security, and how to keep your main number.",
                     buttonLink: "/blog/sim-vs-esim",
                     buttonText: "Read More",
@@ -101,7 +101,7 @@ const blogSchema: PageSchema = {
                 },
                 {
                     image: "image23",
-                    title: "Top 20 Countries for Using eSIM in 2025",
+                    title: "Top 20 Countries for Using eSIM in 2026",
                     description: "A practical traveler ranking based on coverage, stability, and value — not just marketing claims.",
                     buttonLink: "/blog/top-countries-esim",
                     buttonText: "Read More",
@@ -159,7 +159,7 @@ const blogSchema: PageSchema = {
             cards: [
                 {
                     image: "image33",
-                    title: "Top 20 Countries for Using eSIM in 2025",
+                    title: "Top 20 Countries for Using eSIM in 2026",
                     description: "A full comparison of speed, stability, and coverage.",
                     buttonLink: "/blog/top-countries-esim",
                     buttonText: "Read More",
@@ -173,7 +173,7 @@ const blogSchema: PageSchema = {
                 },
                 {
                     image: "image44",
-                    title: "Physical SIM vs eSIM: Which One Wins in 2025?",
+                    title: "Physical SIM vs eSIM: Which One Wins in 2026?",
                     description: "We compare speed, security, fees, and convenience.",
                     buttonLink: "/blog/sim-vs-esim",
                     buttonText: "Read More",

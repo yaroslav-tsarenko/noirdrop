@@ -10,7 +10,6 @@ import {I18nProvider} from "@/context/i18nContext";
 import {AllOrdersProvider} from "@/context/AllOrdersContext";
 import {CurrencyProvider} from "@/context/CurrencyContext";
 import {TransactionsProvider} from "@/context/TransactionContext";
-import {ResumeProvider} from "@/context/ResumeContext";
 
 function Layout({ children }: { children: React.ReactNode }) {
     return (
@@ -28,13 +27,11 @@ function Layout({ children }: { children: React.ReactNode }) {
                     <ProtectedRoute>
                         <TransactionsProvider>
                             <CurrencyProvider>
-                                <ResumeProvider>
-                                    <Header />
-                                    <PageWrapper>
-                                        {children}
-                                    </PageWrapper>
-                                    <Footer />
-                                </ResumeProvider>
+                                <Header />
+                                <PageWrapper>
+                                    {children}
+                                </PageWrapper>
+                                <Footer />
                             </CurrencyProvider>
                         </TransactionsProvider>
                     </ProtectedRoute>
@@ -47,4 +44,3 @@ function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default authWrapper(Layout);
-

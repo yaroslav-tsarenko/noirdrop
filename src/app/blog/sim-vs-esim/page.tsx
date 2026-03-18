@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { COMPANY_NAME } from "@/resources/constants";
 
 export const metadata: Metadata = {
-    title: `Physical SIM vs eSIM: Which One Wins in 2025? — ${COMPANY_NAME}`,
+    title: `Physical SIM vs eSIM: Which One Wins in 2026? — ${COMPANY_NAME}`,
     description:
         "A balanced comparison for travelers: setup, reliability, security, switching carriers, and cost control.",
     alternates: { canonical: "/blog/sim-vs-esim" },
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function Page() {
     return (
         <main style={{ maxWidth: 960, margin: "0 auto", padding: "48px 16px" }}>
-            <h1>Physical SIM vs eSIM: Which One Wins in 2025?</h1>
+            <h1>Physical SIM vs eSIM: Which One Wins in 2026?</h1>
             <p>
                 Both physical SIMs and eSIMs get you connected. The best choice depends on how you travel, whether
                 you need to keep your primary number active, and how often you switch countries.
@@ -57,4 +57,3 @@ export default function Page() {
         </main>
     );
 }
-

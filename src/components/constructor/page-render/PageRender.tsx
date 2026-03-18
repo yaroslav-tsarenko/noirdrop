@@ -36,6 +36,7 @@ import type {
 } from "./types";
 import Hero from "@/components/constructor/hero/Hero";
 import FadeIn from "@/components/constructor/fade-in/FadeIn";
+import { StaticImageData } from "next/image";
 
 // ------------------- helpers -------------------
 
@@ -45,7 +46,7 @@ function resolveMedia(key?: string) {
     if (!v && process.env.NODE_ENV !== "production") {
         console.warn(`media asset not found: ${key}`);
     }
-    return v as any;
+    return v as string | StaticImageData | undefined;
 }
 
 function RenderHero(b: HeroBlock) {
@@ -73,7 +74,7 @@ function RenderSteps(b: StepsBlock) {
 function RenderText(b: TextBlock) {
     return (
         <Text
-            id={(b as any).id}
+            id={b.id}
             title={b.title}
             description={b.description}
             bullets={b.bullets}
@@ -141,12 +142,16 @@ function RenderPricingCard(b: PricingBlock) {
     );
 }
 
-function RenderQRGenerator(_b: QRGeneratorBlock) {
+function RenderQRGenerator() {
     return <QRGenerator />;
 }
 
-function RenderRatesPerCountry(_b: RatesPerCountryBlockType) {
-    return <RatesPerCountryBlock />;
+function RenderRatesPerCountry(b: RatesPerCountryBlockType) {
+    return (
+        <div id={b.id}>
+            <RatesPerCountryBlock />
+        </div>
+    );
 }
 
 // ------------------- grid + section -------------------
@@ -169,10 +174,10 @@ function RenderGrid(b: GridBlock) {
         (b.items && b.items.length > 0)
             ? b.items
             : (b.cards?.map((c, idx) => {
-                if ((c as any).type === "pricing") {
+                if ("type" in c && c.type === "pricing") {
                     return {
-                        key: (c as any).title ?? String(idx),
-                        block: (c as unknown) as PricingBlock,
+                        key: c.title ?? String(idx),
+                        block: c,
                     };
                 }
                 return {
@@ -189,16 +194,18 @@ function RenderGrid(b: GridBlock) {
             }) ?? []);
 
     return (
-        <Grid columns={b.columns} gap={b.gap} style={b.style}>
-            {items.map((item, i) => (
-                <div
-                    key={item.key ?? i}
-                    style={item.colSpan ? { gridColumn: `span ${item.colSpan}` } : undefined}
-                >
-                    {renderBlock(item.block, item.key ?? i)}
-                </div>
-            ))}
-        </Grid>
+        <div id={b.id}>
+            <Grid columns={b.columns} gap={b.gap} style={b.style}>
+                {items.map((item, i) => (
+                    <div
+                        key={item.key ?? i}
+                        style={item.colSpan ? { gridColumn: `span ${item.colSpan}` } : undefined}
+                    >
+                        {renderBlock(item.block, item.key ?? i)}
+                    </div>
+                ))}
+            </Grid>
+        </div>
     );
 }
 

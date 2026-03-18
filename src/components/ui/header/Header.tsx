@@ -5,18 +5,15 @@ import {headerContent} from "@/resources/content";
 import styles from "./Header.module.scss";
 import {IconButton} from "@mui/material";
 import {FaBars} from "react-icons/fa";
-import {useUser} from "@/context/UserContext";
 import Image from "next/image";
 import AuthButtons from "@/components/widgets/auth-buttons/AuthButtons";
 import {headerStyles} from "@/resources/styles-config";
 import DrawerMenu from "@/components/ui/drawer/Drawer";
-import Selectors from "@/components/widgets/selectors/Selectors";
+import Link from "next/link";
 
 const Header: React.FC = () => {
     const [drawerOpen, setDrawerOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
-
-    const user = useUser();
 
     useEffect(() => {
         const handleScroll = () => setIsScrolled(window.scrollY > 10);
@@ -52,14 +49,14 @@ const Header: React.FC = () => {
                 style={scrolledStyle}>
                 <div className={styles.headerInner}>
                     <div className={styles.headerNav}>
-                        <a href={headerContent.logo.href} className={styles.logo}>
+                        <Link href={headerContent.logo.href} className={styles.logo}>
                             <Image
                                 width={90}
                                 height={30}
                                 src={headerContent.logo.src}
                                 alt={headerContent.logo.alt}
                             />
-                        </a>
+                        </Link>
 
                     </div>
                     <nav
@@ -72,9 +69,9 @@ const Header: React.FC = () => {
                         }
                     >
                         {headerContent.links.map((link) => (
-                            <a href={link.href} key={link.label} className={styles.link}>
+                            <Link href={link.href} key={link.label} className={styles.link}>
                                 {link.label}
-                            </a>
+                            </Link>
                         ))}
                     </nav>
                     <div className={styles.actions}>

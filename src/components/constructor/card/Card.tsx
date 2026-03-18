@@ -3,6 +3,7 @@ import Media from "../image/Media";
 import styles from "./Card.module.scss";
 import {StaticImageData} from "next/image";
 import ButtonUI from "@/components/ui/button/ButtonUI";
+import Link from "next/link";
 
 interface CardProps {
     image: StaticImageData;
@@ -21,11 +22,11 @@ const Card: React.FC<CardProps> = ({ image, title, description, buttonText, butt
             <h3 className={styles.title}>{title}</h3>
             <p className={styles.description}>{description}</p>
             {buttonText && buttonLink && (
-                <a href={buttonLink} style={{ textDecoration: "none" }}>
+                <Link href={buttonLink} className={styles.buttonWrapper}>
                     <ButtonUI color="linkHover" hoverColor="linkHover" type="button" sx={{ width: "100%"}}>
                         {buttonText}
                     </ButtonUI>
-                </a>
+                </Link>
             )}
         </div>
     </div>

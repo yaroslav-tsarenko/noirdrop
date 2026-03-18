@@ -127,14 +127,14 @@ const pricingSchema: PageSchema = {
                     type: "pricing",
                     variant: "basic",
                     title: "Custom",
-                    price: "Dynamic",
+                    price: "Custom quote",
                     tokens: 0,
                     description: "Ideal for universities, travel platforms and telecom brands.",
                     features: [
-                        "Custom token pool",
-                        "API-level routing",
-                        "Volume-based discounts",
-                        "24/7 enterprise support",
+                        "Custom routing setup",
+                        "Volume-based commercial terms",
+                        "Priority onboarding support",
+                        "Tailored rollout plan",
                     ],
                     buttonText: "Contact Sales",
                     buttonLink: "/contact-us",
@@ -176,22 +176,74 @@ const pricingSchema: PageSchema = {
             type: "grid",
             columns: 3,
             gap: "2rem",
-            items: Array.from({ length: 6 }).map((_, i) => ({
-                block: {
-                    type: "text",
-                    title: `Connectivity Feature #${i + 1}`,
-                    description:
-                        "Advanced telecom-grade micro-features helping your marketplace scale across continents.",
-                    bullets: [
-                        "Autonomous delivery logic",
-                        "Carrier failover system",
-                        "Global signal prediction",
-                    ],
-                    iconName: "auto_awesome",
-                    iconColor: "#6a39ff",
-                    iconBg: "#f3edff",
+            items: [
+                {
+                    block: {
+                        type: "text",
+                        title: "Instant QR Delivery",
+                        description: "Customers receive activation details right after checkout.",
+                        bullets: ["Email-ready flow", "Fast fulfilment", "Clear install steps"],
+                        iconName: "qr",
+                        iconColor: "#6a39ff",
+                        iconBg: "#f3edff",
+                    }
+                },
+                {
+                    block: {
+                        type: "text",
+                        title: "Reusable Travel Balance",
+                        description: "Keep one account and reuse it across future trips.",
+                        bullets: ["Simple top-ups", "No subscriptions", "Flexible spend"],
+                        iconName: "wallet",
+                        iconColor: "#0070f3",
+                        iconBg: "#e6f7ff",
+                    }
+                },
+                {
+                    block: {
+                        type: "text",
+                        title: "Global Coverage",
+                        description: "Plans are built for frequent travel across major destinations.",
+                        bullets: ["190+ countries", "Strong partner networks", "Travel-ready setup"],
+                        iconName: "public",
+                        iconColor: "#28a745",
+                        iconBg: "#e6ffe6",
+                    }
+                },
+                {
+                    block: {
+                        type: "text",
+                        title: "Transparent Billing",
+                        description: "Know what you pay and what package fits your use.",
+                        bullets: ["Clear package sizes", "No hidden renewals", "Straightforward pricing"],
+                        iconName: "receipt",
+                        iconColor: "#ff8a00",
+                        iconBg: "#fff4e6",
+                    }
+                },
+                {
+                    block: {
+                        type: "text",
+                        title: "Fast Activation Help",
+                        description: "Support content is built around common setup issues and fixes.",
+                        bullets: ["Activation guidance", "Compatibility help", "Troubleshooting tips"],
+                        iconName: "support_agent",
+                        iconColor: "#d900aa",
+                        iconBg: "#ffe6f5",
+                    }
+                },
+                {
+                    block: {
+                        type: "text",
+                        title: "Business-Ready Scaling",
+                        description: "Move from single-trip usage to larger travel operations when needed.",
+                        bullets: ["Custom agreements", "Higher-volume support", "Operational flexibility"],
+                        iconName: "business",
+                        iconColor: "#007f7f",
+                        iconBg: "#e6fffb",
+                    }
                 }
-            }))
+            ]
         },
 
         // 📡 NEW — Speed Class Boosters (Unique)

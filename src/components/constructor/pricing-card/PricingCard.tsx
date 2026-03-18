@@ -37,6 +37,8 @@ const labelText: Record<string, string> = {
 };
 
 const isDynamicPrice = (price: string) => price.trim().toLowerCase() === "dynamic";
+const isLinkOnlyCard = (price: string, tokens: number) =>
+    tokens <= 0 || Number.isNaN(Number(price));
 
 const PricingCard: React.FC<PricingCardProps> = ({
     variant = "basic",
@@ -65,6 +67,11 @@ const PricingCard: React.FC<PricingCardProps> = ({
     const calcTokens = (amount: number) => Math.floor(amount * 100);
 
     const handleBuy = async () => {
+        if (buttonLink && isLinkOnlyCard(price, tokens)) {
+            router.push(buttonLink);
+            return;
+        }
+
         if (!user) {
             showAlert("Please sign up", "You need to be signed in to buy tokens", "info");
             setTimeout(() => {
@@ -182,7 +189,13 @@ const PricingCard: React.FC<PricingCardProps> = ({
                 </>
             ) : (
                 <p className={styles.price}>
-                    {symbol}{Number(price).toFixed(2)} <span className={styles.tokens}>/{tokens} tokens</span>
+                    {Number.isFinite(Number(price))
+                        ? (
+                            <>
+                                {symbol}{Number(price).toFixed(2)} <span className={styles.tokens}>/{tokens} tokens</span>
+                            </>
+                        )
+                        : price}
                 </p>
             )}
 
@@ -206,7 +219,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
                 loading={isSubmitting}
                 disabled={isSubmitting}
             >
-                {user ? buttonText : "Sign Up to Buy"}
+                {isLinkOnlyCard(price, tokens) || user ? buttonText : "Sign Up to Buy"}
             </ButtonUI>
         </div>
     );

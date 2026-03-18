@@ -5,6 +5,7 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  height: 100%;
   transition: transform 0.25s ease, box-shadow 0.25s ease, border 0.25s ease;
   cursor: pointer;
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -41,6 +42,7 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+  flex: 1;
 }
 
 /* HEADLINE */
@@ -61,4 +63,9 @@
   font-size: 1.05rem;
   line-height: 1.55;
   opacity: 0.9;
+}
+
+.buttonWrapper {
+  margin-top: auto;
+  text-decoration: none;
 }

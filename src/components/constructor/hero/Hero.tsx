@@ -4,6 +4,7 @@ import ButtonUI from "@/components/ui/button/ButtonUI";
 import styles from "./Hero.module.scss";
 import { media as mediaMap } from "@/resources/media";
 import Link from "next/link";
+import { StaticImageData } from "next/image";
 
 export interface HeroButton {
     text: string;
@@ -20,12 +21,12 @@ export interface HeroProps {
 
 function resolveMedia(key?: string | number) {
     if (key === undefined || key === null) return undefined;
-    const value = (mediaMap as Record<string, any>)[String(key)];
+    const value = (mediaMap as Record<string, string | StaticImageData | undefined>)[String(key)];
     if (!value) return undefined;
 
     // handle next/image static imports
     if (typeof value === "object" && "src" in value) {
-        return (value as any).src;
+        return value.src;
     }
     return value as string;
 }

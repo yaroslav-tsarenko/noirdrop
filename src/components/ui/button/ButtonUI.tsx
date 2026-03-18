@@ -23,6 +23,31 @@ const hexToRgba = (hex: string, alpha = 1) => {
     return `rgba(${r}, ${g}, ${b}, ${alpha})`;
 };
 
+const normalizeVariant = (variant: NonNullable<ButtonUIProps["variant"]>) => {
+    switch (variant) {
+        case "solid":
+        case "soft":
+            return "contained";
+        case "plain":
+            return "text";
+        default:
+            return variant;
+    }
+};
+
+const normalizeSize = (size: NonNullable<ButtonUIProps["size"]>) => {
+    switch (size) {
+        case "sm":
+            return "small";
+        case "md":
+            return "medium";
+        case "lg":
+            return "large";
+        default:
+            return size;
+    }
+};
+
 const ButtonUI: React.FC<ButtonUIProps & {
     hoverEffect?: "none" | "shadow" | "glow" | "scale";
 }> = ({
@@ -44,7 +69,10 @@ const ButtonUI: React.FC<ButtonUIProps & {
           startIcon,
           endIcon,
           onClick,
+          ...rest
       }) => {
+    const muiVariant = normalizeVariant(variant);
+    const muiSize = normalizeSize(size);
     const resolvedBase = resolveColor(color);
     const resolvedHover = resolveColor(hoverColor) || resolvedBase;
     const resolvedText = textColor ? resolveColor(textColor) : undefined;
@@ -61,7 +89,7 @@ const ButtonUI: React.FC<ButtonUIProps & {
     const side = circleSizes[size as keyof typeof circleSizes] || 40;
 
     // Custom hover effects (for sx prop)
-    const hoverEffects: Record<NonNullable<typeof hoverEffect>, any> = {
+    const hoverEffects: Record<NonNullable<typeof hoverEffect>, React.CSSProperties> = {
         none: {},
         shadow: {
             boxShadow: "0 4px 14px rgba(0,0,0,0.2)",
@@ -78,7 +106,7 @@ const ButtonUI: React.FC<ButtonUIProps & {
 
     // Custom variant styles (for sx prop)
     const byVariant =
-        variant === "outlined"
+        muiVariant === "outlined"
             ? {
                 color: resolvedText || resolvedBase,
                 borderColor: resolvedBase,
@@ -91,7 +119,7 @@ const ButtonUI: React.FC<ButtonUIProps & {
                     ...hoverEffects[hoverEffect],
                 },
             }
-            : variant === "text"
+            : muiVariant === "text"
                 ? {
                     color: resolvedText || resolvedBase,
                     backgroundColor: "transparent",
@@ -116,14 +144,15 @@ const ButtonUI: React.FC<ButtonUIProps & {
 
     return (
         <Button
-            variant={variant}
-            size={size}
+            variant={muiVariant}
+            size={muiSize}
             type={type}
             disabled={disabled || loading}
             fullWidth={isCircle ? false : fullWidth}
             startIcon={startIcon}
             endIcon={endIcon}
             onClick={onClick}
+            {...rest}
             sx={{
                 borderRadius: isCircle ? "50%" : shape === "rounded" ? "30px" : "8px",
                 ...(isCircle && {

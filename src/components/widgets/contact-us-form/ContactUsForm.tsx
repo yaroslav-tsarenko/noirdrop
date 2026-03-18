@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Formik, Form, Field } from "formik";
+import { Formik, Form, Field, FieldProps } from "formik";
 import { Textarea, Button, Card, Typography } from "@mui/joy";
 import Confetti from "react-confetti";
 import { motion } from "framer-motion";
@@ -212,7 +212,7 @@ const ContactUsForm = () => {
                                         <Form className={styles.form}>
                                             <div className={styles.formGroupRow}>
                                                 <Field name="name">
-                                                    {({ field }: { field: any }) => (
+                                                    {({ field }: FieldProps) => (
                                                         <InputUI
                                                             {...field}
                                                             label="First Name"
@@ -227,7 +227,7 @@ const ContactUsForm = () => {
                                                 </Field>
 
                                                 <Field name="secondName">
-                                                    {({ field }: { field: any }) => (
+                                                    {({ field }: FieldProps) => (
                                                         <InputUI
                                                             {...field}
                                                             label="Last Name"
@@ -244,7 +244,7 @@ const ContactUsForm = () => {
                                             </div>
 
                                             <Field name="email">
-                                                {({ field }: { field: any }) => (
+                                                {({ field }: FieldProps) => (
                                                     <InputUI
                                                         {...field}
                                                         type="email"
@@ -260,7 +260,7 @@ const ContactUsForm = () => {
                                             </Field>
 
                                             <Field name="phone">
-                                                {({ field }: { field: any }) => (
+                                                {({ field }: FieldProps) => (
                                                     <InputUI
                                                         {...field}
                                                         type="tel"
@@ -276,7 +276,7 @@ const ContactUsForm = () => {
                                             </Field>
 
                                             <Field name="message">
-                                                {({ field }: { field: any }) => (
+                                                {({ field }: FieldProps) => (
                                                     <Textarea
                                                         {...field}
                                                         minRows={4}

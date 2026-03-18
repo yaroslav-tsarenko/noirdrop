@@ -48,7 +48,7 @@ const schema: PageSchema = {
             description:
                 "Skip physical SIM cards. Activate your eSIM in 30 seconds and enjoy fast 4G/5G data worldwide. Affordable, instant, and contract‑free.",
             buttons: [
-                { text: "Browse eSIMs", link: "/esim/esim-global", color: "primary" },
+                { text: "Browse eSIMs", link: "/get-started", color: "primary" },
                 { text: "How It Works", link: "/how-it-works", color: "secondary" },
             ],
         },
@@ -63,7 +63,7 @@ const schema: PageSchema = {
             description:
                 "Skip physical SIM cards. Activate your eSIM in 30 seconds and enjoy fast 4G/5G data anywhere in the world. Affordable, instant, and contract-free.",
             buttons: [
-                { text: "Browse eSIMs", link: "/esim/esim-global", color: "primary" },
+                { text: "Browse eSIMs", link: "/get-started", color: "primary" },
                 { text: "How It Works", link: "/how-it-works", color: "secondary" },
             ],
         },

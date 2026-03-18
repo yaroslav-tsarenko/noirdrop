@@ -33,12 +33,12 @@ const schema: PageSchema = {
             description:
                 "Boost your telecom or eSIM platform with automation, AI-driven analytics, pricing intelligence, global coverage maps and real-time customer onboarding flows.",
             buttons: [
-                { text: "Explore Tools", link: "#rates-per-country", color: "primary" },
-                { text: "Get a Demo", link: "/contact-us", color: "secondary" }
+                { text: "Explore Tools", link: "#coverage-map", color: "primary" },
+                { text: "View Pricing", link: "/pricing", color: "secondary" }
             ]
         },
 
-        { type: "rates-per-country" },
+        { type: "rates-per-country", id: "coverage-map" },
 
         // Tools anchor
         {
@@ -166,22 +166,107 @@ const schema: PageSchema = {
             type: "grid",
             columns: 3,
             gap: "1.6rem",
-            items: Array.from({ length: 9 }).map((_, i) => ({
-                block: {
-                    type: "text",
-                    title: `Advanced Feature #${i + 1}`,
-                    description:
-                        "Each micro-tool enhances platform UX and increases conversion rates through precision automation.",
-                    bullets: [
-                        "Instant processing",
-                        "AI-driven insights",
-                        "Telecom-grade reliability"
-                    ],
-                    iconName: "auto_awesome",
-                    iconColor: "#6a39ff",
-                    iconBg: "#f3edff"
+            items: [
+                {
+                    block: {
+                        type: "text",
+                        title: "Smart Coverage Heatmaps",
+                        description: "Visualize carrier quality by country before a customer buys a plan.",
+                        bullets: ["Regional scorecards", "Latency trends", "Country-by-country snapshots"],
+                        iconName: "public",
+                        iconColor: "#6a39ff",
+                        iconBg: "#f3edff"
+                    }
+                },
+                {
+                    block: {
+                        type: "text",
+                        title: "Conversion Tracking",
+                        description: "Measure which pricing, pages and destinations actually convert into orders.",
+                        bullets: ["CTA attribution", "Landing-page comparison", "Checkout drop-off analysis"],
+                        iconName: "trending_up",
+                        iconColor: "#0070f3",
+                        iconBg: "#e6f5ff"
+                    }
+                },
+                {
+                    block: {
+                        type: "text",
+                        title: "Refund Safeguards",
+                        description: "Detect risky orders early and flag failed activations before they escalate.",
+                        bullets: ["Failure alerts", "Order anomaly checks", "Support context history"],
+                        iconName: "shield",
+                        iconColor: "#ff8a00",
+                        iconBg: "#fff4e6"
+                    }
+                },
+                {
+                    block: {
+                        type: "text",
+                        title: "Multi-Locale Catalog",
+                        description: "Present plan data with localized content, region logic and device hints.",
+                        bullets: ["Country-aware copy", "Localized offers", "Compatibility prompts"],
+                        iconName: "language",
+                        iconColor: "#d900aa",
+                        iconBg: "#ffe6f5"
+                    }
+                },
+                {
+                    block: {
+                        type: "text",
+                        title: "Plan Performance Insights",
+                        description: "Track which products deliver stable service and which regions need attention.",
+                        bullets: ["Activation success rate", "Carrier-level trends", "Usage quality signals"],
+                        iconName: "signal_cellular_alt",
+                        iconColor: "#007f7f",
+                        iconBg: "#e6fffb"
+                    }
+                },
+                {
+                    block: {
+                        type: "text",
+                        title: "Automated Notifications",
+                        description: "Keep customers informed with timely emails around activation and order state.",
+                        bullets: ["Order updates", "Delivery reminders", "Support follow-ups"],
+                        iconName: "mail",
+                        iconColor: "#28a745",
+                        iconBg: "#e6ffe6"
+                    }
+                },
+                {
+                    block: {
+                        type: "text",
+                        title: "Device Compatibility Checks",
+                        description: "Reduce support load by catching unsupported phones before checkout.",
+                        bullets: ["Model screening", "Setup guidance", "Troubleshooting shortcuts"],
+                        iconName: "smartphone",
+                        iconColor: "#6a39ff",
+                        iconBg: "#f3edff"
+                    }
+                },
+                {
+                    block: {
+                        type: "text",
+                        title: "Order Ops Console",
+                        description: "Give internal teams one place to review purchases, issues and follow-ups.",
+                        bullets: ["Order visibility", "Status filters", "Response-ready notes"],
+                        iconName: "viewlist",
+                        iconColor: "#0070f3",
+                        iconBg: "#e6f5ff"
+                    }
+                },
+                {
+                    block: {
+                        type: "text",
+                        title: "Growth Reporting",
+                        description: "Understand what drives repeat purchases and profitable international demand.",
+                        bullets: ["Cohort trends", "Country demand mix", "Revenue snapshots"],
+                        iconName: "pie",
+                        iconColor: "#ff8a00",
+                        iconBg: "#fff4e6"
+                    }
                 }
-            }))
+            ]
         },
 
         // SECTION – Reverse
@@ -220,23 +305,23 @@ const schema: PageSchema = {
             cards: [
                 {
                     image: "image25",
-                    title: "AI eSIM Storefront",
-                    description: "Fully automated storefront for selling eSIMs worldwide.",
+                    title: "Global eSIM Marketplace",
+                    description: "Launch a clean storefront for selling travel eSIMs worldwide.",
                     buttonLink: "/get-started",
-                    buttonText: "Launch"
+                    buttonText: "Browse eSIMs"
                 },
                 {
                     image: "image26",
                     title: "Coverage Explorer",
                     description: "Interactive global map for speed, latency and signal strength.",
-                    buttonLink: "/services",
-                    buttonText: "View Map"
+                    buttonLink: "#coverage-map",
+                    buttonText: "View Coverage Map"
                 },
                 {
                     image: "image28",
-                    title: "AI Trouble-Shooter",
-                    description: "Fix activation and connectivity issues instantly with AI logic.",
-                    buttonLink: "/contact-us",
+                    title: "Activation Help Center",
+                    description: "Guide users through installation, setup and common connectivity issues.",
+                    buttonLink: "/faq",
                     buttonText: "Learn More"
                 }
             ]
@@ -249,7 +334,7 @@ const schema: PageSchema = {
             title: "Build a Smarter eSIM Platform Today",
             description: "Automate workflows, improve activation rates and scale globally with AI telecom solutions.",
             buttons: [
-                { text: "Schedule a Demo", link: "/contact-us", color: "primary" },
+                { text: "Browse eSIMs", link: "/get-started", color: "primary" },
                 { text: "Explore Pricing", link: "/pricing", color: "secondary" }
             ]
         }

@@ -12,8 +12,9 @@ export async function sendContactRequest(data: {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
     });
-    if (!res.ok) throw new Error("Failed to send contact request");
-    return res.json();
+    const payload = await res.json().catch(() => null);
+    if (!res.ok) throw new Error(payload?.message || "Failed to send contact request");
+    return payload;
 }
 
 export const validationSchema = Yup.object().shape({
@@ -21,8 +22,11 @@ export const validationSchema = Yup.object().shape({
     secondName: Yup.string().required("Second name is required"),
     email: Yup.string().email("Invalid email").required("Email is required"),
     phone: Yup.string()
-        .matches(/^[0-9]+$/, "Only numbers allowed")
-        .min(5, "Minimum 5 digits")
+        .matches(/^\+?[0-9()\-\s]+$/, "Use a valid phone number")
+        .test("phone-digits", "Enter at least 7 digits", (value) => {
+            const digits = (value ?? "").replace(/\D/g, "");
+            return digits.length >= 7;
+        })
         .required("Phone number is required"),
     message: Yup.string(),
 });

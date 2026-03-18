@@ -112,6 +112,7 @@ export type LegacyCard = {
 
 export type GridBlock = {
     type: "grid";
+    id?: string;
     columns: number;
     gap?: string;
     style?: CSSProperties;
@@ -164,6 +165,7 @@ export type StepsBlock = {
 
 export type RatesPerCountryBlock = {
     type: "rates-per-country";
+    id?: string;
 };
 
 export type PageBlock =
