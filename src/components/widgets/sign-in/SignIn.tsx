@@ -3,11 +3,14 @@
 import React, { useEffect } from "react";
 import { Formik, Form, Field, FormikHelpers, FieldProps } from "formik";
 import { useAlert } from "@/context/AlertContext";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { signInValidation, signInInitialValues, signInOnSubmit } from "@/validationSchemas/sign-in/schema";
 import AuthShell from "@/components/widgets/auth/AuthShell";
 import styles from "../sign-up/AuthForms.module.scss";
 export type SignInValues = { email: string; password: string };
+type SignInPageProps = {
+    registered?: boolean;
+};
 
 const copy = {
     eyebrow: "Secure access",
@@ -23,13 +26,12 @@ const copy = {
     ],
 };
 
-export default function SignInPage() {
+export default function SignInPage({ registered = false }: SignInPageProps) {
     const { showAlert } = useAlert();
     const router = useRouter();
-    const searchParams = useSearchParams();
 
     useEffect(() => {
-        if (searchParams.get("registered") === "1") {
+        if (registered) {
             showAlert(
                 "Registration successful!",
                 "A welcome email has been queued. You can sign in now.",
@@ -37,7 +39,7 @@ export default function SignInPage() {
             );
             router.replace("/sign-in");
         }
-    }, [searchParams, showAlert, router]);
+    }, [registered, showAlert, router]);
 
     return (
         <AuthShell

@@ -1,6 +1,6 @@
 import "./globals.css";
-import { authWrapper } from "@/utils/authWrapper";
 import { AlertProvider } from "@/context/AlertContext";
+import { UserProvider } from "@/context/UserContext";
 import PageWrapper from "@/components/ui/page-wrapper/PageWrapper";
 import Header from "@/components/ui/header/Header";
 import Footer from "@/components/ui/footer/Footer";
@@ -21,26 +21,28 @@ function Layout({ children }: { children: React.ReactNode }) {
             <style>{`:root { --font-family: ${currentFont.css}; }`}</style>
         </head>
         <body>
-        <I18nProvider>
-            <AlertProvider>
-                <AllOrdersProvider>
-                    <ProtectedRoute>
-                        <TransactionsProvider>
-                            <CurrencyProvider>
-                                <Header />
-                                <PageWrapper>
-                                    {children}
-                                </PageWrapper>
-                                <Footer />
-                            </CurrencyProvider>
-                        </TransactionsProvider>
-                    </ProtectedRoute>
-                </AllOrdersProvider>
-            </AlertProvider>
-        </I18nProvider>
+            <UserProvider user={null}>
+                <I18nProvider>
+                    <AlertProvider>
+                        <AllOrdersProvider>
+                            <ProtectedRoute>
+                                <TransactionsProvider>
+                                    <CurrencyProvider>
+                                        <Header />
+                                        <PageWrapper>
+                                            {children}
+                                        </PageWrapper>
+                                        <Footer />
+                                    </CurrencyProvider>
+                                </TransactionsProvider>
+                            </ProtectedRoute>
+                        </AllOrdersProvider>
+                    </AlertProvider>
+                </I18nProvider>
+            </UserProvider>
         </body>
         </html>
     );
 }
 
-export default authWrapper(Layout);
+export default Layout;

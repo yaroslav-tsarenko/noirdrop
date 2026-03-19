@@ -1,9 +1,15 @@
 import React from 'react';
 import SignIn from '@/components/widgets/sign-in/SignIn';
 
-const Page = () => {
+type SignInPageProps = {
+    searchParams?: Promise<{ registered?: string }>;
+};
+
+const Page = async ({ searchParams }: SignInPageProps) => {
+    const params = searchParams ? await searchParams : undefined;
+
     return (
-        <SignIn/>
+        <SignIn registered={params?.registered === "1"} />
     );
 };
 
