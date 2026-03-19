@@ -12,7 +12,7 @@ interface CheckoutState {
 export const useCheckoutStore = create<CheckoutState>((set) => ({
     fullName: "",
     email: "",
-    country: "",
+    country: "United Kingdom",
 
     setField: (field, value) => set(() => ({ [field]: value })),
 }));

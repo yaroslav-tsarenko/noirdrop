@@ -25,7 +25,10 @@ export default function CheckoutPage() {
         if (user?.name && !fullName) {
             setField("fullName", user.name);
         }
-    }, [user, email, fullName, setField]);
+        if (!country) {
+            setField("country", "United Kingdom");
+        }
+    }, [user, email, fullName, country, setField]);
 
     const handlePay = async () => {
         if (!items.length) {
@@ -106,7 +109,7 @@ export default function CheckoutPage() {
                         <label>Country</label>
                         <input
                             type="text"
-                            placeholder="Ukraine"
+                            placeholder="United Kingdom"
                             value={country}
                             onChange={(e) => setField("country", e.target.value)}
                             className={styles.input}

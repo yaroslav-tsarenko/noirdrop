@@ -13,23 +13,18 @@ import {
     COMPANY_NUMBER,
 } from "@/resources/constants";
 
-type InvoiceItem = {
-    id: string;
-    name: string;
-    price: number;
-    qty: number;
-};
-
-type EsimInvoicePdfProps = {
+type TokenPurchaseInvoicePdfProps = {
     invoiceNumber: string;
     createdAt: string;
     customer: {
         fullName: string;
         email: string;
-        country: string;
     };
-    items: InvoiceItem[];
-    total: number;
+    packageTitle: string;
+    tokenAmount: number;
+    pricePaid: number;
+    currency: string;
+    newBalance: number;
 };
 
 const styles = StyleSheet.create({
@@ -101,37 +96,22 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         backgroundColor: "#ffffff",
     },
-    tableHeader: {
+    summaryBox: {
+        padding: 12,
+        borderWidth: 1,
+        borderColor: "#ebe4f5",
+        borderRadius: 10,
+        backgroundColor: "#ffffff",
+    },
+    summaryRow: {
         flexDirection: "row",
-        borderBottomWidth: 1,
-        borderBottomColor: "#d8caeb",
-        paddingBottom: 8,
+        justifyContent: "space-between",
         marginBottom: 8,
-        fontWeight: 700 as const,
-        color: "#3d0a49",
-    },
-    row: {
-        flexDirection: "row",
-        paddingVertical: 8,
-        borderBottomWidth: 1,
-        borderBottomColor: "#f1ebf8",
-    },
-    colName: {
-        flex: 3,
-        paddingRight: 8,
-    },
-    colQty: {
-        flex: 1,
-        textAlign: "center",
-    },
-    colPrice: {
-        flex: 1.2,
-        textAlign: "right",
     },
     totalBox: {
         marginTop: 18,
         marginLeft: "auto",
-        width: 250,
+        width: 260,
         padding: 14,
         borderRadius: 10,
         backgroundColor: "#f8f4ff",
@@ -163,22 +143,26 @@ const styles = StyleSheet.create({
     },
 });
 
-const formatMoney = (amount: number) => `EUR ${amount.toFixed(2)}`;
+const formatMoney = (amount: number, currency: string) =>
+    `${currency.toUpperCase()} ${amount.toFixed(2)}`;
 
-export function EsimInvoicePdf({
+export function TokenPurchaseInvoicePdf({
     invoiceNumber,
     createdAt,
     customer,
-    items,
-    total,
-}: EsimInvoicePdfProps) {
+    packageTitle,
+    tokenAmount,
+    pricePaid,
+    currency,
+    newBalance,
+}: TokenPurchaseInvoicePdfProps) {
     return (
         <Document>
             <Page size="A4" style={styles.page}>
                 <View style={styles.header}>
                     <View style={styles.brandBlock}>
                         <Text style={styles.brand}>Noirdrop</Text>
-                        <Text style={styles.title}>eSIM Purchase Invoice</Text>
+                        <Text style={styles.title}>Token Purchase Invoice</Text>
                         <Text style={styles.muted}>{COMPANY_LEGAL_NAME}</Text>
                         <Text style={styles.muted}>Company No. {COMPANY_NUMBER}</Text>
                         <Text style={styles.muted}>{COMPANY_EMAIL}</Text>
@@ -196,7 +180,6 @@ export function EsimInvoicePdf({
                         <View style={styles.customerBox}>
                             <Text>{customer.fullName}</Text>
                             <Text>{customer.email}</Text>
-                            <Text>{customer.country}</Text>
                         </View>
                     </View>
                     <View style={styles.card}>
@@ -209,28 +192,31 @@ export function EsimInvoicePdf({
                 </View>
 
                 <View style={styles.section}>
-                    <Text style={styles.sectionTitle}>Order Items</Text>
-                    <View style={styles.tableHeader}>
-                        <Text style={styles.colName}>Item</Text>
-                        <Text style={styles.colQty}>Qty</Text>
-                        <Text style={styles.colPrice}>Price</Text>
-                    </View>
-
-                    {items.map((item) => (
-                        <View key={`${item.id}-${item.name}`} style={styles.row}>
-                            <Text style={styles.colName}>{item.name}</Text>
-                            <Text style={styles.colQty}>{item.qty}</Text>
-                            <Text style={styles.colPrice}>
-                                {formatMoney(item.price * item.qty)}
-                            </Text>
+                    <Text style={styles.sectionTitle}>Purchase Summary</Text>
+                    <View style={styles.summaryBox}>
+                        <View style={styles.summaryRow}>
+                            <Text>Package</Text>
+                            <Text>{packageTitle}</Text>
                         </View>
-                    ))}
+                        <View style={styles.summaryRow}>
+                            <Text>Tokens added</Text>
+                            <Text>{tokenAmount}</Text>
+                        </View>
+                        <View style={styles.summaryRow}>
+                            <Text>New balance</Text>
+                            <Text>{newBalance}</Text>
+                        </View>
+                        <View style={styles.summaryRow}>
+                            <Text>Rate</Text>
+                            <Text>100 tokens per 1 unit</Text>
+                        </View>
+                    </View>
                 </View>
 
                 <View style={styles.totalBox}>
                     <View style={styles.totalRow}>
                         <Text>Subtotal</Text>
-                        <Text>{formatMoney(total)}</Text>
+                        <Text>{formatMoney(pricePaid, currency)}</Text>
                     </View>
                     <View style={styles.totalRow}>
                         <Text>VAT</Text>
@@ -238,14 +224,13 @@ export function EsimInvoicePdf({
                     </View>
                     <View style={[styles.totalRow, styles.totalGrand]}>
                         <Text style={styles.totalLabel}>Total Paid</Text>
-                        <Text style={styles.totalValue}>{formatMoney(total)}</Text>
+                        <Text style={styles.totalValue}>{formatMoney(pricePaid, currency)}</Text>
                     </View>
                 </View>
 
                 <Text style={styles.footer}>
-                    This invoice confirms the completed eSIM purchase recorded by Noirdrop.
-                    Keep this document for your accounting records. For billing or delivery questions,
-                    contact {COMPANY_EMAIL}.
+                    This invoice confirms the token purchase recorded by Noirdrop.
+                    Keep this PDF for accounting purposes. For billing questions, contact {COMPANY_EMAIL}.
                 </Text>
             </Page>
         </Document>

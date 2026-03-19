@@ -94,6 +94,11 @@ const Footer: React.FC = () => {
                   alt="Mastercard"
                   className={styles.paymentLogo}
                 />
+                <img
+                  src="/icons/pci-dss-compliant-logo-vector.svg"
+                  alt="PCI DSS compliant"
+                  className={styles.paymentLogo}
+                />
               </div>
             </div>
           )}

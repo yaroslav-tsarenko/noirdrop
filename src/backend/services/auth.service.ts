@@ -6,7 +6,7 @@ import { signAccessToken, signRefreshToken } from "../utils/jwt";
 import { ENV } from "../config/env";
 import { Types } from "mongoose";
 import {sendEmail} from "@/backend/utils/sendEmail";
-import {COMPANY_NAME} from "@/resources/constants";
+import {COMPANY_EMAIL, COMPANY_NAME, COMPANY_URL} from "@/resources/constants";
 
 function parseDurationToSec(input: string): number {
     const m = input.match(/^(\d+)([smhd])?$/i);
@@ -46,11 +46,52 @@ export const authService = {
             dateOfBirth: data.dateOfBirth ? new Date(data.dateOfBirth) : null,
         });
         const result = await this.issueTokensAndSession(user._id, user.email, user.role, undefined, undefined);
-        await sendEmail(
-            user.email,
-            `Welcome to ${COMPANY_NAME} 🎉`,
-            `Hi ${user.name}, thanks for registering at ${COMPANY_NAME}.`
-        );
+        try {
+            await sendEmail(
+                user.email,
+                `Welcome to ${COMPANY_NAME} 🎉`,
+                `Hi ${user.name}, thanks for registering at ${COMPANY_NAME}.`,
+                `
+                    <div style="font-family:Arial,sans-serif;background:#f6f2ff;padding:32px;color:#111827">
+                        <div style="max-width:680px;margin:0 auto;background:#ffffff;border:1px solid #eadfff;border-radius:18px;overflow:hidden">
+                            <div style="padding:24px 24px 18px;background:linear-gradient(135deg,#3a063d,#8f1bb3 70%,#b86dd0);color:#fff">
+                                <p style="margin:0 0 8px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:.8">${COMPANY_NAME} account</p>
+                                <h1 style="margin:0;font-size:26px;line-height:1.2">Welcome to ${COMPANY_NAME}</h1>
+                                <p style="margin:12px 0 0;font-size:15px;opacity:.92">Your registration is complete and your account is ready to use.</p>
+                            </div>
+                            <div style="padding:24px">
+                                <p style="margin:0 0 16px">Hi ${user.name},</p>
+                                <p style="margin:0 0 20px">Thanks for creating your account. You can now sign in, manage purchases, receive invoices, and keep your travel eSIM activity in one place.</p>
+                                <div style="display:grid;gap:12px;margin:0 0 20px">
+                                    <div style="padding:14px 16px;border:1px solid #eee3ff;border-radius:12px;background:#fbf9ff">
+                                        <p style="margin:0 0 6px;color:#6b7280;font-size:12px;text-transform:uppercase">Account email</p>
+                                        <p style="margin:0;font-size:16px;font-weight:700">${user.email}</p>
+                                    </div>
+                                    <div style="padding:14px 16px;border:1px solid #eee3ff;border-radius:12px;background:#fbf9ff">
+                                        <p style="margin:0 0 6px;color:#6b7280;font-size:12px;text-transform:uppercase">What you can do now</p>
+                                        <p style="margin:0">Sign in, buy packages, receive PDF invoices and manage future orders from one account.</p>
+                                    </div>
+                                </div>
+                                <div style="padding:16px;border-radius:12px;background:#f7f4ff;border:1px solid #eadfff;margin-bottom:20px">
+                                    <p style="margin:0 0 8px;font-weight:700">Next steps</p>
+                                    <p style="margin:0 0 6px">1. Sign in to your account.</p>
+                                    <p style="margin:0 0 6px">2. Choose the package or custom token amount you need.</p>
+                                    <p style="margin:0">3. Keep all future invoices and order history in your dashboard.</p>
+                                </div>
+                                <div style="text-align:center;margin:24px 0">
+                                    <a href="${COMPANY_URL}/sign-in" style="display:inline-block;padding:14px 24px;border-radius:999px;background:linear-gradient(90deg,#350036,#940096 58%,#9a6d97);color:#fff;text-decoration:none;font-weight:700">
+                                        Sign in to your account
+                                    </a>
+                                </div>
+                                <p style="margin:20px 0 0;color:#6b7280;font-size:14px">If you did not create this account or need help, contact ${COMPANY_EMAIL}.</p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            );
+        } catch (error) {
+            console.error("Failed to send welcome email:", error);
+        }
 
         return { user, ...result };
     },

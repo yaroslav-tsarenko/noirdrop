@@ -27,7 +27,7 @@ const currencyConfig = {
     EUR: { symbol: "€" },
 } as const;
 
-const MIN_CUSTOM_AMOUNT = 0.01;
+const MIN_CUSTOM_AMOUNT = 10;
 const MAX_CUSTOM_AMOUNT = 9999;
 
 const labelText: Record<string, string> = {
@@ -38,7 +38,7 @@ const labelText: Record<string, string> = {
 
 const isDynamicPrice = (price: string) => price.trim().toLowerCase() === "dynamic";
 const isLinkOnlyCard = (price: string, tokens: number) =>
-    tokens <= 0 || Number.isNaN(Number(price));
+    !isDynamicPrice(price) && (tokens <= 0 || Number.isNaN(Number(price)));
 
 const PricingCard: React.FC<PricingCardProps> = ({
     variant = "basic",
@@ -56,11 +56,11 @@ const PricingCard: React.FC<PricingCardProps> = ({
     const router = useRouter();
 
     const { symbol } = currencyConfig[currency];
-    const [customAmountRaw, setCustomAmountRaw] = useState<string>(String(MIN_CUSTOM_AMOUNT));
+    const [customAmountRaw, setCustomAmountRaw] = useState<string>("");
     const [isSubmitting, setIsSubmitting] = useState(false);
 
     const customAmount = (() => {
-        const n = Number(customAmountRaw);
+        const n = Number(customAmountRaw.replace(",", "."));
         return Number.isFinite(n) ? n : NaN;
     })();
 
@@ -81,11 +81,11 @@ const PricingCard: React.FC<PricingCardProps> = ({
         }
 
         if (isDynamicPrice(price)) {
-            const amountNum = Number(customAmountRaw);
-            if (!Number.isFinite(amountNum) || amountNum < MIN_CUSTOM_AMOUNT) {
+            const amountNum = Number(customAmountRaw.replace(",", "."));
+            if (!Number.isFinite(amountNum) || amountNum < MIN_CUSTOM_AMOUNT || amountNum > MAX_CUSTOM_AMOUNT) {
                 showAlert(
-                    `Minimum amount is ${symbol}${MIN_CUSTOM_AMOUNT.toFixed(2)}`,
-                    "Please enter a valid amount",
+                    `Minimum custom purchase is 1000 tokens (${symbol}${MIN_CUSTOM_AMOUNT.toFixed(2)})`,
+                    `Enter an amount between ${symbol}${MIN_CUSTOM_AMOUNT.toFixed(2)} and ${symbol}${MAX_CUSTOM_AMOUNT.toFixed(2)}.`,
                     "warning"
                 );
                 return;
@@ -93,7 +93,9 @@ const PricingCard: React.FC<PricingCardProps> = ({
         }
 
         try {
-            const pricePaid = isDynamicPrice(price) ? Number(customAmountRaw) : Number(price);
+            const pricePaid = isDynamicPrice(price)
+                ? Number(customAmountRaw.replace(",", "."))
+                : Number(price);
             const tokenAmount = isDynamicPrice(price) ? calcTokens(pricePaid) : tokens;
 
             if (!Number.isFinite(tokenAmount) || tokenAmount <= 0) {
@@ -145,26 +147,23 @@ const PricingCard: React.FC<PricingCardProps> = ({
             {isDynamicPrice(price) ? (
                 <>
                     <Input
-                        type="number"
+                        type="text"
                         value={customAmountRaw}
                         onChange={(e) => {
                             const raw = e.target.value;
-                            // allow clearing
                             if (raw === "") {
                                 setCustomAmountRaw("");
                                 return;
                             }
-                            // keep only a reasonable length to prevent absurd values
-                            if (raw.length > 10) return;
-                            const value = Number(raw);
-                            if (!Number.isFinite(value)) {
-                                setCustomAmountRaw(raw);
+
+                            const normalized = raw.replace(",", ".");
+                            if (!/^\d{0,7}(\.\d{0,2})?$/.test(normalized)) {
                                 return;
                             }
-                            const clamped = Math.max(Math.min(value, MAX_CUSTOM_AMOUNT), MIN_CUSTOM_AMOUNT);
-                            setCustomAmountRaw(String(clamped));
+
+                            setCustomAmountRaw(raw);
                         }}
-                        slotProps={{ input: { min: MIN_CUSTOM_AMOUNT, max: MAX_CUSTOM_AMOUNT, step: 0.01 } }}
+                        slotProps={{ input: { inputMode: "decimal" } }}
                         sx={{ mb: 2, width: "100%" }}
                         placeholder={`Enter amount (${symbol}${MIN_CUSTOM_AMOUNT.toFixed(2)}+)`}
                         variant="outlined"

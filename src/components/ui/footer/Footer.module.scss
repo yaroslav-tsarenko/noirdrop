@@ -109,9 +109,13 @@
 }
 
 .paymentLogo {
-  width: auto;
-  height: 30px;
+  width: 70px;
+  height: auto;
   object-fit: contain;
+}
+
+.paymentLogoWide {
+  height: 34px;
 }
 
 @media (max-width: 768px) {

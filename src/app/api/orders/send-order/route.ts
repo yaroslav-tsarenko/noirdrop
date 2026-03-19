@@ -88,34 +88,57 @@ export async function POST(req: NextRequest) {
         ];
 
         const customerHtml = `
-            <div style="font-family:Arial,sans-serif;padding:24px;color:#111827">
-                <h2 style="margin:0 0 16px;color:#111827">Your eSIM order is confirmed</h2>
-                <p style="margin:0 0 12px">Thank you, ${fullName}. Your order <strong>${invoiceNumber}</strong> has been received.</p>
-                <p style="margin:0 0 12px">We attached your PDF invoice to this email.</p>
-                <div style="padding:16px;border:1px solid #e5e7eb;border-radius:12px;background:#f9fafb">
-                    <p style="margin:0 0 8px"><strong>Country:</strong> ${country}</p>
-                    <p style="margin:0 0 8px"><strong>Total:</strong> ${formatMoney(Number(total))}</p>
-                    <ul style="padding-left:18px;margin:12px 0 0">
-                        ${buildItemsMarkup(checkoutItems)}
-                    </ul>
+            <div style="font-family:Arial,sans-serif;background:#f6f2ff;padding:32px;color:#111827">
+                <div style="max-width:680px;margin:0 auto;background:#ffffff;border:1px solid #eadfff;border-radius:18px;overflow:hidden">
+                    <div style="padding:24px 24px 18px;background:linear-gradient(135deg,#3a063d,#8f1bb3 70%,#b86dd0);color:#fff">
+                        <p style="margin:0 0 8px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:.8">Noirdrop orders</p>
+                        <h1 style="margin:0;font-size:26px;line-height:1.2">Your eSIM order is confirmed</h1>
+                        <p style="margin:12px 0 0;font-size:15px;opacity:.92">Invoice <strong>${invoiceNumber}</strong> is attached as PDF.</p>
+                    </div>
+                    <div style="padding:24px">
+                        <p style="margin:0 0 16px">Hi ${fullName},</p>
+                        <p style="margin:0 0 20px">Thank you for your order. We recorded your purchase successfully and sent this confirmation to <strong>${email}</strong>.</p>
+                        <div style="display:grid;gap:12px;margin:0 0 20px">
+                            <div style="padding:14px 16px;border:1px solid #eee3ff;border-radius:12px;background:#fbf9ff">
+                                <p style="margin:0 0 6px;color:#6b7280;font-size:12px;text-transform:uppercase">Destination</p>
+                                <p style="margin:0;font-size:16px;font-weight:700">${country}</p>
+                            </div>
+                            <div style="padding:14px 16px;border:1px solid #eee3ff;border-radius:12px;background:#fbf9ff">
+                                <p style="margin:0 0 6px;color:#6b7280;font-size:12px;text-transform:uppercase">Total paid</p>
+                                <p style="margin:0;font-size:16px;font-weight:700">${formatMoney(Number(total))}</p>
+                            </div>
+                        </div>
+                        <div style="padding:16px;border:1px solid #eadfff;border-radius:12px;background:#f9f7ff;margin-bottom:20px">
+                            <p style="margin:0 0 10px;font-weight:700">Order details</p>
+                            <ul style="padding-left:18px;margin:0">
+                                ${buildItemsMarkup(checkoutItems)}
+                            </ul>
+                        </div>
+                        <div style="padding:16px;border-radius:12px;background:#f7f4ff;border:1px solid #eadfff">
+                            <p style="margin:0 0 8px;font-weight:700">Next steps</p>
+                            <p style="margin:0 0 6px">Keep the attached invoice for your records.</p>
+                            <p style="margin:0">If you need help with billing, activation or delivery, reply to this email and include invoice <strong>${invoiceNumber}</strong>.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         `;
 
         const internalHtml = `
-            <div style="font-family:Arial,sans-serif;padding:24px;color:#111827">
-                <h2 style="margin:0 0 16px;color:#111827">New paid eSIM order</h2>
-                <p style="margin:0 0 8px"><strong>Invoice:</strong> ${invoiceNumber}</p>
-                <p style="margin:0 0 8px"><strong>Customer:</strong> ${fullName}</p>
-                <p style="margin:0 0 8px"><strong>Email:</strong> ${email}</p>
-                <p style="margin:0 0 8px"><strong>Country:</strong> ${country}</p>
-                <p style="margin:0 0 8px"><strong>Total paid:</strong> ${formatMoney(Number(total))}</p>
-                <p style="margin:0 0 12px"><strong>Date:</strong> ${createdAt}</p>
-
-                <h3 style="margin:20px 0 8px">Items</h3>
-                <ul style="padding-left:18px;margin:0">
-                    ${buildItemsMarkup(checkoutItems)}
-                </ul>
+            <div style="font-family:Arial,sans-serif;background:#f6f2ff;padding:24px;color:#111827">
+                <div style="max-width:620px;margin:0 auto;background:#fff;border:1px solid #eadfff;border-radius:16px;padding:24px">
+                    <h2 style="margin:0 0 18px;color:#3d0a49">New paid eSIM order</h2>
+                    <p style="margin:0 0 8px"><strong>Invoice:</strong> ${invoiceNumber}</p>
+                    <p style="margin:0 0 8px"><strong>Customer:</strong> ${fullName}</p>
+                    <p style="margin:0 0 8px"><strong>Email:</strong> ${email}</p>
+                    <p style="margin:0 0 8px"><strong>Country:</strong> ${country}</p>
+                    <p style="margin:0 0 8px"><strong>Total paid:</strong> ${formatMoney(Number(total))}</p>
+                    <p style="margin:0 0 12px"><strong>Date:</strong> ${createdAt}</p>
+                    <h3 style="margin:20px 0 8px">Items</h3>
+                    <ul style="padding-left:18px;margin:0">
+                        ${buildItemsMarkup(checkoutItems)}
+                    </ul>
+                </div>
             </div>
         `;
 
@@ -124,7 +147,7 @@ export async function POST(req: NextRequest) {
             COMPANY_EMAIL ||
             ENV.EMAIL_FROM;
 
-        await Promise.all([
+        const [customerEmailResult, managerEmailResult] = await Promise.allSettled([
             sendEmail(
                 email,
                 `Invoice ${invoiceNumber} from Noirdrop`,
@@ -140,6 +163,14 @@ export async function POST(req: NextRequest) {
                 attachments
             ),
         ]);
+
+        if (customerEmailResult.status === "rejected") {
+            throw customerEmailResult.reason;
+        }
+
+        if (managerEmailResult.status === "rejected") {
+            console.error("Failed to send internal eSIM order notification:", managerEmailResult.reason);
+        }
 
         return NextResponse.json({ success: true, orderId: order._id });
     } catch (error: unknown) {

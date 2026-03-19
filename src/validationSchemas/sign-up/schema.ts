@@ -90,8 +90,8 @@ export const signUpOnSubmit = async (
         const data = await res.json().catch(() => null);
 
         if (res.ok && data?.user) {
-            showAlert("Registration successful!", "", "success");
-            router.replace("/");
+            showAlert("Registration successful!", "Your account is ready. Sign in to continue.", "success");
+            router.replace("/sign-in?registered=1");
             router.refresh();
         } else {
             showAlert(data?.message || "Registration failed", "", "error");

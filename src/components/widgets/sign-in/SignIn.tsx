@@ -1,12 +1,12 @@
 "use client";
 
+import React, { useEffect } from "react";
 import { Formik, Form, Field, FormikHelpers, FieldProps } from "formik";
 import { useAlert } from "@/context/AlertContext";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { signInValidation, signInInitialValues, signInOnSubmit } from "@/validationSchemas/sign-in/schema";
 import AuthShell from "@/components/widgets/auth/AuthShell";
 import styles from "../sign-up/AuthForms.module.scss";
-
 export type SignInValues = { email: string; password: string };
 
 const copy = {
@@ -26,6 +26,18 @@ const copy = {
 export default function SignInPage() {
     const { showAlert } = useAlert();
     const router = useRouter();
+    const searchParams = useSearchParams();
+
+    useEffect(() => {
+        if (searchParams.get("registered") === "1") {
+            showAlert(
+                "Registration successful!",
+                "A welcome email has been queued. You can sign in now.",
+                "success"
+            );
+            router.replace("/sign-in");
+        }
+    }, [searchParams, showAlert, router]);
 
     return (
         <AuthShell
