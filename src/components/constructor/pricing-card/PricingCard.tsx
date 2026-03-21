@@ -172,11 +172,17 @@ const PricingCard: React.FC<PricingCardProps> = ({
 
                     {Number.isFinite(customAmount) ? (
                         <p className={styles.price}>
-                            {symbol}{customAmount.toFixed(2)}
+                            {symbol}{customAmount.toFixed(2)}{" "}
+                            <span className={styles.tokens}>
+                                ≈ {calcTokens(customAmount)} tokens
+                            </span>
                         </p>
                     ) : (
                         <p className={styles.price}>
-                            {symbol}{MIN_CUSTOM_AMOUNT.toFixed(2)}
+                            {symbol}{MIN_CUSTOM_AMOUNT.toFixed(2)}{" "}
+                            <span className={styles.tokens}>
+                                ≈ {calcTokens(MIN_CUSTOM_AMOUNT)} tokens
+                            </span>
                         </p>
                     )}
                 </>
@@ -185,7 +191,8 @@ const PricingCard: React.FC<PricingCardProps> = ({
                     {Number.isFinite(Number(price))
                         ? (
                             <>
-                                {symbol}{Number(price).toFixed(2)}
+                                {symbol}{Number(price).toFixed(2)}{" "}
+                                {tokens > 0 && <span className={styles.tokens}>/ {tokens.toLocaleString()} tokens</span>}
                             </>
                         )
                         : price}

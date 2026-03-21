@@ -32,7 +32,7 @@ const pricingSchema: PageSchema = {
             bgImage: "image10",
             title: "Avrupa İçin Basit, Şeffaf eSIM Fiyatlandırma",
             description:
-                `45+ Avrupa ülkesi için yalnızca veri eSIM planı seçin. 1 GB'dan 50 GB'a kadar, 7 veya 30 gün geçerlilik süresiyle. Bir kez ödeyin — QR kodunuzu anında alın. Abonelik yok, gizli ücret yok.`,
+                `Jeton satın alın, ardından 45+ Avrupa ülkesinde veri eSIM planlarını etkinleştirmek için kullanın. 1 GB'dan 50 GB'a kadar planlar. Abonelik yok, gizli ücret yok.`,
             buttons: [
                 { text: "Başlayın", link: "/get-started", color: "primary" },
                 { text: "İletişim", link: "/contact-us", color: "secondary" },
