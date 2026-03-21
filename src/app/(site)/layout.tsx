@@ -1,0 +1,6 @@
+import React from "react";
+import AppShell from "@/components/app/AppShell";
+
+export default function SiteLayout({ children }: { children: React.ReactNode }) {
+    return <AppShell>{children}</AppShell>;
+}
