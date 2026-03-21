@@ -5,51 +5,51 @@ import {
 
 const schema: PageSchema = {
     meta: {
-        title: `How It Works — ${COMPANY_NAME} eSIM Marketplace`,
-        description: `See how ${COMPANY_NAME} enables instant global connectivity with AI-optimized eSIM technology. From plan selection to activation — learn how everything works.`,
+        title: `How It Works — ${COMPANY_NAME} eSIM for Europe`,
+        description: `See how ${COMPANY_NAME} makes it easy to get data-only eSIM plans for Europe. Choose a plan, scan a QR code, and connect in minutes.`,
         keywords: [
             "how esim works",
             "how to activate esim",
-            "esim marketplace",
-            "global esim",
-            "international data",
+            "esim europe",
+            "european esim",
+            "data only esim",
             "travel internet",
             "scan QR esim",
         ],
         canonical: "/how-it-works",
         ogImage: {
             title: `How ${COMPANY_NAME} Works`,
-            description: "Instant eSIM activation. Global data. Zero roaming.",
+            description: "Data-only eSIM for Europe. Choose a plan. Scan. Connect.",
             bg: "#eef4ff",
             color: "#6a39ff",
         },
     },
 
     blocks: [
-        // 🌌 HERO
+        // HERO
         {
             type: "hero",
             bgImage: "image15",
             title: `How ${COMPANY_NAME} Works`,
-            description: `Your journey to instant global connectivity starts here. No physical SIMs, no contracts — just one QR code and you’re online in minutes.`,
+            description: `Getting online in Europe is simple. Choose a data plan, scan the QR code, and connect — no physical SIM cards, no contracts, no roaming fees.`,
             buttons: [
                 { text: "Get Started", link: "/get-started", color: "primary" },
                 { text: "View Plans", link: "/pricing", color: "secondary" },
             ],
         },
 
-        // ⭐ STEP 1 — Choose Plan
+        // STEP 1 — Choose Plan
         {
             type: "section",
             gap: "2rem",
             left: {
                 type: "text",
-                title: "1. Choose Your eSIM Plan",
-                description: `Browse regional, global, and country-specific eSIM data plans designed for travelers, freelancers, and digital nomads.`,
+                title: "1. Choose Your Data Plan",
+                description: `Browse our eSIM data plans — from 1 GB for a weekend trip to 50 GB for longer stays. All plans cover 45+ European countries.`,
                 bullets: [
-                    "190+ supported countries",
-                    "Flexible regional & global plans",
-                    "Instant delivery, no paperwork",
+                    "45+ European countries covered",
+                    "Plans from 1 GB to 50 GB",
+                    "Data-only — your main SIM stays active",
                 ],
                 iconName: "shopping_cart",
                 iconSize: 46,
@@ -65,7 +65,7 @@ const schema: PageSchema = {
             },
         },
 
-        // ⭐ STEP 2 — Instant Delivery
+        // STEP 2 — Instant Delivery
         {
             type: "section",
             gap: "2rem",
@@ -78,12 +78,12 @@ const schema: PageSchema = {
             },
             right: {
                 type: "text",
-                title: "2. Receive Your eSIM Instantly",
-                description: `Once you complete checkout, we generate a unique QR code and deliver it directly to your email and dashboard. No waiting — your eSIM is ready immediately.`,
+                title: "2. Receive Your QR Code Instantly",
+                description: `After checkout, we deliver your eSIM QR code to your email and dashboard. No waiting — it arrives in seconds.`,
                 bullets: [
-                    "Instant QR delivery",
-                    "iOS, Android, and eSIM-enabled devices supported",
-                    "Full installation instructions provided",
+                    "Instant QR code delivery by email",
+                    "Works on iPhone, Android, and other eSIM-enabled devices",
+                    "Full setup instructions included",
                 ],
                 iconName: "qr_code_2",
                 iconSize: 46,
@@ -92,18 +92,18 @@ const schema: PageSchema = {
             },
         },
 
-        // ⭐ STEP 3 — Activate in Seconds (keep Z-pattern: text left, image right)
+        // STEP 3 — Install
         {
             type: "section",
             gap: "2rem",
             left: {
                 type: "text",
-                title: "3. Activate Your eSIM",
-                description: `Open your phone’s eSIM settings, scan the QR code, and follow the system prompts. Your device installs the profile automatically.`,
+                title: "3. Scan & Install the eSIM",
+                description: `Open your phone's settings, scan the QR code, and the eSIM profile installs automatically. It takes about 1–2 minutes.`,
                 bullets: [
-                    "Activation in 1–2 minutes",
+                    "Scan the QR in Settings → Cellular/Mobile",
                     "No physical SIM needed",
-                    "Works in 190+ destinations",
+                    "Install before departure or on arrival",
                 ],
                 iconName: "rocket_launch",
                 iconSize: 46,
@@ -115,11 +115,11 @@ const schema: PageSchema = {
                 mediaType: "image",
                 src: "image40",
                 height: "400px",
-                alt: "Activate eSIM",
+                alt: "Install eSIM",
             },
         },
 
-        // ⭐ STEP 4 — AI Routing (explained simply)
+        // STEP 4 — Connect
         {
             type: "section",
             gap: "2rem",
@@ -128,16 +128,16 @@ const schema: PageSchema = {
                 mediaType: "image",
                 src: "image44",
                 height: "430px",
-                alt: "Smart AI routing",
+                alt: "Connect to network",
             },
             right: {
                 type: "text",
-                title: "4. Smart Network Selection",
-                description: `${COMPANY_NAME} automatically connects you to the best available local carrier using our AI-powered routing engine.`,
+                title: "4. Enable Data Roaming & Connect",
+                description: `Make sure data roaming is turned on for the eSIM line. When you arrive in a supported European country, your phone connects to a local carrier automatically.`,
                 bullets: [
-                    "Optimized for speed & latency",
-                    "Automatic fallback if signal drops",
-                    "No manual switching required",
+                    "Automatic carrier selection",
+                    "No manual network switching",
+                    "Stable 4G/5G data in most areas",
                 ],
                 iconName: "signal_cellular_alt",
                 iconSize: 46,
@@ -146,18 +146,18 @@ const schema: PageSchema = {
             },
         },
 
-        // ⭐ STEP 5 — You're Online Worldwide
+        // STEP 5 — Enjoy
         {
             type: "section",
             gap: "2rem",
             left: {
                 type: "text",
-                title: "5. Enjoy Borderless Connectivity",
-                description: `Stay online while traveling, working, streaming, or sharing — without roaming fees or slow hotel Wi-Fi.`,
+                title: "5. Browse, Navigate, and Stay Connected",
+                description: `Use your mobile data for maps, messaging, video calls, social media, and more — across 45+ European countries without roaming fees.`,
                 bullets: [
-                    "Fast 4G / 5G data",
+                    "Fast 4G/5G data",
                     "No roaming charges",
-                    "Perfect for travel & remote work",
+                    "Data-only — calls and SMS stay on your main SIM",
                 ],
                 iconName: "public",
                 iconSize: 48,
@@ -169,11 +169,11 @@ const schema: PageSchema = {
                 mediaType: "image",
                 src: "image50",
                 height: "400px",
-                alt: "Enjoy global connectivity",
+                alt: "Connected in Europe",
             },
         },
 
-        // ⚡ MINI STEPS GRID
+        // MINI STEPS GRID
         {
             type: "grid",
             columns: 4,
@@ -196,7 +196,7 @@ const schema: PageSchema = {
                     block: {
                         type: "text",
                         title: "No Contracts",
-                        description: "Pay only for the data you actually use.",
+                        description: "Buy a plan when you need it. No subscriptions.",
                         iconName: "cancel",
                         iconSize: 36,
                         iconColor: "#ff5cff",
@@ -208,7 +208,7 @@ const schema: PageSchema = {
                     block: {
                         type: "text",
                         title: "No Roaming Fees",
-                        description: "Avoid the biggest traveler expense — roaming.",
+                        description: "Flat-rate data across 45+ European countries.",
                         iconName: "wifi_off",
                         iconSize: 36,
                         iconColor: "#0070f3",
@@ -219,8 +219,8 @@ const schema: PageSchema = {
                     key: "mini4",
                     block: {
                         type: "text",
-                        title: "Works Instantly",
-                        description: "Your eSIM is ready the moment you buy it.",
+                        title: "Instant Delivery",
+                        description: "QR code delivered seconds after purchase.",
                         iconName: "bolt",
                         iconSize: 36,
                         iconColor: "#28a745",
@@ -230,7 +230,7 @@ const schema: PageSchema = {
             ],
         },
 
-        // 🌟 USER CASES
+        // WHO IS IT FOR
         {
             type: "section",
             align: "center",
@@ -245,13 +245,13 @@ const schema: PageSchema = {
             right: {
                 type: "text",
                 title: "Who Is It For?",
-                description: "eSIM works perfectly for anyone who travels, works remotely, or wants stable global data without complications.",
+                description: "Our eSIM plans are designed for anyone travelling to Europe who wants reliable mobile data without the hassle of local SIM cards or roaming charges.",
                 bullets: [
-                    "Travelers & tourists",
-                    "Business travelers",
-                    "Digital nomads",
-                    "Creators & streamers",
-                    "Remote workers",
+                    "Holiday travellers and tourists",
+                    "Business travellers",
+                    "Digital nomads and remote workers",
+                    "Backpackers and gap-year travellers",
+                    "Anyone visiting Europe for work or leisure",
                 ],
                 centerTitle: true,
                 centerDescription: true,
@@ -270,27 +270,27 @@ const schema: PageSchema = {
                 {
                     question: "How long does activation take?",
                     answer:
-                        "Typically less than 2 minutes after scanning the QR code.",
+                        "Typically under 2 minutes after scanning the QR code.",
                 },
                 {
                     question: "Can I keep my physical SIM?",
                     answer:
-                        "Yes. eSIM works alongside your physical SIM without issues.",
+                        "Yes. The eSIM works alongside your physical SIM. Your main number stays active for calls and SMS.",
                 },
                 {
                     question: "What devices are supported?",
                     answer:
-                        "Most modern iPhones, Samsung, Google Pixel, and other eSIM-enabled phones.",
+                        "Most modern iPhones (XS and later), Samsung Galaxy S20+, Google Pixel 3+, and other eSIM-enabled phones.",
                 },
                 {
-                    question: "Can I activate before travel?",
+                    question: "Can I install before travel?",
                     answer:
-                        "Yes. You can install the eSIM anytime and it will activate when you arrive.",
+                        "Yes. Install the eSIM before your trip and it activates when you arrive in a supported country.",
                 },
                 {
-                    question: "What if I change country?",
+                    question: "What if I cross a border?",
                     answer:
-                        `${COMPANY_NAME} automatically assigns the best local carrier.`,
+                        "The eSIM automatically connects to a local carrier in the new country. No action needed — all 45+ European countries are covered.",
                 },
             ],
         },
@@ -299,10 +299,10 @@ const schema: PageSchema = {
         {
             type: "hero",
             bgImage: "image70",
-            title: "Start Using eSIM Today",
-            description: `Instant activation. Global access. No roaming. ${COMPANY_NAME} makes travel simple.`,
+            title: "Get Your eSIM for Europe Today",
+            description: `Choose a data plan, scan the QR code, and enjoy fast mobile data across 45+ European countries. ${COMPANY_NAME} makes European travel simple.`,
             buttons: [
-                { text: "Choose Plan", link: "/pricing", color: "primary" },
+                { text: "View Plans", link: "/pricing", color: "primary" },
                 { text: "Get Started", link: "/get-started", color: "secondary" },
             ],
         },

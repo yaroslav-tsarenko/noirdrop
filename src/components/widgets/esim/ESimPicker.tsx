@@ -28,8 +28,8 @@ export default function ESimPicker() {
             <h2 className={styles.title}>Where do you go next?</h2>
 
             <p className={styles.subtitle}>
-                Simple, low pay-per-use rates. ONE Balance – Works Worldwide.
-                <br /> Pay Only for What You Use.
+                Data-only eSIM plans for 45+ European countries.
+                <br /> Compare rates and choose the right plan for your trip.
             </p>
 
             <div className={styles.card}>

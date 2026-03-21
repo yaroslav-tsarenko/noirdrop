@@ -7,14 +7,14 @@ import { DEFAULT_TESTIMONIALS_ITEMS, DEFAULT_TESTIMONIALS_TITLE } from "@/resour
 
 const schema: PageSchema = {
     meta: {
-        title: `About Us — ${COMPANY_NAME} eSIM Marketplace`,
-        description: `Learn how ${COMPANY_NAME} is redefining global connectivity with AI-optimized eSIM technology, instant activations, dynamic routing, and a marketplace built for travelers, creators, and global businesses.`,
+        title: `About Us — ${COMPANY_NAME} eSIM for Europe`,
+        description: `Learn about ${COMPANY_NAME} — a UK-based provider of data-only eSIM plans for 45+ European countries. Instant QR delivery, transparent pricing, and reliable 4G/5G coverage.`,
         keywords: [
-            "esim marketplace",
-            "global esim",
+            "esim provider",
+            "european esim",
             "digital connectivity",
-            "international data plans",
-            "telecom innovation",
+            "data only esim",
+            "travel data plans",
             `${COMPANY_NAME} about`,
             "travel internet solutions",
             "roaming alternative",
@@ -23,26 +23,26 @@ const schema: PageSchema = {
         ogImage: {
             title: `About ${COMPANY_NAME}`,
             description:
-                "Discover our mission to make global connectivity fast, affordable, and borderless.",
+                "Data-only eSIM plans for 45+ European countries. Instant delivery, transparent pricing.",
             bg: "#f4faff",
             color: "#6a39ff",
         },
     },
 
     blocks: [
-        // 🌌 HERO — cosmic identity
+        // HERO
         {
             type: "hero",
             bgImage: "image10",
-            title: `We’re Building the Future of Global Connectivity`,
-            description: `${COMPANY_NAME} brings borderless, contract-free mobile data to anyone, anywhere. Our AI-powered eSIM marketplace replaces roaming fees with instant digital access across 190+ countries.`,
+            title: `About ${COMPANY_NAME} — eSIM Data Plans for Europe`,
+            description: `${COMPANY_NAME} provides data-only eSIM plans for 45+ European countries. We make it simple: choose your data amount, receive a QR code instantly, and stay connected across Europe — no roaming fees, no contracts.`,
             buttons: [
-                { text: "Explore Our Plans", link: "/services", color: "primary" },
-                { text: "Join the Network", link: "/sign-up", color: "secondary" },
+                { text: "View Plans", link: "/pricing", color: "primary" },
+                { text: "Get Started", link: "/get-started", color: "secondary" },
             ],
         },
 
-        // 🪐 MISSION — bold & modern
+        // MISSION
         {
             type: "section",
             align: "center",
@@ -52,18 +52,18 @@ const schema: PageSchema = {
                 mediaType: "image",
                 src: "image25",
                 height: "420px",
-                alt: "Global eSIM mission",
+                alt: "European eSIM service",
             },
             left: {
                 type: "text",
                 title: "Our Mission",
                 description:
-                    `${COMPANY_NAME} was created to remove the last great digital barrier — expensive mobile roaming. We believe that access to fast, affordable mobile data should be as universal as the internet itself.`,
+                    `${COMPANY_NAME} was created to solve a simple problem: mobile data for European travel is overpriced and confusing. We believe you should know exactly what you're getting — data amount, validity, price — with no surprise charges.`,
                 bullets: [
-                    "Instant eSIM activation in seconds",
-                    "Reliable connectivity across 190+ destinations",
-                    "AI-driven network selection & routing",
-                    "Designed for travelers, teams, and global creators",
+                    "Data-only eSIM plans for 45+ European countries",
+                    "Clear plans from 1 GB to 50 GB",
+                    "Instant QR code delivery by email",
+                    "No contracts, no roaming fees, no hidden charges",
                 ],
                 iconName: "flag",
                 iconSize: 48,
@@ -75,51 +75,106 @@ const schema: PageSchema = {
             },
         },
 
-        // 🛰 GLOBAL CONECTIVITY NETWORK GRID (6x6)
+        // WHAT WE OFFER GRID
         {
             type: "grid",
             columns: 3,
             gap: "2rem",
-            items: Array.from({ length: 6 }).map((_, index) => ({
-                key: `vision${index}`,
-                block: {
-                    type: "text",
-                    title: [
-                        "Global Coverage Engine",
-                        "Instant QR Delivery",
-                        "AI Network Routing",
-                        "Region-Based Pricing",
-                        "Failproof Activation",
-                        "Roaming-Free Data",
-                    ][index],
-                    description:
-                        "Part of our global connectivity framework powering millions of digital travelers.",
-                    bullets: [
-                        "Telecom-grade reliability",
-                        "Full automation pipeline",
-                        "Optimized for speed & stability",
-                    ],
-                    iconName: "signal_cellular_alt",
-                    iconSize: 40,
-                    iconColor: "#6a39ff",
-                    iconBg: "#f4e9ff",
+            items: [
+                {
+                    key: "offer1",
+                    block: {
+                        type: "text",
+                        title: "European Coverage",
+                        description: "One plan covers 45+ European countries. Cross borders without extra charges.",
+                        bullets: ["UK, EU, Balkans, Nordics", "Automatic carrier switching", "No roaming fees"],
+                        iconName: "public",
+                        iconSize: 40,
+                        iconColor: "#6a39ff",
+                        iconBg: "#f4e9ff",
+                    },
                 },
-            })),
+                {
+                    key: "offer2",
+                    block: {
+                        type: "text",
+                        title: "Instant QR Delivery",
+                        description: "QR code delivered to your email seconds after purchase. No waiting.",
+                        bullets: ["Email delivery", "Dashboard access", "Install before departure"],
+                        iconName: "qr_code_2",
+                        iconSize: 40,
+                        iconColor: "#0070f3",
+                        iconBg: "#e6f7ff",
+                    },
+                },
+                {
+                    key: "offer3",
+                    block: {
+                        type: "text",
+                        title: "Data-Only Plans",
+                        description: "All plans are data-only. Your main SIM stays active for calls and SMS.",
+                        bullets: ["Keep your phone number", "Dual SIM compatible", "No voice or SMS"],
+                        iconName: "smartphone",
+                        iconSize: 40,
+                        iconColor: "#28a745",
+                        iconBg: "#e6ffe6",
+                    },
+                },
+                {
+                    key: "offer4",
+                    block: {
+                        type: "text",
+                        title: "Transparent Pricing",
+                        description: "Every plan shows the data amount, validity, and price upfront. No hidden fees.",
+                        bullets: ["1 GB to 50 GB options", "7-day and 30-day validity", "No automatic renewals"],
+                        iconName: "receipt",
+                        iconSize: 40,
+                        iconColor: "#ff8a00",
+                        iconBg: "#fff4e6",
+                    },
+                },
+                {
+                    key: "offer5",
+                    block: {
+                        type: "text",
+                        title: "Easy Setup",
+                        description: "Scan the QR code in your phone settings. Most users are online in under 2 minutes.",
+                        bullets: ["iPhone & Android supported", "Step-by-step guide included", "No app required"],
+                        iconName: "bolt",
+                        iconSize: 40,
+                        iconColor: "#d900aa",
+                        iconBg: "#ffe6f5",
+                    },
+                },
+                {
+                    key: "offer6",
+                    block: {
+                        type: "text",
+                        title: "4G/5G Speeds",
+                        description: "Connect to fast local networks across Europe. Tethering and hotspot supported.",
+                        bullets: ["4G/LTE on all plans", "5G where available", "Hotspot sharing"],
+                        iconName: "signal_cellular_alt",
+                        iconSize: 40,
+                        iconColor: "#007f7f",
+                        iconBg: "#e6fffb",
+                    },
+                },
+            ],
         },
 
-        // ⭐️ FOUNDERS / WHY WE BUILT THIS
+        // WHY WE BUILT THIS
         {
             type: "section",
             gap: "2rem",
             left: {
                 type: "text",
-                title: "Why We Built This",
+                title: "Why We Built Noirdrop",
                 description:
-                    "Travel should feel limitless — but traditional roaming makes global data slow, unpredictable, and expensive. We envisioned a world where people switch countries as easily as switching Wi-Fi networks. So we built the infrastructure for it.",
+                    "Travel should be about the experience — not about finding a SIM shop or paying £20/day for roaming. We built Noirdrop so you can buy a data plan in 30 seconds and focus on what matters.",
                 bullets: [
                     "No SIM cards, no stores, no contracts",
                     "Digital-first mobile experience",
-                    "Always-on connectivity from day one",
+                    "Clear, honest pricing from day one",
                 ],
                 iconName: "rocket_launch",
                 iconSize: 46,
@@ -131,11 +186,11 @@ const schema: PageSchema = {
                 mediaType: "image",
                 src: "image31",
                 height: "420px",
-                alt: "Founders vision",
+                alt: "Why we built Noirdrop",
             },
         },
 
-        // 🌍 GLOBAL NETWORK MAP
+        // UK COMPANY
         {
             type: "section",
             gap: "2rem",
@@ -144,89 +199,27 @@ const schema: PageSchema = {
                 mediaType: "image",
                 src: "image44",
                 height: "430px",
-                alt: "World connectivity map",
+                alt: "UK registered company",
             },
             left: {
                 type: "text",
-                title: "Global Data Infrastructure",
+                title: "UK-Registered Company",
                 description:
-                    "Behind every activation is a network of international data carriers, routing systems, AI prediction models, and distributed telecom nodes optimized for global performance.",
+                    `${COMPANY_NAME} is operated by HARTDELL LIMITED, a company registered in England and Wales. We're committed to transparent business practices and UK consumer protection standards.`,
                 bullets: [
-                    "190+ country coverage",
-                    "40+ partner carriers",
-                    "Low-latency routing architecture",
-                    "Real-time signal monitoring",
+                    "Company number: 16021824",
+                    "Registered in England and Wales",
+                    "Based in Bridgend, United Kingdom",
+                    "Fully compliant with UK consumer law",
                 ],
-                iconName: "public",
+                iconName: "verified",
                 iconSize: 48,
                 iconColor: "#28a745",
                 iconBg: "#e6ffe6",
             },
         },
 
-        // 🧬 TECHNOLOGY ENGINE
-        {
-            type: "section",
-            gap: "2rem",
-            left: {
-                type: "media",
-                mediaType: "image",
-                src: "image52",
-                height: "400px",
-                alt: "AI Telecom Engine",
-            },
-            right: {
-                type: "text",
-                title: "AI-Powered Connectivity Engine",
-                description:
-                    "Our intelligent routing engine evaluates carriers by speed, stability, and region before assigning the optimal profile. It ensures fewer drops, better latency, and instant fallback when needed.",
-                bullets: [
-                    "Smart carrier selection",
-                    "Predictive routing",
-                    "Automatic fallback logic",
-                    "Dynamic network switching",
-                ],
-                iconName: "memory",
-                iconSize: 46,
-                iconColor: "#0070f3",
-                iconBg: "#e6f7ff",
-            },
-        },
-
-        // 👥 TEAM
-        {
-            type: "section",
-            align: "center",
-            gap: "2rem",
-            left: {
-                type: "text",
-                title: "Meet the Team",
-                description:
-                    `${COMPANY_NAME} is built by engineers, designers, telecom specialists and travelers who understand the frustration of unstable or overpriced mobile data.`,
-                bullets: [
-                    "Telecom infrastructure experts",
-                    "Senior software engineers",
-                    "Global support team",
-                    "Experienced product designers",
-                ],
-                iconName: "groups",
-                iconSize: 48,
-                iconColor: "#ffa600",
-                iconBg: "#fff6dd",
-                centerTitle: true,
-                centerDescription: true,
-                centerBullets: true,
-            },
-            right: {
-                type: "media",
-                mediaType: "image",
-                src: "image60",
-                height: "400px",
-                alt: "Team photo",
-            },
-        },
-
-        // ⭐ VALUES
+        // VALUES
         {
             type: "grid",
             columns: 3,
@@ -237,7 +230,7 @@ const schema: PageSchema = {
                     block: {
                         type: "text",
                         title: "Simplicity",
-                        description: "Connectivity should be instant, universal, and frictionless.",
+                        description: "Buy a plan, scan a QR code, connect. That's it.",
                         iconName: "bolt",
                         iconSize: 40,
                         iconColor: "#6a39ff",
@@ -248,9 +241,9 @@ const schema: PageSchema = {
                     key: "value2",
                     block: {
                         type: "text",
-                        title: "Security",
-                        description: "Your data stays encrypted, anonymized, and never shared.",
-                        iconName: "lock",
+                        title: "Transparency",
+                        description: "Every plan shows data, validity, and price upfront. No surprises.",
+                        iconName: "receipt",
                         iconSize: 40,
                         iconColor: "#0070f3",
                         iconBg: "#e6f7ff",
@@ -260,9 +253,9 @@ const schema: PageSchema = {
                     key: "value3",
                     block: {
                         type: "text",
-                        title: "Innovation",
-                        description: "We push telecom forward with AI and next-gen connectivity tools.",
-                        iconName: "lightbulb",
+                        title: "Reliability",
+                        description: "Fast 4G/5G data across Europe from trusted local carriers.",
+                        iconName: "signal_cellular_alt",
                         iconSize: 40,
                         iconColor: "#ffa600",
                         iconBg: "#fff6dd",
@@ -271,57 +264,53 @@ const schema: PageSchema = {
             ],
         },
 
-        // 🌟 TESTIMONIALS
+        // TESTIMONIALS
         {
             type: "testimonials",
             title: DEFAULT_TESTIMONIALS_TITLE,
             items: DEFAULT_TESTIMONIALS_ITEMS,
         },
 
-        // ❓ FAQ
+        // FAQ
         {
             type: "faq",
             items: [
                 {
-                    question: "How does an eSIM activation work?",
+                    question: "What countries do you cover?",
                     answer:
-                        "You purchase a plan, scan a QR code, and your data instantly activates — no physical SIM required.",
+                        "We cover 45+ European countries including the UK, France, Germany, Spain, Italy, Greece, Portugal, Netherlands, and many more.",
                 },
                 {
-                    question: "Which countries do you support?",
+                    question: "Is this a data-only service?",
                     answer:
-                        "Over 190 countries with a mix of regional and global plans.",
+                        "Yes. All our eSIM plans provide mobile data only. Your original SIM stays active for phone calls and SMS.",
                 },
                 {
-                    question: "Is my data secure?",
-                    answer: "Yes. All activations and profiles use encrypted telecom infrastructure.",
+                    question: "How do I activate my eSIM?",
+                    answer: "After purchase, scan the QR code in your phone's cellular settings. It takes about 1–2 minutes.",
                 },
                 {
-                    question: "Can I use multiple plans simultaneously?",
+                    question: "What data plans do you offer?",
                     answer:
-                        "Yes — eSIM profiles allow up to several data plans on one device.",
-                },
-                {
-                    question: "Do tokens expire?",
-                    answer: "Never. Tokens stay in your account until used.",
+                        "Plans from 1 GB to 50 GB with 7-day or 30-day validity. See our pricing page for full details.",
                 },
                 {
                     question: "How do I contact support?",
-                    answer: `You can contact us via ${COMPANY_EMAIL} or use the contact form on the site. We usually reply within 24 hours with activation, billing, or coverage help.`,
+                    answer: `Email us at ${COMPANY_EMAIL}. We usually reply within 24 hours and can help with activation, setup, and compatibility questions.`,
                 },
             ],
         },
 
-        // 🔗 FINAL CTA
+        // FINAL CTA
         {
             type: "hero",
             bgImage: "image70",
-            title: "Join the Future of Borderless Connectivity",
+            title: "Get Your eSIM for Europe",
             description:
-                `Whether you're a traveler, business, or global team — connect instantly with eSIMs powered by ${COMPANY_NAME}.`,
+                `Data-only plans for 45+ European countries. Instant delivery, transparent pricing, and reliable coverage. ${COMPANY_NAME} makes European travel simple.`,
             buttons: [
-                { text: "Get Started", link: "/get-started", color: "primary" },
-                { text: "Explore Plans", link: "/services", color: "secondary" },
+                { text: "View Plans", link: "/pricing", color: "primary" },
+                { text: "Get Started", link: "/get-started", color: "secondary" },
             ],
         },
     ],

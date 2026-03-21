@@ -6,70 +6,41 @@ import {
 
 const pricingSchema: PageSchema = {
     meta: {
-        title: `Pricing — ${COMPANY_NAME} eSIM Marketplace`,
-        description: `Transparent token pricing for global eSIM activation, data packs, roaming optimization and AI-powered connectivity tools. No subscriptions — pay only for what you deploy.`,
+        title: `eSIM Data Plans & Pricing — ${COMPANY_NAME}`,
+        description: `Affordable data-only eSIM plans for 45+ European countries. Choose from 1 GB to 50 GB. Instant QR delivery. No contracts, no roaming fees.`,
         keywords: [
             "esim pricing",
-            "global esim cost",
-            "token based esim system",
-            "ai telecom pricing",
-            "international data plans",
-            "esim marketplace pricing",
-            `${COMPANY_NAME} esim tokens`,
+            "europe esim cost",
+            "european data plans",
+            "travel esim pricing",
+            "cheap esim europe",
+            "data only esim",
+            `${COMPANY_NAME} esim plans`,
         ],
         canonical: "/pricing",
         ogImage: {
             title: `${COMPANY_NAME} — eSIM Pricing`,
-            description: "AI-driven, token-based pricing for global digital connectivity.",
+            description: "Affordable data plans for European travel. No contracts.",
             bg: "#f5f6ff",
             color: "#6a39ff",
         },
     },
 
     blocks: [
-        // 🚀 HERO — Galactic Pricing
+        // HERO
         {
             type: "hero",
             bgImage: "image10",
-            title: "Simple. Transparent. Global. eSIM Pricing.",
+            title: "Simple, Transparent eSIM Pricing for Europe",
             description:
-                `Activate eSIMs, generate QR codes, manage data-packs and run global telecom automation — all with a single token system. No subscriptions, no hidden fees.`,
+                `Buy tokens, then use them to activate data-only eSIM plans across 45+ European countries. £1 = 100 tokens. Minimum purchase: 1,000 tokens (£10). No subscriptions, no hidden fees.`,
             buttons: [
-                { text: "Start Activating", link: "/get-started", color: "primary" },
-                { text: "Talk to Sales", link: "/contact-us", color: "secondary" },
+                { text: "Get Started", link: "/get-started", color: "primary" },
+                { text: "Contact Us", link: "/contact-us", color: "secondary" },
             ],
         },
 
-        // 🌐 NEW: Global Region Price Map (visual only)
-        {
-            type: "section",
-            gap: "2rem",
-            left: {
-                type: "media",
-                mediaType: "image",
-                src: "image30",
-                width: "100%",
-                height: "430px",
-                alt: "Global eSIM pricing heatmap",
-            },
-            right: {
-                type: "text",
-                title: "Region-Based Token Scaling",
-                description:
-                    "Different regions require different telecom infrastructure. Our token pricing automatically adjusts to each geographic tier, depending on demand, carrier agreements and local routing complexity.",
-                bullets: [
-                    "Tier 1: EU/USA/UK — lowest token cost",
-                    "Tier 2: Asia/Middle East — moderate cost",
-                    "Tier 3: Africa/South America — increased routing load",
-                ],
-                iconName: "public",
-                iconSize: 44,
-                iconColor: "#6a39ff",
-                iconBg: "#f3edff",
-            }
-        },
-
-        // 💎 MAIN PRICING GRID — 4 tiers
+        // MAIN PRICING GRID — Token packages (£1 = 100 tokens, min 1000 tokens)
         {
             type: "grid",
             columns: 4,
@@ -78,49 +49,49 @@ const pricingSchema: PageSchema = {
                 {
                     type: "pricing",
                     variant: "basic",
-                    title: "Starter eSIM Pack",
-                    price: "9",
-                    tokens: 100,
-                    description: "Perfect for testing activations, QR generation or small-volume orders.",
+                    title: "Starter",
+                    price: "10",
+                    tokens: 1000,
+                    description: "Top up 1,000 tokens to your account. Enough for a short trip data plan across Europe.",
                     features: [
-                        "Up to 10 eSIM activations",
-                        "Basic routing engine",
-                        "Standard global coverage",
-                        "Delivery via email/SMS/Telegram",
+                        "1,000 tokens",
+                        "Use for any eSIM data plan",
+                        "45+ European countries",
+                        "Instant delivery via QR code",
                     ],
-                    buttonText: "Start",
+                    buttonText: "Buy 1,000 Tokens",
                     buttonLink: "/get-started",
                 },
                 {
                     type: "pricing",
                     variant: "highlight",
-                    title: "Pro Connectivity Pack",
+                    title: "Standard",
                     price: "25",
-                    tokens: 350,
-                    description: "For growing eSIM marketplaces and frequent international customers.",
+                    tokens: 2500,
+                    description: "2,500 tokens — great value for a 1–2 week holiday with plenty of data across Europe.",
                     features: [
-                        "30–40 eSIM activations",
-                        "AI optimization for regions",
-                        "Full QR automation",
-                        "Carrier fallback logic",
+                        "2,500 tokens",
+                        "Best for holidays & longer trips",
+                        "45+ European countries",
+                        "Tethering / hotspot supported",
                     ],
-                    buttonText: "Go Pro",
+                    buttonText: "Buy 2,500 Tokens",
                     buttonLink: "/get-started",
                 },
                 {
                     type: "pricing",
                     variant: "premium",
-                    title: "Enterprise Telecom Suite",
-                    price: "60",
-                    tokens: 1000,
-                    description: "Highest-volume, global-first solution for telecom-scale activations.",
+                    title: "Pro",
+                    price: "50",
+                    tokens: 5000,
+                    description: "5,000 tokens for premium 4G/5G data plans. Ideal for remote work, streaming, and longer European trips.",
                     features: [
-                        "100+ eSIM activations",
-                        "Priority routing engine",
-                        "AI auto-repair for failed activations",
-                        "Dedicated support and analytics",
+                        "5,000 tokens",
+                        "Premium 4G/5G data plans",
+                        "45+ European countries",
+                        "Priority network speeds",
                     ],
-                    buttonText: "Upgrade",
+                    buttonText: "Buy 5,000 Tokens",
                     buttonLink: "/get-started",
                 },
                 {
@@ -129,34 +100,35 @@ const pricingSchema: PageSchema = {
                     title: "Custom",
                     price: "dynamic",
                     tokens: 0,
-                    description: "Enter the exact budget you want and convert it into account tokens instantly.",
+                    description: "Enter any amount (min £10) and convert it to tokens instantly. £1 = 100 tokens.",
                     features: [
                         "Choose your own amount",
-                        "Instant token top-up",
-                        "PDF invoice sent by email",
-                        "Best for flexible spend",
+                        "£1 = 100 tokens",
+                        "Minimum purchase: £10 (1,000 tokens)",
+                        "Instant top-up to your account",
                     ],
-                    buttonText: "Buy Custom Pack",
+                    buttonText: "Buy Custom Amount",
                 }
             ]
         },
 
-        // ⚡ NEW BLOCK: Token Flow Diagram
+        // What's included section
         {
             type: "section",
             gap: "2rem",
             left: {
                 type: "text",
-                title: "How Token Pricing Works for eSIM Platforms",
+                title: "What's Included in Every Plan",
                 description:
-                    "Every action inside your platform consumes tokens. You only pay for what you actually use — no recurring fees, no minimum commitments.",
+                    "Every eSIM data plan includes the same core features — no matter which size you choose.",
                 bullets: [
-                    "Activation = 20–40 tokens",
-                    "QR delivery = 5 tokens",
-                    "Region optimization = 3 tokens",
-                    "Failed activation auto-repair = FREE",
+                    "Data-only eSIM — your main SIM stays active for calls & SMS",
+                    "Instant QR code delivery to your email",
+                    "Coverage in 45+ European countries on one plan",
+                    "No contracts — buy only when you need it",
+                    "Step-by-step setup guide for iPhone and Android",
                 ],
-                iconName: "token",
+                iconName: "checkCircle",
                 iconSize: 46,
                 iconColor: "#0070f3",
                 iconBg: "#e6f7ff",
@@ -166,11 +138,11 @@ const pricingSchema: PageSchema = {
                 mediaType: "image",
                 src: "image50",
                 height: "400px",
-                alt: "Token usage flow",
+                alt: "eSIM plan features",
             }
         },
 
-        // 🧬 NEW — 6×6 Feature Grid (cosmic)
+        // Feature grid
         {
             type: "grid",
             columns: 3,
@@ -180,8 +152,8 @@ const pricingSchema: PageSchema = {
                     block: {
                         type: "text",
                         title: "Instant QR Delivery",
-                        description: "Customers receive activation details right after checkout.",
-                        bullets: ["Email-ready flow", "Fast fulfilment", "Clear install steps"],
+                        description: "Your QR code is delivered to your email seconds after purchase.",
+                        bullets: ["No waiting", "Works offline once installed", "Available 24/7"],
                         iconName: "qr",
                         iconColor: "#6a39ff",
                         iconBg: "#f3edff",
@@ -190,10 +162,10 @@ const pricingSchema: PageSchema = {
                 {
                     block: {
                         type: "text",
-                        title: "Reusable Travel Balance",
-                        description: "Keep one account and reuse it across future trips.",
-                        bullets: ["Simple top-ups", "No subscriptions", "Flexible spend"],
-                        iconName: "wallet",
+                        title: "Data-Only Plans",
+                        description: "All plans are data-only. Your original SIM stays active for calls and SMS.",
+                        bullets: ["Keep your phone number", "No SIM swapping", "Dual SIM compatible"],
+                        iconName: "smartphone",
                         iconColor: "#0070f3",
                         iconBg: "#e6f7ff",
                     }
@@ -201,9 +173,9 @@ const pricingSchema: PageSchema = {
                 {
                     block: {
                         type: "text",
-                        title: "Global Coverage",
-                        description: "Plans are built for frequent travel across major destinations.",
-                        bullets: ["190+ countries", "Strong partner networks", "Travel-ready setup"],
+                        title: "European Coverage",
+                        description: "One plan covers 45+ European countries. No extra charges at borders.",
+                        bullets: ["UK, EU, Balkans, Nordics", "Automatic carrier switching", "No roaming fees"],
                         iconName: "public",
                         iconColor: "#28a745",
                         iconBg: "#e6ffe6",
@@ -212,9 +184,9 @@ const pricingSchema: PageSchema = {
                 {
                     block: {
                         type: "text",
-                        title: "Transparent Billing",
-                        description: "Know what you pay and what package fits your use.",
-                        bullets: ["Clear package sizes", "No hidden renewals", "Straightforward pricing"],
+                        title: "Transparent Pricing",
+                        description: "You know exactly what you get: data amount, validity, and price. Nothing hidden.",
+                        bullets: ["Clear GB amounts", "No automatic renewals", "No surprise charges"],
                         iconName: "receipt",
                         iconColor: "#ff8a00",
                         iconBg: "#fff4e6",
@@ -223,9 +195,9 @@ const pricingSchema: PageSchema = {
                 {
                     block: {
                         type: "text",
-                        title: "Fast Activation Help",
-                        description: "Support content is built around common setup issues and fixes.",
-                        bullets: ["Activation guidance", "Compatibility help", "Troubleshooting tips"],
+                        title: "Easy Setup",
+                        description: "Scan the QR code and follow the prompts. Most users are online in under 2 minutes.",
+                        bullets: ["iPhone & Android supported", "Step-by-step guide included", "No app required"],
                         iconName: "support_agent",
                         iconColor: "#d900aa",
                         iconBg: "#ffe6f5",
@@ -234,10 +206,10 @@ const pricingSchema: PageSchema = {
                 {
                     block: {
                         type: "text",
-                        title: "Business-Ready Scaling",
-                        description: "Move from single-trip usage to larger travel operations when needed.",
-                        bullets: ["Custom agreements", "Higher-volume support", "Operational flexibility"],
-                        iconName: "business",
+                        title: "Tethering Supported",
+                        description: "Share your data connection with laptops, tablets, or other devices.",
+                        bullets: ["Hotspot enabled", "Share with travel companions", "Works on most networks"],
+                        iconName: "wifi",
                         iconColor: "#007f7f",
                         iconBg: "#e6fffb",
                     }
@@ -245,47 +217,7 @@ const pricingSchema: PageSchema = {
             ]
         },
 
-        // 📡 NEW — Speed Class Boosters (Unique)
-        {
-            type: "grid",
-            columns: 3,
-            gap: "2rem",
-            cards: [
-                {
-                    image: "image13",
-                    title: "Speed Class L1",
-                    description: "Standard 4G performance — globally reliable.",
-                    buttonLink: "#boosters",
-                    buttonText: "Add Booster"
-                },
-                {
-                    image: "image15",
-                    title: "Speed Class L2",
-                    description: "Optimized for video calls & navigation.",
-                    buttonLink: "#boosters",
-                    buttonText: "Add Booster"
-                },
-                {
-                    image: "image17",
-                    title: "Speed Class L3",
-                    description: "High-performance routing for business users.",
-                    buttonLink: "#boosters",
-                    buttonText: "Enable Priority"
-                }
-            ]
-        },
-
-        {
-            type: "text",
-            id: "boosters",
-            title: "Boosters",
-            description: "Increase routing priority and improve performance with Speed Class add-ons.",
-            iconName: "bolt",
-            iconColor: "#6a39ff",
-            iconBg: "#f3edff",
-        },
-
-        // 🌍 NEW — Top-Up Simulation Block
+        // How much data do I need?
         {
             type: "section",
             gap: "2rem",
@@ -294,17 +226,19 @@ const pricingSchema: PageSchema = {
                 mediaType: "image",
                 src: "image22",
                 height: "420px",
-                alt: "Token simulation UI",
+                alt: "Data usage guide",
             },
             right: {
                 type: "text",
-                title: "Predict Your Monthly Cost",
+                title: "How Much Data Do I Need?",
                 description:
-                    "Our AI simulator helps you estimate how many tokens you'll need based on travel volume, activation frequency and country distribution.",
+                    "Not sure which plan to pick? Here's a rough guide based on typical usage:",
                 bullets: [
-                    "Volume-based prediction",
-                    "AI seasonal forecasting",
-                    "Carrier fee estimation",
+                    "1 GB — messaging, maps, and light browsing for 3–5 days",
+                    "3 GB — social media, email, and ride apps for 1–2 weeks",
+                    "5 GB — regular use including photos and moderate browsing for 2–3 weeks",
+                    "10 GB — video calls, streaming, and hotspot use for 2–4 weeks",
+                    "20 GB+ — heavy use, remote work, or sharing with others",
                 ],
                 iconName: "calculate",
                 iconColor: "#28a745",
@@ -312,43 +246,43 @@ const pricingSchema: PageSchema = {
             }
         },
 
-        // 🌠 FAQ — eSIM edition
+        // FAQ
         {
             type: "faq",
             items: [
                 {
-                    question: "How many tokens does an eSIM activation cost?",
-                    answer: "Depending on region: 20–40 tokens per activation. High-load regions may adjust dynamically."
+                    question: "What countries are covered?",
+                    answer: "All plans cover 45+ European countries including the UK, France, Germany, Spain, Italy, Greece, Portugal, Netherlands, and many more. See our coverage page for the full list."
                 },
                 {
-                    question: "Do tokens expire?",
-                    answer: "Never. Tokens remain in your wallet indefinitely."
+                    question: "Is this a data-only plan?",
+                    answer: "Yes. All our eSIM plans are data-only. Your original SIM card stays active for phone calls, SMS, and banking verification."
                 },
                 {
-                    question: "What about failed activations?",
-                    answer: "Auto-repair is free. You are never charged twice for failed attempts."
+                    question: "What happens when my data runs out?",
+                    answer: "Your data connection stops. There are no overage charges. You can buy a new plan anytime."
                 },
                 {
-                    question: "Can I resell eSIMs?",
-                    answer: "Yes, the system fully supports resellers, affiliates and travel platforms."
+                    question: "Can I get a refund?",
+                    answer: "Refunds are available for uninstalled eSIMs. Once activated, refunds depend on applicable consumer law. Contact support for help."
                 },
                 {
-                    question: "Is enterprise routing available?",
-                    answer: `Yes — contact us at ${COMPANY_EMAIL} for SLA, routing priority and volume agreements.`
+                    question: "Do you offer unlimited plans?",
+                    answer: `Not at this time. We offer plans up to 50 GB which covers most travel needs. For custom requirements, contact us at ${COMPANY_EMAIL}.`
                 },
             ]
         },
 
-        // ⭐ FINAL CTA
+        // FINAL CTA
         {
             type: "hero",
             bgImage: "image40",
-            title: "Scale Your Global Connectivity with AI",
+            title: "Ready to Stay Connected in Europe?",
             description:
-                "Launch, manage and automate your eSIM marketplace with a universal token system built for global coverage.",
+                "Pick a data plan, scan the QR code, and enjoy fast mobile data across 45+ European countries. No contracts. No roaming fees.",
             buttons: [
-                { text: "Start Now", link: "/get-started", color: "primary" },
-                { text: "Book a Demo", link: "/contact-us", color: "secondary" },
+                { text: "Get Started", link: "/get-started", color: "primary" },
+                { text: "View Coverage", link: "/coverage", color: "secondary" },
             ],
         },
     ],

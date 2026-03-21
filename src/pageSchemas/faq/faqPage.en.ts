@@ -4,7 +4,7 @@ import { COMPANY_NAME, COMPANY_EMAIL } from "@/resources/constants";
 const faqSchema: PageSchema = {
     meta: {
         title: `FAQ — ${COMPANY_NAME} eSIM`,
-        description: `Answers to common questions about buying, installing, and using an eSIM with ${COMPANY_NAME}.`,
+        description: `Answers to common questions about buying, installing, and using a data-only eSIM for European travel with ${COMPANY_NAME}.`,
         keywords: [
             "esim faq",
             "how to activate esim",
@@ -27,7 +27,7 @@ const faqSchema: PageSchema = {
             items: [
                 {
                     question: `What is ${COMPANY_NAME}?`,
-                    answer: `${COMPANY_NAME} is an eSIM marketplace that helps you get mobile data for travel in minutes. Choose a plan, receive a QR code, and activate on your phone — no physical SIM card required.`,
+                    answer: `${COMPANY_NAME} sells data-only eSIM plans for 45+ European countries. Choose a data plan (1 GB to 50 GB), receive a QR code instantly, and activate on your phone — no physical SIM card required.`,
                 },
                 {
                     question: "What is an eSIM?",

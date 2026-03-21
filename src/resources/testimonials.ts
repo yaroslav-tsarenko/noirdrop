@@ -1,4 +1,4 @@
-export const DEFAULT_TESTIMONIALS_TITLE = "What Travelers Say";
+export const DEFAULT_TESTIMONIALS_TITLE = "What Travellers Say";
 
 export const DEFAULT_TESTIMONIALS_ITEMS = [
     {
@@ -10,32 +10,31 @@ export const DEFAULT_TESTIMONIALS_ITEMS = [
     {
         name: "David",
         role: "Digital Nomad",
-        text: "I work remotely, so stable internet is a must. The Japan + Korea eSIM was flawless.",
+        text: "I work remotely across Europe, so stable internet is a must. Used it in Portugal and Spain — flawless.",
         avatar: "https://i.pravatar.cc/150?img=50",
     },
     {
         name: "Marco",
         role: "Business Traveler",
-        text: "Arrived in New York and data was active before I left the airport. Crazy good.",
+        text: "Arrived in Paris and data was active before I left the airport. Crazy good.",
         avatar: "https://i.pravatar.cc/150?img=12",
     },
     {
         name: "Mia",
         role: "Solo Traveler",
-        text: "Much cheaper than alternatives, and activation is super easy. Highly recommend!",
+        text: "Much cheaper than roaming, and activation is super easy. Used it across Italy and Greece. Highly recommend!",
         avatar: "https://i.pravatar.cc/150?img=47",
     },
     {
         name: "Sophie",
         role: "Frequent Flyer",
-        text: "I landed, turned on data roaming for the eSIM, and it just worked. Perfect for quick trips.",
+        text: "I landed in Berlin, turned on data roaming for the eSIM, and it just worked. Perfect for quick trips.",
         avatar: "https://i.pravatar.cc/150?img=24",
     },
     {
         name: "Kenji",
         role: "Remote Worker",
-        text: "Video calls were stable the whole week. Great speeds and zero surprises on billing.",
+        text: "Video calls were stable the whole week in Amsterdam. Great speeds and zero surprises on billing.",
         avatar: "https://i.pravatar.cc/150?img=8",
     },
 ];
-

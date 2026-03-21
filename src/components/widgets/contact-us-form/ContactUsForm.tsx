@@ -103,14 +103,14 @@ const ContactUsForm = () => {
                                     <span>📶</span>
                                     <div>
                                         <p>eSIMs activated</p>
-                                        <strong>10k+ worldwide</strong>
+                                        <strong>10k+ customers</strong>
                                     </div>
                                 </div>
                                 <div className={styles.pill}>
                                     <span>🌍</span>
                                     <div>
                                         <p>Coverage</p>
-                                        <strong>190+ countries</strong>
+                                        <strong>45+ European countries</strong>
                                     </div>
                                 </div>
                             </motion.div>

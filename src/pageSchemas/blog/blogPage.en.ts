@@ -4,22 +4,22 @@ import { DEFAULT_TESTIMONIALS_ITEMS, DEFAULT_TESTIMONIALS_TITLE } from "@/resour
 
 const blogSchema: PageSchema = {
     meta: {
-        title: `Blog — ${COMPANY_NAME} eSIM Marketplace`,
-        description: `Explore expert guides, travel insights, connectivity tips, eSIM tutorials, and global roaming hacks from ${COMPANY_NAME}. Updated weekly with practical advice and telecom intelligence.`,
+        title: `Blog — ${COMPANY_NAME} eSIM for Europe`,
+        description: `Explore travel guides, eSIM tutorials, European connectivity tips, and practical advice from ${COMPANY_NAME}. Updated regularly with travel planning resources.`,
         keywords: [
             "esim blog",
             "travel internet tips",
-            "global connectivity",
-            "international roaming alternatives",
+            "european connectivity",
+            "roaming alternatives",
             "eSIM guides",
             "digital nomad tips",
-            "telecom insights",
+            "travel data tips",
             `${COMPANY_NAME} articles`,
         ],
         canonical: "/blog",
         ogImage: {
             title: `${COMPANY_NAME} Blog`,
-            description: "Your hub for global connectivity insights, travel hacks, and eSIM tutorials.",
+            description: "European travel tips, eSIM guides, and connectivity advice.",
             bg: "#f5f6ff",
             color: "#6a39ff",
         },
@@ -57,7 +57,7 @@ const blogSchema: PageSchema = {
                     "Learn what an eSIM is, how activation works, which devices support it, and how to avoid roaming fees while traveling.",
                 bullets: [
                     "Setup in under 2 minutes",
-                    "Works in 190+ destinations",
+                    "Works in 45+ European countries",
                     "Travel-friendly pricing",
                 ],
                 iconName: "auto_stories",
@@ -197,7 +197,7 @@ const blogSchema: PageSchema = {
                 type: "text",
                 title: "Join Our Connectivity Newsletter",
                 description:
-                    "Get weekly travel hacks, eSIM tips, global data insights and early access to new features.",
+                    "Get travel tips, eSIM guides, European destination insights, and updates on new plans.",
                 bullets: [
                     "Weekly updates",
                     "Exclusive guides",
@@ -223,8 +223,8 @@ const blogSchema: PageSchema = {
         {
             type: "hero",
             bgImage: "image40",
-            title: "Explore the World with Smarter Connectivity",
-            description: `Browse articles, learn new tips, and master global connectivity with ${COMPANY_NAME}.`,
+            title: "Explore Europe with Better Connectivity",
+            description: `Browse articles, learn travel tips, and get the most from your eSIM with ${COMPANY_NAME}.`,
             buttons: [
                 { text: "Explore Articles", link: "#latest", color: "primary" },
                 { text: "View Pricing", link: "/pricing", color: "secondary" },

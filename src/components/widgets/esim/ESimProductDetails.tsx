@@ -15,12 +15,10 @@ interface ESimProductDetailsProps {
 }
 
 export default function ESimProductDetails({ product }: ESimProductDetailsProps) {
-    const [selectedVariant, setSelectedVariant] = useState(product.variants[0] ?? "");
+    const [selectedVariant, setSelectedVariant] = useState<string>(product.variants[0] ?? "");
     const [quantity, setQuantity] = useState(1);
 
-    const match = selectedVariant.match(/€\s?(\d+)/);
-    const selectedBalance = match ? Number(match[1]) : 0;
-    const unitPrice = product.salePrice + selectedBalance;
+    const unitPrice = product.salePrice;
 
     const cartItem = {
         id: `${product.id}:${selectedVariant}`,
@@ -72,7 +70,7 @@ export default function ESimProductDetails({ product }: ESimProductDetailsProps)
                         <span className={styles.sale}>€{unitPrice.toFixed(2)} Sale</span>
                     </div>
 
-                    <label className={styles.label}>Select your eSIM balance:</label>
+                    <label className={styles.label}>Select your data plan:</label>
                     <select
                         className={styles.select}
                         value={selectedVariant}
@@ -112,11 +110,11 @@ export default function ESimProductDetails({ product }: ESimProductDetailsProps)
                     <div className={styles.infoGrid}>
                         <div className={styles.infoBox}>
                             <FiGlobe className={styles.icon} />
-                            <p>Works in {product.coverageCountries}+ countries</p>
+                            <p>Works in {product.coverageCountries}+ European countries</p>
                         </div>
                         <div className={styles.infoBox}>
                             <FiZap className={styles.icon} />
-                            <p>Fast 4G/5G speeds worldwide</p>
+                            <p>Fast 4G/5G speeds across Europe</p>
                         </div>
                         <div className={styles.infoBox}>
                             <FiSmartphone className={styles.icon} />
@@ -137,9 +135,9 @@ export default function ESimProductDetails({ product }: ESimProductDetailsProps)
 
                     <h3 className={styles.subtitle}>Coverage & Speed</h3>
                     <p className={styles.coverageText}>
-                        This eSIM uses premium international networks with automatic switching
-                        to the strongest signal in your region. Enjoy stable 4G/5G speeds in
-                        over {product.coverageCountries}+ countries without roaming fees or SIM swaps.
+                        This eSIM connects to premium European carrier networks with automatic switching
+                        to the strongest signal in your area. Enjoy stable 4G/5G data speeds in
+                        {product.coverageCountries}+ European countries — data only, no roaming fees, no SIM swaps.
                     </p>
 
                     <div className={styles.contentSection}>

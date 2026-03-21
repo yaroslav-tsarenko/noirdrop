@@ -3,22 +3,21 @@ import { COMPANY_NAME } from "@/resources/constants";
 
 const schema: PageSchema = {
     meta: {
-        title: `Solutions — AI-Powered eSIM Marketplace Tools by ${COMPANY_NAME}`,
-        description: `Advanced AI solutions for eSIM marketplaces, digital onboarding, pricing automation, KYC optimization and global connectivity management. Built with lightweight architecture and real-time intelligence.`,
+        title: `Our Service — Data-Only eSIM Plans for Europe | ${COMPANY_NAME}`,
+        description: `${COMPANY_NAME} provides data-only eSIM plans for 45+ European countries. Instant QR delivery, transparent pricing, and reliable 4G/5G coverage for travellers.`,
         keywords: [
-            "eSIM marketplace solutions",
-            "AI connectivity tools",
-            "digital sim management",
-            "global esim onboarding",
-            "pricing automation platform",
-            "ai telecom tools",
-            "carrier intelligence",
-            `${COMPANY_NAME} esim platform`
+            "eSIM service",
+            "european esim provider",
+            "data only esim",
+            "travel esim europe",
+            "esim coverage europe",
+            "digital sim card",
+            `${COMPANY_NAME} esim service`
         ],
         canonical: "/services",
         ogImage: {
-            title: `${COMPANY_NAME} Solutions`,
-            description: "AI-powered systems for eSIM platforms, telecom automation & digital onboarding.",
+            title: `${COMPANY_NAME} — Our Service`,
+            description: "Data-only eSIM plans for 45+ European countries. Instant delivery.",
             bg: "#ffffff",
             color: "#6a39ff"
         }
@@ -29,28 +28,18 @@ const schema: PageSchema = {
         {
             type: "hero",
             bgImage: "image1",
-            title: "AI Solutions for eSIM Marketplaces & Digital Telecom",
+            title: "Data-Only eSIM Plans for European Travel",
             description:
-                "Boost your telecom or eSIM platform with automation, AI-driven analytics, pricing intelligence, global coverage maps and real-time customer onboarding flows.",
+                "Stay connected across 45+ European countries with affordable data-only eSIM plans. Choose your data amount, scan the QR code, and browse — no roaming fees, no contracts.",
             buttons: [
-                { text: "Explore Tools", link: "#coverage-map", color: "primary" },
-                { text: "View Pricing", link: "/pricing", color: "secondary" }
+                { text: "View Coverage", link: "/coverage", color: "primary" },
+                { text: "View Plans", link: "/pricing", color: "secondary" }
             ]
         },
 
         { type: "rates-per-country", id: "coverage-map" },
 
-        // Tools anchor
-        {
-            type: "text",
-            title: "Tools",
-            description: "",
-            iconName: "build",
-            iconColor: "#6a39ff",
-            iconBg: "#f3edff",
-        },
-
-        // GRID 6×6 — Key Solutions Overview
+        // What We Offer
         {
             type: "grid",
             columns: 3,
@@ -59,186 +48,10 @@ const schema: PageSchema = {
                 {
                     block: {
                         type: "text",
-                        title: "AI Pricing Engine",
+                        title: "Data-Only eSIM",
                         description:
-                            "Automatically adjusts eSIM prices based on demand, region, competitor feeds and seasonal patterns.",
-                        bullets: ["Real-time price optimization", "Demand forecasting", "Carrier-level adjustments"],
-                        iconName: "trending_up",
-                        iconColor: "#6a39ff",
-                        iconBg: "#f3edff"
-                    }
-                },
-                {
-                    block: {
-                        type: "text",
-                        title: "Global Coverage Intelligence",
-                        description:
-                            "Heat-maps of coverage, roaming speed data, network saturation and carrier performance analytics.",
-                        bullets: ["Live region scoring", "Latency maps", "Carrier performance index"],
-                        iconName: "public",
-                        iconColor: "#0070f3",
-                        iconBg: "#e6f5ff"
-                    }
-                },
-                {
-                    block: {
-                        type: "text",
-                        title: "Smart Onboarding Flows",
-                        description:
-                            "Frictionless KYC-free onboarding using AI context, device detection and automated user routing.",
-                        bullets: ["Device auto-detect", "Adaptive onboarding", "Instant QR eSIM activation"],
-                        iconName: "bolt",
-                        iconColor: "#d900aa",
-                        iconBg: "#ffe6f5"
-                    }
-                },
-                {
-                    block: {
-                        type: "text",
-                        title: "AI Support Assistant",
-                        description:
-                            "24/7 automated telecom support that resolves most eSIM issues in under 15 seconds.",
-                        bullets: ["Activation troubleshooting", "User intent analysis", "Region-specific fixes"],
-                        iconName: "support_agent",
-                        iconColor: "#4a00e5",
-                        iconBg: "#f3e8ff"
-                    }
-                },
-                {
-                    block: {
-                        type: "text",
-                        title: "Fraud Detection System",
-                        description:
-                            "Detects suspicious traffic, reselling attempts, duplicate IMEIs and abnormal usage.",
-                        bullets: ["IMEI tracking", "Token validation", "Behavioral analysis"],
-                        iconName: "shield",
-                        iconColor: "#ff8a00",
-                        iconBg: "#fff4e6"
-                    }
-                },
-                {
-                    block: {
-                        type: "text",
-                        title: "QR Code Delivery Automation",
-                        description:
-                            "Send activation QR codes instantly via email, SMS or Telegram bot with full tracking.",
-                        bullets: ["Auto-delivery", "Error recovery", "User activity logs"],
-                        iconName: "qr_code_2",
-                        iconColor: "#007f7f",
-                        iconBg: "#e6fffb"
-                    }
-                }
-            ],
-            style: { scrollMarginTop: "96px" },
-        },
-
-        // SECTION – Image Left / Text Right
-        {
-            type: "section",
-            gap: "2rem",
-            left: {
-                type: "media",
-                mediaType: "image",
-                src: "image12",
-                height: "420px",
-                alt: "eSIM dashboard"
-            },
-            right: {
-                type: "text",
-                title: "End-to-End Telecom Automation",
-                description:
-                    "We eliminate manual operations. From device detection to automated delivery, refunds, usage monitoring and customer lifecycle optimization — every workflow is fully automated.",
-                bullets: [
-                    "Full AI routing engine",
-                    "Usage-based notifications",
-                    "Auto-expiry reminders",
-                    "Region recommendations"
-                ],
-                iconName: "settings_suggest",
-                iconSize: 48,
-                iconColor: "#6a39ff",
-                iconBg: "#f3edff"
-            }
-        },
-
-        // GRID 9×9 — Feature Dense Grid
-        {
-            type: "grid",
-            columns: 3,
-            gap: "1.6rem",
-            items: [
-                {
-                    block: {
-                        type: "text",
-                        title: "Smart Coverage Heatmaps",
-                        description: "Visualize carrier quality by country before a customer buys a plan.",
-                        bullets: ["Regional scorecards", "Latency trends", "Country-by-country snapshots"],
-                        iconName: "public",
-                        iconColor: "#6a39ff",
-                        iconBg: "#f3edff"
-                    }
-                },
-                {
-                    block: {
-                        type: "text",
-                        title: "Conversion Tracking",
-                        description: "Measure which pricing, pages and destinations actually convert into orders.",
-                        bullets: ["CTA attribution", "Landing-page comparison", "Checkout drop-off analysis"],
-                        iconName: "trending_up",
-                        iconColor: "#0070f3",
-                        iconBg: "#e6f5ff"
-                    }
-                },
-                {
-                    block: {
-                        type: "text",
-                        title: "Refund Safeguards",
-                        description: "Detect risky orders early and flag failed activations before they escalate.",
-                        bullets: ["Failure alerts", "Order anomaly checks", "Support context history"],
-                        iconName: "shield",
-                        iconColor: "#ff8a00",
-                        iconBg: "#fff4e6"
-                    }
-                },
-                {
-                    block: {
-                        type: "text",
-                        title: "Multi-Locale Catalog",
-                        description: "Present plan data with localized content, region logic and device hints.",
-                        bullets: ["Country-aware copy", "Localized offers", "Compatibility prompts"],
-                        iconName: "language",
-                        iconColor: "#d900aa",
-                        iconBg: "#ffe6f5"
-                    }
-                },
-                {
-                    block: {
-                        type: "text",
-                        title: "Plan Performance Insights",
-                        description: "Track which products deliver stable service and which regions need attention.",
-                        bullets: ["Activation success rate", "Carrier-level trends", "Usage quality signals"],
-                        iconName: "signal_cellular_alt",
-                        iconColor: "#007f7f",
-                        iconBg: "#e6fffb"
-                    }
-                },
-                {
-                    block: {
-                        type: "text",
-                        title: "Automated Notifications",
-                        description: "Keep customers informed with timely emails around activation and order state.",
-                        bullets: ["Order updates", "Delivery reminders", "Support follow-ups"],
-                        iconName: "mail",
-                        iconColor: "#28a745",
-                        iconBg: "#e6ffe6"
-                    }
-                },
-                {
-                    block: {
-                        type: "text",
-                        title: "Device Compatibility Checks",
-                        description: "Reduce support load by catching unsupported phones before checkout.",
-                        bullets: ["Model screening", "Setup guidance", "Troubleshooting shortcuts"],
+                            "All our plans are data-only. You get mobile internet for browsing, maps, messaging, and video calls. Your original SIM stays active for phone calls and SMS.",
+                        bullets: ["Data-only — no voice or SMS", "Keep your main number active", "Dual SIM compatible"],
                         iconName: "smartphone",
                         iconColor: "#6a39ff",
                         iconBg: "#f3edff"
@@ -247,10 +60,11 @@ const schema: PageSchema = {
                 {
                     block: {
                         type: "text",
-                        title: "Order Ops Console",
-                        description: "Give internal teams one place to review purchases, issues and follow-ups.",
-                        bullets: ["Order visibility", "Status filters", "Response-ready notes"],
-                        iconName: "viewlist",
+                        title: "45+ European Countries",
+                        description:
+                            "One plan covers the UK, EU, Nordics, Balkans, and more. Cross borders without switching SIMs or paying extra.",
+                        bullets: ["UK, France, Germany, Spain, Italy", "Nordics, Baltics, Balkans", "Turkey, Switzerland, Iceland"],
+                        iconName: "public",
                         iconColor: "#0070f3",
                         iconBg: "#e6f5ff"
                     }
@@ -258,46 +72,85 @@ const schema: PageSchema = {
                 {
                     block: {
                         type: "text",
-                        title: "Growth Reporting",
-                        description: "Understand what drives repeat purchases and profitable international demand.",
-                        bullets: ["Cohort trends", "Country demand mix", "Revenue snapshots"],
-                        iconName: "pie",
+                        title: "Instant QR Delivery",
+                        description:
+                            "After checkout, your eSIM QR code is delivered to your email in seconds. Install before your trip and connect on arrival.",
+                        bullets: ["Email delivery in seconds", "Install before departure", "No store visits needed"],
+                        iconName: "bolt",
+                        iconColor: "#d900aa",
+                        iconBg: "#ffe6f5"
+                    }
+                },
+                {
+                    block: {
+                        type: "text",
+                        title: "Clear Data Plans",
+                        description:
+                            "Choose from 1 GB to 50 GB with fixed validity periods. You know exactly what you're getting — no surprise charges.",
+                        bullets: ["1 GB, 3 GB, 5 GB, 10 GB, 20 GB, 50 GB", "7-day and 30-day validity", "No automatic renewals"],
+                        iconName: "receipt",
                         iconColor: "#ff8a00",
                         iconBg: "#fff4e6"
                     }
+                },
+                {
+                    block: {
+                        type: "text",
+                        title: "4G/5G Speeds",
+                        description:
+                            "Connect to fast 4G/LTE networks across Europe. 5G is available in supported areas with our ULTRA plans.",
+                        bullets: ["4G/LTE on all plans", "5G on ULTRA plans where available", "Tethering / hotspot supported"],
+                        iconName: "signal_cellular_alt",
+                        iconColor: "#4a00e5",
+                        iconBg: "#f3e8ff"
+                    }
+                },
+                {
+                    block: {
+                        type: "text",
+                        title: "Email Support",
+                        description:
+                            "Need help with activation or setup? Our support team is available by email to assist with installation and troubleshooting.",
+                        bullets: ["Activation guidance", "Device compatibility help", "Setup troubleshooting"],
+                        iconName: "support_agent",
+                        iconColor: "#007f7f",
+                        iconBg: "#e6fffb"
+                    }
                 }
-            ]
+            ],
+            style: { scrollMarginTop: "96px" },
         },
 
-        // SECTION – Reverse
+        // SECTION — How it works briefly
         {
             type: "section",
             gap: "2rem",
             left: {
                 type: "media",
                 mediaType: "image",
-                src: "image20",
+                src: "image12",
                 height: "420px",
-                alt: "Global carrier analytics"
+                alt: "eSIM activation process"
             },
             right: {
                 type: "text",
-                title: "Carrier-Level Analytics & Marketplace Insights",
+                title: "How Our eSIM Service Works",
                 description:
-                    "Track carrier performance, latency, reliability, refund ratios and network behavior globally. Ideal for marketplaces managing multiple telecom suppliers.",
+                    "We deliver data-only eSIM plans for European travel. The process is simple: choose a plan, receive a QR code, scan it on your phone, and connect when you arrive.",
                 bullets: [
-                    "Inter-carrier comparison",
-                    "Quality scoring engine",
-                    "Demand correlation analysis",
-                    "Refund forecasting"
+                    "Choose your data plan (1 GB to 50 GB)",
+                    "Receive QR code instantly by email",
+                    "Scan and install in under 2 minutes",
+                    "Connect automatically in 45+ European countries"
                 ],
-                iconName: "signal_cellular_alt",
-                iconColor: "#0070f3",
-                iconBg: "#e6f5ff"
+                iconName: "settings_suggest",
+                iconSize: 48,
+                iconColor: "#6a39ff",
+                iconBg: "#f3edff"
             }
         },
 
-        // GRID 6×6 — Product Micro-Cards
+        // Available products
         {
             type: "grid",
             columns: 3,
@@ -305,24 +158,24 @@ const schema: PageSchema = {
             cards: [
                 {
                     image: "image25",
-                    title: "Global eSIM Marketplace",
-                    description: "Launch a clean storefront for selling travel eSIMs worldwide.",
-                    buttonLink: "/esim/esim-global",
-                    buttonText: "Browse eSIMs"
+                    title: "Europe eSIM ULTRA",
+                    description: "Premium 4G/5G data for business travellers and remote workers. Plans from 1 GB to 20 GB.",
+                    buttonLink: "/esim/esim-ultra",
+                    buttonText: "View ULTRA Plans"
                 },
                 {
                     image: "image26",
-                    title: "Coverage Explorer",
-                    description: "Interactive global map for speed, latency and signal strength.",
-                    buttonLink: "/coverage",
-                    buttonText: "View Coverage"
+                    title: "Europe eSIM PLUS",
+                    description: "Best-value data plans for holidays and longer trips. Plans from 1 GB to 50 GB.",
+                    buttonLink: "/esim/esim-plus",
+                    buttonText: "View PLUS Plans"
                 },
                 {
                     image: "image28",
-                    title: "Activation Help Center",
-                    description: "Guide users through installation, setup and common connectivity issues.",
-                    buttonLink: "/faq",
-                    buttonText: "Learn More"
+                    title: "Europe eSIM Standard",
+                    description: "Our most affordable option for light users. Plans from 1 GB to 10 GB.",
+                    buttonLink: "/esim/esim-global",
+                    buttonText: "View Standard Plans"
                 }
             ]
         },
@@ -331,11 +184,11 @@ const schema: PageSchema = {
         {
             type: "hero",
             bgImage: "image30",
-            title: "Build a Smarter eSIM Platform Today",
-            description: "Automate workflows, improve activation rates and scale globally with AI telecom solutions.",
+            title: "Get Your eSIM for Europe Today",
+            description: "Choose a data plan, scan the QR code, and stay connected across 45+ European countries. Simple, affordable, instant.",
             buttons: [
-                { text: "Browse eSIMs", link: "/esim/esim-global", color: "primary" },
-                { text: "Explore Pricing", link: "/pricing", color: "secondary" }
+                { text: "View Plans", link: "/pricing", color: "primary" },
+                { text: "View Coverage", link: "/coverage", color: "secondary" }
             ]
         }
     ]

@@ -42,7 +42,7 @@ export default function ESimRates({ data }: Props) {
             <div className={styles.card}>
                 <p className={styles.title}>
                     <span className={styles.dotPurple}></span>
-                    Travel eSIM ULTRA
+                    Europe eSIM ULTRA
                 </p>
 
                 <p className={styles.price}>{format(data.ultra)}</p>
@@ -55,7 +55,7 @@ export default function ESimRates({ data }: Props) {
             <div className={styles.card}>
                 <p className={styles.title}>
                     <span className={styles.dotBlue}></span>
-                    Travel eSIM PLUS
+                    Europe eSIM PLUS
                 </p>
 
                 <p className={styles.price}>{format(data.plus)}</p>
@@ -64,11 +64,11 @@ export default function ESimRates({ data }: Props) {
                 <LinkBtn label="Select this eSIM" href="/esim/esim-plus" />
             </div>
 
-            {/* GLOBAL ESIM */}
+            {/* EUROPE ESIM */}
             <div className={`${styles.card} ${styles.highlight}`}>
                 <p className={styles.title}>
                     <span className={styles.dotTeal}></span>
-                    Global eSIM
+                    Europe eSIM
                 </p>
 
                 <p className={styles.price}>{format(data.globalEsim)}</p>
@@ -77,11 +77,11 @@ export default function ESimRates({ data }: Props) {
                 <LinkBtn label="Select this eSIM" href="/esim/esim-global" />
             </div>
 
-            {/* GLOBAL SIM */}
+            {/* EUROPE SIM */}
             <div className={styles.card}>
                 <p className={styles.title}>
                     <span className={styles.dotOrange}></span>
-                    Global SIM
+                    Europe SIM Card
                 </p>
 
                 <p className={styles.price}>{format(data.globalSim)}</p>

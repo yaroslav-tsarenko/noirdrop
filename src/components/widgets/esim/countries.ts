@@ -21,6 +21,7 @@ export const COUNTRIES = [
     "Ireland",
     "Italy",
     "Latvia",
+    "Liechtenstein",
     "Lithuania",
     "Luxembourg",
     "Malta",
@@ -33,12 +34,15 @@ export const COUNTRIES = [
     "Poland",
     "Portugal",
     "Romania",
+    "San Marino",
     "Serbia",
     "Slovakia",
     "Slovenia",
     "Spain",
     "Sweden",
     "Switzerland",
+    "Turkey",
     "Ukraine",
-    "United Kingdom"
+    "United Kingdom",
+    "Vatican City"
 ];
