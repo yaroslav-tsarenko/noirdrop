@@ -2,209 +2,169 @@ import { PageSchema } from "@/components/constructor/page-render/types";
 import {
     COMPANY_NAME,
     COMPANY_EMAIL,
-    COMPANY_LEGAL_NAME,
-    COMPANY_ADDRESS,
-    COMPANY_NUMBER,
 } from "@/resources/constants";
 
 const pricingSchema: PageSchema = {
     meta: {
-        title: `Fiyatlandırma — ${COMPANY_NAME}`,
+        title: `eSIM Veri Planları ve Fiyatlandırma — ${COMPANY_NAME}`,
         description:
-            `${COMPANY_NAME} için ihtiyacınıza uygun jeton paketini seçin. Bireyler, profesyoneller ve işletmeler için Başlangıç, Pro ve Kurumsal seçeneklerle esnek fiyatlandırma.`,
+            `45+ Avrupa ülkesi için uygun fiyatlı yalnızca veri eSIM planları. 1 GB'dan 50 GB'a kadar seçenekler. Anında QR teslimatı. Sözleşme yok, dolaşım ücreti yok.`,
         keywords: [
-            `${COMPANY_NAME} fiyatlandırma`,
-            "jeton paketleri",
-            "kılavuz erişimi",
-            "abonelik alternatifleri",
-            "kılavuz fiyatları"
+            "esim fiyatlandırma",
+            "avrupa esim fiyat",
+            "avrupa veri planları",
+            "seyahat esim",
+            "ucuz esim avrupa",
+            `${COMPANY_NAME} esim planları`,
         ],
         canonical: "/pricing",
         ogImage: {
-            title: `${COMPANY_NAME} Fiyatlandırma`,
-            description: "Kılavuzlar için esnek jeton tabanlı fiyatlandırma.",
-            bg: "#ffffff",
-            color: "#000000",
+            title: `${COMPANY_NAME} — eSIM Fiyatlandırma`,
+            description: "Avrupa seyahati için uygun fiyatlı veri planları. Sözleşme yok.",
+            bg: "#f5f6ff",
+            color: "#6a39ff",
         },
     },
+
     blocks: [
         {
-            type: "section",
-            align: "center",
-            left: {
-                type: "text",
-                title: "Basit ve Şeffaf Fiyatlandırma",
-                description:
-                    `${COMPANY_NAME}’de sadece ihtiyacınız olanı ödersiniz. Jeton tabanlı sistemimiz esnek, uygun fiyatlı ve ölçeklenebilir — ister tek bir kılavuz açın, ister tüm şirketiniz için dokümantasyon yönetin.`,
-                bullets: [
-                    "Gizli ücret veya abonelik yok",
-                    "Jetonlar asla süresi dolmaz",
-                    "Bireyler, ekipler ve işletmeler için ideal",
-                ],
-                centerTitle: true,
-                centerDescription: true,
-                centerBullets: true,
-            },
+            type: "hero",
+            bgImage: "image10",
+            title: "Avrupa İçin Basit, Şeffaf eSIM Fiyatlandırma",
+            description:
+                `45+ Avrupa ülkesi için yalnızca veri eSIM planı seçin. 1 GB'dan 50 GB'a kadar, 7 veya 30 gün geçerlilik süresiyle. Bir kez ödeyin — QR kodunuzu anında alın. Abonelik yok, gizli ücret yok.`,
+            buttons: [
+                { text: "Başlayın", link: "/get-started", color: "primary" },
+                { text: "İletişim", link: "/contact-us", color: "secondary" },
+            ],
         },
+
         {
             type: "grid",
-            columns: 4,
-            gap: "2rem",
+            columns: 3,
+            gap: "2.4rem",
             cards: [
                 {
                     type: "pricing",
-                    variant: "basic",
-                    title: "Başlangıç Paketi",
-                    price: "10",
-                    tokens: 1000,
-                    description: "Ara sıra kılavuz ihtiyacı olan bireyler için mükemmel.",
+                    variant: "premium",
+                    title: "eSIM ULTRA",
+                    price: "from £9.95",
+                    tokens: 0,
+                    description: "İş seyahati, uzaktan çalışma ve yoğun kullanım için premium 4G/5G veri.",
                     features: [
-                        "5 jeton dahil",
-                        "Anında kılavuz erişimi",
-                        "Süresiz kullanım",
-                        "Tek seferlik projeler için ideal"
+                        "1 GB / 7 gün — £9.95'den başlayan",
+                        "3 GB / 15 gün",
+                        "5 GB / 30 gün",
+                        "10 GB / 30 gün",
+                        "20 GB / 30 gün",
+                        "4G/5G hız • Hotspot destekli",
                     ],
-                    buttonText: "Satın Al",
-                    buttonLink: "/checkout?plan=starter",
+                    buttonText: "ULTRA Planları Görüntüle",
+                    buttonLink: "/esim/esim-ultra",
                 },
                 {
                     type: "pricing",
                     variant: "highlight",
-                    title: "Pro Paketi",
-                    price: "20",
-                    tokens: 2000,
-                    description: "Profesyoneller ve küçük ekipler için harika.",
+                    title: "eSIM PLUS",
+                    price: "from £7.95",
+                    tokens: 0,
+                    description: "Tatiller ve uzun seyahatler için en iyi değer veri planları.",
                     features: [
-                        "20 jeton dahil",
-                        "Öncelikli kılavuz oluşturma",
-                        "İndir & çevrimdışı erişim",
-                        "Büyüyen ekipler için en iyi değer"
+                        "1 GB / 7 gün — £7.95'den başlayan",
+                        "3 GB / 15 gün",
+                        "5 GB / 30 gün",
+                        "10 GB / 30 gün",
+                        "20 GB / 30 gün",
+                        "50 GB / 30 gün",
+                        "4G veri • Tethering destekli",
                     ],
-                    buttonText: "Pro Ol",
-                    buttonLink: "/checkout?plan=pro",
-                },
-                {
-                    type: "pricing",
-                    variant: "premium",
-                    title: "Kurumsal Paket",
-                    price: "40",
-                    tokens: 4000,
-                    description: "Düzenli dokümantasyon ihtiyacı olan işletmeler için en iyisi.",
-                    features: [
-                        "50 jeton dahil",
-                        "Özel destek",
-                        "Çok dilli kılavuzlar",
-                        "Sektöre özel rehberler",
-                        "Büyük ekipler için ölçeklenebilir"
-                    ],
-                    buttonText: "Premium’a Geç",
-                    buttonLink: "/checkout?plan=enterprise",
+                    buttonText: "PLUS Planları Görüntüle",
+                    buttonLink: "/esim/esim-plus",
                 },
                 {
                     type: "pricing",
                     variant: "basic",
-                    title: "Özel Paket",
-                    price: "dynamic",
+                    title: "eSIM Standart",
+                    price: "from £4.50",
                     tokens: 0,
-                    description: "Kendi jeton miktarınızı girin, anında fiyat alın.",
+                    description: "Kısa seyahatler ve hafif veri kullanımı için en uygun fiyatlı seçenek.",
                     features: [
-                        "Esnek jeton seçimi",
-                        "Otomatik fiyat hesaplama",
-                        "Süresiz kullanım",
-                        "Özel ihtiyaçlar için ideal"
+                        "1 GB / 7 gün — £4.50'den başlayan",
+                        "3 GB / 30 gün",
+                        "5 GB / 30 gün",
+                        "10 GB / 30 gün",
+                        "4G veri • Bütçe dostu",
                     ],
-                    buttonText: "Özel Satın Al",
-                    buttonLink: "/checkout?plan=custom",
+                    buttonText: "Standart Planları Görüntüle",
+                    buttonLink: "/esim/esim-global",
                 },
             ],
         },
+
         {
             type: "section",
+            gap: "2rem",
             left: {
-                type: "media",
-                mediaType: "image",
-                src: "image1",
-                width: "100%",
-                height: "400px",
-                alt: "Jeton sistemi nasıl çalışır",
+                type: "text",
+                title: "Her Plana Dahil Olanlar",
+                description:
+                    "Her eSIM veri planı aynı temel özellikleri içerir — hangi boyutu seçerseniz seçin.",
+                bullets: [
+                    "Yalnızca veri eSIM — ana SIM'iniz aramalar ve SMS için aktif kalır",
+                    "E-postanıza anında QR kod teslimi",
+                    "Tek plan ile 45+ Avrupa ülkesinde kapsama",
+                    "Sözleşme yok — sadece ihtiyacınız olduğunda satın alın",
+                    "iPhone ve Android için adım adım kurulum kılavuzu",
+                ],
+                iconName: "checkCircle",
+                iconSize: 46,
+                iconColor: "#0070f3",
+                iconBg: "#e6f7ff",
             },
             right: {
-                type: "text",
-                title: "Jeton Sistemi Nasıl Çalışır?",
-                description:
-                    `Açtığınız her kılavuz için jeton gerekir. Jetonları bir kez satın alın, istediğinizde kullanın. Jetonların süresi dolmaz, böylece dokümantasyon stratejinizi baskı olmadan planlayabilirsiniz.`,
-                bullets: [
-                    "1 jeton = 1 kılavuz (standart karmaşıklık)",
-                    "Gelişmiş rehberler birden fazla jeton gerektirebilir",
-                    "Jetonlar hesabınızda kalır",
-                ],
-            },
+                type: "media",
+                mediaType: "image",
+                src: "image50",
+                height: "400px",
+                alt: "eSIM plan özellikleri",
+            }
         },
-        {
-            type: "grid",
-            columns: 2,
-            gap: "2rem",
-            cards: [
-                {
-                    image: "image2",
-                    title: "Neden Jeton?",
-                    description:
-                        `Geleneksel abonelikler sizi sürekli ödemelere zorlar. ${COMPANY_NAME} ile sadece ihtiyacınız olan kılavuzlar için ödeme yaparsınız — basit, şeffaf ve ölçeklenebilir.`,
-                    buttonLink: "/about-us",
-                    buttonText: "Daha Fazla Bilgi",
-                },
-                {
-                    image: "image3",
-                    title: "Kurumsal Avantajlar",
-                    description:
-                        `İşletmeler ekipler için daha büyük jeton paketleri satın alabilir. Maliyetleri azaltın, özel destek alın ve sektörünüze özel dokümantasyonun keyfini çıkarın.`,
-                    buttonLink: "/contact",
-                    buttonText: "Satış ile İletişim",
-                },
-            ],
-        },
-        {
-            type: "section",
-            align: "center",
-            gap: "3rem",
-            left: {
-                type: "text",
-                title: "Müşterilerimiz Ne Diyor?",
-                description:
-                    `Binlerce kullanıcı güvenilir dokümantasyon için ${COMPANY_NAME}’i tercih ediyor. Bireylerden işletmelere, jeton tabanlı fiyatlandırmamız herkesin ihtiyacı olan bilgiye ulaşmasını sağlıyor.`,
-                bullets: [
-                    `"Freelance işlerim için harika — sadece ihtiyacım olduğunda kılavuz alıyorum."`,
-                    `"Mühendislik ekibimiz her hafta saatlerce zaman kazanıyor."`,
-                    `"Uygun fiyatlı, esnek ve kullanımı kolay — kesinlikle tavsiye ederim."`,
-                ],
-                centerTitle: true,
-                centerDescription: true,
-                centerBullets: true,
-            },
-        },
+
         {
             type: "faq",
             items: [
                 {
-                    question: "Jetonların süresi dolar mı?",
-                    answer: "Hayır. Jetonlar hesabınızda istediğiniz kadar kalır.",
+                    question: "Hangi ülkeler kapsanıyor?",
+                    answer: "Tüm planlar İngiltere, Fransa, Almanya, İspanya, İtalya, Yunanistan, Portekiz, Hollanda ve daha birçok ülke dahil 45+ Avrupa ülkesini kapsar."
                 },
                 {
-                    question: "Daha sonra paketimi yükseltebilir miyim?",
-                    answer: "Evet. Her zaman daha fazla jeton satın alabilir veya daha büyük bir pakete geçebilirsiniz.",
+                    question: "Bu yalnızca veri planı mı?",
+                    answer: "Evet. Tüm eSIM planlarımız yalnızca veridir. Orijinal SIM kartınız telefon aramaları, SMS ve banka doğrulaması için aktif kalır."
                 },
                 {
-                    question: "Bir kılavuz kaç jeton?",
-                    answer: "Çoğu kılavuz 1 jetondur. Daha karmaşık veya özel kılavuzlar ek jeton gerektirebilir, bu önceden belirtilir.",
+                    question: "Verim bitince ne olur?",
+                    answer: "Veri bağlantınız durur. Fazla kullanım ücreti yoktur. İstediğiniz zaman yeni bir plan satın alabilirsiniz."
                 },
                 {
-                    question: "İade yapıyor musunuz?",
-                    answer: "Kullanılmamış jetonlar, satın alma tarihinden itibaren 14 gün içinde iade edilebilir.",
+                    question: "İade alabilir miyim?",
+                    answer: "Kurulmamış eSIM'ler için iade mevcuttur. Etkinleştirildikten sonra iadeler geçerli tüketici yasasına bağlıdır. Yardım için destek ile iletişime geçin."
                 },
                 {
-                    question: "İşletmeler için özel fiyatlandırma var mı?",
-                    answer: `Evet. Kurumsal müşteriler özel paketler, özel kılavuzlar ve özel destek için doğrudan bizimle iletişime geçebilir. E-posta: ${COMPANY_EMAIL}`,
+                    question: "Sınırsız plan sunuyor musunuz?",
+                    answer: `Şu anda hayır. Çoğu seyahat ihtiyacını karşılayan 50 GB'a kadar planlar sunuyoruz. Özel gereksinimler için ${COMPANY_EMAIL} adresinden bize ulaşın.`
                 },
+            ]
+        },
+
+        {
+            type: "hero",
+            bgImage: "image40",
+            title: "Avrupa'da Bağlı Kalmaya Hazır mısınız?",
+            description:
+                "Bir veri planı seçin, QR kodu tarayın ve 45+ Avrupa ülkesinde hızlı mobil veri keyfini çıkarın. Sözleşme yok. Dolaşım ücreti yok.",
+            buttons: [
+                { text: "Başlayın", link: "/get-started", color: "primary" },
+                { text: "Kapsamı Görüntüle", link: "/coverage", color: "secondary" },
             ],
         },
     ],

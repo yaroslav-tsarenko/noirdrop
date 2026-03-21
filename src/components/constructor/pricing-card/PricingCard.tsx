@@ -73,7 +73,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
         }
 
         if (!user) {
-            showAlert("Please sign up", "You need to be signed in to buy tokens", "info");
+            showAlert("Please sign in", "You need to be signed in to continue", "info");
             setTimeout(() => {
                 window.location.href = "/sign-up";
             }, 2000);
@@ -99,7 +99,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
             const tokenAmount = isDynamicPrice(price) ? calcTokens(pricePaid) : tokens;
 
             if (!Number.isFinite(tokenAmount) || tokenAmount <= 0) {
-                showAlert("Error", "Invalid token package amount", "error");
+                showAlert("Error", "Invalid purchase amount", "error");
                 return;
             }
 
@@ -113,20 +113,20 @@ const PricingCard: React.FC<PricingCardProps> = ({
                     tokenAmount,
                     pricePaid,
                     currency,
-                    packageTitle: title || buttonLink || "Token package",
+                    packageTitle: title || buttonLink || "eSIM plan",
                 }),
             });
 
             const data = await res.json().catch(() => null);
 
             if (!res.ok) {
-                showAlert("Error", data?.message || "Failed to buy tokens", "error");
+                showAlert("Error", data?.message || "Failed to process purchase", "error");
                 return;
             }
 
             showAlert(
                 "Success!",
-                `You purchased ${tokenAmount} tokens for ${symbol}${pricePaid.toFixed(2)}.`,
+                `Purchase complete — ${symbol}${pricePaid.toFixed(2)}.`,
                 "success"
             );
             router.refresh();
@@ -172,17 +172,11 @@ const PricingCard: React.FC<PricingCardProps> = ({
 
                     {Number.isFinite(customAmount) ? (
                         <p className={styles.price}>
-                            {symbol}{customAmount.toFixed(2)}{" "}
-                            <span className={styles.tokens}>
-                                ≈ {calcTokens(customAmount)} tokens
-                            </span>
+                            {symbol}{customAmount.toFixed(2)}
                         </p>
                     ) : (
                         <p className={styles.price}>
-                            {symbol}{MIN_CUSTOM_AMOUNT.toFixed(2)}{" "}
-                            <span className={styles.tokens}>
-                                ≈ {calcTokens(MIN_CUSTOM_AMOUNT)} tokens
-                            </span>
+                            {symbol}{MIN_CUSTOM_AMOUNT.toFixed(2)}
                         </p>
                     )}
                 </>
@@ -191,7 +185,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
                     {Number.isFinite(Number(price))
                         ? (
                             <>
-                                {symbol}{Number(price).toFixed(2)} <span className={styles.tokens}>/{tokens} tokens</span>
+                                {symbol}{Number(price).toFixed(2)}
                             </>
                         )
                         : price}
@@ -218,7 +212,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
                 loading={isSubmitting}
                 disabled={isSubmitting}
             >
-                {isLinkOnlyCard(price, tokens) || user ? buttonText : "Sign Up to Buy"}
+                {isLinkOnlyCard(price, tokens) || user ? buttonText : "Sign In to Continue"}
             </ButtonUI>
         </div>
     );

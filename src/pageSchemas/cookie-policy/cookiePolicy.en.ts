@@ -12,14 +12,14 @@ export const cookiePolicyEn: PageSchema = {
     meta: {
         title: `Cookie Policy – ${COMPANY_NAME}`,
         description:
-            `How ${COMPANY_NAME} uses cookies and similar technologies to run the site securely, maintain sessions, and support Wallet and Order features.`,
+            `How ${COMPANY_NAME} uses cookies and similar technologies to run the site securely, maintain sessions, and support Order features.`,
         keywords: [
             "cookie policy",
             "cookies",
             "privacy",
             "session",
             "security",
-            "token wallet",
+            "esim orders",
             "orders",
             "esim",
             COMPANY_NAME?.toLowerCase() || "noirdrop",
@@ -64,7 +64,7 @@ export const cookiePolicyEn: PageSchema = {
             type: "text",
             title: "4. Types of Cookies We Use",
             bullets: [
-                "Strictly Necessary: Essential for the Site to function, including secure login, maintaining your session, preventing fraud, processing Orders, and managing your Token Wallet. Without these, core features cannot operate.",
+                "Strictly Necessary: Essential for the Site to function, including secure login, maintaining your session, preventing fraud, and processing Orders. Without these, core features cannot operate.",
                 "Performance & Analytics: Help us understand how visitors use the Site (e.g., which pages are visited, error rates, performance) so we can improve reliability and user experience. Data is typically aggregated and does not aim to directly identify you.",
                 "Functionality: Remember choices you make (such as language, region, or UI preferences) and provide enhanced, more personal features.",
                 "Targeting & Advertising: Used to make advertising more relevant and to measure campaign effectiveness (where enabled). These cookies may be set by us and/or advertising partners.",
@@ -72,12 +72,12 @@ export const cookiePolicyEn: PageSchema = {
         },
         {
             type: "text",
-            title: "5. Specifically: Wallet, Orders, and Security",
+            title: "5. Orders, Delivery, and Security",
             description:
-                "Because we use a Token Wallet and support digital delivery of eSIM Plans, we use certain cookies and similar technologies to:",
+                "Because we support digital delivery of eSIM data plans, we use certain cookies and similar technologies to:",
             bullets: [
                 "keep you securely logged in and protect Account access;",
-                "link Wallet and Order actions to your session to prevent unauthorised activity;",
+                "link Order actions to your session to prevent unauthorised activity;",
                 "reduce the risk of duplicate actions (for example, accidental double-submissions during checkout);",
                 "help detect fraud, abuse, and unusual behaviour (such as suspicious login attempts);",
                 "ensure the Site performs reliably during Order placement and delivery of eSIM/activation details.",
@@ -88,7 +88,7 @@ export const cookiePolicyEn: PageSchema = {
             title: "6. How can I control Cookies?",
             bullets: [
                 "Cookie Preference Manager: You can set your preferences using our cookie consent banner (and/or cookie settings link, if available on the Site).",
-                "Browser Controls: You can configure your browser to accept or refuse cookies, or to delete cookies. If you disable strictly necessary cookies, the Site may not function properly and key features (like login, Wallet, and Orders) may be unavailable.",
+                "Browser Controls: You can configure your browser to accept or refuse cookies, or to delete cookies. If you disable strictly necessary cookies, the Site may not function properly and key features (like login and Orders) may be unavailable.",
                 "Analytics Opt-Out (if applicable): If we use third-party analytics (such as Google Analytics), you may be able to opt out via the provider’s tools and settings, in addition to our cookie banner preferences.",
             ],
         },
