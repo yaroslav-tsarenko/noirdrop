@@ -57,7 +57,6 @@ const PricingCard: React.FC<PricingCardProps> = ({
 
     const { symbol } = currencyConfig[currency];
     const [customAmountRaw, setCustomAmountRaw] = useState<string>("");
-    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const customAmount = (() => {
         const n = Number(customAmountRaw.replace(",", "."));
@@ -66,6 +65,16 @@ const PricingCard: React.FC<PricingCardProps> = ({
 
     const calcTokens = (amount: number) => Math.floor(amount * 100);
 
+    /** Map card title → packageId for the CardServ sale API */
+    const resolvePackageId = (): "STARTER" | "STANDARD" | "PRO" | "CUSTOM" => {
+        const t = title.trim().toLowerCase();
+        if (t === "starter") return "STARTER";
+        if (t === "standard") return "STANDARD";
+        if (t === "pro") return "PRO";
+        return "CUSTOM";
+    };
+
+    /** Redirects to /checkout/tokens with all needed params */
     const handleBuy = async () => {
         if (buttonLink && isLinkOnlyCard(price, tokens)) {
             router.push(buttonLink);
@@ -92,51 +101,25 @@ const PricingCard: React.FC<PricingCardProps> = ({
             }
         }
 
-        try {
-            const pricePaid = isDynamicPrice(price)
-                ? Number(customAmountRaw.replace(",", "."))
-                : Number(price);
-            const tokenAmount = isDynamicPrice(price) ? calcTokens(pricePaid) : tokens;
+        const pricePaid = isDynamicPrice(price)
+            ? Number(customAmountRaw.replace(",", "."))
+            : Number(price);
+        const tokenAmount = isDynamicPrice(price) ? calcTokens(pricePaid) : tokens;
 
-            if (!Number.isFinite(tokenAmount) || tokenAmount <= 0) {
-                showAlert("Error", "Invalid purchase amount", "error");
-                return;
-            }
-
-            setIsSubmitting(true);
-
-            const res = await fetch("/api/user/buy-tokens", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                credentials: "include",
-                body: JSON.stringify({
-                    tokenAmount,
-                    pricePaid,
-                    currency,
-                    packageTitle: title || buttonLink || "eSIM plan",
-                }),
-            });
-
-            const data = await res.json().catch(() => null);
-
-            if (!res.ok) {
-                showAlert("Error", data?.message || "Failed to process purchase", "error");
-                return;
-            }
-
-            showAlert(
-                "Success!",
-                `Purchase complete — ${symbol}${pricePaid.toFixed(2)}.`,
-                "success"
-            );
-            router.refresh();
-            console.log("Updated user:", data.user);
-        } catch (err) {
-            const error = err as Error;
-            showAlert("Error", error.message || "Something went wrong", "error");
-        } finally {
-            setIsSubmitting(false);
+        if (!Number.isFinite(tokenAmount) || tokenAmount <= 0) {
+            showAlert("Error", "Invalid purchase amount", "error");
+            return;
         }
+
+        // Redirect to the secure checkout page where the user enters card details
+        const params = new URLSearchParams({
+            packageId: resolvePackageId(),
+            title: title || "Token Purchase",
+            amount: pricePaid.toFixed(2),
+            tokens: String(tokenAmount),
+            currency,
+        });
+        router.push(`/checkout/tokens?${params.toString()}`);
     };
 
     return (
@@ -155,12 +138,8 @@ const PricingCard: React.FC<PricingCardProps> = ({
                                 setCustomAmountRaw("");
                                 return;
                             }
-
                             const normalized = raw.replace(",", ".");
-                            if (!/^\d{0,7}(\.\d{0,2})?$/.test(normalized)) {
-                                return;
-                            }
-
+                            if (!/^\d{0,7}(\.\d{0,2})?$/.test(normalized)) return;
                             setCustomAmountRaw(raw);
                         }}
                         slotProps={{ input: { inputMode: "decimal" } }}
@@ -169,20 +148,15 @@ const PricingCard: React.FC<PricingCardProps> = ({
                         variant="outlined"
                         size="lg"
                     />
-
                     {Number.isFinite(customAmount) ? (
                         <p className={styles.price}>
                             {symbol}{customAmount.toFixed(2)}{" "}
-                            <span className={styles.tokens}>
-                                ≈ {calcTokens(customAmount)} tokens
-                            </span>
+                            <span className={styles.tokens}>≈ {calcTokens(customAmount)} tokens</span>
                         </p>
                     ) : (
                         <p className={styles.price}>
                             {symbol}{MIN_CUSTOM_AMOUNT.toFixed(2)}{" "}
-                            <span className={styles.tokens}>
-                                ≈ {calcTokens(MIN_CUSTOM_AMOUNT)} tokens
-                            </span>
+                            <span className={styles.tokens}>≈ {calcTokens(MIN_CUSTOM_AMOUNT)} tokens</span>
                         </p>
                     )}
                 </>
@@ -216,8 +190,6 @@ const PricingCard: React.FC<PricingCardProps> = ({
                 hoverColor="secondary"
                 sx={{ width: "100%" }}
                 onClick={handleBuy}
-                loading={isSubmitting}
-                disabled={isSubmitting}
             >
                 {isLinkOnlyCard(price, tokens) || user ? buttonText : "Sign In to Continue"}
             </ButtonUI>
