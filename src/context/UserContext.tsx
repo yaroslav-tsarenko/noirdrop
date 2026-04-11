@@ -29,8 +29,12 @@ export function UserProvider({
     user?: Nullable<IUser>;
     children: React.ReactNode;
 }) {
+    // If initialUser was explicitly provided by the server, we already know
+    // the auth state — no loading needed. Otherwise fetch on the client.
+    const hasServerUser = initialUser !== undefined;
+
     const [user, setUser] = useState<Nullable<IUser>>(initialUser ?? null);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(!hasServerUser);
 
     const refreshUser = useCallback(async () => {
         try {
@@ -67,9 +71,11 @@ export function UserProvider({
         }
     }, []);
 
+    // If NO server-provided user: do the initial client-side fetch
     useEffect(() => {
-        let active = true;
+        if (hasServerUser) return;
 
+        let active = true;
         (async () => {
             await refreshUser();
             if (active) setLoading(false);
@@ -78,7 +84,15 @@ export function UserProvider({
         return () => {
             active = false;
         };
-    }, [refreshUser]);
+    }, [refreshUser, hasServerUser]);
+
+    // Sync with the server-provided user whenever it changes
+    // (e.g. after router.refresh() following a login / logout)
+    useEffect(() => {
+        if (!hasServerUser) return;
+        setUser(initialUser ?? null);
+        setLoading(false);
+    }, [initialUser, hasServerUser]);
 
     const value = useMemo(
         () => ({

@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 
-export default function PaymentSuccessPage() {
+function PaymentSuccessContent() {
     const searchParams = useSearchParams();
     const orderId = searchParams.get("order");
     const [polling, setPolling] = useState(true);
@@ -139,3 +139,10 @@ export default function PaymentSuccessPage() {
     );
 }
 
+export default function PaymentSuccessPage() {
+    return (
+        <Suspense>
+            <PaymentSuccessContent />
+        </Suspense>
+    );
+}

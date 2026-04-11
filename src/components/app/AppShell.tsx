@@ -11,10 +11,16 @@ import { I18nProvider } from "@/context/i18nContext";
 import { AllOrdersProvider } from "@/context/AllOrdersContext";
 import { CurrencyProvider } from "@/context/CurrencyContext";
 import { TransactionsProvider } from "@/context/TransactionContext";
+import { IUser, Nullable } from "@/types/user.types";
 
-export default function AppShell({ children }: { children: React.ReactNode }) {
+type AppShellProps = {
+    initialUser?: Nullable<IUser>;
+    children: React.ReactNode;
+};
+
+export default function AppShell({ initialUser, children }: AppShellProps) {
     return (
-        <UserProvider user={null}>
+        <UserProvider user={initialUser}>
             <I18nProvider>
                 <AlertProvider>
                     <AllOrdersProvider>

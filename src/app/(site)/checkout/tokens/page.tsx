@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { Suspense, useState, useEffect } from "react";
 import Link from "next/link";
 import { useSearchParams, useRouter } from "next/navigation";
 import { useUser } from "@/context/UserContext";
@@ -18,7 +18,7 @@ function formatExpiry(v: string) {
     return d.length > 2 ? `${d.slice(0, 2)}/${d.slice(2)}` : d;
 }
 
-export default function TokenCheckoutPage() {
+function TokenCheckoutContent() {
     const params = useSearchParams();
     const router = useRouter();
     const user = useUser();
@@ -92,14 +92,14 @@ export default function TokenCheckoutPage() {
                         cardPrintedName: holderName.trim().toUpperCase(),
                     },
                     browser: {
-                        colorDepth:      window.screen?.colorDepth,
-                        screenHeight:    window.screen?.height,
-                        screenWidth:     window.screen?.width,
-                        timeZone:        new Date().getTimezoneOffset(),
-                        javaEnabled:     false,
+                        colorDepth:        window.screen?.colorDepth,
+                        screenHeight:      window.screen?.height,
+                        screenWidth:       window.screen?.width,
+                        timeZone:          new Date().getTimezoneOffset(),
+                        javaEnabled:       false,
                         javascriptEnabled: true,
-                        acceptLanguage:  navigator.language,
-                        userAgent:       navigator.userAgent,
+                        acceptLanguage:    navigator.language,
+                        userAgent:         navigator.userAgent,
                     },
                 }),
             });
@@ -270,3 +270,10 @@ export default function TokenCheckoutPage() {
     );
 }
 
+export default function TokenCheckoutPage() {
+    return (
+        <Suspense>
+            <TokenCheckoutContent />
+        </Suspense>
+    );
+}
