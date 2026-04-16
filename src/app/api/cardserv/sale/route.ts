@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-import { requireAuth } from "@/backend/middlewares/auth.middleware";
+import { requireAuth, applyRefreshedCookies } from "@/backend/middlewares/auth.middleware";
 import { connectDB } from "@/backend/config/db";
 import { getCardServConfig, isForceSuccessEnabled, type CardServCurrency } from "@/backend/config/cardserv-config";
 import { TOKEN_PACKAGES, getPackagePrice, calculateTokensFromAmount, type Currency, type TokenPackageId } from "@/backend/config/payment";
@@ -282,7 +282,7 @@ export async function POST(req: NextRequest) {
             source: "sale",
         });
 
-        return NextResponse.json({
+        const res = NextResponse.json({
             ok: true,
             orderMerchantId,
             orderSystemId: sale.orderSystemId ?? null,
@@ -294,6 +294,8 @@ export async function POST(req: NextRequest) {
             finalized: stateResult.ok ? stateResult.finalized : false,
             tokensAdded: stateResult.ok && "tokensAdded" in stateResult ? stateResult.tokensAdded : 0,
         });
+        applyRefreshedCookies(res, authPayload);
+        return res;
     } catch (error) {
         logCardServEvent("sale.route_error", {
             error: error instanceof Error ? error.message : String(error),

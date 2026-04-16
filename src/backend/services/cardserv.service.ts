@@ -201,36 +201,42 @@ export async function createCardServRedirectSession(
     // Always query status when we have an orderSystemId (regardless of orderState)
     // to reliably get outputRedirectToUrl for 3DS
     if (orderSystemId && !redirectUrl) {
-        try {
-            // Small delay to let CardServ finish preparing the 3DS URL
-            await new Promise(r => setTimeout(r, 500));
+        // Retry polling: CardServ may need a few seconds to prepare the 3DS redirect URL
+        const delays = [800, 1500, 2500, 4000];
+        for (const delay of delays) {
+            try {
+                await new Promise(r => setTimeout(r, delay));
 
-            const status = await getCardServStatus(
-                payload.orderMerchantId,
-                payload.currency,
-                orderSystemId,
-            );
-            if (status.redirectUrl) {
-                redirectUrl = status.redirectUrl;
-            }
-            /* If status already terminal, use it */
-            if (status.orderState && !["PROCESSING", "PENDING", "UNKNOWN"].includes(status.orderState)) {
-                return {
-                    redirectUrl,
-                    orderState: status.orderState,
+                const status = await getCardServStatus(
+                    payload.orderMerchantId,
+                    payload.currency,
                     orderSystemId,
-                    threeDSAuth: null,
-                    errorCode: status.errorCode,
-                    errorMessage: status.errorMessage,
-                    raw: { sale: raw, status: status.raw },
-                };
+                );
+
+                if (status.redirectUrl) {
+                    redirectUrl = status.redirectUrl;
+                    break;
+                }
+
+                /* If status already terminal, use it */
+                if (status.orderState && !["PROCESSING", "PENDING", "UNKNOWN"].includes(status.orderState)) {
+                    return {
+                        redirectUrl,
+                        orderState: status.orderState,
+                        orderSystemId,
+                        threeDSAuth: null,
+                        errorCode: status.errorCode,
+                        errorMessage: status.errorMessage,
+                        raw: { sale: raw, status: status.raw },
+                    };
+                }
+            } catch (err) {
+                logCardServEvent("sale.status_check_failed", {
+                    orderMerchantId: payload.orderMerchantId,
+                    delay,
+                    error: err instanceof Error ? err.message : String(err),
+                });
             }
-        } catch (err) {
-            logCardServEvent("sale.status_check_failed", {
-                orderMerchantId: payload.orderMerchantId,
-                error: err instanceof Error ? err.message : String(err),
-            });
-            /* Status check failed — continue with sale response */
         }
     }
 

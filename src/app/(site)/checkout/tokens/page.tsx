@@ -3,7 +3,7 @@
 import React, { Suspense, useState, useEffect } from "react";
 import Link from "next/link";
 import { useSearchParams, useRouter } from "next/navigation";
-import { useUser } from "@/context/UserContext";
+import { useUserStatus } from "@/context/UserContext";
 import { useAlert } from "@/context/AlertContext";
 import { MdLock, MdCreditCard, MdArrowBack, MdCheckCircle } from "react-icons/md";
 import styles from "./page.module.css";
@@ -21,7 +21,7 @@ function formatExpiry(v: string) {
 function TokenCheckoutContent() {
     const params = useSearchParams();
     const router = useRouter();
-    const user = useUser();
+    const { user, loading: userLoading } = useUserStatus();
     const { showAlert } = useAlert();
 
     const packageId = params.get("packageId") || "";
@@ -43,9 +43,10 @@ function TokenCheckoutContent() {
     }, [packageId, amount, tokens, router]);
 
     useEffect(() => {
+        if (userLoading) return;
         if (user === null) router.replace("/sign-in");
         if (user?.name && !holderName) setHolderName(user.name.toUpperCase());
-    }, [user, holderName, router]);
+    }, [user, userLoading, holderName, router]);
 
     const validate = () => {
         const e: Record<string, string> = {};
