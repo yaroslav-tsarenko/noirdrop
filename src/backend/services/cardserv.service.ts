@@ -286,6 +286,9 @@ export async function getCardServStatus(
         orderState: raw.orderState as string,
         outputRedirectToUrl: raw.outputRedirectToUrl as string,
         errorCode: raw.errorCode as string,
+        errorMessage: raw.errorMessage as string,
+        transactionType: raw.transactionType as string,
+        raw,
     });
 
     return {

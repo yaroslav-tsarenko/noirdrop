@@ -96,20 +96,45 @@ async function handleResult(req: Request, form?: FormData) {
     const resolvedOrderMerchantId = order.orderMerchantId;
 
     const forceSuccess = isForceSuccessEnabled();
-    const status = forceSuccess
-        ? {
+
+    let status: Awaited<ReturnType<typeof getCardServStatus>>;
+
+    if (forceSuccess) {
+        status = {
             orderState: "APPROVED",
             orderSystemId: order.orderSystemId ?? `forced_${resolvedOrderMerchantId}`,
             redirectUrl: null,
             errorCode: null,
             errorMessage: null,
             raw: { forced: true, source: "result", at: new Date().toISOString() },
-        }
-        : await getCardServStatus(
+        };
+    } else {
+        // Poll status with retries — CardServ may not have finalized the 3DS result
+        // at the moment the browser lands on resultUrl.
+        const FINAL_STATES = ["APPROVED", "DECLINED", "ERROR", "FILTERED", "CHAIN_STEP"];
+        const delays = [500, 1500, 3000, 5000];
+
+        status = await getCardServStatus(
             resolvedOrderMerchantId,
             order.currency as CardServCurrency,
             order.orderSystemId,
         );
+
+        for (const delay of delays) {
+            if (FINAL_STATES.includes(status.orderState)) break;
+            await new Promise(r => setTimeout(r, delay));
+            status = await getCardServStatus(
+                resolvedOrderMerchantId,
+                order.currency as CardServCurrency,
+                order.orderSystemId,
+            );
+            logCardServEvent("result.status_poll", {
+                orderMerchantId: resolvedOrderMerchantId,
+                orderState: status.orderState,
+                delay,
+            });
+        }
+    }
 
     await applyCardServGatewayUpdate({
         orderMerchantId: resolvedOrderMerchantId,
@@ -133,6 +158,8 @@ async function handleResult(req: Request, form?: FormData) {
         );
     }
 
+    // Still processing after all retries — redirect to success but webhook will confirm
+    // (status PROCESSING / UNKNOWN / APPROVED all land here)
     return NextResponse.redirect(
         `${appUrl}/payment-success?order=${encodeURIComponent(resolvedOrderMerchantId)}`,
         302,
