@@ -10,7 +10,7 @@ import { PaymentOrder } from "@/backend/models/payment-order.model";
 import { User } from "@/backend/models/user.model";
 
 const VALID_PACKAGES = ["STARTER", "STANDARD", "PRO", "CUSTOM"] as const;
-const VALID_CURRENCIES = ["EUR", "GBP", "USD"] as const;
+const VALID_CURRENCIES = ["EUR", "GBP", "USD", "AUD"] as const;
 
 type PackageId = (typeof VALID_PACKAGES)[number];
 type CurrencyCode = (typeof VALID_CURRENCIES)[number];
@@ -190,7 +190,7 @@ export async function POST(req: NextRequest) {
             description: parsed.description,
             email: payerEmail,
             customerName,
-            countryCode: currency === "EUR" ? "DE" : currency === "GBP" ? "GB" : "US",
+            countryCode: currency === "EUR" ? "DE" : currency === "GBP" ? "GB" : currency === "AUD" ? "AU" : "US",
             appUrl: getAppUrl(req),
             browser: {
                 ipAddress: browserIp,

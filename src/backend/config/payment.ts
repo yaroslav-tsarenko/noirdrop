@@ -1,4 +1,4 @@
-export type Currency = "GBP" | "EUR" | "USD";
+export type Currency = "GBP" | "EUR" | "USD" | "AUD";
 export type TokenPackageId = "STARTER" | "STANDARD" | "PRO" | "CUSTOM";
 
 export interface TokenPackage {
@@ -13,19 +13,19 @@ export const TOKEN_PACKAGES: Record<Exclude<TokenPackageId, "CUSTOM">, TokenPack
         id: "STARTER",
         name: "Starter",
         tokens: 1000,
-        prices: { GBP: 10, EUR: 10, USD: 10 },
+        prices: { GBP: 10, EUR: 10, USD: 10, AUD: 17 },
     },
     STANDARD: {
         id: "STANDARD",
         name: "Standard",
         tokens: 2500,
-        prices: { GBP: 25, EUR: 25, USD: 25 },
+        prices: { GBP: 25, EUR: 25, USD: 25, AUD: 42.5 },
     },
     PRO: {
         id: "PRO",
         name: "Pro",
         tokens: 5000,
-        prices: { GBP: 50, EUR: 50, USD: 50 },
+        prices: { GBP: 50, EUR: 50, USD: 50, AUD: 85 },
     },
 };
 

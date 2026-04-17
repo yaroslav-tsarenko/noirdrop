@@ -2,7 +2,7 @@ import React from "react";
 import { ButtonGroup, Button, Select, Option } from "@mui/joy";
 import styles from "./Selectors.module.scss";
 import { useI18n } from "@/context/i18nContext";
-import { useCurrency } from "@/context/CurrencyContext";
+import { useCurrency, type Currency } from "@/context/CurrencyContext";
 
 const Selectors = () => {
     const { currency, setCurrency } = useCurrency();
@@ -12,10 +12,10 @@ const Selectors = () => {
         <div className={styles.selectorsWrapper}>
             <div className={styles.selectorBlock}>
                 <ButtonGroup variant="soft" size="md">
-                    {["GBP", "USD", "EUR"].map((cur) => (
+                    {["GBP", "USD", "EUR", "AUD"].map((cur) => (
                         <Button
                             key={cur}
-                            onClick={() => setCurrency(cur)}
+                            onClick={() => setCurrency(cur as Currency)}
                             sx={{
                                 fontWeight: 600,
                                 minWidth: 70,

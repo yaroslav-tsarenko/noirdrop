@@ -30,11 +30,12 @@ const AuthButtons: React.FC = () => {
     const removeItem = useCartStore((s) => s.removeItem);
 
     // simple static rates; can be swapped for API later
-    const rates = useMemo(() => ({
+    const rates: Record<Currency, number> = useMemo(() => ({
         EUR: 1,
         GBP: 0.85,
         USD: 1.1,
-    }) as const, []);
+        AUD: 1.7,
+    }), []);
 
     const formatMoney = (amountEur: number) => {
         const value = amountEur * rates[currency];
@@ -69,6 +70,7 @@ const AuthButtons: React.FC = () => {
                     <option value="GBP">GBP</option>
                     <option value="EUR">EUR</option>
                     <option value="USD">USD</option>
+                    <option value="AUD">AUD</option>
                 </select>
             </div>
 

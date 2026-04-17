@@ -1,4 +1,4 @@
-export type CardServCurrency = "GBP" | "EUR" | "USD";
+export type CardServCurrency = "GBP" | "EUR" | "USD" | "AUD";
 
 /** CardServ gateway configuration for a single currency */
 export interface CardServGatewayConfig {

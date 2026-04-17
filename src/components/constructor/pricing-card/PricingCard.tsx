@@ -21,11 +21,12 @@ interface PricingCardProps {
     buttonLink?: string;
 }
 
-const currencyConfig = {
+const currencyConfig: Record<string, { symbol: string }> = {
     GBP: { symbol: "£" },
     USD: { symbol: "$" },
     EUR: { symbol: "€" },
-} as const;
+    AUD: { symbol: "A$" },
+};
 
 const MIN_CUSTOM_AMOUNT = 10;
 const MAX_CUSTOM_AMOUNT = 9999;

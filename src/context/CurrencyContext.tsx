@@ -1,7 +1,7 @@
 "use client"
 import React, {createContext, useContext, useState, ReactNode} from "react";
 
-export type Currency = "GBP" | "USD" | "EUR";
+export type Currency = "GBP" | "USD" | "EUR" | "AUD";
 
 interface CurrencyContextType {
     currency: Currency;

@@ -8,7 +8,7 @@ import { useAlert } from "@/context/AlertContext";
 import { MdLock, MdCreditCard, MdArrowBack, MdCheckCircle } from "react-icons/md";
 import styles from "./page.module.css";
 
-const CURRENCY_SYMBOLS: Record<string, string> = { GBP: "£", USD: "$", EUR: "€" };
+const CURRENCY_SYMBOLS: Record<string, string> = { GBP: "£", USD: "$", EUR: "€", AUD: "A$" };
 
 function formatCardNumber(v: string) {
     return v.replace(/\D/g, "").slice(0, 16).replace(/(.{4})/g, "$1 ").trim();
