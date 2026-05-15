@@ -155,6 +155,19 @@ const styles = StyleSheet.create({
         borderTopWidth: 1,
         borderTopColor: "#ccb4f0",
     },
+    noteBox: {
+        marginTop: 18,
+        padding: 14,
+        borderRadius: 10,
+        backgroundColor: "#fffbeb",
+        borderWidth: 1,
+        borderColor: "#fbbf24",
+    },
+    noteText: {
+        fontSize: 10,
+        color: "#92400e",
+        lineHeight: 1.5,
+    },
     footer: {
         marginTop: 28,
         fontSize: 10,
@@ -162,8 +175,6 @@ const styles = StyleSheet.create({
         lineHeight: 1.5,
     },
 });
-
-const formatMoney = (amount: number) => `EUR ${amount.toFixed(2)}`;
 
 export function EsimInvoicePdf({
     invoiceNumber,
@@ -186,7 +197,8 @@ export function EsimInvoicePdf({
                     <View style={styles.metaBlock}>
                         <Text style={styles.muted}>Invoice: {invoiceNumber}</Text>
                         <Text style={styles.muted}>Issued: {createdAt}</Text>
-                        <Text style={styles.muted}>Status: Paid</Text>
+                        <Text style={styles.muted}>Status: Pending</Text>
+                        <Text style={styles.muted}>Payment: Tokens</Text>
                     </View>
                 </View>
 
@@ -213,7 +225,7 @@ export function EsimInvoicePdf({
                     <View style={styles.tableHeader}>
                         <Text style={styles.colName}>Item</Text>
                         <Text style={styles.colQty}>Qty</Text>
-                        <Text style={styles.colPrice}>Price</Text>
+                        <Text style={styles.colPrice}>Tokens</Text>
                     </View>
 
                     {items.map((item) => (
@@ -221,7 +233,7 @@ export function EsimInvoicePdf({
                             <Text style={styles.colName}>{item.name}</Text>
                             <Text style={styles.colQty}>{item.qty}</Text>
                             <Text style={styles.colPrice}>
-                                {formatMoney(item.price * item.qty)}
+                                {item.price * item.qty} tokens
                             </Text>
                         </View>
                     ))}
@@ -230,22 +242,24 @@ export function EsimInvoicePdf({
                 <View style={styles.totalBox}>
                     <View style={styles.totalRow}>
                         <Text>Subtotal</Text>
-                        <Text>{formatMoney(total)}</Text>
-                    </View>
-                    <View style={styles.totalRow}>
-                        <Text>VAT</Text>
-                        <Text>Included where applicable</Text>
+                        <Text>{total} tokens</Text>
                     </View>
                     <View style={[styles.totalRow, styles.totalGrand]}>
                         <Text style={styles.totalLabel}>Total Paid</Text>
-                        <Text style={styles.totalValue}>{formatMoney(total)}</Text>
+                        <Text style={styles.totalValue}>{total} tokens</Text>
                     </View>
                 </View>
 
+                <View style={styles.noteBox}>
+                    <Text style={styles.noteText}>
+                        Your order is pending. A manager will contact you soon to complete the eSIM activation and delivery.
+                    </Text>
+                </View>
+
                 <Text style={styles.footer}>
-                    This invoice confirms the completed eSIM purchase recorded by Noirdrop.
-                    Keep this document for your accounting records. For billing or delivery questions,
-                    contact {COMPANY_EMAIL}.
+                    This invoice confirms the eSIM purchase recorded by Noirdrop.
+                    Keep this document for your records. For questions about your order,
+                    contact {COMPANY_EMAIL} and include invoice number {invoiceNumber}.
                 </Text>
             </Page>
         </Document>

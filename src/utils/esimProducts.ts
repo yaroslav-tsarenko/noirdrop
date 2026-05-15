@@ -5,8 +5,8 @@ export const ESIM_PRODUCTS = [
         coverageCountries: 45,
         name: "Europe eSIM ULTRA – Premium Data",
         image: "/images/esim/esim-ultra.png",
-        basePrice: 15,
-        salePrice: 9.95,
+        basePrice: 1500,
+        salePrice: 995,
         variants: [
             "1 GB / 7 days",
             "3 GB / 15 days",
@@ -83,8 +83,8 @@ export const ESIM_PRODUCTS = [
         coverageCountries: 45,
         name: "Europe eSIM PLUS – Best Value Data",
         image: "/images/esim/esim-plus.png",
-        basePrice: 15,
-        salePrice: 7.95,
+        basePrice: 1500,
+        salePrice: 795,
         variants: [
             "1 GB / 7 days",
             "3 GB / 15 days",
@@ -156,8 +156,8 @@ export const ESIM_PRODUCTS = [
         coverageCountries: 45,
         name: "Europe eSIM – Standard Data",
         image: "/images/esim/esim-global.png",
-        basePrice: 20,
-        salePrice: 4.5,
+        basePrice: 2000,
+        salePrice: 450,
         variants: [
             "1 GB / 7 days",
             "3 GB / 30 days",
@@ -227,8 +227,8 @@ export const ESIM_PRODUCTS = [
         coverageCountries: 45,
         name: "Europe SIM Card – Physical SIM by Post",
         image: "/images/esim/global-sim.png",
-        basePrice: 25,
-        salePrice: 14.95,
+        basePrice: 2500,
+        salePrice: 1495,
         variants: [
             "3 GB / 30 days",
             "5 GB / 30 days",

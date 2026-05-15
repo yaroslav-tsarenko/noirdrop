@@ -14,7 +14,9 @@ export interface EsimOrderDocument extends Document {
     country: string;
     items: EsimOrderItem[];
     total: number;
-    status: "submitted";
+    tokensSpent: number;
+    invoiceNumber: string;
+    status: "pending" | "processing" | "completed" | "cancelled";
     createdAt: Date;
 }
 
@@ -35,10 +37,11 @@ const esimOrderSchema = new Schema<EsimOrderDocument>({
     country: { type: String, required: true },
     items: { type: [esimOrderItemSchema], required: true, default: [] },
     total: { type: Number, required: true },
-    status: { type: String, enum: ["submitted"], default: "submitted" },
+    tokensSpent: { type: Number, required: true },
+    invoiceNumber: { type: String, required: true, unique: true },
+    status: { type: String, enum: ["pending", "processing", "completed", "cancelled"], default: "pending" },
     createdAt: { type: Date, default: Date.now },
 });
 
-export const EsimOrder =
-    mongoose.models.EsimOrder ||
-    mongoose.model<EsimOrderDocument>("EsimOrder", esimOrderSchema);
+delete mongoose.models.EsimOrder;
+export const EsimOrder = mongoose.model<EsimOrderDocument>("EsimOrder", esimOrderSchema);

@@ -9,7 +9,9 @@ export interface AiOrder {
     fullName: string;
     country: string;
     total: number;
-    status: "submitted";
+    tokensSpent: number;
+    invoiceNumber: string;
+    status: "pending" | "processing" | "completed" | "cancelled" | "submitted";
     items: Array<{
         id: string;
         name: string;

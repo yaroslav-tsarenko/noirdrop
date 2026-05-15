@@ -6,7 +6,7 @@ import { useCartStore } from "@/store/cartStore";
 import { useCheckoutStore } from "@/store/checkoutStore";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useUser } from "@/context/UserContext";
+import { useUser, useUserStatus } from "@/context/UserContext";
 
 export default function CheckoutPage() {
     const items = useCartStore((s) => s.items);
@@ -14,9 +14,14 @@ export default function CheckoutPage() {
     const total = items.reduce((sum, i) => sum + i.price * i.qty, 0);
     const router = useRouter();
     const user = useUser();
+    const { refreshUser } = useUserStatus();
     const [isSubmitting, setIsSubmitting] = useState(false);
 
     const { fullName, email, country, setField } = useCheckoutStore();
+
+    const tokensRequired = Math.ceil(total);
+    const userTokens = user?.tokens ?? 0;
+    const hasEnoughTokens = userTokens >= tokensRequired;
 
     useEffect(() => {
         if (user?.email && !email) {
@@ -41,6 +46,11 @@ export default function CheckoutPage() {
             return;
         }
 
+        if (!hasEnoughTokens) {
+            alert(`Insufficient tokens. You need ${tokensRequired} tokens but only have ${userTokens}. Please top up your balance first.`);
+            return;
+        }
+
         setIsSubmitting(true);
 
         try {
@@ -53,7 +63,7 @@ export default function CheckoutPage() {
                     email,
                     country,
                     items,
-                    total,
+                    total: tokensRequired,
                 }),
             });
 
@@ -61,10 +71,12 @@ export default function CheckoutPage() {
 
             if (data.success) {
                 clearCart();
-                alert("Order placed successfully. The PDF invoice has been sent to your email.");
-                router.push("/dashboard");
+                await refreshUser();
+                router.push("/dashboard?order=success");
+            } else if (data.error === "Insufficient tokens") {
+                alert(`Insufficient tokens. You need ${data.required} tokens but only have ${data.available}. Please top up your balance first.`);
             } else {
-                alert(data.error || "Failed to send order.");
+                alert(data.error || "Failed to process order.");
             }
         } finally {
             setIsSubmitting(false);
@@ -78,7 +90,21 @@ export default function CheckoutPage() {
                 {/* LEFT: FORM */}
                 <div className={styles.formSection}>
                     <h2>Checkout</h2>
-                    <p className={styles.subtext}>Complete your eSIM purchase. A PDF invoice will be emailed right after checkout.</p>
+                    <p className={styles.subtext}>Complete your eSIM purchase using tokens. An invoice will be emailed after checkout.</p>
+
+                    {/* TOKEN BALANCE */}
+                    <div className={styles.tokenBalance}>
+                        <div className={styles.tokenInfo}>
+                            <span className={styles.tokenLabel}>Your token balance</span>
+                            <span className={styles.tokenAmount}>{userTokens} tokens</span>
+                        </div>
+                        {!hasEnoughTokens && items.length > 0 && (
+                            <div className={styles.tokenWarning}>
+                                <p>You need <strong>{tokensRequired - userTokens}</strong> more tokens to complete this purchase.</p>
+                                <Link href="/pricing" className={styles.topUpLink}>Top up tokens</Link>
+                            </div>
+                        )}
+                    </div>
 
                     {/* FULL NAME */}
                     <div className={styles.field}>
@@ -117,17 +143,30 @@ export default function CheckoutPage() {
                     </div>
 
                     <div className={styles.orderNotice}>
-                        <h3 className={styles.sectionTitle}>What happens after payment</h3>
-                        <p>Your invoice in PDF format will be sent to <strong>{email || "your email"}</strong>.</p>
-                        <p>Your team mailbox also receives a purchase notification with the client and order details.</p>
+                        <h3 className={styles.sectionTitle}>What happens after purchase</h3>
+                        <p><strong>{tokensRequired} tokens</strong> will be deducted from your balance.</p>
+                        <p>Your order will be placed with <strong>pending</strong> status and a manager will contact you soon to complete the eSIM activation.</p>
+                        <p>An invoice in PDF format will be sent to <strong>{email || "your email"}</strong>.</p>
                     </div>
 
-                    <button className={styles.payBtn} onClick={handlePay} disabled={isSubmitting}>
-                        {isSubmitting ? "Processing..." : `Pay €${total.toFixed(2)}`}
+                    <button
+                        className={styles.payBtn}
+                        onClick={handlePay}
+                        disabled={isSubmitting || !hasEnoughTokens || items.length === 0}
+                    >
+                        {isSubmitting
+                            ? "Processing..."
+                            : !hasEnoughTokens && items.length > 0
+                                ? `Insufficient tokens (need ${tokensRequired})`
+                                : `Pay ${tokensRequired} tokens`}
                     </button>
 
+                    <Link href="/pricing" className={styles.topUpBtnLink}>
+                        Need more tokens? Top up here
+                    </Link>
+
                     <Link href="/" className={styles.backLink}>
-                        ← Continue Shopping
+                        &larr; Continue Shopping
                     </Link>
                 </div>
 
@@ -147,7 +186,7 @@ export default function CheckoutPage() {
 
                                 <div className={styles.info}>
                                     <strong>{item.name}</strong>
-                                    <span className={styles.price}>€{(item.price * item.qty).toFixed(2)}</span>
+                                    <span className={styles.price}>{(item.price * item.qty)} tokens</span>
                                     <span className={styles.qty}>Qty: {item.qty}</span>
                                 </div>
                             </div>
@@ -156,7 +195,7 @@ export default function CheckoutPage() {
 
                     <div className={styles.totalRow}>
                         <span>Total</span>
-                        <strong>€{total.toFixed(2)}</strong>
+                        <strong>{tokensRequired} tokens</strong>
                     </div>
                 </div>
 

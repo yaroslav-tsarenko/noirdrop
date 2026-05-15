@@ -117,7 +117,7 @@ const AuthButtons: React.FC = () => {
 
                                     <div className={styles.itemInfo}>
                                         <strong className={styles.itemName}>{item.name}</strong>
-                                        <span className={styles.price}>{formatMoney(item.price * item.qty)}</span>
+                                        <span className={styles.price}>{item.price * item.qty} tokens</span>
                                         <span className={styles.qty}>Qty: {item.qty}</span>
 
                                         <button
@@ -135,7 +135,7 @@ const AuthButtons: React.FC = () => {
                     <Divider sx={{my: 2}}/>
                     <div className={styles.totalRow}>
                         <span>Total</span>
-                        <strong>{formatMoney(totalEur)}</strong>
+                        <strong>{totalEur} tokens</strong>
                     </div>
 
                     {user ? (

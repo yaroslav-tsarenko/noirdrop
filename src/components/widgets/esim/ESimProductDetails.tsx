@@ -66,8 +66,8 @@ export default function ESimProductDetails({ product }: ESimProductDetailsProps)
                     <h1 className={styles.title}>{product.name}</h1>
 
                     <div className={styles.prices}>
-                        <span className={styles.old}>€{product.basePrice}</span>
-                        <span className={styles.sale}>€{unitPrice.toFixed(2)} Sale</span>
+                        <span className={styles.old}>{product.basePrice} tokens</span>
+                        <span className={styles.sale}>{unitPrice} tokens</span>
                     </div>
 
                     <label className={styles.label}>Select your data plan:</label>

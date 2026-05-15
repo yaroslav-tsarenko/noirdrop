@@ -229,6 +229,72 @@
   }
 }
 
+.tokenBalance {
+  margin-bottom: 24px;
+  padding: 18px 20px;
+  border: 1px solid #d1fae5;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.96), rgba(236,253,245,0.96));
+}
+
+.tokenInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tokenLabel {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+.tokenAmount {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #059669;
+}
+
+.tokenWarning {
+  margin-top: 12px;
+  padding: 12px 14px;
+  border: 1px solid #fbbf24;
+  border-radius: 10px;
+  background: #fffbeb;
+
+  p {
+    margin: 0 0 8px;
+    color: #92400e;
+    font-size: 0.9rem;
+  }
+}
+
+.topUpLink {
+  display: inline-block;
+  color: #1a73e8;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.topUpBtnLink {
+  display: block;
+  margin-top: 12px;
+  text-align: center;
+  color: #4f46e5;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 .orderNotice {
   margin-top: 24px;
   padding: 18px 20px;

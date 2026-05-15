@@ -15,8 +15,8 @@ export default function ESimCard({ product }: Props) {
             <div className={styles.title}>{product.name}</div>
 
             <div className={styles.price}>
-                <span className={styles.old}>€{product.basePrice}</span>
-                <span className={styles.sale}>€{product.salePrice}</span>
+                <span className={styles.old}>{product.basePrice} tokens</span>
+                <span className={styles.sale}>{product.salePrice} tokens</span>
             </div>
 
             <button className={styles.button}>View details →</button>
