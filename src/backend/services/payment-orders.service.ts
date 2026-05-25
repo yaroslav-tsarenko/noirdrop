@@ -94,6 +94,9 @@ export async function applyCardServGatewayUpdate(input: GatewayUpdateInput): Pro
                 orderMerchantId: input.orderMerchantId,
                 error: err instanceof Error ? err.message : String(err),
             });
+            order.status = "ERROR";
+            order.errorMessage = `Credit exception: ${err instanceof Error ? err.message : String(err)}`;
+            await order.save().catch(() => {});
             return { ok: false, error: "Failed to credit tokens" };
         }
     }

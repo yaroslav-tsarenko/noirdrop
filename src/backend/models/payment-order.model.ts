@@ -9,7 +9,7 @@ export interface PaymentOrderDocument extends Document {
     vatAmount: number;
     amountGross: number;
     tokens: number;
-    status: "PENDING" | "APPROVED" | "DECLINED" | "ERROR" | "CREDITED";
+    status: "PENDING" | "APPROVED" | "DECLINED" | "ERROR" | "CREDITED" | "FILTERED";
     orderMerchantId: string;
     orderSystemId?: string | null;
     redirectUrl?: string | null;
@@ -33,7 +33,7 @@ const paymentOrderSchema = new Schema<PaymentOrderDocument>(
         tokens: { type: Number, required: true },
         status: {
             type: String,
-            enum: ["PENDING", "APPROVED", "DECLINED", "ERROR", "CREDITED"],
+            enum: ["PENDING", "APPROVED", "DECLINED", "ERROR", "CREDITED", "FILTERED"],
             default: "PENDING",
         },
         orderMerchantId: { type: String, required: true, unique: true, index: true },

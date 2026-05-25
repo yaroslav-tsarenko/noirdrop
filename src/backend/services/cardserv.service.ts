@@ -292,11 +292,11 @@ export async function getCardServStatus(
     });
 
     return {
-        orderState: (raw.orderState as string) || "PENDING",
-        orderSystemId: raw.orderSystemId != null ? String(raw.orderSystemId) : null,
-        redirectUrl: (raw.outputRedirectToUrl as string) || (raw.redirectUrl as string) || null,
-        errorCode: raw.errorCode != null ? String(raw.errorCode) : null,
-        errorMessage: (raw.errorMessage as string) || null,
+        orderState: (raw.orderState as string) || (raw.order_state as string) || (raw.state as string) || (raw.status as string) || "PENDING",
+        orderSystemId: (raw.orderSystemId ?? raw.order_system_id) != null ? String(raw.orderSystemId ?? raw.order_system_id) : null,
+        redirectUrl: (raw.outputRedirectToUrl as string) || (raw.output_redirect_to_url as string) || (raw.redirectUrl as string) || (raw.redirect_url as string) || null,
+        errorCode: (raw.errorCode ?? raw.error_code) != null ? String(raw.errorCode ?? raw.error_code) : null,
+        errorMessage: (raw.errorMessage as string) || (raw.error_message as string) || null,
         raw,
     };
 }
@@ -316,11 +316,11 @@ export function readCardServWebhookOrderId(payload: Record<string, unknown>): st
 
 export function parseCardServWebhookPayload(payload: Record<string, unknown>): CardServStatusResult {
     return {
-        orderState: (payload.orderState as string) || (payload.state as string) || "PENDING",
-        orderSystemId: payload.orderSystemId != null ? String(payload.orderSystemId) : null,
-        redirectUrl: (payload.outputRedirectToUrl as string) || (payload.redirectUrl as string) || null,
-        errorCode: payload.errorCode != null ? String(payload.errorCode) : null,
-        errorMessage: (payload.errorMessage as string) || null,
+        orderState: (payload.orderState as string) || (payload.order_state as string) || (payload.state as string) || (payload.status as string) || "PENDING",
+        orderSystemId: (payload.orderSystemId ?? payload.order_system_id) != null ? String(payload.orderSystemId ?? payload.order_system_id) : null,
+        redirectUrl: (payload.outputRedirectToUrl as string) || (payload.output_redirect_to_url as string) || (payload.redirectUrl as string) || (payload.redirect_url as string) || null,
+        errorCode: (payload.errorCode ?? payload.error_code) != null ? String(payload.errorCode ?? payload.error_code) : null,
+        errorMessage: (payload.errorMessage as string) || (payload.error_message as string) || null,
         raw: payload,
     };
 }

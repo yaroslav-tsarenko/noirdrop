@@ -17,9 +17,11 @@ function PaymentSuccessContent() {
         }
 
         let attempts = 0;
-        const maxAttempts = 5;
+        const maxAttempts = 12;
+        let stopped = false;
 
         const poll = async () => {
+            if (stopped) return;
             try {
                 const res = await fetch("/api/cardserv/status", {
                     method: "POST",
@@ -27,34 +29,44 @@ function PaymentSuccessContent() {
                     credentials: "include",
                     body: JSON.stringify({ orderMerchantId: orderId }),
                 });
+                if (!res.ok && res.status === 401) {
+                    setPolling(false);
+                    stopped = true;
+                    return;
+                }
                 const data = await res.json();
                 setStatusData(data);
 
                 if (data.finalized || data.credited) {
                     setPolling(false);
+                    stopped = true;
                     return;
                 }
             } catch {
-                // ignore
+                // network error — continue polling
             }
 
             attempts++;
             if (attempts >= maxAttempts) {
                 setPolling(false);
+                stopped = true;
             }
         };
 
         poll();
         const interval = setInterval(() => {
-            if (attempts >= maxAttempts) {
+            if (stopped || attempts >= maxAttempts) {
                 clearInterval(interval);
                 setPolling(false);
                 return;
             }
             poll();
-        }, 3000);
+        }, 4000);
 
-        return () => clearInterval(interval);
+        return () => {
+            stopped = true;
+            clearInterval(interval);
+        };
     }, [orderId]);
 
     return (

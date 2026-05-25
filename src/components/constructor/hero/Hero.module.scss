@@ -26,7 +26,8 @@
 
 .bgImage {
   object-fit: cover;
-  filter: blur(6px) brightness(0.7); /* blur + darken */
+  object-position: top;
+  filter: blur(6px) brightness(0.7);
   z-index: -2;
 }
 

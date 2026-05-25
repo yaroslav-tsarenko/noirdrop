@@ -36,7 +36,7 @@ const schema: PageSchema = {
     blocks: [
         {
             type: "slider",
-            images: ["image1", "image2", "image3", "image4"],
+            images: ["image1", "image2", "image4"],
         },
         {
             type: "hero",

@@ -136,7 +136,7 @@ async function handleResult(req: Request, form?: FormData) {
         }
     }
 
-    await applyCardServGatewayUpdate({
+    const creditResult = await applyCardServGatewayUpdate({
         orderMerchantId: resolvedOrderMerchantId,
         orderState: status.orderState,
         orderSystemId: status.orderSystemId,
@@ -149,6 +149,12 @@ async function handleResult(req: Request, form?: FormData) {
             forced: forceSuccess,
         },
         source: "result",
+    });
+
+    logCardServEvent("result.gateway_update", {
+        orderMerchantId: resolvedOrderMerchantId,
+        orderState: status.orderState,
+        creditResult,
     });
 
     if (!forceSuccess && ["DECLINED", "ERROR", "FILTERED", "CHAIN_STEP"].includes(status.orderState)) {
