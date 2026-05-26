@@ -50,7 +50,11 @@ const refundPolicySchema: PageSchema = {
         {
             type: "text",
             title: "2. Scope and Legal Notice",
-            description: `This Refund & Return Policy ("Policy") governs cancellations, disputes, and refund requests for eSIM data plan purchases made via ${COMPANY_URL}. The Service is operated by ${COMPANY_LEGAL_NAME} (Company Number ${COMPANY_NUMBER}), registered at ${COMPANY_ADDRESS}. Nothing in this Policy is intended to limit your statutory rights under UK law (including the Consumer Rights Act 2015 and Consumer Contracts Regulations 2013), except where lawful exemptions for digital content apply.`,
+            bullets: [
+                `This Refund & Return Policy ("Policy") governs cancellations, disputes, and refund requests for eSIM data plan purchases made via ${COMPANY_URL}.`,
+                `The Service is operated by ${COMPANY_LEGAL_NAME} (Company Number ${COMPANY_NUMBER}), registered at ${COMPANY_ADDRESS}.`,
+                `Nothing in this Policy is intended to limit your statutory rights under UK law (including the Consumer Rights Act 2015 and Consumer Contracts Regulations 2013), except where lawful exemptions for digital content apply.`,
+            ],
         },
         {
             type: "text",
@@ -98,8 +102,8 @@ const refundPolicySchema: PageSchema = {
         {
             type: "text",
             title: "8. How to Request a Refund",
-            description: `Email ${COMPANY_EMAIL} with the subject line "Refund Request" and include:`,
             bullets: [
+                `Email ${COMPANY_EMAIL} with the subject line "Refund Request" and include:`,
                 "Account email address;",
                 "Order reference / transaction reference;",
                 `Description of the issue (e.g., "Activation details invalid", "Duplicate charge", "eSIM not delivered");`,
@@ -118,14 +122,18 @@ const refundPolicySchema: PageSchema = {
         {
             type: "text",
             title: "10. Taxes",
-            description:
-                "Prices are shown as inclusive or exclusive of applicable taxes as stated at checkout. If a refund is issued, we will refund any tax component included in the original payment where required by law and/or where it is part of the refunded amount.",
+            bullets: [
+                "Prices are shown as inclusive or exclusive of applicable taxes as stated at checkout.",
+                "If a refund is issued, we will refund any tax component included in the original payment where required by law and/or where it is part of the refunded amount.",
+            ],
         },
         {
             type: "text",
             title: "11. Data Retention and Data Protection",
-            description:
-                "To process refunds, prevent fraud, and meet accounting/tax obligations, we may retain transaction and dispute records for up to 6 years, in line with UK legal and accounting requirements. This processing is conducted in accordance with our Privacy Policy.",
+            bullets: [
+                "To process refunds, prevent fraud, and meet accounting/tax obligations, we may retain transaction and dispute records for up to 6 years, in line with UK legal and accounting requirements.",
+                "This processing is conducted in accordance with our Privacy Policy.",
+            ],
         },
         {
             type: "text",

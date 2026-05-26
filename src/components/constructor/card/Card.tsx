@@ -16,7 +16,7 @@ interface CardProps {
 const Card: React.FC<CardProps> = ({ image, title, description, buttonText, buttonLink }) => (
     <div className={styles.card}>
         <div className={styles.imageWrapper}>
-            <Media src={image} type="image" width="100%" height="180px" alt={title} objectFit="cover" />
+            <Media src={image} type="image" width="100%" height="260px" alt={title} objectFit="cover" />
         </div>
         <div className={styles.content}>
             <h3 className={styles.title}>{title}</h3>

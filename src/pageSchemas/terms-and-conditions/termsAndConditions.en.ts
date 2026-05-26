@@ -42,7 +42,11 @@ const termsSchema: PageSchema = {
         {
             type: "text",
             title: "1. Introduction",
-            description: `These Terms and Conditions ("Terms") govern your access to and use of the website at ${COMPANY_URL} and related services (the "Service"), operated by ${COMPANY_LEGAL_NAME} (company number ${COMPANY_NUMBER}), with registered office at ${COMPANY_ADDRESS} ("we", "us", "our"). By accessing or using the Service, creating an Account, purchasing an eSIM data plan, or receiving/using an eSIM, you agree to be bound by these Terms. If you do not agree, you must not use the Service. These Terms are intended to be read together with our Privacy Policy and Cookies Policy (together, our "Policies"). If there is a conflict, these Terms prevail in relation to use of the Service.`,
+            bullets: [
+                `These Terms and Conditions ("Terms") govern your access to and use of the website at ${COMPANY_URL} and related services (the "Service"), operated by ${COMPANY_LEGAL_NAME} (company number ${COMPANY_NUMBER}), with registered office at ${COMPANY_ADDRESS} ("we", "us", "our").`,
+                `By accessing or using the Service, creating an Account, purchasing an eSIM data plan, or receiving/using an eSIM, you agree to be bound by these Terms. If you do not agree, you must not use the Service.`,
+                `These Terms are intended to be read together with our Privacy Policy and Cookies Policy (together, our "Policies"). If there is a conflict, these Terms prevail in relation to use of the Service.`,
+            ],
         },
         {
             type: "text",
@@ -131,8 +135,8 @@ const termsSchema: PageSchema = {
         {
             type: "text",
             title: "10. Acceptable Use and Prohibited Conduct",
-            description: "You must not:",
             bullets: [
+                "You must not:",
                 "use the Service for unlawful or fraudulent activity;",
                 "attempt to bypass security or access other users' Accounts;",
                 "interfere with the Service or networks (including automated abuse);",
@@ -153,20 +157,25 @@ const termsSchema: PageSchema = {
         {
             type: "text",
             title: "12. Data Protection",
-            description:
+            bullets: [
                 "We process personal data (including Account identifiers and order history) in accordance with our Privacy Policy.",
+            ],
         },
         {
             type: "text",
             title: "13. Changes to These Terms",
-            description:
-                "We may update these Terms from time to time. We will post the updated version on the Service and update the 'Effective date'. Continued use of the Service after changes take effect constitutes acceptance of the updated Terms.",
+            bullets: [
+                "We may update these Terms from time to time. We will post the updated version on the Service and update the 'Effective date'.",
+                "Continued use of the Service after changes take effect constitutes acceptance of the updated Terms.",
+            ],
         },
         {
             type: "text",
             title: "14. Governing Law and Jurisdiction",
-            description:
-                "These Terms are governed by the laws of England and Wales. The courts of England and Wales shall have exclusive jurisdiction, subject to mandatory consumer protection rights that may apply in your country of residence.",
+            bullets: [
+                "These Terms are governed by the laws of England and Wales.",
+                "The courts of England and Wales shall have exclusive jurisdiction, subject to mandatory consumer protection rights that may apply in your country of residence.",
+            ],
         },
         {
             type: "text",

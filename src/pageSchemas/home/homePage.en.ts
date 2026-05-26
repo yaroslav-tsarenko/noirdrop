@@ -35,10 +35,6 @@ const schema: PageSchema = {
 
     blocks: [
         {
-            type: "slider",
-            images: ["image1", "image2", "image4"],
-        },
-        {
             type: "hero",
             bgImage: "image1",
             title: "eSIM Data Plans for Europe — Stay Connected in 45+ Countries",

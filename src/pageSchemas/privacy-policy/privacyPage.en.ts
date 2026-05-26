@@ -39,13 +39,20 @@ const privacyPolicySchema: PageSchema = {
         {
             type: "text",
             title: "1. Introduction",
-            description: `We respect your privacy and are committed to protecting your personal data. This Privacy Policy explains what personal data we collect, why we use it, how long we keep it, and how you can exercise your rights when using ${COMPANY_URL} and our eSIM-related services (the "Service").\n\nController: ${COMPANY_LEGAL_NAME} (Company No. ${COMPANY_NUMBER}), ${COMPANY_ADDRESS}.\nContact: ${COMPANY_EMAIL}.\nScope: This Policy applies to all users of the Service, including individuals who create an Account, purchase eSIM data plans, and receive or use an eSIM.\n\nBy using the Service, you acknowledge that your personal data will be processed in accordance with this Privacy Policy and applicable data protection laws, including the UK GDPR and the Data Protection Act 2018.`,
+            bullets: [
+                `We respect your privacy and are committed to protecting your personal data. This Privacy Policy explains what personal data we collect, why we use it, how long we keep it, and how you can exercise your rights when using ${COMPANY_URL} and our eSIM-related services (the "Service").`,
+                `Controller: ${COMPANY_LEGAL_NAME} (Company No. ${COMPANY_NUMBER}), ${COMPANY_ADDRESS}.`,
+                `Contact: ${COMPANY_EMAIL}.`,
+                `Scope: This Policy applies to all users of the Service, including individuals who create an Account, purchase eSIM data plans, and receive or use an eSIM.`,
+                `By using the Service, you acknowledge that your personal data will be processed in accordance with this Privacy Policy and applicable data protection laws, including the UK GDPR and the Data Protection Act 2018.`,
+            ],
         },
         {
             type: "text",
             title: "2. Personal Data We Collect",
-            description:
+            bullets: [
                 "We collect only the data necessary to provide the Service, deliver eSIM Plans, process payments, maintain your order history, secure the platform, and improve performance.",
+            ],
         },
         {
             type: "text",
@@ -77,9 +84,8 @@ const privacyPolicySchema: PageSchema = {
         {
             type: "text",
             title: "3. Why We Process Your Data and Our Legal Bases",
-            description:
-                "We process personal data under the UK GDPR on the following legal bases:",
             bullets: [
+                "We process personal data under the UK GDPR on the following legal bases:",
                 "Performance of a contract: to create and manage your Account; process Orders and deliver eSIM/activation details; maintain order history; provide customer support and handle service issues related to delivery.",
                 "Legitimate interests: fraud prevention and security; service improvement; and platform integrity (preventing misuse and enforcing our Terms).",
                 "Legal obligation: maintaining accounting and tax records and complying with applicable consumer protection requirements; responding to lawful requests from regulators or authorities where required.",
@@ -89,14 +95,18 @@ const privacyPolicySchema: PageSchema = {
         {
             type: "text",
             title: "4. Automated Processing",
-            description:
-                "We may use automated tools to help detect fraud, prevent abuse, and secure the Service (for example, risk scoring based on login/payment patterns). These measures are designed to protect users and the platform. We do not conduct automated decision-making that produces legal or similarly significant effects on you without appropriate safeguards; where required, you may request human review.",
+            bullets: [
+                "We may use automated tools to help detect fraud, prevent abuse, and secure the Service (for example, risk scoring based on login/payment patterns). These measures are designed to protect users and the platform.",
+                "We do not conduct automated decision-making that produces legal or similarly significant effects on you without appropriate safeguards; where required, you may request human review.",
+            ],
         },
         {
             type: "text",
             title: "5. Sharing Your Data and International Transfers",
-            description:
-                "We share personal data only when necessary to operate the Service (for example: payment providers, hosting/infrastructure providers, analytics providers, eSIM/connectivity partners, and customer support tools). Some service providers may be located outside the UK and/or EEA. Where this occurs, we use appropriate safeguards such as adequacy regulations and/or approved contractual protections (e.g., UK IDTA and/or EU Standard Contractual Clauses, as applicable) to protect your data.",
+            bullets: [
+                "We share personal data only when necessary to operate the Service (for example: payment providers, hosting/infrastructure providers, analytics providers, eSIM/connectivity partners, and customer support tools).",
+                "Some service providers may be located outside the UK and/or EEA. Where this occurs, we use appropriate safeguards such as adequacy regulations and/or approved contractual protections (e.g., UK IDTA and/or EU Standard Contractual Clauses, as applicable) to protect your data.",
+            ],
         },
         {
             type: "text",
@@ -122,9 +132,8 @@ const privacyPolicySchema: PageSchema = {
         {
             type: "text",
             title: "8. Your Rights",
-            description:
-                "Under the UK GDPR, you may have the right to:",
             bullets: [
+                "Under the UK GDPR, you may have the right to:",
                 "Access your personal data.",
                 "Rectification of inaccurate data.",
                 "Erasure (right to be forgotten), subject to legal retention requirements.",
@@ -138,8 +147,10 @@ const privacyPolicySchema: PageSchema = {
         {
             type: "text",
             title: "9. Cookies",
-            description:
-                "We use cookies and similar technologies to operate the Service, maintain secure sessions, protect Accounts, and analyse site performance. Essential cookies are required for core functionality. For more details, please refer to our Cookies Policy.",
+            bullets: [
+                "We use cookies and similar technologies to operate the Service, maintain secure sessions, protect Accounts, and analyse site performance.",
+                "Essential cookies are required for core functionality. For more details, please refer to our Cookies Policy.",
+            ],
         },
         {
             type: "text",

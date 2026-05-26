@@ -22,6 +22,7 @@ import {
 import ButtonUI from '@/components/ui/button/ButtonUI';
 
 export const ICON_MAP: Record<string, React.ComponentType<{ size?: number; color?: string }>> = {
+    checkCircle: MdCheckCircle,
     star: MdStars,
     qr: MdQrCode,
     user: MdPerson,
@@ -164,6 +165,10 @@ export interface TextProps {
     centerDescription?: boolean;
     centerBullets?: boolean;
     iconName?: keyof typeof ICON_MAP;
+    iconColor?: string;
+    iconBg?: string;
+    iconSize?: number;
+    iconAlign?: "left" | "center" | "right";
     buttons?: TextButton[];
     id?: string;
 }

@@ -41,14 +41,17 @@ export const cookiePolicyEn: PageSchema = {
         {
             type: "text",
             title: "1. Introduction",
-            description: `This Cookie Policy explains how ${COMPANY_LEGAL_NAME} ("we", "us", "our") uses cookies and similar technologies to recognise you when you visit our website at ${COMPANY_URL} (the "Site"). It explains what these technologies are, why we use them, and your choices and rights to control their use. This Cookie Policy should be read together with our Privacy Policy.`,
+            bullets: [
+                `This Cookie Policy explains how ${COMPANY_LEGAL_NAME} ("we", "us", "our") uses cookies and similar technologies to recognise you when you visit our website at ${COMPANY_URL} (the "Site").`,
+                `It explains what these technologies are, why we use them, and your choices and rights to control their use.`,
+                `This Cookie Policy should be read together with our Privacy Policy.`,
+            ],
         },
         {
             type: "text",
             title: "2. What are Cookies?",
-            description:
-                "Cookies are small data files placed on your computer or mobile device when you visit a website. They are widely used to make websites work (or work more efficiently), to keep you signed in, to remember preferences, and to provide reporting information.",
             bullets: [
+                "Cookies are small data files placed on your computer or mobile device when you visit a website. They are widely used to make websites work (or work more efficiently), to keep you signed in, to remember preferences, and to provide reporting information.",
                 "Local Storage / Session Storage: to store certain settings or session-related data in your browser.",
                 "Pixels / tags / SDKs (where used): to measure usage or improve performance.",
                 "Server-side logs: to help secure the Service and prevent fraud.",
@@ -57,8 +60,11 @@ export const cookiePolicyEn: PageSchema = {
         {
             type: "text",
             title: "3. Why do we use Cookies?",
-            description:
-                "We use first-party and third-party cookies for several reasons. Some cookies are required for technical and security reasons to operate the Service (strictly necessary cookies). Other cookies help us understand usage and improve the Service (performance & analytics), remember your choices (functionality), or support advertising/marketing (where applicable) (targeting & advertising).",
+            bullets: [
+                "We use first-party and third-party cookies for several reasons.",
+                "Some cookies are required for technical and security reasons to operate the Service (strictly necessary cookies).",
+                "Other cookies help us understand usage and improve the Service (performance & analytics), remember your choices (functionality), or support advertising/marketing (where applicable) (targeting & advertising).",
+            ],
         },
         {
             type: "text",
@@ -73,9 +79,8 @@ export const cookiePolicyEn: PageSchema = {
         {
             type: "text",
             title: "5. Orders, Delivery, and Security",
-            description:
-                "Because we support digital delivery of eSIM data plans, we use certain cookies and similar technologies to:",
             bullets: [
+                "Because we support digital delivery of eSIM data plans, we use certain cookies and similar technologies to:",
                 "keep you securely logged in and protect Account access;",
                 "link Order actions to your session to prevent unauthorised activity;",
                 "reduce the risk of duplicate actions (for example, accidental double-submissions during checkout);",
@@ -89,14 +94,16 @@ export const cookiePolicyEn: PageSchema = {
             bullets: [
                 "Cookie Preference Manager: You can set your preferences using our cookie consent banner (and/or cookie settings link, if available on the Site).",
                 "Browser Controls: You can configure your browser to accept or refuse cookies, or to delete cookies. If you disable strictly necessary cookies, the Site may not function properly and key features (like login and Orders) may be unavailable.",
-                "Analytics Opt-Out (if applicable): If we use third-party analytics (such as Google Analytics), you may be able to opt out via the provider’s tools and settings, in addition to our cookie banner preferences.",
+                "Analytics Opt-Out (if applicable): If we use third-party analytics (such as Google Analytics), you may be able to opt out via the provider's tools and settings, in addition to our cookie banner preferences.",
             ],
         },
         {
             type: "text",
             title: "7. How often will we update this Cookie Policy?",
-            description:
-                "We may update this Cookie Policy from time to time to reflect changes in the cookies we use, improvements to the Service, or legal/regulatory requirements. We will update the “Effective date” at the top of this page. Please review this Policy periodically.",
+            bullets: [
+                "We may update this Cookie Policy from time to time to reflect changes in the cookies we use, improvements to the Service, or legal/regulatory requirements.",
+                "We will update the 'Effective date' at the top of this page. Please review this Policy periodically.",
+            ],
         },
         {
             type: "text",

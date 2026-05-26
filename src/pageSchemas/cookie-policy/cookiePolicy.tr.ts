@@ -38,12 +38,19 @@ const cookiePolicyTr: PageSchema = {
         {
             type: "text",
             title: "1. Genel Bakış",
-            description: `Bu Çerez Politikası, ${COMPANY_NAME} (“biz”) olarak Hizmet üzerinde çerezleri ve benzer teknolojileri (ör. localStorage, sessionStorage ve pikseller) nasıl kullandığımızı açıklar. Gizlilik Politikamızı tamamlar. Siteyi kullanarak veya çerez banner’ı ile etkileşime girerek, aşağıda açıklandığı şekilde zorunlu olmayan çerezlere onay verebilir veya yönetebilirsiniz.`
+            bullets: [
+                `Bu Çerez Politikası, ${COMPANY_NAME} ("biz") olarak Hizmet üzerinde çerezleri ve benzer teknolojileri (ör. localStorage, sessionStorage ve pikseller) nasıl kullandığımızı açıklar.`,
+                `Gizlilik Politikamızı tamamlar.`,
+                `Siteyi kullanarak veya çerez banner'ı ile etkileşime girerek, aşağıda açıklandığı şekilde zorunlu olmayan çerezlere onay verebilir veya yönetebilirsiniz.`,
+            ],
         },
         {
             type: "text",
             title: "2. Çerez nedir?",
-            description: "Çerezler, web sitelerini ziyaret ettiğinizde cihazınıza yerleştirilen küçük metin dosyalarıdır. Temel işlevsellik sağlar (ör. oturum açma), tercihlerinizi hatırlar, site performansını ölçer ve geliştirir, ayrıca (onayınızla) pazarlama ve analiz desteği sunar."
+            bullets: [
+                "Çerezler, web sitelerini ziyaret ettiğinizde cihazınıza yerleştirilen küçük metin dosyalarıdır.",
+                "Temel işlevsellik sağlar (ör. oturum açma), tercihlerinizi hatırlar, site performansını ölçer ve geliştirir, ayrıca (onayınızla) pazarlama ve analiz desteği sunar.",
+            ],
         },
         {
             type: "text",
@@ -74,33 +81,43 @@ const cookiePolicyTr: PageSchema = {
             title: "5. Onay ve hukuki dayanak",
             bullets: [
                 "Zorunlu çerezler: Hizmet için kesinlikle gereklidir ve onaysız kullanılır.",
-                "Zorunlu olmayan çerezler (fonksiyonel, analitik, pazarlama): Sadece çerez banner’ı veya kullanıcı ayarları ile onay verdiğinizde ayarlanır, meşru menfaatin geçerli olduğu durumlar hariç (ör. sınırlı analiz).",
+                "Zorunlu olmayan çerezler (fonksiyonel, analitik, pazarlama): Sadece çerez banner'ı veya kullanıcı ayarları ile onay verdiğinizde ayarlanır, meşru menfaatin geçerli olduğu durumlar hariç (ör. sınırlı analiz).",
                 "Dayandığımız hukuki temeller: sözleşmenin ifası, onay ve meşru menfaatler (dolandırıcılık önleme, hizmet iyileştirme, uyuşmazlık savunması)."
             ]
         },
         {
             type: "text",
             title: "6. Onayı nasıl kaydediyor ve saklıyoruz",
-            description: "Onay verdiğinizde, kararı (onay kutusu metni/politika versiyonu), ISO 8601 zaman damgası, IP adresi ve kullanıcı aracısı bilgisini kanıt olarak kaydederiz. Onay ve ilgili sipariş/işlem kayıtları en az 24 ay ve kurumsal/uyuşmazlık durumlarında 6 yıla kadar saklanır, Gizlilik Politikamız ile uyumludur."
+            bullets: [
+                "Onay verdiğinizde, kararı (onay kutusu metni/politika versiyonu), ISO 8601 zaman damgası, IP adresi ve kullanıcı aracısı bilgisini kanıt olarak kaydederiz.",
+                "Onay ve ilgili sipariş/işlem kayıtları en az 24 ay ve kurumsal/uyuşmazlık durumlarında 6 yıla kadar saklanır, Gizlilik Politikamız ile uyumludur.",
+            ],
         },
         {
             type: "text",
             title: "7. Üçüncü taraflar ve uluslararası aktarımlar",
-            description: "Çerez ayarlayabilen üçüncü taraf sağlayıcılar (ödeme, analiz, barındırma, pazarlama platformları) kullanıyoruz. Bazı sağlayıcılar verileri Birleşik Krallık/AEA dışına işleyebilir; aktarımlar olduğunda yeterli koruma sağlanır (BK yeterliliği, Standart Sözleşme Maddeleri veya eşdeğeri). Üçüncü taraf sağlayıcıların listesi site çerez kontrol panelinde mevcuttur."
+            bullets: [
+                "Çerez ayarlayabilen üçüncü taraf sağlayıcılar (ödeme, analiz, barındırma, pazarlama platformları) kullanıyoruz.",
+                "Bazı sağlayıcılar verileri Birleşik Krallık/AEA dışına işleyebilir; aktarımlar olduğunda yeterli koruma sağlanır (BK yeterliliği, Standart Sözleşme Maddeleri veya eşdeğeri).",
+                "Üçüncü taraf sağlayıcıların listesi site çerez kontrol panelinde mevcuttur.",
+            ],
         },
         {
             type: "text",
             title: "8. Çerez onayını nasıl yönetir veya geri çekersiniz",
             bullets: [
-                "Sitedeki çerez banner’ı / çerez ayarlarını kullanarak zorunlu olmayan çerezleri kabul edebilir, reddedebilir veya özelleştirebilirsiniz.",
+                "Sitedeki çerez banner'ı / çerez ayarlarını kullanarak zorunlu olmayan çerezleri kabul edebilir, reddedebilir veya özelleştirebilirsiniz.",
                 "Onayınızı istediğiniz zaman alt menüdeki çerez ayarları bağlantısı ile geri çekebilirsiniz.",
                 "Tarayıcı ayarlarından çerezleri silebilir veya gizli mod kullanabilirsiniz. Çerezleri silmek veya bazı çerezleri devre dışı bırakmak site işlevselliğini azaltabilir (örneğin oturumunuz kapanabilir)."
             ]
         },
         {
             type: "text",
-            title: "9. Bu Politika’daki değişiklikler",
-            description: "Bu Çerez Politikası zaman zaman güncellenebilir (ör. yeni entegrasyonlar eklenirse). Önemli değişiklikler Hizmette belirgin bir bildirimle veya kayıtlı kullanıcılara e-posta ile duyurulur. Politikanın yürürlük tarihi güncellenir."
+            title: "9. Bu Politika'daki değişiklikler",
+            bullets: [
+                "Bu Çerez Politikası zaman zaman güncellenebilir (ör. yeni entegrasyonlar eklenirse).",
+                "Önemli değişiklikler Hizmette belirgin bir bildirimle veya kayıtlı kullanıcılara e-posta ile duyurulur. Politikanın yürürlük tarihi güncellenir.",
+            ],
         },
         {
             type: "text",

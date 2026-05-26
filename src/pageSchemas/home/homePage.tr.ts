@@ -16,10 +16,6 @@ const schema: PageSchema = {
     },
     blocks: [
         {
-            type: "slider",
-            images: ["image1", "image2", "image3"],
-        },
-        {
             type: "section",
             left: {
                 type: "media",

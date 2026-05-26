@@ -39,7 +39,12 @@ const termsSchema: PageSchema = {
         {
             type: "text",
             title: "1. Giriş",
-            description: `Bu Şartlar ve Koşullar ("Şartlar"), ${COMPANY_LEGAL_NAME} (${COMPANY_NUMBER} sicil numarası, kayıtlı adres: ${COMPANY_ADDRESS}) tarafından işletilen ${COMPANY_NAME} web sitesi ve hizmetlerinin ("Hizmet") kullanımınızı düzenler. Bu Şartlar, sizin ("siz", "Kullanıcı", "Müşteri") ile Şirket arasında yasal olarak bağlayıcı bir sözleşme oluşturur. Hizmete erişerek, hesap oluşturarak, jeton satın alarak, kılavuz veya diğer dijital içerikleri indirerek veya sipariş ederek bu Şartlara bağlı kalmayı kabul etmiş olursunuz. Şartların herhangi bir bölümünü kabul etmiyorsanız Hizmeti kullanmamalısınız.`
+            bullets: [
+                `Bu Şartlar ve Koşullar ("Şartlar"), ${COMPANY_LEGAL_NAME} (${COMPANY_NUMBER} sicil numarası, kayıtlı adres: ${COMPANY_ADDRESS}) tarafından işletilen ${COMPANY_NAME} web sitesi ve hizmetlerinin ("Hizmet") kullanımınızı düzenler.`,
+                `Bu Şartlar, sizin ("siz", "Kullanıcı", "Müşteri") ile Şirket arasında yasal olarak bağlayıcı bir sözleşme oluşturur.`,
+                `Hizmete erişerek, hesap oluşturarak, jeton satın alarak, kılavuz veya diğer dijital içerikleri indirerek veya sipariş ederek bu Şartlara bağlı kalmayı kabul etmiş olursunuz.`,
+                `Şartların herhangi bir bölümünü kabul etmiyorsanız Hizmeti kullanmamalısınız.`,
+            ],
         },
         {
             type: "text",
@@ -125,7 +130,9 @@ const termsSchema: PageSchema = {
         {
             type: "text",
             title: "10. Tazminat",
-            description: "Şirketi, yöneticilerini, çalışanlarını ve temsilcilerini; (a) bu Şartları ihlaliniz; (b) Hizmet veya Ürünleri yanlış kullanımınız; veya (c) geçerli herhangi bir yasa veya üçüncü taraf haklarını ihlaliniz nedeniyle oluşan tüm kayıp, zarar, talep, masraf ve giderlerden (makul avukatlık ücretleri dahil) tazmin etmeyi kabul edersiniz."
+            bullets: [
+                "Şirketi, yöneticilerini, çalışanlarını ve temsilcilerini; (a) bu Şartları ihlaliniz; (b) Hizmet veya Ürünleri yanlış kullanımınız; veya (c) geçerli herhangi bir yasa veya üçüncü taraf haklarını ihlaliniz nedeniyle oluşan tüm kayıp, zarar, talep, masraf ve giderlerden (makul avukatlık ücretleri dahil) tazmin etmeyi kabul edersiniz.",
+            ],
         },
         {
             type: "text",
@@ -138,7 +145,10 @@ const termsSchema: PageSchema = {
         {
             type: "text",
             title: "12. Üçüncü Taraf İçerik ve Bağlantılar",
-            description: "Hizmet, üçüncü taraf web sitelerine ve kaynaklara bağlantılar içerebilir. Üçüncü taraf sitelerin içeriği, gizlilik politikaları veya uygulamalarından sorumlu değiliz. Bağlantılar yalnızca kolaylık içindir ve onay anlamına gelmez."
+            bullets: [
+                "Hizmet, üçüncü taraf web sitelerine ve kaynaklara bağlantılar içerebilir.",
+                "Üçüncü taraf sitelerin içeriği, gizlilik politikaları veya uygulamalarından sorumlu değiliz. Bağlantılar yalnızca kolaylık içindir ve onay anlamına gelmez.",
+            ],
         },
         {
             type: "text",
@@ -151,12 +161,19 @@ const termsSchema: PageSchema = {
         {
             type: "text",
             title: "14. Bu Şartlardaki Değişiklikler",
-            description: "Şirket, bu Şartları zaman zaman değiştirebilir. Önemli değişiklikler, kayıtlı kullanıcılara e-posta ile veya Hizmette belirgin bir bildirimle duyurulur. Değiştirilen Şartlar, bildiride belirtilen tarihte yürürlüğe girer. Yayınlandıktan sonra Hizmeti kullanmaya devam etmeniz, değişiklikleri kabul ettiğiniz anlamına gelir."
+            bullets: [
+                "Şirket, bu Şartları zaman zaman değiştirebilir.",
+                "Önemli değişiklikler, kayıtlı kullanıcılara e-posta ile veya Hizmette belirgin bir bildirimle duyurulur.",
+                "Değiştirilen Şartlar, bildiride belirtilen tarihte yürürlüğe girer. Yayınlandıktan sonra Hizmeti kullanmaya devam etmeniz, değişiklikleri kabul ettiğiniz anlamına gelir.",
+            ],
         },
         {
             type: "text",
             title: "15. Bildirimler",
-            description: `Şirkete yapılacak tüm bildirimler ${COMPANY_EMAIL} adresine e-posta ile veya kayıtlı adrese posta ile gönderilmelidir. Size yapılacak bildirimler e-posta ile veya Hizmette yayınlanarak yapılabilir.`
+            bullets: [
+                `Şirkete yapılacak tüm bildirimler ${COMPANY_EMAIL} adresine e-posta ile veya kayıtlı adrese posta ile gönderilmelidir.`,
+                `Size yapılacak bildirimler e-posta ile veya Hizmette yayınlanarak yapılabilir.`,
+            ],
         },
         {
             type: "text",

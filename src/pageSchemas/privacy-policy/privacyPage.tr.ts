@@ -29,7 +29,10 @@ const privacyPolicySchema: PageSchema = {
         {
             type: "text",
             title: "1. Giriş",
-            description: "Gizliliğinize saygı duyuyoruz. Bu kısa Gizlilik Politikası, hangi kişisel verileri topladığımızı, neden kullandığımızı, ne kadar süreyle sakladığımızı ve haklarınızı nasıl kullanabileceğinizi açıklar."
+            bullets: [
+                "Gizliliğinize saygı duyuyoruz.",
+                "Bu kısa Gizlilik Politikası, hangi kişisel verileri topladığımızı, neden kullandığımızı, ne kadar süreyle sakladığımızı ve haklarınızı nasıl kullanabileceğinizi açıklar.",
+            ],
         },
         {
             type: "text",
@@ -56,32 +59,49 @@ const privacyPolicySchema: PageSchema = {
         {
             type: "text",
             title: "4. Paylaşım ve Aktarımlar",
-            description: "Veriler, gerektiğinde ödeme sağlayıcıları, bulut barındırma, analiz ve destek araçları ile profesyonel danışmanlarla paylaşılır. Bazı sağlayıcılar İngiltere/AEA dışında olabilir; aktarımlar için onaylı koruma önlemleri (İngiltere uygunluğu, SCC veya eşdeğeri) kullanılır."
+            bullets: [
+                "Veriler, gerektiğinde ödeme sağlayıcıları, bulut barındırma, analiz ve destek araçları ile profesyonel danışmanlarla paylaşılır.",
+                "Bazı sağlayıcılar İngiltere/AEA dışında olabilir; aktarımlar için onaylı koruma önlemleri (İngiltere uygunluğu, SCC veya eşdeğeri) kullanılır.",
+            ],
         },
         {
             type: "text",
             title: "5. Çerezler",
-            description: "Çerezler ve benzeri teknolojiler kullanıyoruz. Temel çerezler, temel işlevsellik için gereklidir. Detaylar ve çerez tercihleri için Çerez Politikamıza bakınız."
+            bullets: [
+                "Çerezler ve benzeri teknolojiler kullanıyoruz.",
+                "Temel çerezler, temel işlevsellik için gereklidir. Detaylar ve çerez tercihleri için Çerez Politikamıza bakınız.",
+            ],
         },
         {
             type: "text",
             title: "6. Saklama Süresi",
-            description: "Sipariş ve işlem kayıtları (jeton defteri ve ödeme onayı dahil) en az 24 ay ve ihtilaflı/kurumsal durumlarda 6 yıla kadar saklanır. Diğer hesap ve destek verileri yalnızca gerektiği sürece tutulur."
+            bullets: [
+                "Sipariş ve işlem kayıtları (jeton defteri ve ödeme onayı dahil) en az 24 ay ve ihtilaflı/kurumsal durumlarda 6 yıla kadar saklanır.",
+                "Diğer hesap ve destek verileri yalnızca gerektiği sürece tutulur.",
+            ],
         },
         {
             type: "text",
             title: "7. Haklarınız",
-            description: `Veri koruma yasası kapsamında erişim, düzeltme, silme, kısıtlama, taşınabilirlik, itiraz ve rıza geri çekme haklarına sahipsiniz. Haklarınızı kullanmak için ${COMPANY_EMAIL} adresine başvurabilirsiniz. Talepler için kimlik doğrulaması istenebilir.`
+            bullets: [
+                `Veri koruma yasası kapsamında erişim, düzeltme, silme, kısıtlama, taşınabilirlik, itiraz ve rıza geri çekme haklarına sahipsiniz.`,
+                `Haklarınızı kullanmak için ${COMPANY_EMAIL} adresine başvurabilirsiniz. Talepler için kimlik doğrulaması istenebilir.`,
+            ],
         },
         {
             type: "text",
             title: "8. Güvenlik",
-            description: "Kişisel verileri korumak için makul teknik ve organizasyonel önlemler (erişim kontrolleri, aktarımda şifreleme, kayıt ve yedekleme) uygularız."
+            bullets: [
+                "Kişisel verileri korumak için makul teknik ve organizasyonel önlemler (erişim kontrolleri, aktarımda şifreleme, kayıt ve yedekleme) uygularız.",
+            ],
         },
         {
             type: "text",
             title: "9. Değişiklikler",
-            description: "Bu Politikayı güncelleyebiliriz. Önemli değişiklikler e-posta veya Hizmette belirgin bir bildirim ile duyurulacaktır."
+            bullets: [
+                "Bu Politikayı güncelleyebiliriz.",
+                "Önemli değişiklikler e-posta veya Hizmette belirgin bir bildirim ile duyurulacaktır.",
+            ],
         },
         {
             type: "text",
@@ -95,7 +115,9 @@ const privacyPolicySchema: PageSchema = {
         {
             type: "text",
             title: "Yürürlük Tarihi",
-            description: "Bu Gizlilik Politikası yayımlandığı anda yürürlüğe girer ve önceki tüm sürümlerin yerine geçer."
+            bullets: [
+                "Bu Gizlilik Politikası yayımlandığı anda yürürlüğe girer ve önceki tüm sürümlerin yerine geçer.",
+            ],
         },
         {
             type: "text",

@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { FiCheckCircle, FiGlobe, FiShield, FiSmartphone, FiZap } from "react-icons/fi";
+import { FiGlobe, FiShield, FiSmartphone, FiZap } from "react-icons/fi";
+import { MdCheckCircle } from "react-icons/md";
 
 import AddToCartButton from "@/components/widgets/esim/AddToCartButton";
 import ProductReviews from "@/components/widgets/esim/ProductReviews";
@@ -129,7 +130,7 @@ export default function ESimProductDetails({ product }: ESimProductDetailsProps)
                     <h3 className={styles.subtitle}>Included with your purchase</h3>
                     <ul className={styles.includedList}>
                         {product.included.map((item) => (
-                            <li key={item}><FiCheckCircle /> {item}</li>
+                            <li key={item}><MdCheckCircle /> {item}</li>
                         ))}
                     </ul>
 
