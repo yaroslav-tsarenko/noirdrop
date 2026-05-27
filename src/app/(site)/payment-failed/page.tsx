@@ -1,13 +1,57 @@
 "use client";
 
-import React, { Suspense } from "react";
-import { useSearchParams } from "next/navigation";
+import React, { Suspense, useEffect, useState } from "react";
+import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
 
 function PaymentFailedContent() {
     const searchParams = useSearchParams();
+    const router = useRouter();
     const reason = searchParams.get("reason");
     const orderId = searchParams.get("order");
+    const [checking, setChecking] = useState(!!orderId);
+
+    useEffect(() => {
+        if (!orderId) { setChecking(false); return; }
+
+        let stopped = false;
+        let attempts = 0;
+        const maxAttempts = 6;
+
+        const poll = async () => {
+            if (stopped) return;
+            try {
+                const res = await fetch("/api/cardserv/status", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    credentials: "include",
+                    body: JSON.stringify({ orderMerchantId: orderId }),
+                });
+                if (res.ok) {
+                    const data = await res.json();
+                    if (data.credited || data.finalized && data.state === "APPROVED") {
+                        stopped = true;
+                        router.replace(`/payment-success?order=${encodeURIComponent(orderId)}`);
+                        return;
+                    }
+                }
+            } catch { /* ignore */ }
+
+            attempts++;
+            if (attempts >= maxAttempts) {
+                stopped = true;
+                setChecking(false);
+            }
+        };
+
+        poll();
+        const interval = setInterval(() => {
+            if (stopped) { clearInterval(interval); return; }
+            poll();
+        }, 5000);
+
+        return () => { stopped = true; clearInterval(interval); };
+    }, [orderId, router]);
 
     return (
         <div style={{
@@ -45,7 +89,13 @@ function PaymentFailedContent() {
                         color: "#991b1b",
                         marginBottom: 16,
                     }}>
-                        Reason: {reason}
+                        {reason}
+                    </p>
+                )}
+
+                {checking && (
+                    <p style={{ color: "#6b7280", fontSize: "0.9rem", marginBottom: 16 }}>
+                        Verifying payment status…
                     </p>
                 )}
 

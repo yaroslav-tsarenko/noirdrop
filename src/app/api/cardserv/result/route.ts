@@ -6,6 +6,28 @@ import { PaymentOrder } from "@/backend/models/payment-order.model";
 import { getCardServStatus, logCardServEvent } from "@/backend/services/cardserv.service";
 import { applyCardServGatewayUpdate } from "@/backend/services/payment-orders.service";
 
+function humanReadablePaymentError(errorMessage: string | null, orderState: string): string {
+    const msg = (errorMessage || "").toLowerCase();
+
+    if (msg.includes("visa") || msg.includes("card type") || msg.includes("card brand") || msg.includes("not supported") || msg.includes("not accepted")) {
+        return "This card type is not supported. Please use a Mastercard to complete your purchase.";
+    }
+    if (orderState === "FILTERED" || msg.includes("filter") || msg.includes("risk") || msg.includes("fraud")) {
+        return "Your payment was declined by the fraud prevention system. Please try a different card (Mastercard recommended).";
+    }
+    if (orderState === "DECLINED" || msg.includes("decline") || msg.includes("insufficient") || msg.includes("do not honor")) {
+        return "Your payment was declined. Please check your card details or try a different card (Mastercard recommended).";
+    }
+    if (msg.includes("expired")) {
+        return "Your card appears to be expired. Please use a valid card.";
+    }
+    if (msg.includes("3ds") || msg.includes("3d secure") || msg.includes("authentication")) {
+        return "3D Secure authentication failed. Please try again or use a different card.";
+    }
+
+    return errorMessage || "Your payment could not be processed. Please try a different card (Mastercard recommended).";
+}
+
 function getAppUrl(req: Request): string {
     const requestUrl = new URL(req.url);
     const origin = `${requestUrl.protocol}//${requestUrl.host}`;
@@ -157,15 +179,24 @@ async function handleResult(req: Request, form?: FormData) {
         creditResult,
     });
 
-    if (!forceSuccess && ["DECLINED", "ERROR", "FILTERED", "CHAIN_STEP"].includes(status.orderState)) {
+    // If the order was already credited (e.g. by webhook arriving first),
+    // always redirect to success regardless of what the status API returned.
+    const dbOrderStatus = creditResult.ok ? creditResult.orderStatus : null;
+    if (dbOrderStatus === "CREDITED") {
         return NextResponse.redirect(
-            `${appUrl}/payment-failed?order=${encodeURIComponent(resolvedOrderMerchantId)}&reason=${encodeURIComponent(status.errorMessage || status.orderState)}`,
+            `${appUrl}/payment-success?order=${encodeURIComponent(resolvedOrderMerchantId)}`,
             302,
         );
     }
 
-    // Still processing after all retries — redirect to success but webhook will confirm
-    // (status PROCESSING / UNKNOWN / APPROVED all land here)
+    if (!forceSuccess && ["DECLINED", "ERROR", "FILTERED", "CHAIN_STEP"].includes(status.orderState)) {
+        const reason = humanReadablePaymentError(status.errorMessage, status.orderState);
+        return NextResponse.redirect(
+            `${appUrl}/payment-failed?order=${encodeURIComponent(resolvedOrderMerchantId)}&reason=${encodeURIComponent(reason)}`,
+            302,
+        );
+    }
+
     return NextResponse.redirect(
         `${appUrl}/payment-success?order=${encodeURIComponent(resolvedOrderMerchantId)}`,
         302,

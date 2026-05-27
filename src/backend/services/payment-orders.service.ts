@@ -16,7 +16,7 @@ interface GatewayUpdateInput {
 }
 
 type GatewayUpdateResult =
-    | { ok: true; finalized: boolean; credited: boolean; tokensAdded: number; newBalance: number | null }
+    | { ok: true; finalized: boolean; credited: boolean; tokensAdded: number; newBalance: number | null; orderStatus: string }
     | { ok: false; error: string };
 
 const TERMINAL_STATES = ["APPROVED", "DECLINED", "ERROR", "FILTERED"];
@@ -29,23 +29,36 @@ export async function applyCardServGatewayUpdate(input: GatewayUpdateInput): Pro
         return { ok: false, error: "Order not found" };
     }
 
-    // Already credited — don't double-credit
     if (order.status === "CREDITED") {
-        return { ok: true, finalized: true, credited: false, tokensAdded: 0, newBalance: null };
+        return { ok: true, finalized: true, credited: false, tokensAdded: 0, newBalance: null, orderStatus: "CREDITED" };
     }
-
-    // Update gateway fields
-    order.orderSystemId = input.orderSystemId ?? order.orderSystemId;
-    order.redirectUrl = input.redirectUrl ?? order.redirectUrl;
-    order.errorCode = input.errorCode ?? order.errorCode;
-    order.errorMessage = input.errorMessage ?? order.errorMessage;
-    order.gatewayRaw = input.raw as Record<string, unknown>;
 
     const isTerminal = TERMINAL_STATES.includes(input.orderState);
     const isApproved = input.orderState === "APPROVED";
 
-    if (isApproved && order.status !== "CREDITED") {
-        // Credit tokens to user
+    if (isApproved) {
+        // Atomically claim the order for crediting — prevents double-credit
+        // when result route and webhook fire concurrently.
+        const claimed = await PaymentOrder.findOneAndUpdate(
+            { orderMerchantId: input.orderMerchantId, status: { $ne: "CREDITED" } },
+            {
+                $set: {
+                    status: "CREDITED",
+                    creditedAt: new Date(),
+                    orderSystemId: input.orderSystemId ?? order.orderSystemId,
+                    redirectUrl: input.redirectUrl ?? order.redirectUrl,
+                    errorCode: input.errorCode ?? order.errorCode,
+                    errorMessage: input.errorMessage ?? order.errorMessage,
+                    gatewayRaw: input.raw as Record<string, unknown>,
+                },
+            },
+            { new: true },
+        );
+
+        if (!claimed) {
+            return { ok: true, finalized: true, credited: false, tokensAdded: 0, newBalance: null, orderStatus: "CREDITED" };
+        }
+
         try {
             const user = await User.findByIdAndUpdate(
                 order.userId,
@@ -58,9 +71,10 @@ export async function applyCardServGatewayUpdate(input: GatewayUpdateInput): Pro
                     orderMerchantId: input.orderMerchantId,
                     error: "User not found",
                 });
-                order.status = "ERROR";
-                order.errorMessage = "User not found for crediting";
-                await order.save();
+                await PaymentOrder.updateOne(
+                    { orderMerchantId: input.orderMerchantId },
+                    { $set: { status: "ERROR", errorMessage: "User not found for crediting" } },
+                );
                 return { ok: false, error: "User not found" };
             }
 
@@ -70,10 +84,6 @@ export async function applyCardServGatewayUpdate(input: GatewayUpdateInput): Pro
                 amount: order.tokens,
                 type: "add",
             });
-
-            order.status = "CREDITED";
-            order.creditedAt = new Date();
-            await order.save();
 
             logCardServEvent("payment-orders.credited", {
                 orderMerchantId: input.orderMerchantId,
@@ -88,25 +98,33 @@ export async function applyCardServGatewayUpdate(input: GatewayUpdateInput): Pro
                 credited: true,
                 tokensAdded: order.tokens,
                 newBalance: user.tokens,
+                orderStatus: "CREDITED",
             };
         } catch (err) {
             logCardServEvent("payment-orders.credit_exception", {
                 orderMerchantId: input.orderMerchantId,
                 error: err instanceof Error ? err.message : String(err),
             });
-            order.status = "ERROR";
-            order.errorMessage = `Credit exception: ${err instanceof Error ? err.message : String(err)}`;
-            await order.save().catch(() => {});
+            await PaymentOrder.updateOne(
+                { orderMerchantId: input.orderMerchantId },
+                { $set: { status: "ERROR", errorMessage: `Credit exception: ${err instanceof Error ? err.message : String(err)}` } },
+            ).catch(() => {});
             return { ok: false, error: "Failed to credit tokens" };
         }
     }
 
-    // Not approved — just update status
+    // Not approved — update gateway fields and status
+    order.orderSystemId = input.orderSystemId ?? order.orderSystemId;
+    order.redirectUrl = input.redirectUrl ?? order.redirectUrl;
+    order.errorCode = input.errorCode ?? order.errorCode;
+    order.errorMessage = input.errorMessage ?? order.errorMessage;
+    order.gatewayRaw = input.raw as Record<string, unknown>;
+
     if (isTerminal) {
         order.status = input.orderState as typeof order.status;
     }
     await order.save();
 
-    return { ok: true, finalized: isTerminal, credited: false, tokensAdded: 0, newBalance: null };
+    return { ok: true, finalized: isTerminal, credited: false, tokensAdded: 0, newBalance: null, orderStatus: order.status };
 }
 
